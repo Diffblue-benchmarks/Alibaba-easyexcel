@@ -2,7 +2,6 @@ package com.alibaba.excel.analysis.v03;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,7 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.excel.analysis.ExcelExecutor;
+import com.alibaba.excel.analysis.ExcelReadExecutor;
 import com.alibaba.excel.analysis.v03.handlers.BlankOrErrorRecordHandler;
 import com.alibaba.excel.analysis.v03.handlers.BofRecordHandler;
 import com.alibaba.excel.analysis.v03.handlers.FormulaRecordHandler;
@@ -57,14 +56,14 @@ import com.alibaba.excel.util.CollectionUtils;
  *
  * @author jipengfei
  */
-public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
+public class XlsSaxAnalyser implements HSSFListener, ExcelReadExecutor {
     private static final Logger LOGGER = LoggerFactory.getLogger(XlsSaxAnalyser.class);
 
-    private boolean outputFormulaValues = true;
     private POIFSFileSystem poifsFileSystem;
+    private Boolean readAll;
+    private List<ReadSheet> readSheetList;
     private int lastRowNumber;
     private int lastColumnNumber;
-    private boolean notAllEmpty = false;
     /**
      * For parsing Formulas
      */
@@ -94,8 +93,9 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
     }
 
     @Override
-    public void execute() {
-        analysisContext.readSheetHolder().getSheetNo();
+    public void execute(List<ReadSheet> readSheetList, Boolean readAll) {
+        this.readAll = readAll;
+        this.readSheetList = readSheetList;
         MissingRecordAwareHSSFListener listener = new MissingRecordAwareHSSFListener(this);
         formatListener = new FormatTrackingHSSFListener(listener);
         workbookBuildingListener = new EventWorkbookBuilder.SheetRecordCollectingListener(formatListener);
@@ -105,11 +105,7 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
         init();
         HSSFEventFactory factory = new HSSFEventFactory();
         HSSFRequest request = new HSSFRequest();
-        if (outputFormulaValues) {
-            request.addListenerForAllRecords(formatListener);
-        } else {
-            request.addListenerForAllRecords(workbookBuildingListener);
-        }
+        request.addListenerForAllRecords(formatListener);
         try {
             factory.processWorkbookEvents(request, poifsFileSystem);
         } catch (IOException e) {
@@ -145,20 +141,17 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
                 cellData = handler.getCellData();
                 if (cellData != null) {
                     cellData.checkEmpty();
-                    records.put(thisColumn, cellData);
+                    if (CellDataTypeEnum.EMPTY != cellData.getType()) {
+                        records.put(thisColumn, cellData);
+                    }
                 }
                 break;
             }
         }
         // If we got something to print out, do so
-        if (cellData != null) {
-            if (analysisContext.currentReadHolder().globalConfiguration().getAutoTrim()
-                && CellDataTypeEnum.STRING == cellData.getType()) {
-                cellData.setStringValue(cellData.getStringValue().trim());
-            }
-            if (CellDataTypeEnum.EMPTY != cellData.getType()) {
-                notAllEmpty = true;
-            }
+        if (cellData != null && analysisContext.currentReadHolder().globalConfiguration().getAutoTrim()
+            && CellDataTypeEnum.STRING == cellData.getType()) {
+            cellData.setStringValue(cellData.getStringValue().trim());
         }
 
         // Handle new row
@@ -193,11 +186,9 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
         if (lastColumnNumber == -1) {
             lastColumnNumber = 0;
         }
-        if (notAllEmpty) {
-            analysisContext.readRowHolder(
-                new ReadRowHolder(lastRowNumber, analysisContext.readSheetHolder().getGlobalConfiguration()));
-            analysisContext.readSheetHolder().notifyEndOneRow(new EachRowAnalysisFinishEvent(records), analysisContext);
-        }
+        analysisContext.readRowHolder(
+            new ReadRowHolder(lastRowNumber, analysisContext.readSheetHolder().getGlobalConfiguration()));
+        analysisContext.readSheetHolder().notifyEndOneRow(new EachRowAnalysisFinishEvent(records), analysisContext);
         records.clear();
         lastColumnNumber = -1;
     }
@@ -208,9 +199,9 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
             // The table has been counted and there are no duplicate statistics
             if (sheets == null) {
                 sheets = new ArrayList<ReadSheet>();
-                recordHandlers.add(new BofRecordHandler(analysisContext, sheets, false));
+                recordHandlers.add(new BofRecordHandler(analysisContext, sheets, false, true));
             } else {
-                recordHandlers.add(new BofRecordHandler(analysisContext, sheets, true));
+                recordHandlers.add(new BofRecordHandler(analysisContext, sheets, true, true));
             }
             recordHandlers.add(new FormulaRecordHandler(stubWorkbook, formatListener));
             recordHandlers.add(new LabelRecordHandler());
@@ -224,6 +215,10 @@ public class XlsSaxAnalyser implements HSSFListener, ExcelExecutor {
 
         for (XlsRecordHandler x : recordHandlers) {
             x.init();
+            if (x instanceof BofRecordHandler) {
+                BofRecordHandler bofRecordHandler = (BofRecordHandler)x;
+                bofRecordHandler.init(readSheetList, readAll);
+            }
         }
     }
 }

@@ -6,11 +6,13 @@ import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.util.StringUtils;
 
 /**
- * Excel internal cell data
+ * Excel internal cell data.
+ *
+ * <p>
  *
  * @author Jiaju Zhuang
  */
-public class CellData {
+public class CellData<T> {
     private CellDataTypeEnum type;
     /**
      * {@link CellDataTypeEnum#NUMBER}
@@ -35,8 +37,12 @@ public class CellData {
      * The string of number formatting.Currently only supported when reading
      */
     private String dataFormatString;
+    /**
+     * The resulting converted data.
+     */
+    private T data;
 
-    public CellData(CellData other) {
+    public CellData(CellData<T> other) {
         this.type = other.type;
         this.numberValue = other.numberValue;
         this.stringValue = other.stringValue;
@@ -46,6 +52,19 @@ public class CellData {
         this.imageValue = other.imageValue;
         this.dataFormat = other.dataFormat;
         this.dataFormatString = other.dataFormatString;
+        this.data = other.data;
+    }
+
+    public CellData() {}
+
+    public CellData(T data) {
+        this.data = data;
+    }
+
+    public CellData(T data, String formulaValue) {
+        this.data = data;
+        this.formula = Boolean.TRUE;
+        this.formulaValue = formulaValue;
     }
 
     public CellData(String stringValue) {
@@ -171,10 +190,21 @@ public class CellData {
         this.dataFormatString = dataFormatString;
     }
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
     /**
      * Ensure that the object does not appear null
      */
     public void checkEmpty() {
+        if (type == null) {
+            type = CellDataTypeEnum.EMPTY;
+        }
         switch (type) {
             case STRING:
             case ERROR:
@@ -198,6 +228,9 @@ public class CellData {
 
     @Override
     public String toString() {
+        if (type == null) {
+            return "empty";
+        }
         switch (type) {
             case NUMBER:
                 return numberValue.toString();
