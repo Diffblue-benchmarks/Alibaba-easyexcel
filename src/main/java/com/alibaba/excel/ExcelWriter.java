@@ -17,7 +17,6 @@ import com.alibaba.excel.write.merge.OnceAbsoluteMergeStrategy;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.excel.write.metadata.WriteTable;
 import com.alibaba.excel.write.metadata.WriteWorkbook;
-import com.alibaba.excel.write.metadata.fill.FillConfig;
 
 /**
  * Excel Writer This tool is used to write value out to Excel via POI. This object can perform the following two
@@ -154,30 +153,6 @@ public class ExcelWriter {
      */
     public ExcelWriter write(List data, WriteSheet writeSheet, WriteTable writeTable) {
         excelBuilder.addContent(data, writeSheet, writeTable);
-        return this;
-    }
-
-    /**
-     * Fill value to a sheet
-     *
-     * @param data
-     * @param writeSheet
-     * @return
-     */
-    public ExcelWriter fill(Object data, WriteSheet writeSheet) {
-        return fill(data, null, writeSheet);
-    }
-
-    /**
-     * Fill value to a sheet
-     *
-     * @param data
-     * @param fillConfig
-     * @param writeSheet
-     * @return
-     */
-    public ExcelWriter fill(Object data, FillConfig fillConfig, WriteSheet writeSheet) {
-        excelBuilder.fill(data, fillConfig, writeSheet);
         return this;
     }
 

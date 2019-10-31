@@ -13,7 +13,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.openxml4j.opc.PackageAccess;
 import org.apache.poi.openxml4j.opc.PackagePart;
 import org.apache.poi.xssf.eventusermodel.XSSFReader;
 import org.apache.poi.xssf.model.StylesTable;
@@ -25,7 +24,7 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.alibaba.excel.analysis.ExcelReadExecutor;
+import com.alibaba.excel.analysis.ExcelExecutor;
 import com.alibaba.excel.cache.ReadCache;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.exception.ExcelAnalysisException;
@@ -33,13 +32,12 @@ import com.alibaba.excel.read.metadata.ReadSheet;
 import com.alibaba.excel.read.metadata.holder.ReadWorkbookHolder;
 import com.alibaba.excel.util.CollectionUtils;
 import com.alibaba.excel.util.FileUtils;
-import com.alibaba.excel.util.SheetUtils;
 
 /**
  *
  * @author jipengfei
  */
-public class XlsxSaxAnalyser implements ExcelReadExecutor {
+public class XlsxSaxAnalyser implements ExcelExecutor {
 
     private AnalysisContext analysisContext;
     private List<ReadSheet> sheetList;
@@ -137,7 +135,7 @@ public class XlsxSaxAnalyser implements ExcelReadExecutor {
         } else {
             FileUtils.writeToFile(tempFile, readWorkbookHolder.getInputStream());
         }
-        return OPCPackage.open(tempFile, PackageAccess.READ);
+        return OPCPackage.open(tempFile);
     }
 
     @Override
@@ -173,16 +171,9 @@ public class XlsxSaxAnalyser implements ExcelReadExecutor {
     }
 
     @Override
-    public void execute(List<ReadSheet> readSheetList, Boolean readAll) {
-        for (ReadSheet readSheet : sheetList) {
-            readSheet = SheetUtils.match(readSheet, readSheetList, readAll,
-                analysisContext.readWorkbookHolder().getGlobalConfiguration());
-            if (readSheet != null) {
-                analysisContext.currentSheet(readSheet);
-                parseXmlSource(sheetMap.get(readSheet.getSheetNo()), new XlsxRowHandler(analysisContext, stylesTable));
-                // The last sheet is read
-                analysisContext.readSheetHolder().notifyAfterAllAnalysed(analysisContext);
-            }
-        }
+    public void execute() {
+        parseXmlSource(sheetMap.get(analysisContext.readSheetHolder().getSheetNo()),
+            new XlsxRowHandler(analysisContext, stylesTable));
     }
+
 }

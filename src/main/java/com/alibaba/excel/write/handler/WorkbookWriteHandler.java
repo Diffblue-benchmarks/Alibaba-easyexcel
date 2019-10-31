@@ -10,21 +10,14 @@ import com.alibaba.excel.write.metadata.holder.WriteWorkbookHolder;
 public interface WorkbookWriteHandler extends WriteHandler {
 
     /**
-     * Called before create the workbook
+     * called before create the sheet
      */
     void beforeWorkbookCreate();
 
     /**
-     * Called after the workbook is created
+     * called after the sheet is created
      *
      * @param writeWorkbookHolder
      */
     void afterWorkbookCreate(WriteWorkbookHolder writeWorkbookHolder);
-
-    /**
-     * Called after all operations on the workbook have been completed
-     *
-     * @param writeWorkbookHolder
-     */
-    void afterWorkbookDispose(WriteWorkbookHolder writeWorkbookHolder);
 }

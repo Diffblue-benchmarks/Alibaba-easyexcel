@@ -1,7 +1,5 @@
 package com.alibaba.excel.write.merge;
 
-import java.util.List;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -20,17 +18,13 @@ import com.alibaba.excel.write.metadata.holder.WriteTableHolder;
 public abstract class AbstractMergeStrategy implements CellWriteHandler {
     @Override
     public void beforeCellCreate(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder, Row row,
-        Head head, Integer columnIndex, Integer relativeRowIndex, Boolean isHead) {
+        Head head, int relativeRowIndex, boolean isHead) {
 
     }
 
     @Override
-    public void afterCellCreate(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder, Cell cell,
-        Head head, Integer relativeRowIndex, Boolean isHead) {}
-
-    @Override
-    public void afterCellDispose(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder,
-        List<CellData> cellDataList, Cell cell, Head head, Integer relativeRowIndex, Boolean isHead) {
+    public void afterCellCreate(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder, CellData cellData,
+        Cell cell, Head head, int relativeRowIndex, boolean isHead) {
         if (isHead) {
             return;
         }

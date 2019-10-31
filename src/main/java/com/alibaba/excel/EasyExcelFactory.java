@@ -73,7 +73,7 @@ public class EasyExcelFactory {
      *            read sheet.
      * @param listener
      *            Callback method after each row is parsed.
-     * @deprecated please use 'EasyExcel.read(in,head,listener).sheet(sheetNo).doRead();'
+     * @deprecated please use 'EasyExcel.read(in,head,listener).sheet(sheetNo).doRead().finish();'
      */
     @Deprecated
     public static void readBySax(InputStream in, Sheet sheet, AnalysisEventListener listener) {

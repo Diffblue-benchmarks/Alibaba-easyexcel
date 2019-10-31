@@ -33,8 +33,7 @@ public class ModelBuildEventListener extends AbstractIgnoreExceptionReadListener
     public void invoke(Map<Integer, CellData> cellDataMap, AnalysisContext context) {
         ReadHolder currentReadHolder = context.currentReadHolder();
         if (HeadKindEnum.CLASS.equals(currentReadHolder.excelReadHeadProperty().getHeadKind())) {
-            context.readRowHolder()
-                .setCurrentRowAnalysisResult(buildUserModel(cellDataMap, currentReadHolder, context));
+            context.readRowHolder().setCurrentRowAnalysisResult(buildUserModel(cellDataMap, currentReadHolder));
             return;
         }
         context.readRowHolder().setCurrentRowAnalysisResult(buildStringList(cellDataMap, currentReadHolder, context));
@@ -42,51 +41,35 @@ public class ModelBuildEventListener extends AbstractIgnoreExceptionReadListener
 
     private Object buildStringList(Map<Integer, CellData> cellDataMap, ReadHolder currentReadHolder,
         AnalysisContext context) {
-        int index = 0;
         if (context.readWorkbookHolder().getDefaultReturnMap()) {
             Map<Integer, String> map = new HashMap<Integer, String>(cellDataMap.size() * 4 / 3 + 1);
             for (Map.Entry<Integer, CellData> entry : cellDataMap.entrySet()) {
-                Integer key = entry.getKey();
                 CellData cellData = entry.getValue();
-                while (index < key) {
-                    map.put(index, null);
-                    index++;
-                }
-                index++;
                 if (cellData.getType() == CellDataTypeEnum.EMPTY) {
-                    map.put(key, null);
+                    map.put(entry.getKey(), null);
                     continue;
                 }
-                map.put(key,
-                    (String)ConverterUtils.convertToJavaObject(cellData, null, null, currentReadHolder.converterMap(),
-                        currentReadHolder.globalConfiguration(), context.readRowHolder().getRowIndex(), key));
+                map.put(entry.getKey(), (String)ConverterUtils.convertToJavaObject(cellData, String.class, null,
+                    currentReadHolder.converterMap(), currentReadHolder.globalConfiguration()));
             }
             return map;
         } else {
             // Compatible with the old code the old code returns a list
             List<String> list = new ArrayList<String>();
             for (Map.Entry<Integer, CellData> entry : cellDataMap.entrySet()) {
-                Integer key = entry.getKey();
                 CellData cellData = entry.getValue();
-                while (index < key) {
-                    list.add(null);
-                    index++;
-                }
-                index++;
                 if (cellData.getType() == CellDataTypeEnum.EMPTY) {
                     list.add(null);
                     continue;
                 }
-                list.add(
-                    (String)ConverterUtils.convertToJavaObject(cellData, null, null, currentReadHolder.converterMap(),
-                        currentReadHolder.globalConfiguration(), context.readRowHolder().getRowIndex(), key));
+                list.add((String)ConverterUtils.convertToJavaObject(cellData, String.class, null,
+                    currentReadHolder.converterMap(), currentReadHolder.globalConfiguration()));
             }
             return list;
         }
     }
 
-    private Object buildUserModel(Map<Integer, CellData> cellDataMap, ReadHolder currentReadHolder,
-        AnalysisContext context) {
+    private Object buildUserModel(Map<Integer, CellData> cellDataMap, ReadHolder currentReadHolder) {
         ExcelReadHeadProperty excelReadHeadProperty = currentReadHolder.excelReadHeadProperty();
         Object resultModel;
         try {
@@ -108,9 +91,8 @@ public class ModelBuildEventListener extends AbstractIgnoreExceptionReadListener
                 continue;
             }
             ExcelContentProperty excelContentProperty = contentPropertyMap.get(index);
-            Object value = ConverterUtils.convertToJavaObject(cellData, excelContentProperty.getField(),
-                excelContentProperty, currentReadHolder.converterMap(), currentReadHolder.globalConfiguration(),
-                context.readRowHolder().getRowIndex(), index);
+            Object value = ConverterUtils.convertToJavaObject(cellData, excelContentProperty.getField().getType(),
+                excelContentProperty, currentReadHolder.converterMap(), currentReadHolder.globalConfiguration());
             if (value != null) {
                 map.put(excelContentProperty.getField().getName(), value);
             }

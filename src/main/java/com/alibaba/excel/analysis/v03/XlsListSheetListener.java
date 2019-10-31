@@ -10,6 +10,7 @@ import org.apache.poi.hssf.eventusermodel.HSSFEventFactory;
 import org.apache.poi.hssf.eventusermodel.HSSFListener;
 import org.apache.poi.hssf.eventusermodel.HSSFRequest;
 import org.apache.poi.hssf.eventusermodel.MissingRecordAwareHSSFListener;
+import org.apache.poi.hssf.record.BoundSheetRecord;
 import org.apache.poi.hssf.record.Record;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
@@ -26,14 +27,13 @@ import com.alibaba.excel.read.metadata.ReadSheet;
 public class XlsListSheetListener implements HSSFListener {
     private POIFSFileSystem poifsFileSystem;
     private List<ReadSheet> sheetList;
-    private BofRecordHandler bofRecordHandler;
+    private XlsRecordHandler bofRecordHandler;
 
     public XlsListSheetListener(AnalysisContext analysisContext, POIFSFileSystem poifsFileSystem) {
         this.poifsFileSystem = poifsFileSystem;
         sheetList = new ArrayList<ReadSheet>();
-        bofRecordHandler = new BofRecordHandler(analysisContext, sheetList, false, false);
+        bofRecordHandler = new BofRecordHandler(analysisContext, sheetList, false);
         bofRecordHandler.init();
-        bofRecordHandler.init(null, true);
     }
 
     @Override

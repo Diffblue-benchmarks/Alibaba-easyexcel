@@ -1,0 +1,818 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.alibaba:easyexcel:jar:2.0.5
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 166, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< com.alibaba:easyexcel >------------------------
+[INFO] Building easyexcel 2.0.5
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ easyexcel ---
+[INFO] Deleting /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ easyexcel ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ easyexcel ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 187 source files to /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/target/classes
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/main/java/com/alibaba/excel/context/AnalysisContext.java: Some input files use or override a deprecated API.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/main/java/com/alibaba/excel/context/AnalysisContext.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/main/java/com/alibaba/excel/read/metadata/holder/AbstractReadHolder.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/main/java/com/alibaba/excel/read/metadata/holder/AbstractReadHolder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ easyexcel ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ easyexcel ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 140 source files to /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/target/test-classes
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/test/java/com/alibaba/excel/write/builder/ExcelWriterTableBuilderTest.java: Some input files use or override a deprecated API.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/test/java/com/alibaba/excel/write/builder/ExcelWriterTableBuilderTest.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/test/java/com/alibaba/excel/metadata/TableTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/diffblue/thomas.perkins/Documents/TestingOutJohnsScript/all/src/test/java/com/alibaba/excel/metadata/TableTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:instrument (instrument) @ easyexcel ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M3:test (default-test) @ easyexcel ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.alibaba.excel.support.ExcelTypeEnumTest
+[INFO] Running com.alibaba.excel.event.SyncReadListenerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in com.alibaba.excel.support.ExcelTypeEnumTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in com.alibaba.excel.event.SyncReadListenerTest
+[INFO] Running com.alibaba.excel.metadata.BaseRowModelTest
+[INFO] Running com.alibaba.excel.metadata.TableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.225 s - in com.alibaba.excel.metadata.BaseRowModelTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s - in com.alibaba.excel.metadata.TableTest
+[INFO] Running com.alibaba.excel.metadata.property.ExcelHeadPropertyTest
+15:02:37.259 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.265 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.271 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.353 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.355 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.356 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.359 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.369 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.371 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.378 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.380 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.389 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.391 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:02:37.393 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s - in com.alibaba.excel.metadata.property.ExcelHeadPropertyTest
+[INFO] Running com.alibaba.excel.metadata.property.RowHeightPropertyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in com.alibaba.excel.metadata.property.RowHeightPropertyTest
+[INFO] Running com.alibaba.excel.metadata.property.DateTimeFormatPropertyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in com.alibaba.excel.metadata.property.DateTimeFormatPropertyTest
+[INFO] Running com.alibaba.excel.metadata.property.ExcelContentPropertyTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in com.alibaba.excel.metadata.property.ExcelContentPropertyTest
+[INFO] Running com.alibaba.excel.metadata.property.ColumnWidthPropertyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in com.alibaba.excel.metadata.property.ColumnWidthPropertyTest
+[INFO] Running com.alibaba.excel.metadata.property.NumberFormatPropertyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in com.alibaba.excel.metadata.property.NumberFormatPropertyTest
+[INFO] Running com.alibaba.excel.metadata.CellRangeTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in com.alibaba.excel.metadata.CellRangeTest
+[INFO] Running com.alibaba.excel.metadata.SheetTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in com.alibaba.excel.metadata.SheetTest
+[INFO] Running com.alibaba.excel.metadata.HeadTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in com.alibaba.excel.metadata.HeadTest
+[INFO] Running com.alibaba.excel.metadata.FontTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in com.alibaba.excel.metadata.FontTest
+[INFO] Running com.alibaba.excel.metadata.GlobalConfigurationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in com.alibaba.excel.metadata.GlobalConfigurationTest
+[INFO] Running com.alibaba.excel.metadata.TableStyleTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in com.alibaba.excel.metadata.TableStyleTest
+[INFO] Running com.alibaba.excel.metadata.BasicParameterTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in com.alibaba.excel.metadata.BasicParameterTest
+[INFO] Running com.alibaba.excel.metadata.CellDataTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in com.alibaba.excel.metadata.CellDataTest
+[INFO] Running com.alibaba.excel.constant.ExcelXmlConstantsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in com.alibaba.excel.constant.ExcelXmlConstantsTest
+[INFO] Running com.alibaba.excel.enums.HeadKindEnumTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in com.alibaba.excel.enums.HeadKindEnumTest
+[INFO] Running com.alibaba.excel.enums.HolderEnumTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s - in com.alibaba.excel.enums.HolderEnumTest
+[INFO] Running com.alibaba.excel.enums.WriteLastRowTypeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in com.alibaba.excel.enums.WriteLastRowTypeTest
+[INFO] Running com.alibaba.excel.enums.CellDataTypeEnumTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in com.alibaba.excel.enums.CellDataTypeEnumTest
+[INFO] Running com.alibaba.excel.EasyExcelFactoryTest
+15:02:43.820 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:02:43.827 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:43.829 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:43.843 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:02:43.921 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:02:43.922 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:43.922 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:43.922 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:02:44.025 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Running com.alibaba.excel.EasyExcelTest
+15:02:44.049 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:44.049 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:44.099 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:02:44.099 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:44.100 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:44.100 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:02:44.101 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:44.101 [Finalizer] WARN com.alibaba.excel.ExcelReader - Destroy object failed
+java.lang.NullPointerException: null
+	at com.alibaba.excel.ExcelReader.finalize(ExcelReader.java:286)
+	at java.lang.System$2.invokeFinalize(System.java:1270)
+	at java.lang.ref.Finalizer.runFinalizer(Finalizer.java:102)
+	at java.lang.ref.Finalizer.access$100(Finalizer.java:34)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:217)
+15:02:44.105 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:44.116 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:44.116 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:44.140 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:02:44.140 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:44.140 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:44.142 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 s - in com.alibaba.excel.EasyExcelTest
+15:02:44.408 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.763 s - in com.alibaba.excel.EasyExcelFactoryTest
+[INFO] Running com.alibaba.excel.read.metadata.property.ExcelReadHeadPropertyTest
+15:02:44.741 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in com.alibaba.excel.read.metadata.property.ExcelReadHeadPropertyTest
+[INFO] Running com.alibaba.excel.read.metadata.ReadSheetTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in com.alibaba.excel.read.metadata.ReadSheetTest
+[INFO] Running com.alibaba.excel.read.metadata.ReadBasicParameterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in com.alibaba.excel.read.metadata.ReadBasicParameterTest
+[INFO] Running com.alibaba.excel.read.metadata.ReadWorkbookTest
+15:02:45.928 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 19 Services...
+15:02:45.938 [Time-limited test] DEBUG org.ehcache.impl.persistence.DefaultLocalPersistenceService - RootDirectory Locked
+15:02:45.939 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 19 Services in 12ms
+15:02:45.940 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+15:02:45.957 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 16 Services...
+15:02:45.959 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 16 Services in 2ms
+15:02:45.959 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.427 s - in com.alibaba.excel.read.metadata.ReadWorkbookTest
+[INFO] Running com.alibaba.excel.read.metadata.holder.ReadRowHolderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in com.alibaba.excel.read.metadata.holder.ReadRowHolderTest
+[INFO] Running com.alibaba.excel.read.metadata.holder.ReadSheetHolderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in com.alibaba.excel.read.metadata.holder.ReadSheetHolderTest
+[INFO] Running com.alibaba.excel.read.metadata.holder.ReadWorkbookHolderTest
+15:02:46.967 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:46.971 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in com.alibaba.excel.read.metadata.holder.ReadWorkbookHolderTest
+[INFO] Running com.alibaba.excel.read.builder.ExcelReaderSheetBuilderTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 s - in com.alibaba.excel.read.builder.ExcelReaderSheetBuilderTest
+[INFO] Running com.alibaba.excel.read.builder.ExcelReaderBuilderTest
+15:02:47.713 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:47.716 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:47.888 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 19 Services...
+15:02:47.890 [Time-limited test] DEBUG org.ehcache.impl.persistence.DefaultLocalPersistenceService - RootDirectory Locked
+15:02:47.900 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 19 Services in 12ms
+15:02:47.901 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+15:02:47.916 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 16 Services...
+15:02:47.925 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 16 Services in 9ms
+15:02:47.926 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+15:02:47.939 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:47.940 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:47.954 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:47.954 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:47.960 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:47.960 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:02:48.001 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:02:48.001 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.442 s - in com.alibaba.excel.read.builder.ExcelReaderBuilderTest
+15:02:48.002 [Finalizer] WARN com.alibaba.excel.ExcelReader - Destroy object failed
+java.lang.NullPointerException: null
+	at com.alibaba.excel.ExcelReader.finalize(ExcelReader.java:286)
+	at java.lang.System$2.invokeFinalize(System.java:1270)
+	at java.lang.ref.Finalizer.runFinalizer(Finalizer.java:102)
+	at java.lang.ref.Finalizer.access$100(Finalizer.java:34)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:217)
+15:02:48.003 [Finalizer] WARN com.alibaba.excel.ExcelReader - Destroy object failed
+java.lang.NullPointerException: null
+	at com.alibaba.excel.ExcelReader.finalize(ExcelReader.java:286)
+	at java.lang.System$2.invokeFinalize(System.java:1270)
+	at java.lang.ref.Finalizer.runFinalizer(Finalizer.java:102)
+	at java.lang.ref.Finalizer.access$100(Finalizer.java:34)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:217)
+15:02:48.003 [Finalizer] WARN com.alibaba.excel.ExcelReader - Destroy object failed
+java.lang.NullPointerException: null
+	at com.alibaba.excel.ExcelReader.finalize(ExcelReader.java:286)
+	at java.lang.System$2.invokeFinalize(System.java:1270)
+	at java.lang.ref.Finalizer.runFinalizer(Finalizer.java:102)
+	at java.lang.ref.Finalizer.access$100(Finalizer.java:34)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:217)
+15:02:48.003 [Finalizer] WARN com.alibaba.excel.ExcelReader - Destroy object failed
+java.lang.NullPointerException: null
+	at com.alibaba.excel.ExcelReader.finalize(ExcelReader.java:286)
+	at java.lang.System$2.invokeFinalize(System.java:1270)
+	at java.lang.ref.Finalizer.runFinalizer(Finalizer.java:102)
+	at java.lang.ref.Finalizer.access$100(Finalizer.java:34)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:217)
+[INFO] Running com.alibaba.excel.read.listener.ModelBuildEventListenerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in com.alibaba.excel.read.listener.ModelBuildEventListenerTest
+[INFO] Running com.alibaba.excel.converters.byteconverter.ByteNumberConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.alibaba.excel.converters.byteconverter.ByteNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.byteconverter.ByteStringConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 s - in com.alibaba.excel.converters.byteconverter.ByteStringConverterTest
+[INFO] Running com.alibaba.excel.converters.byteconverter.ByteBooleanConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in com.alibaba.excel.converters.byteconverter.ByteBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.ConverterKeyBuildTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in com.alibaba.excel.converters.ConverterKeyBuildTest
+[INFO] Running com.alibaba.excel.converters.AutoConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in com.alibaba.excel.converters.AutoConverterTest
+[INFO] Running com.alibaba.excel.converters.inputstream.InputStreamImageConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in com.alibaba.excel.converters.inputstream.InputStreamImageConverterTest
+[INFO] Running com.alibaba.excel.converters.floatconverter.FloatStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in com.alibaba.excel.converters.floatconverter.FloatStringConverterTest
+[INFO] Running com.alibaba.excel.converters.floatconverter.FloatNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 s - in com.alibaba.excel.converters.floatconverter.FloatNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.floatconverter.FloatBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in com.alibaba.excel.converters.floatconverter.FloatBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.booleanconverter.BooleanStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in com.alibaba.excel.converters.booleanconverter.BooleanStringConverterTest
+[INFO] Running com.alibaba.excel.converters.booleanconverter.BooleanNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in com.alibaba.excel.converters.booleanconverter.BooleanNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.booleanconverter.BooleanBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 s - in com.alibaba.excel.converters.booleanconverter.BooleanBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.shortconverter.ShortBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in com.alibaba.excel.converters.shortconverter.ShortBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.shortconverter.ShortNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.alibaba.excel.converters.shortconverter.ShortNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.shortconverter.ShortStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in com.alibaba.excel.converters.shortconverter.ShortStringConverterTest
+[INFO] Running com.alibaba.excel.converters.bigdecimal.BigDecimalBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in com.alibaba.excel.converters.bigdecimal.BigDecimalBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.bigdecimal.BigDecimalNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in com.alibaba.excel.converters.bigdecimal.BigDecimalNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.bigdecimal.BigDecimalStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in com.alibaba.excel.converters.bigdecimal.BigDecimalStringConverterTest
+[INFO] Running com.alibaba.excel.converters.bytearray.ByteArrayImageConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in com.alibaba.excel.converters.bytearray.ByteArrayImageConverterTest
+[INFO] Running com.alibaba.excel.converters.bytearray.BoxingByteArrayImageConverterTest
+[INFO] Running com.alibaba.excel.converters.integer.IntegerStringConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.189 s - in com.alibaba.excel.converters.bytearray.BoxingByteArrayImageConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in com.alibaba.excel.converters.integer.IntegerStringConverterTest
+[INFO] Running com.alibaba.excel.converters.integer.IntegerNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in com.alibaba.excel.converters.integer.IntegerNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.integer.IntegerBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in com.alibaba.excel.converters.integer.IntegerBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.string.StringNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in com.alibaba.excel.converters.string.StringNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.string.StringStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in com.alibaba.excel.converters.string.StringStringConverterTest
+[INFO] Running com.alibaba.excel.converters.string.StringBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in com.alibaba.excel.converters.string.StringBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.string.StringImageConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in com.alibaba.excel.converters.string.StringImageConverterTest
+[INFO] Running com.alibaba.excel.converters.string.StringErrorConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in com.alibaba.excel.converters.string.StringErrorConverterTest
+[INFO] Running com.alibaba.excel.converters.date.DateNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in com.alibaba.excel.converters.date.DateNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.date.DateStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in com.alibaba.excel.converters.date.DateStringConverterTest
+[INFO] Running com.alibaba.excel.converters.longconverter.LongNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in com.alibaba.excel.converters.longconverter.LongNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.longconverter.LongBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in com.alibaba.excel.converters.longconverter.LongBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.longconverter.LongStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in com.alibaba.excel.converters.longconverter.LongStringConverterTest
+[INFO] Running com.alibaba.excel.converters.doubleconverter.DoubleBooleanConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in com.alibaba.excel.converters.doubleconverter.DoubleBooleanConverterTest
+[INFO] Running com.alibaba.excel.converters.doubleconverter.DoubleStringConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in com.alibaba.excel.converters.doubleconverter.DoubleStringConverterTest
+[INFO] Running com.alibaba.excel.converters.doubleconverter.DoubleNumberConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in com.alibaba.excel.converters.doubleconverter.DoubleNumberConverterTest
+[INFO] Running com.alibaba.excel.converters.file.FileImageConverterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in com.alibaba.excel.converters.file.FileImageConverterTest
+[INFO] Running com.alibaba.excel.converters.DefaultConverterLoaderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 s - in com.alibaba.excel.converters.DefaultConverterLoaderTest
+[INFO] Running com.alibaba.excel.parameter.AnalysisParamTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in com.alibaba.excel.parameter.AnalysisParamTest
+[INFO] Running com.alibaba.excel.parameter.GenerateParamTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s - in com.alibaba.excel.parameter.GenerateParamTest
+[INFO] Running com.alibaba.excel.ExcelWriterTest
+15:03:02.528 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:02.534 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:02.535 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:02.544 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:02.823 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:02.824 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:02.824 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:02.825 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:02.825 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:02.826 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+[INFO] Running com.alibaba.excel.analysis.v03.XlsSaxAnalyserTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s - in com.alibaba.excel.analysis.v03.XlsSaxAnalyserTest
+15:03:03.355 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.355 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.355 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.355 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.358 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.359 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.359 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.359 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.359 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.359 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.375 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.375 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.375 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeTableHolder
+15:03:03.379 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.379 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.379 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.379 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.425 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.426 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.426 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.426 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.426 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.429 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.430 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.430 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.430 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.430 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.430 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.449 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.449 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.449 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.449 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.455 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.524 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Finished write.
+15:03:03.526 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.526 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.526 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.527 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.529 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.535 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.535 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.535 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.535 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.555 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.555 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.555 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.555 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.559 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.559 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.559 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.559 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.559 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.559 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.573 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.574 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.574 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.574 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.576 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.584 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.584 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.584 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.585 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.585 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.587 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.587 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.588 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.588 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.590 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.590 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.590 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.590 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.591 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.591 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.604 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.604 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.605 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.605 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.612 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.612 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.612 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.613 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.613 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.613 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.622 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.622 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.622 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeTableHolder
+15:03:03.623 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.623 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.623 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.623 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.624 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.624 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.624 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.625 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.627 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.628 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.628 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.628 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.628 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.628 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.636 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.636 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.636 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeTableHolder
+15:03:03.637 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.637 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.637 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.637 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.639 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.649 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.649 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.649 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.650 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.654 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.657 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:03.657 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.657 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.658 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:03.662 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:03.663 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:03.663 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.663 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.663 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:03.664 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:03.673 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:03.673 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:03.673 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeTableHolder
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.292 s - in com.alibaba.excel.ExcelWriterTest
+[INFO] Running com.alibaba.excel.analysis.v03.XlsListSheetListenerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.21 s - in com.alibaba.excel.analysis.v03.XlsListSheetListenerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.MissingCellDummyRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.alibaba.excel.analysis.v03.handlers.MissingCellDummyRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.LabelRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in com.alibaba.excel.analysis.v03.handlers.LabelRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.NoteRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.alibaba.excel.analysis.v03.handlers.NoteRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.BofRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in com.alibaba.excel.analysis.v03.handlers.BofRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.BlankOrErrorRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in com.alibaba.excel.analysis.v03.handlers.BlankOrErrorRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.NumberRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in com.alibaba.excel.analysis.v03.handlers.NumberRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.SstRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 s - in com.alibaba.excel.analysis.v03.handlers.SstRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.FormulaRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 s - in com.alibaba.excel.analysis.v03.handlers.FormulaRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v03.handlers.RkRecordHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in com.alibaba.excel.analysis.v03.handlers.RkRecordHandlerTest
+[INFO] Running com.alibaba.excel.analysis.ExcelAnalyserImplTest
+15:03:07.609 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:07.614 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in com.alibaba.excel.analysis.ExcelAnalyserImplTest
+[INFO] Running com.alibaba.excel.analysis.v07.XlsxSaxAnalyserTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in com.alibaba.excel.analysis.v07.XlsxSaxAnalyserTest
+[INFO] Running com.alibaba.excel.analysis.v07.XlsxRowHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.374 s - in com.alibaba.excel.analysis.v07.XlsxRowHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v07.XlsxHandlerFactoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 s - in com.alibaba.excel.analysis.v07.XlsxHandlerFactoryTest
+[INFO] Running com.alibaba.excel.analysis.v07.handlers.DefaultCellHandlerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.405 s - in com.alibaba.excel.analysis.v07.handlers.DefaultCellHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v07.handlers.CountRowCellHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s - in com.alibaba.excel.analysis.v07.handlers.CountRowCellHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v07.handlers.ProcessResultCellHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.423 s - in com.alibaba.excel.analysis.v07.handlers.ProcessResultCellHandlerTest
+[INFO] Running com.alibaba.excel.analysis.v07.SharedStringsTableHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in com.alibaba.excel.analysis.v07.SharedStringsTableHandlerTest
+[INFO] Running com.alibaba.excel.cache.MapCacheTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in com.alibaba.excel.cache.MapCacheTest
+[INFO] Running com.alibaba.excel.cache.EhcacheTest
+15:03:11.296 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 19 Services...
+15:03:11.312 [Time-limited test] DEBUG org.ehcache.impl.persistence.DefaultLocalPersistenceService - RootDirectory Locked
+15:03:11.314 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 19 Services in 19ms
+15:03:11.315 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+15:03:11.322 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 16 Services...
+15:03:11.323 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 16 Services in 1ms
+15:03:11.323 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s - in com.alibaba.excel.cache.EhcacheTest
+[INFO] Running com.alibaba.excel.cache.selector.EternalReadCacheSelectorTest
+15:03:11.656 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 19 Services...
+15:03:11.663 [Time-limited test] DEBUG org.ehcache.impl.persistence.DefaultLocalPersistenceService - RootDirectory Locked
+15:03:11.664 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 19 Services in 9ms
+15:03:11.665 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+15:03:11.670 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - Starting 16 Services...
+15:03:11.670 [Time-limited test] DEBUG org.ehcache.core.spi.ServiceLocator - All Services successfully started, 16 Services in 0ms
+15:03:11.670 [Time-limited test] DEBUG org.ehcache.core.EhcacheManager - Initialize successful.
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.269 s - in com.alibaba.excel.cache.selector.EternalReadCacheSelectorTest
+[INFO] Running com.alibaba.excel.cache.selector.SimpleReadCacheSelectorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s - in com.alibaba.excel.cache.selector.SimpleReadCacheSelectorTest
+[INFO] Running com.alibaba.excel.exception.ExcelGenerateExceptionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in com.alibaba.excel.exception.ExcelGenerateExceptionTest
+[INFO] Running com.alibaba.excel.exception.ExcelAnalysisExceptionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in com.alibaba.excel.exception.ExcelAnalysisExceptionTest
+[INFO] Running com.alibaba.excel.exception.ExcelDataConvertExceptionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in com.alibaba.excel.exception.ExcelDataConvertExceptionTest
+[INFO] Running com.alibaba.excel.exception.ExcelAnalysisStopExceptionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in com.alibaba.excel.exception.ExcelAnalysisStopExceptionTest
+[INFO] Running com.alibaba.excel.exception.ExcelCommonExceptionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s - in com.alibaba.excel.exception.ExcelCommonExceptionTest
+[INFO] Running com.alibaba.excel.ExcelReaderTest
+15:03:14.108 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.111 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:14.122 [Time-limited test] DEBUG com.alibaba.excel.context.AnalysisContextImpl - Initialization 'AnalysisContextImpl' complete
+15:03:14.150 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.150 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:14.153 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.153 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:14.157 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.158 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:14.158 [Time-limited test] DEBUG com.alibaba.excel.context.AnalysisContextImpl - Initialization 'AnalysisContextImpl' complete
+15:03:14.162 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.162 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:14.162 [Time-limited test] DEBUG com.alibaba.excel.context.AnalysisContextImpl - Initialization 'AnalysisContextImpl' complete
+15:03:14.165 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:14.165 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s - in com.alibaba.excel.ExcelReaderTest
+[INFO] Running com.alibaba.excel.util.FileUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in com.alibaba.excel.util.FileUtilsTest
+[INFO] Running com.alibaba.excel.util.NumberUtilsTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in com.alibaba.excel.util.NumberUtilsTest
+[INFO] Running com.alibaba.excel.util.BooleanUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in com.alibaba.excel.util.BooleanUtilsTest
+[INFO] Running com.alibaba.excel.util.PositionUtilsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in com.alibaba.excel.util.PositionUtilsTest
+[INFO] Running com.alibaba.excel.util.ConverterUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in com.alibaba.excel.util.ConverterUtilsTest
+[INFO] Running com.alibaba.excel.util.CollectionUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in com.alibaba.excel.util.CollectionUtilsTest
+[INFO] Running com.alibaba.excel.util.IoUtilsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in com.alibaba.excel.util.IoUtilsTest
+[INFO] Running com.alibaba.excel.util.DateUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in com.alibaba.excel.util.DateUtilsTest
+[INFO] Running com.alibaba.excel.util.WorkBookUtilTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in com.alibaba.excel.util.WorkBookUtilTest
+[INFO] Running com.alibaba.excel.util.StringUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in com.alibaba.excel.util.StringUtilsTest
+[INFO] Running com.alibaba.excel.context.WriteContextImplTest
+15:03:17.771 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:17.780 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:17.782 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:17.790 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+[INFO] Running com.alibaba.excel.context.AnalysisContextImplTest
+15:03:18.170 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.180 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.180 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.180 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.180 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.185 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.186 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:18.186 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.186 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.187 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:18.187 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:18.352 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.356 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 s - in com.alibaba.excel.context.AnalysisContextImplTest
+15:03:18.569 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.569 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.569 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.569 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.573 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.661 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.662 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.662 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.662 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.666 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.667 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.667 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.667 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.667 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.670 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.690 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.690 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.690 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.690 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.696 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.697 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.697 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.701 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.701 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.706 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.707 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.707 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.707 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.707 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.711 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.712 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.712 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.712 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.712 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.715 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:18.715 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:18.716 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:18.716 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:18.716 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:18.716 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:18.723 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.093 s - in com.alibaba.excel.context.WriteContextImplTest
+[INFO] Running com.alibaba.excel.write.ExcelBuilderImplTest
+15:03:19.080 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:19.090 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.091 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.103 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+[INFO] Running com.alibaba.excel.write.metadata.WriteTableTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in com.alibaba.excel.write.metadata.WriteTableTest
+15:03:19.566 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:19.573 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:19.573 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.573 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.573 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:19.579 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:19.579 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:19.579 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.579 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.580 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:19.581 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:19.909 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:19.909 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.909 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.909 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:19.917 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:19.918 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Sheet number is null
+15:03:19.918 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.918 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.918 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeSheetHolder
+15:03:19.918 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Can not find sheet:0 ,now create it
+15:03:19.935 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.935 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.935 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeTableHolder
+15:03:19.936 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:19.936 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:19.936 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:19.936 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:19.940 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:20.037 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:20.037 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:20.037 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:20.038 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:20.047 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:20.049 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:20.050 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:20.050 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:20.050 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:20.054 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.118 s - in com.alibaba.excel.write.ExcelBuilderImplTest
+[INFO] Running com.alibaba.excel.write.metadata.WriteWorkbookTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in com.alibaba.excel.write.metadata.WriteWorkbookTest
+[INFO] Running com.alibaba.excel.write.metadata.WriteBasicParameterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.194 s - in com.alibaba.excel.write.metadata.WriteBasicParameterTest
+[INFO] Running com.alibaba.excel.write.metadata.style.WriteCellStyleTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in com.alibaba.excel.write.metadata.style.WriteCellStyleTest
+[INFO] Running com.alibaba.excel.write.metadata.style.WriteFontTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in com.alibaba.excel.write.metadata.style.WriteFontTest
+[INFO] Running com.alibaba.excel.write.metadata.holder.WriteTableHolderTest
+15:03:21.869 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.873 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.889 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.889 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.890 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.891 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.892 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.901 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.913 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.914 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.914 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.914 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.917 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.917 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.919 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.920 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.924 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.925 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.925 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.925 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.926 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.926 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.926 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.926 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.929 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.931 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:21.932 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:21.933 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.232 s - in com.alibaba.excel.write.metadata.holder.WriteTableHolderTest
+[INFO] Running com.alibaba.excel.write.metadata.holder.WriteSheetHolderTest
+15:03:22.193 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.198 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.210 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.210 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s - in com.alibaba.excel.write.metadata.holder.WriteSheetHolderTest
+[INFO] Running com.alibaba.excel.write.metadata.holder.WriteWorkbookHolderTest
+15:03:22.591 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.595 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.606 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.606 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.607 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.607 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.617 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.617 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.621 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.621 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.625 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.625 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.629 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.630 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.635 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.635 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.635 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.635 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.636 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.636 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.637 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.637 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.638 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.638 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.640 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.640 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.641 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.641 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.642 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.642 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.644 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.644 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.644 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.645 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.645 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.645 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.648 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.648 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:22.649 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:22.649 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.216 s - in com.alibaba.excel.write.metadata.holder.WriteWorkbookHolderTest
+[INFO] Running com.alibaba.excel.write.metadata.WriteSheetTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in com.alibaba.excel.write.metadata.WriteSheetTest
+[INFO] Running com.alibaba.excel.write.property.ExcelWriteHeadPropertyTest
+15:03:23.316 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:23.321 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:23.322 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:23.373 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:23.375 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+15:03:23.376 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is STRING
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s - in com.alibaba.excel.write.property.ExcelWriteHeadPropertyTest
+[INFO] Running com.alibaba.excel.write.handler.DefaultWriteHandlerLoaderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in com.alibaba.excel.write.handler.DefaultWriteHandlerLoaderTest
+[INFO] Running com.alibaba.excel.write.builder.ExcelWriterSheetBuilderTest
+15:03:24.040 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.046 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.047 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.058 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+[INFO] Running com.alibaba.excel.write.builder.ExcelWriterBuilderTest
+15:03:24.457 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.618 s - in com.alibaba.excel.write.builder.ExcelWriterSheetBuilderTest
+15:03:24.566 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.572 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.573 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.582 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:24.843 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:24.865 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.866 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.866 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.866 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:24.870 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:24.872 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.872 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.872 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.872 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:24.875 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:24.878 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.878 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.878 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.878 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:24.883 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+15:03:24.884 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:24.884 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:24.884 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:24.884 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+15:03:24.888 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.561 s - in com.alibaba.excel.write.builder.ExcelWriterBuilderTest
+[INFO] Running com.alibaba.excel.write.builder.ExcelWriterTableBuilderTest
+15:03:25.310 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Begin to Initialization 'WriteContextImpl'
+15:03:25.320 [Time-limited test] DEBUG com.alibaba.excel.metadata.property.ExcelHeadProperty - The initialization sheet/table 'ExcelHeadProperty' is complete , head kind is NONE
+15:03:25.321 [Time-limited test] WARN com.alibaba.excel.metadata.property.ExcelHeadProperty - The table has no header set and all annotations will not be read.If you want to use annotations, please use set head class in ExcelWriterBuilder/ExcelWriterSheetBuilder/ExcelWriterTableBuilder
+15:03:25.336 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - CurrentConfiguration is writeWorkbookHolder
+[INFO] Running com.alibaba.excel.write.style.HorizontalCellStyleStrategyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in com.alibaba.excel.write.style.HorizontalCellStyleStrategyTest
+15:03:25.726 [Time-limited test] DEBUG com.alibaba.excel.context.WriteContextImpl - Initialization 'WriteContextImpl' complete
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.613 s - in com.alibaba.excel.write.builder.ExcelWriterTableBuilderTest
+[INFO] Running com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategyTest
+[INFO] Running com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategyTest
+[INFO] Running com.alibaba.excel.write.style.row.SimpleRowHeightStyleStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s - in com.alibaba.excel.write.style.row.SimpleRowHeightStyleStrategyTest
+[INFO] Running com.alibaba.excel.write.merge.LoopMergeStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in com.alibaba.excel.write.merge.LoopMergeStrategyTest
+[INFO] Running com.alibaba.excel.write.merge.OnceAbsoluteMergeStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in com.alibaba.excel.write.merge.OnceAbsoluteMergeStrategyTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 884, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:restore-instrumented-classes (restore-instrumented-classes) @ easyexcel ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  59.879 s
+[INFO] Finished at: 2019-10-31T15:03:27Z
+[INFO] ------------------------------------------------------------------------
