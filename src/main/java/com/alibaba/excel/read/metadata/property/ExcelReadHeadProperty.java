@@ -2,7 +2,6 @@ package com.alibaba.excel.read.metadata.property;
 
 import java.util.List;
 
-import com.alibaba.excel.metadata.Holder;
 import com.alibaba.excel.metadata.property.ExcelHeadProperty;
 
 /**
@@ -12,7 +11,7 @@ import com.alibaba.excel.metadata.property.ExcelHeadProperty;
  */
 public class ExcelReadHeadProperty extends ExcelHeadProperty {
 
-    public ExcelReadHeadProperty(Holder holder, Class headClazz, List<List<String>> head, Boolean convertAllFiled) {
-        super(holder, headClazz, head, convertAllFiled);
+    public ExcelReadHeadProperty(Class headClazz, List<List<String>> head, Boolean convertAllFiled) {
+        super(headClazz, head, convertAllFiled);
     }
 }

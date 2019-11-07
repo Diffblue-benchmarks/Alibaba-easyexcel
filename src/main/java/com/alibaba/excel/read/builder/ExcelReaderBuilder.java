@@ -222,26 +222,8 @@ public class ExcelReaderBuilder {
         return this;
     }
 
-    /**
-     * Whether the encryption
-     *
-     * @param password
-     * @return
-     */
-    public ExcelReaderBuilder password(String password) {
-        readWorkbook.setPassword(password);
-        return this;
-    }
-
     public ExcelReader build() {
         return new ExcelReader(readWorkbook);
-    }
-
-    public ExcelReader doReadAll() {
-        ExcelReader excelReader = build();
-        excelReader.readAll();
-        excelReader.finish();
-        return excelReader;
     }
 
     public ExcelReaderSheetBuilder sheet() {

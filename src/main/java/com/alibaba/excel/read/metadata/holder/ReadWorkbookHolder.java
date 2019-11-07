@@ -8,6 +8,8 @@ import java.util.Set;
 
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alibaba.excel.cache.ReadCache;
 import com.alibaba.excel.cache.selector.EternalReadCacheSelector;
@@ -26,6 +28,7 @@ import com.alibaba.excel.support.ExcelTypeEnum;
  * @author Jiaju Zhuang
  */
 public class ReadWorkbookHolder extends AbstractReadHolder {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReadWorkbookHolder.class);
 
     /**
      * current param
@@ -79,10 +82,7 @@ public class ReadWorkbookHolder extends AbstractReadHolder {
      * Temporary files when reading excel
      */
     private File tempFile;
-    /**
-     * Whether the encryption
-     */
-    private String password;
+
     /**
      * The default is all excel objects.if true , you can use {@link com.alibaba.excel.annotation.ExcelIgnore} ignore a
      * field. if false , you must use {@link com.alibaba.excel.annotation.ExcelProperty} to use a filed.
@@ -141,11 +141,11 @@ public class ReadWorkbookHolder extends AbstractReadHolder {
         } else {
             this.autoCloseStream = readWorkbook.getAutoCloseStream();
         }
-
-        // The type of excel is read according to the judgment.Because encrypted XLSX needs to be specified as XLS to
-        // properly parse.
-        this.excelType = ExcelTypeEnum.valueOf(file, inputStream, readWorkbook.getExcelType());
-
+        if (readWorkbook.getExcelType() == null) {
+            this.excelType = ExcelTypeEnum.valueOf(file, inputStream);
+        } else {
+            this.excelType = readWorkbook.getExcelType();
+        }
         if (ExcelTypeEnum.XLS == excelType && getGlobalConfiguration().getUse1904windowing() == null) {
             getGlobalConfiguration().setUse1904windowing(Boolean.FALSE);
         }
@@ -174,7 +174,6 @@ public class ReadWorkbookHolder extends AbstractReadHolder {
         }
         this.hasReadSheet = new HashSet<Integer>();
         this.ignoreRecord03 = Boolean.FALSE;
-        this.password = readWorkbook.getPassword();
     }
 
     public ReadWorkbook getReadWorkbook() {
@@ -311,14 +310,6 @@ public class ReadWorkbookHolder extends AbstractReadHolder {
 
     public void setIgnoreRecord03(Boolean ignoreRecord03) {
         this.ignoreRecord03 = ignoreRecord03;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override

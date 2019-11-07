@@ -2,8 +2,8 @@ package com.alibaba.excel.util;
 
 import java.io.IOException;
 
-import org.apache.poi.hssf.record.crypto.Biff8EncryptionKey;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -22,44 +22,35 @@ import com.alibaba.excel.write.metadata.holder.WriteWorkbookHolder;
  */
 public class WorkBookUtil {
 
-    private static final int ROW_ACCESS_WINDOW_SIZE = 500;
-
     private WorkBookUtil() {}
 
-    public static void createWorkBook(WriteWorkbookHolder writeWorkbookHolder) throws IOException {
+    public static Workbook createWorkBook(WriteWorkbookHolder writeWorkbookHolder)
+        throws IOException, InvalidFormatException {
         if (ExcelTypeEnum.XLSX.equals(writeWorkbookHolder.getExcelType())) {
-            if (writeWorkbookHolder.getTempTemplateInputStream() != null) {
-                XSSFWorkbook xssfWorkbook = new XSSFWorkbook(writeWorkbookHolder.getTempTemplateInputStream());
-                writeWorkbookHolder.setCachedWorkbook(xssfWorkbook);
-                if (writeWorkbookHolder.getInMemory()) {
-                    writeWorkbookHolder.setWorkbook(xssfWorkbook);
-                } else {
-                    writeWorkbookHolder.setWorkbook(new SXSSFWorkbook(xssfWorkbook, ROW_ACCESS_WINDOW_SIZE));
+            XSSFWorkbook xssfWorkbook = null;
+            if (writeWorkbookHolder.getTemplateFile() != null) {
+                xssfWorkbook = new XSSFWorkbook(writeWorkbookHolder.getTemplateFile());
+            }
+            if (writeWorkbookHolder.getTemplateInputStream() != null) {
+                xssfWorkbook = new XSSFWorkbook(writeWorkbookHolder.getTemplateInputStream());
+            }
+            // When using SXSSFWorkbook, you can't get the actual last line.But we need to read the last line when we
+            // are using the template, so we cache it
+            if (xssfWorkbook != null) {
+                for (int i = 0; i < xssfWorkbook.getNumberOfSheets(); i++) {
+                    writeWorkbookHolder.getTemplateLastRowMap().put(i, xssfWorkbook.getSheetAt(i).getLastRowNum());
                 }
-                return;
+                return new SXSSFWorkbook(xssfWorkbook);
             }
-            Workbook workbook = null;
-            if (writeWorkbookHolder.getInMemory()) {
-                workbook = new XSSFWorkbook();
-            } else {
-                workbook = new SXSSFWorkbook(ROW_ACCESS_WINDOW_SIZE);
-            }
-            writeWorkbookHolder.setCachedWorkbook(workbook);
-            writeWorkbookHolder.setWorkbook(workbook);
-            return;
+            return new SXSSFWorkbook(500);
         }
-        HSSFWorkbook hssfWorkbook;
-        if (writeWorkbookHolder.getTempTemplateInputStream() != null) {
-            hssfWorkbook = new HSSFWorkbook(new POIFSFileSystem(writeWorkbookHolder.getTempTemplateInputStream()));
-        } else {
-            hssfWorkbook = new HSSFWorkbook();
+        if (writeWorkbookHolder.getTemplateFile() != null) {
+            return new HSSFWorkbook(new POIFSFileSystem(writeWorkbookHolder.getTemplateFile()));
         }
-        writeWorkbookHolder.setCachedWorkbook(hssfWorkbook);
-        writeWorkbookHolder.setWorkbook(hssfWorkbook);
-        if (writeWorkbookHolder.getPassword() != null) {
-            Biff8EncryptionKey.setCurrentUserPassword(writeWorkbookHolder.getPassword());
-            hssfWorkbook.writeProtectWorkbook(writeWorkbookHolder.getPassword(), StringUtils.EMPTY);
+        if (writeWorkbookHolder.getTemplateInputStream() != null) {
+            return new HSSFWorkbook(new POIFSFileSystem(writeWorkbookHolder.getTemplateInputStream()));
         }
+        return new HSSFWorkbook();
     }
 
     public static Sheet createSheet(Workbook workbook, String sheetName) {

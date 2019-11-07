@@ -70,7 +70,7 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
         }
 
         // Initialization property
-        this.excelReadHeadProperty = new ExcelReadHeadProperty(this, getClazz(), getHead(), convertAllFiled);
+        this.excelReadHeadProperty = new ExcelReadHeadProperty(getClazz(), getHead(), convertAllFiled);
         if (readBasicParameter.getHeadRowNumber() == null) {
             if (parentAbstractReadHolder == null) {
                 if (excelReadHeadProperty.hasHead()) {
@@ -144,7 +144,7 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
                         try {
                             readListenerException.onException(e, analysisContext);
                         } catch (Exception exception) {
-                            throw new ExcelAnalysisException(exception.getMessage(), exception);
+                            throw new ExcelAnalysisException("Listen error!", exception);
                         }
                     }
                     break;
@@ -158,6 +158,7 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
             if (currentheadRowNumber == rowIndex + 1) {
                 buildHead(analysisContext, cellDataMap);
             }
+
             // Now is header
             for (ReadListener readListener : analysisContext.currentReadHolder().readListenerList()) {
                 try {
@@ -167,7 +168,7 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
                         try {
                             readListenerException.onException(e, analysisContext);
                         } catch (Exception exception) {
-                            throw new ExcelAnalysisException(exception.getMessage(), exception);
+                            throw new ExcelAnalysisException("Listen error!", exception);
                         }
                     }
                     break;
@@ -205,8 +206,8 @@ public abstract class AbstractReadHolder extends AbstractHolder implements ReadH
                 tmpContentPropertyMap.put(entry.getKey(), contentPropertyMapData.get(entry.getKey()));
                 continue;
             }
-            List<String> headNameList = headData.getHeadNameList();
-            String headName = headNameList.get(headNameList.size() - 1);
+            String headName = headData.getHeadNameList().get(0);
+
             for (Map.Entry<Integer, String> stringEntry : dataMap.entrySet()) {
                 String headString = stringEntry.getValue();
                 Integer stringKey = stringEntry.getKey();

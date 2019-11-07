@@ -1,7 +1,6 @@
 package com.alibaba.excel.write.builder;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.alibaba.excel.ExcelWriter;
@@ -9,7 +8,6 @@ import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.exception.ExcelGenerateException;
 import com.alibaba.excel.write.handler.WriteHandler;
 import com.alibaba.excel.write.metadata.WriteSheet;
-import com.alibaba.excel.write.metadata.fill.FillConfig;
 
 /**
  * Build sheet
@@ -76,17 +74,6 @@ public class ExcelWriterSheetBuilder {
     }
 
     /**
-     * Use the default style.Default is true.
-     *
-     * @param useDefaultStyle
-     * @return
-     */
-    public ExcelWriterSheetBuilder useDefaultStyle(Boolean useDefaultStyle) {
-        writeSheet.setUseDefaultStyle(useDefaultStyle);
-        return this;
-    }
-
-    /**
      * Custom type conversions override the default.
      *
      * @param converter
@@ -136,38 +123,6 @@ public class ExcelWriterSheetBuilder {
         return this;
     }
 
-    /**
-     * Ignore the custom columns.
-     */
-    public ExcelWriterSheetBuilder excludeColumnIndexes(Collection<Integer> excludeColumnIndexes) {
-        writeSheet.setExcludeColumnIndexes(excludeColumnIndexes);
-        return this;
-    }
-
-    /**
-     * Ignore the custom columns.
-     */
-    public ExcelWriterSheetBuilder excludeColumnFiledNames(Collection<String> excludeColumnFiledNames) {
-        writeSheet.setExcludeColumnFiledNames(excludeColumnFiledNames);
-        return this;
-    }
-
-    /**
-     * Only output the custom columns.
-     */
-    public ExcelWriterSheetBuilder includeColumnIndexes(Collection<Integer> includeColumnIndexes) {
-        writeSheet.setIncludeColumnIndexes(includeColumnIndexes);
-        return this;
-    }
-
-    /**
-     * Only output the custom columns.
-     */
-    public ExcelWriterSheetBuilder includeColumnFiledNames(Collection<String> includeColumnFiledNames) {
-        writeSheet.setIncludeColumnFiledNames(includeColumnFiledNames);
-        return this;
-    }
-
     public WriteSheet build() {
         return writeSheet;
     }
@@ -177,18 +132,6 @@ public class ExcelWriterSheetBuilder {
             throw new ExcelGenerateException("Must use 'EasyExcelFactory.write().sheet()' to call this method");
         }
         excelWriter.write(data, build());
-        excelWriter.finish();
-    }
-
-    public void doFill(Object data) {
-        doFill(data, null);
-    }
-
-    public void doFill(Object data, FillConfig fillConfig) {
-        if (excelWriter == null) {
-            throw new ExcelGenerateException("Must use 'EasyExcelFactory.write().sheet()' to call this method");
-        }
-        excelWriter.fill(data, fillConfig, build());
         excelWriter.finish();
     }
 

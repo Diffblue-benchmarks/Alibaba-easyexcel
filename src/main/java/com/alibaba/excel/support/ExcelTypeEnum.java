@@ -29,7 +29,7 @@ public enum ExcelTypeEnum {
         this.setValue(value);
     }
 
-    public static ExcelTypeEnum valueOf(File file, InputStream inputStream, ExcelTypeEnum excelType) {
+    public static ExcelTypeEnum valueOf(File file, InputStream inputStream) {
         try {
             FileMagic fileMagic;
             if (file != null) {
@@ -59,14 +59,8 @@ public enum ExcelTypeEnum {
                 return XLSX;
             }
         } catch (IOException e) {
-            if (excelType != null) {
-                return excelType;
-            }
             throw new ExcelCommonException(
                 "Convert excel format exception.You can try specifying the 'excelType' yourself", e);
-        }
-        if (excelType != null) {
-            return excelType;
         }
         throw new ExcelCommonException(
             "Convert excel format exception.You can try specifying the 'excelType' yourself");
