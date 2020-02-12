@@ -1,461 +1,286 @@
 package com.alibaba.excel.write.metadata.style;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.metadata.style.WriteCellStyle
+ *
+ * @author Diffblue JCover
+ */
+
 public class WriteCellStyleDiffblueTest {
-  @Test(timeout=10000)
-  public void getFillBackgroundColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getFillBackgroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void setLockedTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setLocked(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeCellStyle.getLocked());
-  }
-
-  @Test(timeout=10000)
-  public void getFillPatternTypeTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getFillPatternType());
-  }
-
-  @Test(timeout=10000)
-  public void setFillForegroundColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setFillForegroundColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getFillForegroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void setBorderBottomTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setBorderBottom(BorderStyle.NONE);
-
-    // Assert
-    assertEquals(BorderStyle.NONE, writeCellStyle.getBorderBottom());
-  }
-
-  @Test(timeout=10000)
-  public void setFillPatternTypeTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setFillPatternType(FillPatternType.NO_FILL);
-
-    // Assert
-    assertEquals(FillPatternType.NO_FILL, writeCellStyle.getFillPatternType());
-  }
-
-  @Test(timeout=10000)
-  public void getBottomBorderColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getBottomBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void setVerticalAlignmentTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
-
-    // Assert
-    assertEquals(VerticalAlignment.TOP, writeCellStyle.getVerticalAlignment());
-  }
-
-  @Test(timeout=10000)
-  public void getVerticalAlignmentTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getVerticalAlignment());
-  }
-
-  @Test(timeout=10000)
-  public void setQuotePrefixTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setQuotePrefix(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeCellStyle.getQuotePrefix());
-  }
-
-  @Test(timeout=10000)
-  public void setBottomBorderColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setBottomBorderColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getBottomBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void getBorderBottomTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getBorderBottom());
-  }
-
-  @Test(timeout=10000)
-  public void setDataFormatTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setDataFormat(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getDataFormat());
-  }
-
-  @Test(timeout=10000)
-  public void getTopBorderColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getTopBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void getFillForegroundColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getFillForegroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void setBorderRightTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setBorderRight(BorderStyle.NONE);
-
-    // Assert
-    assertEquals(BorderStyle.NONE, writeCellStyle.getBorderRight());
-  }
-
-  @Test(timeout=10000)
-  public void getLeftBorderColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getLeftBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void getBorderLeftTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getBorderLeft());
-  }
-
-  @Test(timeout=10000)
-  public void setWriteFontTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-    WriteFont writeFont = new WriteFont();
-
-    // Act
-    writeCellStyle.setWriteFont(writeFont);
-
-    // Assert
-    assertSame(writeFont, writeCellStyle.getWriteFont());
-  }
-
-  @Test(timeout=10000)
-  public void getRotationTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getRotation());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    WriteCellStyle actualWriteCellStyle = new WriteCellStyle();
-
-    // Assert
-    WriteFont actualWriteFont = actualWriteCellStyle.getWriteFont();
-    BorderStyle actualBorderTop = actualWriteCellStyle.getBorderTop();
-    Short actualRightBorderColor = actualWriteCellStyle.getRightBorderColor();
-    Short actualRotation = actualWriteCellStyle.getRotation();
-    BorderStyle actualBorderLeft = actualWriteCellStyle.getBorderLeft();
-    Short actualLeftBorderColor = actualWriteCellStyle.getLeftBorderColor();
-    Short actualDataFormat = actualWriteCellStyle.getDataFormat();
-    Boolean actualHidden = actualWriteCellStyle.getHidden();
-    Short actualIndent = actualWriteCellStyle.getIndent();
-    Short actualFillForegroundColor = actualWriteCellStyle.getFillForegroundColor();
-    BorderStyle actualBorderRight = actualWriteCellStyle.getBorderRight();
-    Boolean actualQuotePrefix = actualWriteCellStyle.getQuotePrefix();
-    Short actualTopBorderColor = actualWriteCellStyle.getTopBorderColor();
-    BorderStyle actualBorderBottom = actualWriteCellStyle.getBorderBottom();
-    Boolean actualLocked = actualWriteCellStyle.getLocked();
-    VerticalAlignment actualVerticalAlignment = actualWriteCellStyle.getVerticalAlignment();
-    Short actualBottomBorderColor = actualWriteCellStyle.getBottomBorderColor();
-    HorizontalAlignment actualHorizontalAlignment = actualWriteCellStyle.getHorizontalAlignment();
-    Boolean actualShrinkToFit = actualWriteCellStyle.getShrinkToFit();
-    FillPatternType actualFillPatternType = actualWriteCellStyle.getFillPatternType();
-    Boolean actualWrapped = actualWriteCellStyle.getWrapped();
-    assertNull(actualWriteFont);
-    assertNull(actualWriteCellStyle.getFillBackgroundColor());
-    assertNull(actualWrapped);
-    assertNull(actualFillPatternType);
-    assertNull(actualShrinkToFit);
-    assertNull(actualHorizontalAlignment);
-    assertNull(actualBottomBorderColor);
-    assertNull(actualVerticalAlignment);
-    assertNull(actualLocked);
-    assertNull(actualBorderBottom);
-    assertNull(actualTopBorderColor);
-    assertNull(actualQuotePrefix);
-    assertNull(actualBorderRight);
-    assertNull(actualFillForegroundColor);
-    assertNull(actualIndent);
-    assertNull(actualHidden);
-    assertNull(actualDataFormat);
-    assertNull(actualLeftBorderColor);
-    assertNull(actualBorderLeft);
-    assertNull(actualRotation);
-    assertNull(actualRightBorderColor);
-    assertNull(actualBorderTop);
-  }
-
-  @Test(timeout=10000)
-  public void setRightBorderColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setRightBorderColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getRightBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void setShrinkToFitTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setShrinkToFit(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeCellStyle.getShrinkToFit());
-  }
-
-  @Test(timeout=10000)
-  public void setLeftBorderColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setLeftBorderColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getLeftBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void setBorderLeftTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setBorderLeft(BorderStyle.NONE);
-
-    // Assert
-    assertEquals(BorderStyle.NONE, writeCellStyle.getBorderLeft());
-  }
-
-  @Test(timeout=10000)
-  public void setWrappedTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setWrapped(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeCellStyle.getWrapped());
-  }
-
-  @Test(timeout=10000)
-  public void getWrappedTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getWrapped());
-  }
-
-  @Test(timeout=10000)
-  public void getShrinkToFitTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getShrinkToFit());
-  }
-
-  @Test(timeout=10000)
-  public void getHorizontalAlignmentTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getHorizontalAlignment());
-  }
-
-  @Test(timeout=10000)
-  public void getLockedTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getLocked());
-  }
-
-  @Test(timeout=10000)
-  public void getQuotePrefixTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getQuotePrefix());
-  }
-
-  @Test(timeout=10000)
-  public void getBorderRightTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getBorderRight());
-  }
-
-  @Test(timeout=10000)
-  public void setFillBackgroundColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setFillBackgroundColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getFillBackgroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void setTopBorderColorTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setTopBorderColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getTopBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void getIndentTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getIndent());
-  }
-
-  @Test(timeout=10000)
-  public void getHiddenTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getHidden());
-  }
-
-  @Test(timeout=10000)
-  public void getDataFormatTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getDataFormat());
-  }
-
-  @Test(timeout=10000)
-  public void setRotationTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setRotation(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getRotation());
-  }
-
-  @Test(timeout=10000)
-  public void setHorizontalAlignmentTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setHorizontalAlignment(HorizontalAlignment.GENERAL);
-
-    // Assert
-    assertEquals(HorizontalAlignment.GENERAL, writeCellStyle.getHorizontalAlignment());
-  }
-
-  @Test(timeout=10000)
-  public void setHiddenTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setHidden(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeCellStyle.getHidden());
-  }
-
-  @Test(timeout=10000)
-  public void getRightBorderColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getRightBorderColor());
-  }
-
-  @Test(timeout=10000)
-  public void getBorderTopTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getBorderTop());
-  }
-
-  @Test(timeout=10000)
-  public void getWriteFontTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteCellStyle()).getWriteFont());
-  }
-
-  @Test(timeout=10000)
-  public void setIndentTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setIndent(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeCellStyle.getIndent());
-  }
-
-  @Test(timeout=10000)
-  public void setBorderTopTest() {
-    // Arrange
-    WriteCellStyle writeCellStyle = new WriteCellStyle();
-
-    // Act
-    writeCellStyle.setBorderTop(BorderStyle.NONE);
-
-    // Assert
-    assertEquals(BorderStyle.NONE, writeCellStyle.getBorderTop());
-  }
+
+    @Test(timeout=10000)
+    public void getBorderBottomReturnsNull() {
+        assertThat(new WriteCellStyle().getBorderBottom(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getBorderLeftReturnsNull() {
+        assertThat(new WriteCellStyle().getBorderLeft(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getBorderRightReturnsNull() {
+        assertThat(new WriteCellStyle().getBorderRight(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getBorderTopReturnsNull() {
+        assertThat(new WriteCellStyle().getBorderTop(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getBottomBorderColorReturnsNull() {
+        assertThat(new WriteCellStyle().getBottomBorderColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getDataFormatReturnsNull() {
+        assertThat(new WriteCellStyle().getDataFormat(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getFillBackgroundColorReturnsNull() {
+        assertThat(new WriteCellStyle().getFillBackgroundColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getFillForegroundColorReturnsNull() {
+        assertThat(new WriteCellStyle().getFillForegroundColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getFillPatternTypeReturnsNull() {
+        assertThat(new WriteCellStyle().getFillPatternType(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getHiddenReturnsNull() {
+        assertThat(new WriteCellStyle().getHidden(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getHorizontalAlignmentReturnsNull() {
+        assertThat(new WriteCellStyle().getHorizontalAlignment(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getIndentReturnsNull() {
+        assertThat(new WriteCellStyle().getIndent(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getLeftBorderColorReturnsNull() {
+        assertThat(new WriteCellStyle().getLeftBorderColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getLockedReturnsNull() {
+        assertThat(new WriteCellStyle().getLocked(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getQuotePrefixReturnsNull() {
+        assertThat(new WriteCellStyle().getQuotePrefix(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getRightBorderColorReturnsNull() {
+        assertThat(new WriteCellStyle().getRightBorderColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getRotationReturnsNull() {
+        assertThat(new WriteCellStyle().getRotation(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getShrinkToFitReturnsNull() {
+        assertThat(new WriteCellStyle().getShrinkToFit(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getTopBorderColorReturnsNull() {
+        assertThat(new WriteCellStyle().getTopBorderColor(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getVerticalAlignmentReturnsNull() {
+        assertThat(new WriteCellStyle().getVerticalAlignment(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getWrappedReturnsNull() {
+        assertThat(new WriteCellStyle().getWrapped(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void getWriteFontReturnsNull() {
+        assertThat(new WriteCellStyle().getWriteFont(), is(nullValue()));
+    }
+
+    @Test(timeout=10000)
+    public void setBorderBottomToNONE() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBorderBottom(BorderStyle.NONE);
+        assertThat(writeCellStyle.getBorderBottom(), is(BorderStyle.NONE));
+    }
+
+    @Test(timeout=10000)
+    public void setBorderLeftToNONE() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBorderLeft(BorderStyle.NONE);
+        assertThat(writeCellStyle.getBorderLeft(), is(BorderStyle.NONE));
+    }
+
+    @Test(timeout=10000)
+    public void setBorderRightToNONE() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBorderRight(BorderStyle.NONE);
+        assertThat(writeCellStyle.getBorderRight(), is(BorderStyle.NONE));
+    }
+
+    @Test(timeout=10000)
+    public void setBorderTopToNONE() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBorderTop(BorderStyle.NONE);
+        assertThat(writeCellStyle.getBorderTop(), is(BorderStyle.NONE));
+    }
+
+    @Test(timeout=10000)
+    public void setBottomBorderColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBottomBorderColor((short)1);
+        assertThat(writeCellStyle.getBottomBorderColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setDataFormatToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setDataFormat((short)1);
+        assertThat(writeCellStyle.getDataFormat(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setFillBackgroundColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setFillBackgroundColor((short)1);
+        assertThat(writeCellStyle.getFillBackgroundColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setFillForegroundColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setFillForegroundColor((short)1);
+        assertThat(writeCellStyle.getFillForegroundColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setFillPatternTypeToNO_FILL() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setFillPatternType(FillPatternType.NO_FILL);
+        assertThat(writeCellStyle.getFillPatternType(), is(FillPatternType.NO_FILL));
+    }
+
+    @Test(timeout=10000)
+    public void setHiddenToFalse() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setHidden(false);
+        assertThat(writeCellStyle.getHidden(), is(false));
+    }
+
+    @Test(timeout=10000)
+    public void setHorizontalAlignmentToGENERAL() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        assertThat(writeCellStyle.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+    }
+
+    @Test(timeout=10000)
+    public void setIndentToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setIndent((short)1);
+        assertThat(writeCellStyle.getIndent(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setLeftBorderColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setLeftBorderColor((short)1);
+        assertThat(writeCellStyle.getLeftBorderColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setLockedToFalse() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setLocked(false);
+        assertThat(writeCellStyle.getLocked(), is(false));
+    }
+
+    @Test(timeout=10000)
+    public void setQuotePrefixToFalse() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setQuotePrefix(false);
+        assertThat(writeCellStyle.getQuotePrefix(), is(false));
+    }
+
+    @Test(timeout=10000)
+    public void setRightBorderColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setRightBorderColor((short)1);
+        assertThat(writeCellStyle.getRightBorderColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setRotationToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setRotation((short)1);
+        assertThat(writeCellStyle.getRotation(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setShrinkToFitToFalse() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setShrinkToFit(false);
+        assertThat(writeCellStyle.getShrinkToFit(), is(false));
+    }
+
+    @Test(timeout=10000)
+    public void setTopBorderColorToOne() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setTopBorderColor((short)1);
+        assertThat(writeCellStyle.getTopBorderColor(), is((short)1));
+    }
+
+    @Test(timeout=10000)
+    public void setVerticalAlignmentToTOP() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
+        assertThat(writeCellStyle.getVerticalAlignment(), is(VerticalAlignment.TOP));
+    }
+
+    @Test(timeout=10000)
+    public void setWrappedToFalse() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setWrapped(false);
+        assertThat(writeCellStyle.getWrapped(), is(false));
+    }
+
+    @Test(timeout=10000)
+    public void setWriteFont() {
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        WriteFont writeFont = new WriteFont();
+        writeCellStyle.setWriteFont(writeFont);
+        assertThat(writeCellStyle.getWriteFont(), sameInstance(writeFont));
+    }
 }
-

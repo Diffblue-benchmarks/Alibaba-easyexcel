@@ -1,367 +1,220 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+import static org.junit.Assert.assertArrayEquals;
+
 import com.alibaba.excel.enums.CellDataTypeEnum;
+
 import java.math.BigDecimal;
-import java.util.Arrays;
-import org.junit.Rule;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+/**
+ * Unit tests for com.alibaba.excel.metadata.CellData
+ *
+ * @author Diffblue JCover
+ */
 
 public class CellDataDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
-  @Test(timeout=10000)
-  public void setDataFormatStringTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void checkEmpty1() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-    // Act
-    cellData.setDataFormatString("foo");
+    @Test(timeout=10000)
+    public void checkEmpty10() {
+        CellData<Object> cellData = new CellData<Object>(CellDataTypeEnum.BOOLEAN);
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-    // Assert
-    assertEquals("foo", cellData.getDataFormatString());
-  }
+    @Test(timeout=10000)
+    public void checkEmpty11() {
+        new CellData<Object>(CellDataTypeEnum.ERROR, "something").checkEmpty();
+    }
 
-  @Test(timeout=10000)
-  public void getTypeTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getType());
-  }
+    @Test(timeout=10000)
+    public void checkEmpty12() {
+        CellData<Object> cellData = new CellData<Object>("");
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-  @Test(timeout=10000)
-  public void getDataFormatTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getDataFormat());
-  }
+    @Test(timeout=10000)
+    public void checkEmpty2() {
+        CellData<Object> cellData = new CellData<Object>(CellDataTypeEnum.STRING);
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-  @Test(timeout=10000)
-  public void checkEmptyTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void checkEmpty3() {
+        new CellData<Object>((Boolean)false).checkEmpty();
+    }
 
-    // Act
-    cellData.checkEmpty();
+    @Test(timeout=10000)
+    public void checkEmpty4() {
+        CellData<Object> cellData = new CellData<Object>(new Object());
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-    // Assert
-    assertEquals(CellDataTypeEnum.EMPTY, cellData.getType());
-  }
+    @Test(timeout=10000)
+    public void checkEmpty5() {
+        CellData<Object> cellData = new CellData<Object>(new Object(), "something");
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-  @Test(timeout=10000)
-  public void setNumberValueTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void checkEmpty6() {
+        new CellData<Object>("something").checkEmpty();
+    }
 
-    // Act
-    cellData.setNumberValue(null);
+    @Test(timeout=10000)
+    public void checkEmpty7() {
+        new CellData<Object>(java.math.BigDecimal.valueOf(1L)).checkEmpty();
+    }
 
-    // Assert
-    assertNull(cellData.getNumberValue());
-  }
+    @Test(timeout=10000)
+    public void checkEmpty8() {
+        byte[] imageValue = new byte[] { 1 };
+        new CellData<Object>(imageValue).checkEmpty();
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest10() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>("foo");
+    @Test(timeout=10000)
+    public void checkEmpty9() {
+        CellData<Object> cellData = new CellData<Object>(CellDataTypeEnum.NUMBER);
+        cellData.checkEmpty();
+        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
+    }
 
-    // Assert
-    String actualStringValue = actualCellData.getStringValue();
-    CellDataTypeEnum actualType = actualCellData.getType();
-    assertEquals("foo", actualStringValue);
-    assertEquals(Boolean.valueOf(false), actualCellData.getFormula());
-    assertEquals(CellDataTypeEnum.STRING, actualType);
-  }
+    @Test(timeout=10000)
+    public void getBooleanValueReturnsNull() {
+        assertThat(new CellData<Object>().getBooleanValue(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setImageValueTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
+    @Test(timeout=10000)
+    public void getDataFormatReturnsNull() {
+        assertThat(new CellData<Object>().getDataFormat(), is(nullValue()));
+    }
 
-    // Act
-    cellData.setImageValue(byteArray);
+    @Test(timeout=10000)
+    public void getDataFormatStringReturnsNull() {
+        assertThat(new CellData<Object>().getDataFormatString(), is(nullValue()));
+    }
 
-    // Assert
-    assertSame(byteArray, cellData.getImageValue());
-  }
+    @Test(timeout=10000)
+    public void getDataReturnsNull() {
+        assertThat(new CellData<Object>().getData(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest9() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>("foo", "foo");
+    @Test(timeout=10000)
+    public void getFormulaReturnsNull() {
+        assertThat(new CellData<Object>().getFormula(), is(nullValue()));
+    }
 
-    // Assert
-    Object data = actualCellData.getData();
-    String actualFormulaValue = actualCellData.getFormulaValue();
-    assertEquals(Boolean.valueOf(true), actualCellData.getFormula());
-    assertEquals("foo", actualFormulaValue);
-    assertTrue(data instanceof String);
-  }
+    @Test(timeout=10000)
+    public void getFormulaValueReturnsNull() {
+        assertThat(new CellData<Object>().getFormulaValue(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest8() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>(CellDataTypeEnum.STRING, "foo");
+    @Test(timeout=10000)
+    public void getImageValueReturnsNull() {
+        assertThat(new CellData<Object>().getImageValue(), is(nullValue()));
+    }
 
-    // Assert
-    String actualStringValue = actualCellData.getStringValue();
-    CellDataTypeEnum actualType = actualCellData.getType();
-    assertEquals("foo", actualStringValue);
-    assertEquals(Boolean.valueOf(false), actualCellData.getFormula());
-    assertEquals(CellDataTypeEnum.STRING, actualType);
-  }
+    @Test(timeout=10000)
+    public void getNumberValueReturnsNull() {
+        assertThat(new CellData<Object>().getNumberValue(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void getDataFormatStringTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getDataFormatString());
-  }
+    @Test(timeout=10000)
+    public void getStringValueReturnsNull() {
+        assertThat(new CellData<Object>().getStringValue(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setDataFormatTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void getTypeReturnsNull() {
+        assertThat(new CellData<Object>().getType(), is(nullValue()));
+    }
 
-    // Act
-    cellData.setDataFormat(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void setBooleanValueToFalse() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setBooleanValue(false);
+        assertThat(cellData.getBooleanValue(), is(false));
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), cellData.getDataFormat());
-  }
+    @Test(timeout=10000)
+    public void setData() {
+        CellData<Object> cellData = new CellData<Object>();
+        Object data3 = new Object();
+        cellData.setData(data3);
+        assertThat(cellData.getData(), sameInstance(data3));
+    }
 
-  @Test(timeout=10000)
-  public void getNumberValueTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getNumberValue());
-  }
+    @Test(timeout=10000)
+    public void setDataFormatString() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setDataFormatString("yyyy-MM-dd");
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+    }
 
-  @Test(timeout=10000)
-  public void setFormulaTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void setDataFormatToOne() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setDataFormat(1);
+        assertThat(cellData.getDataFormat(), is(1));
+    }
 
-    // Act
-    cellData.setFormula(Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void setFormulaToFalse() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setFormula(false);
+        assertThat(cellData.getFormula(), is(false));
+    }
 
-    // Assert
-    assertEquals(Boolean.valueOf(true), cellData.getFormula());
-  }
+    @Test(timeout=10000)
+    public void setFormulaValueToSomething() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setFormulaValue("something");
+        assertThat(cellData.getFormulaValue(), is("something"));
+    }
 
-  @Test(timeout=10000)
-  public void getDataTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getData());
-  }
+    @Test(timeout=10000)
+    public void setImageValueToOne() {
+        CellData<Object> cellData = new CellData<Object>();
+        byte[] imageValue2 = new byte[] { 1 };
+        cellData.setImageValue(imageValue2);
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest7() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>();
+    @Test(timeout=10000)
+    public void setNumberValue() {
+        CellData<Object> cellData = new CellData<Object>();
+        BigDecimal numberValue2 = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue2);
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue2));
+    }
 
-    // Assert
-    String actualStringValue = actualCellData.getStringValue();
-    Boolean actualBooleanValue = actualCellData.getBooleanValue();
-    String actualDataFormatString = actualCellData.getDataFormatString();
-    String actualToStringResult = actualCellData.toString();
-    Object actualData = actualCellData.getData();
-    String actualFormulaValue = actualCellData.getFormulaValue();
-    Integer actualDataFormat = actualCellData.getDataFormat();
-    CellDataTypeEnum actualType = actualCellData.getType();
-    BigDecimal actualNumberValue = actualCellData.getNumberValue();
-    Boolean actualFormula = actualCellData.getFormula();
-    assertNull(actualStringValue);
-    assertNull(actualCellData.getImageValue());
-    assertNull(actualFormula);
-    assertNull(actualNumberValue);
-    assertNull(actualType);
-    assertNull(actualDataFormat);
-    assertNull(actualFormulaValue);
-    assertNull(actualData);
-    assertEquals("empty", actualToStringResult);
-    assertNull(actualDataFormatString);
-    assertNull(actualBooleanValue);
-  }
+    @Test(timeout=10000)
+    public void setStringValueToSomething() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setStringValue("something");
+        assertThat(cellData.getStringValue(), is("something"));
+    }
 
-  @Test(timeout=10000)
-  public void toStringTest() {
-    // Arrange, Act and Assert
-    assertEquals("empty", (new CellData<Object>()).toString());
-  }
-
-  @Test(timeout=10000)
-  public void getImageValueTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getImageValue());
-  }
-
-  @Test(timeout=10000)
-  public void setFormulaValueTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-
-    // Act
-    cellData.setFormulaValue("foo");
-
-    // Assert
-    assertEquals("foo", cellData.getFormulaValue());
-  }
-
-  @Test(timeout=10000)
-  public void getFormulaValueTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getFormulaValue());
-  }
-
-  @Test(timeout=10000)
-  public void setBooleanValueTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-
-    // Act
-    cellData.setBooleanValue(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), cellData.getBooleanValue());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest6() {
-    // Arrange, Act and Assert
-    assertTrue((new CellData<Object>((Object) "foo")).getData() instanceof String);
-  }
-
-  @Test(timeout=10000)
-  public void setStringValueTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-
-    // Act
-    cellData.setStringValue("foo");
-
-    // Assert
-    assertEquals("foo", cellData.getStringValue());
-  }
-
-  @Test(timeout=10000)
-  public void getBooleanValueTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getBooleanValue());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest5() {
-    // Arrange, Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    new CellData<Object>((BigDecimal) null);
-  }
-
-  @Test(timeout=10000)
-  public void getFormulaTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getFormula());
-  }
-
-  @Test(timeout=10000)
-  public void setTypeTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-
-    // Act
-    cellData.setType(CellDataTypeEnum.STRING);
-
-    // Assert
-    assertEquals(CellDataTypeEnum.STRING, cellData.getType());
-  }
-
-  @Test(timeout=10000)
-  public void setDataTest() {
-    // Arrange
-    CellData<Object> cellData = new CellData<Object>();
-
-    // Act
-    cellData.setData("foo");
-
-    // Assert
-    assertTrue(cellData.getData() instanceof String);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest4() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-
-    // Act
-    CellData<Object> actualCellData = new CellData<Object>(byteArray);
-
-    // Assert
-    CellDataTypeEnum actualType = actualCellData.getType();
-    Boolean actualFormula = actualCellData.getFormula();
-    assertEquals(24, actualCellData.getImageValue().length);
-    assertEquals(Boolean.valueOf(false), actualFormula);
-    assertEquals(CellDataTypeEnum.IMAGE, actualType);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest3() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>(CellDataTypeEnum.STRING);
-
-    // Assert
-    CellDataTypeEnum actualType = actualCellData.getType();
-    assertEquals(Boolean.valueOf(false), actualCellData.getFormula());
-    assertEquals(CellDataTypeEnum.STRING, actualType);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest2() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>(Boolean.valueOf(true));
-
-    // Assert
-    Boolean actualBooleanValue = actualCellData.getBooleanValue();
-    CellDataTypeEnum actualType = actualCellData.getType();
-    assertEquals(Boolean.valueOf(false), actualCellData.getFormula());
-    assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
-    assertEquals(Boolean.valueOf(true), actualBooleanValue);
-  }
-
-  @Test(timeout=10000)
-  public void getStringValueTest() {
-    // Arrange, Act and Assert
-    assertNull((new CellData<Object>()).getStringValue());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    CellData<Object> actualCellData = new CellData<Object>(new CellData<Object>());
-
-    // Assert
-    String actualStringValue = actualCellData.getStringValue();
-    Boolean actualBooleanValue = actualCellData.getBooleanValue();
-    String actualDataFormatString = actualCellData.getDataFormatString();
-    Object actualData = actualCellData.getData();
-    String actualFormulaValue = actualCellData.getFormulaValue();
-    Integer actualDataFormat = actualCellData.getDataFormat();
-    CellDataTypeEnum actualType = actualCellData.getType();
-    BigDecimal actualNumberValue = actualCellData.getNumberValue();
-    Boolean actualFormula = actualCellData.getFormula();
-    assertNull(actualStringValue);
-    assertNull(actualCellData.getImageValue());
-    assertNull(actualFormula);
-    assertNull(actualNumberValue);
-    assertNull(actualType);
-    assertNull(actualDataFormat);
-    assertNull(actualFormulaValue);
-    assertNull(actualData);
-    assertNull(actualDataFormatString);
-    assertNull(actualBooleanValue);
-  }
+    @Test(timeout=10000)
+    public void setTypeToSTRING() {
+        CellData<Object> cellData = new CellData<Object>();
+        cellData.setType(CellDataTypeEnum.STRING);
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+    }
 }
-

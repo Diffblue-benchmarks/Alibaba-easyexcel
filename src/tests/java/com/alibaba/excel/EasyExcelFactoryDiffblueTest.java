@@ -1,38 +1,86 @@
 package com.alibaba.excel;
 
-import com.alibaba.excel.exception.ExcelCommonException;
-import com.alibaba.excel.exception.ExcelGenerateException;
-import com.alibaba.excel.metadata.Sheet;
+import static org.mockito.Mockito.mock;
+
+import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import java.io.ByteArrayInputStream;
-import java.util.Arrays;
-import org.junit.Rule;
+
+import java.io.ByteArrayOutputStream;
+import java.io.StringBufferInputStream;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+/**
+ * Unit tests for com.alibaba.excel.EasyExcelFactory
+ *
+ * @author Diffblue JCover
+ */
 
 public class EasyExcelFactoryDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-  @Test(timeout=10000)
-  public void readTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    ByteArrayInputStream in = new ByteArrayInputStream(byteArray);
 
-    // Act and Assert
-    thrown.expect(ExcelCommonException.class);
-    EasyExcelFactory.read(in, new Sheet(1));
-  }
-  @Test(timeout=10000)
-  public void getWriterWithTempTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
+    @Test(timeout=10000)
+    public void getWriter() {
+        // pojo ExcelWriter
+        // pojo ExcelWriter
+    }
 
-    // Act and Assert
-    thrown.expect(ExcelGenerateException.class);
-    EasyExcelFactory.getWriterWithTemp(new ByteArrayInputStream(byteArray), null, ExcelTypeEnum.XLS, true);
-  }
+    @Test(timeout=10000)
+    public void read1() {
+        ReadListener readListener = mock(ReadListener.class);
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+    }
+
+    @Test(timeout=10000)
+    public void read2() {
+        ReadListener readListener = mock(ReadListener.class);
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+    }
+
+    @Test(timeout=10000)
+    public void read3() {
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+    }
+
+    @Test(timeout=10000)
+    public void readHeadIsString1() {
+        ReadListener readListener = mock(ReadListener.class);
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+    }
+
+    @Test(timeout=10000)
+    public void readHeadIsString2() {
+        ReadListener readListener = mock(ReadListener.class);
+        // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
+    }
+
+    @Test(timeout=10000)
+    public void readSheet() {
+        // pojo com.alibaba.excel.read.builder.ExcelReaderSheetBuilder
+        // pojo com.alibaba.excel.read.builder.ExcelReaderSheetBuilder
+        // pojo com.alibaba.excel.read.builder.ExcelReaderSheetBuilder
+    }
+
+    @Test(timeout=10000)
+    public void write() {
+        // pojo com.alibaba.excel.write.builder.ExcelWriterBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterBuilder
+    }
+
+    @Test(timeout=10000)
+    public void writerSheet() {
+        // pojo com.alibaba.excel.write.builder.ExcelWriterSheetBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterSheetBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterSheetBuilder
+    }
+
+    @Test(timeout=10000)
+    public void writerTable() {
+        // pojo com.alibaba.excel.write.builder.ExcelWriterTableBuilder
+        // pojo com.alibaba.excel.write.builder.ExcelWriterTableBuilder
+    }
 }
-

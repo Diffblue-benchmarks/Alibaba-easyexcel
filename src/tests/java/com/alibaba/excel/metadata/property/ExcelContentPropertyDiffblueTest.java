@@ -1,110 +1,81 @@
 package com.alibaba.excel.metadata.property;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
+
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.metadata.Head;
-import java.lang.reflect.Field;
+
 import java.math.RoundingMode;
+import java.util.ArrayList;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.property.ExcelContentProperty
+ *
+ * @author Diffblue JCover
+ */
+
 public class ExcelContentPropertyDiffblueTest {
-  @Test(timeout=10000)
-  public void getDateTimeFormatPropertyTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelContentProperty()).getDateTimeFormatProperty());
-  }
 
-  @Test(timeout=10000)
-  public void getHeadTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelContentProperty()).getHead());
-  }
+    @Test(timeout=10000)
+    public void getConverterReturnsNull() {
+        assertThat(new ExcelContentProperty().getConverter(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void getConverterTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelContentProperty()).getConverter());
-  }
+    @Test(timeout=10000)
+    public void getDateTimeFormatPropertyReturnsNull() {
+        assertThat(new ExcelContentProperty().getDateTimeFormatProperty(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setFieldTest() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
+    @Test(timeout=10000)
+    public void getFieldReturnsNull() {
+        assertThat(new ExcelContentProperty().getField(), is(nullValue()));
+    }
 
-    // Act
-    excelContentProperty.setField(null);
+    @Test(timeout=10000)
+    public void getHeadReturnsNull() {
+        assertThat(new ExcelContentProperty().getHead(), is(nullValue()));
+    }
 
-    // Assert
-    assertNull(excelContentProperty.getField());
-  }
+    @Test(timeout=10000)
+    public void getNumberFormatPropertyReturnsNull() {
+        assertThat(new ExcelContentProperty().getNumberFormatProperty(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setNumberFormatPropertyTest() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-    NumberFormatProperty numberFormatProperty = new NumberFormatProperty("foo", RoundingMode.UP);
+    @Test(timeout=10000)
+    public void setConverter() {
+        ExcelContentProperty excelContentProperty = new ExcelContentProperty();
+        Converter converter = mock(Converter.class);
+        excelContentProperty.setConverter(converter);
+        assertThat(excelContentProperty.getConverter(), sameInstance(converter));
+    }
 
-    // Act
-    excelContentProperty.setNumberFormatProperty(numberFormatProperty);
+    @Test(timeout=10000)
+    public void setDateTimeFormatProperty() {
+        ExcelContentProperty excelContentProperty = new ExcelContentProperty();
+        DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("yyyy-MM-dd", false);
+        excelContentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
+        assertThat(excelContentProperty.getDateTimeFormatProperty(), sameInstance(dateTimeFormatProperty));
+    }
 
-    // Assert
-    assertSame(numberFormatProperty, excelContentProperty.getNumberFormatProperty());
-  }
+    @Test(timeout=10000)
+    public void setHead() {
+        ExcelContentProperty excelContentProperty = new ExcelContentProperty();
+        Head head = new Head(1, "/bin/bash", new ArrayList<String>(), false, false);
+        excelContentProperty.setHead(head);
+        assertThat(excelContentProperty.getHead(), sameInstance(head));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    ExcelContentProperty actualExcelContentProperty = new ExcelContentProperty();
-
-    // Assert
-    NumberFormatProperty actualNumberFormatProperty = actualExcelContentProperty.getNumberFormatProperty();
-    Field actualField = actualExcelContentProperty.getField();
-    Converter actualConverter = actualExcelContentProperty.getConverter();
-    Head actualHead = actualExcelContentProperty.getHead();
-    assertNull(actualNumberFormatProperty);
-    assertNull(actualExcelContentProperty.getDateTimeFormatProperty());
-    assertNull(actualHead);
-    assertNull(actualConverter);
-    assertNull(actualField);
-  }
-
-  @Test(timeout=10000)
-  public void setDateTimeFormatPropertyTest() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-    DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("foo", Boolean.valueOf(true));
-
-    // Act
-    excelContentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
-
-    // Assert
-    assertSame(dateTimeFormatProperty, excelContentProperty.getDateTimeFormatProperty());
-  }
-
-  @Test(timeout=10000)
-  public void getFieldTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelContentProperty()).getField());
-  }
-
-  @Test(timeout=10000)
-  public void setHeadTest() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
-
-    // Act
-    excelContentProperty.setHead(head);
-
-    // Assert
-    assertSame(head, excelContentProperty.getHead());
-  }
-
-  @Test(timeout=10000)
-  public void getNumberFormatPropertyTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelContentProperty()).getNumberFormatProperty());
-  }
+    @Test(timeout=10000)
+    public void setNumberFormatProperty() {
+        ExcelContentProperty excelContentProperty = new ExcelContentProperty();
+        NumberFormatProperty numberFormatProperty = new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
+        excelContentProperty.setNumberFormatProperty(numberFormatProperty);
+        assertThat(excelContentProperty.getNumberFormatProperty(), sameInstance(numberFormatProperty));
+    }
 }
-

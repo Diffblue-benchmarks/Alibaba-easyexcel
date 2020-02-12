@@ -1,150 +1,102 @@
 package com.alibaba.excel.write.metadata.fill;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import com.alibaba.excel.enums.WriteTemplateAnalysisCellTypeEnum;
+
+import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.metadata.fill.AnalysisCell
+ *
+ * @author Diffblue JCover
+ */
+
 public class AnalysisCellDiffblueTest {
-  @Test(timeout=10000)
-  public void setColumnIndexTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
 
-    // Act
-    analysisCell.setColumnIndex(1);
+    @Test(timeout=10000)
+    public void getCellTypeReturnsNull() {
+        assertThat(new AnalysisCell().getCellType(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(1, analysisCell.getColumnIndex());
-  }
+    @Test(timeout=10000)
+    public void getColumnIndexReturnsZero() {
+        assertThat(new AnalysisCell().getColumnIndex(), is(0));
+    }
 
-  @Test(timeout=10000)
-  public void setPrepareDataListTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
+    @Test(timeout=10000)
+    public void getOnlyOneVariableReturnsNull() {
+        assertThat(new AnalysisCell().getOnlyOneVariable(), is(nullValue()));
+    }
 
-    // Act
-    analysisCell.setPrepareDataList(null);
+    @Test(timeout=10000)
+    public void getPrepareDataListReturnsNull() {
+        assertThat(new AnalysisCell().getPrepareDataList(), is(nullValue()));
+    }
 
-    // Assert
-    assertNull(analysisCell.getPrepareDataList());
-  }
+    @Test(timeout=10000)
+    public void getRowIndexReturnsZero() {
+        assertThat(new AnalysisCell().getRowIndex(), is(0));
+    }
 
-  @Test(timeout=10000)
-  public void setCellTypeTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
+    @Test(timeout=10000)
+    public void getVariableListReturnsNull() {
+        assertThat(new AnalysisCell().getVariableList(), is(nullValue()));
+    }
 
-    // Act
-    analysisCell.setCellType(WriteTemplateAnalysisCellTypeEnum.COMMON);
+    @Test(timeout=10000)
+    public void setCellTypeToCOMMON() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        analysisCell.setCellType(WriteTemplateAnalysisCellTypeEnum.COMMON);
+        assertThat(analysisCell.getCellType(), is(WriteTemplateAnalysisCellTypeEnum.COMMON));
+    }
 
-    // Assert
-    assertEquals(WriteTemplateAnalysisCellTypeEnum.COMMON, analysisCell.getCellType());
-  }
+    @Test(timeout=10000)
+    public void setColumnIndexToOne() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        analysisCell.setColumnIndex(1);
+        assertThat(analysisCell.getColumnIndex(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void setVariableListTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
+    @Test(timeout=10000)
+    public void setOnlyOneVariableToFalse() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        analysisCell.setOnlyOneVariable(false);
+        assertThat(analysisCell.getOnlyOneVariable(), is(false));
+    }
 
-    // Act
-    analysisCell.setVariableList(null);
+    @Test(timeout=10000)
+    public void setPrepareDataListToEmpty() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        List<String> prepareDataList = new ArrayList<String>();
+        analysisCell.setPrepareDataList(prepareDataList);
+        assertThat(analysisCell.getPrepareDataList(), sameInstance(prepareDataList));
+    }
 
-    // Assert
-    assertNull(analysisCell.getVariableList());
-  }
+    @Test(timeout=10000)
+    public void setRowIndexToOne() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        analysisCell.setRowIndex(1);
+        assertThat(analysisCell.getRowIndex(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void setRowIndexTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
+    @Test(timeout=10000)
+    public void setVariableListToEmpty() {
+        AnalysisCell analysisCell = new AnalysisCell();
+        List<String> variableList = new ArrayList<String>();
+        analysisCell.setVariableList(variableList);
+        assertThat(analysisCell.getVariableList(), sameInstance(variableList));
+    }
 
-    // Act
-    analysisCell.setRowIndex(1);
-
-    // Assert
-    assertEquals(1, analysisCell.getRowIndex());
-  }
-
-  @Test(timeout=10000)
-  public void setOnlyOneVariableTest() {
-    // Arrange
-    AnalysisCell analysisCell = new AnalysisCell();
-
-    // Act
-    analysisCell.setOnlyOneVariable(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), analysisCell.getOnlyOneVariable());
-  }
-
-  @Test(timeout=10000)
-  public void equalsTest() {
-    // Arrange, Act and Assert
-    assertFalse((new AnalysisCell()).equals("foo"));
-  }
-
-  @Test(timeout=10000)
-  public void getVariableListTest() {
-    // Arrange, Act and Assert
-    assertNull((new AnalysisCell()).getVariableList());
-  }
-
-  @Test(timeout=10000)
-  public void getOnlyOneVariableTest() {
-    // Arrange, Act and Assert
-    assertNull((new AnalysisCell()).getOnlyOneVariable());
-  }
-
-  @Test(timeout=10000)
-  public void getColumnIndexTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new AnalysisCell()).getColumnIndex());
-  }
-
-  @Test(timeout=10000)
-  public void getPrepareDataListTest() {
-    // Arrange, Act and Assert
-    assertNull((new AnalysisCell()).getPrepareDataList());
-  }
-
-  @Test(timeout=10000)
-  public void hashCodeTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new AnalysisCell()).hashCode());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    AnalysisCell actualAnalysisCell = new AnalysisCell();
-
-    // Assert
-    WriteTemplateAnalysisCellTypeEnum actualCellType = actualAnalysisCell.getCellType();
-    int actualRowIndex = actualAnalysisCell.getRowIndex();
-    List<String> actualPrepareDataList = actualAnalysisCell.getPrepareDataList();
-    int actualColumnIndex = actualAnalysisCell.getColumnIndex();
-    Boolean actualOnlyOneVariable = actualAnalysisCell.getOnlyOneVariable();
-    assertNull(actualCellType);
-    assertNull(actualAnalysisCell.getVariableList());
-    assertNull(actualOnlyOneVariable);
-    assertEquals(0, actualColumnIndex);
-    assertNull(actualPrepareDataList);
-    assertEquals(0, actualRowIndex);
-  }
-
-  @Test(timeout=10000)
-  public void getRowIndexTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new AnalysisCell()).getRowIndex());
-  }
-
-  @Test(timeout=10000)
-  public void getCellTypeTest() {
-    // Arrange, Act and Assert
-    assertNull((new AnalysisCell()).getCellType());
-  }
+    @Test(timeout=10000)
+    public void testequals() {
+        assertThat(new AnalysisCell().equals("foo"), is(false));
+        assertThat(new AnalysisCell().equals(null), is(false));
+    }
 }
-

@@ -1,195 +1,166 @@
 package com.alibaba.excel.write.builder;
 
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
+
+import com.alibaba.excel.converters.Converter;
+import com.alibaba.excel.event.WriteHandler;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.List;
+
+import java.io.ByteArrayOutputStream;
+import java.io.StringBufferInputStream;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.builder.ExcelWriterBuilder
+ *
+ * @author Diffblue JCover
+ */
+
 public class ExcelWriterBuilderDiffblueTest {
-  @Test(timeout=10000)
-  public void withTemplateTest3() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.withTemplate("name"));
-  }
+    @Test(timeout=10000)
+    public void autoCloseStreamAutoCloseStreamIsFalse() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.autoCloseStream(false), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void excludeColumnFiledNamesTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void build() {
+        // pojo com.alibaba.excel.ExcelWriter
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.excludeColumnFiledNames(null));
-  }
+    @Test(timeout=10000)
+    public void convertAllFiledConvertAllFiledIsFalse() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.convertAllFiled(false), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void fileTest3() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void excelTypeExcelTypeIsXLS() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.excelType(ExcelTypeEnum.XLS), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.file((File) null));
-  }
+    @Test(timeout=10000)
+    public void excludeColumnFiledNamesExcludeColumnFiledNamesIsEmpty() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.excludeColumnFiledNames(new LinkedList<String>()), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void passwordTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void excludeColumnIndexesExcludeColumnIndexesIsEmpty() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.excludeColumnIndexes(new LinkedList<Integer>()), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.password("Password123"));
-  }
+    @Test(timeout=10000)
+    public void file1() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.file(new ByteArrayOutputStream()), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void fileTest2() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void file2() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.file("/bin/bash"), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.file((OutputStream) null));
-  }
+    @Test(timeout=10000)
+    public void headClazzIsString() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.head(String.class), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void inMemoryTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void headHeadIsEmpty() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.head(new ArrayList<java.util.List<String>>()), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.inMemory(Boolean.valueOf(true)));
-  }
+    @Test(timeout=10000)
+    public void includeColumnFiledNamesIncludeColumnFiledNamesIsEmpty() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.includeColumnFiledNames(new LinkedList<String>()), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void relativeHeadRowIndexTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void includeColumnIndexesIncludeColumnIndexesIsEmpty() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.includeColumnIndexes(new LinkedList<Integer>()), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.relativeHeadRowIndex(Integer.valueOf(1)));
-  }
+    @Test(timeout=10000)
+    public void inMemoryInMemoryIsFalse() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.inMemory(false), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void convertAllFiledTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void needHeadNeedHeadIsFalse() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.needHead(false), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.convertAllFiled(Boolean.valueOf(true)));
-  }
+    @Test(timeout=10000)
+    public void passwordPasswordIsFoo() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.password("foo"), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void excelTypeTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void registerConverter() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        Converter converter = mock(Converter.class);
+        assertThat(excelWriterBuilder.registerConverter(converter), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.excelType(ExcelTypeEnum.XLS));
-  }
+    @Test(timeout=10000)
+    public void registerWriteHandler1() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        assertThat(excelWriterBuilder.registerWriteHandler(writeHandler), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void needHeadTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void registerWriteHandler2() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        com.alibaba.excel.write.handler.WriteHandler writeHandler = mock(com.alibaba.excel.write.handler.WriteHandler.class);
+        assertThat(excelWriterBuilder.registerWriteHandler(writeHandler), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.needHead(Boolean.valueOf(true)));
-  }
+    @Test(timeout=10000)
+    public void relativeHeadRowIndexRelativeHeadRowIndexIsOne() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.relativeHeadRowIndex(1), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void headTest2() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void sheet() {
+        // pojo ExcelWriterSheetBuilder
+        // pojo ExcelWriterSheetBuilder
+        // pojo ExcelWriterSheetBuilder
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.head((List<List<String>>) null));
-  }
+    @Test(timeout=10000)
+    public void useDefaultStyleUseDefaultStyleIsFalse() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.useDefaultStyle(false), sameInstance(excelWriterBuilder));
+    }
 
-  @Test(timeout=10000)
-  public void includeColumnFiledNamesTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+    @Test(timeout=10000)
+    public void withTemplate1() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.withTemplate(new StringBufferInputStream("Broadway")), sameInstance(excelWriterBuilder));
+    }
 
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.includeColumnFiledNames(null));
-  }
-
-  @Test(timeout=10000)
-  public void includeColumnIndexesTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.includeColumnIndexes(null));
-  }
-
-  @Test(timeout=10000)
-  public void excludeColumnIndexesTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.excludeColumnIndexes(null));
-  }
-
-  @Test(timeout=10000)
-  public void useDefaultStyleTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.useDefaultStyle(Boolean.valueOf(true)));
-  }
-
-  @Test(timeout=10000)
-  public void fileTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.file("name"));
-  }
-
-  @Test(timeout=10000)
-  public void withTemplateTest2() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.withTemplate(new ByteArrayInputStream(byteArray)));
-  }
-
-  @Test(timeout=10000)
-  public void autoCloseStreamTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.autoCloseStream(Boolean.valueOf(true)));
-  }
-
-  @Test(timeout=10000)
-  public void headTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.head((Class) null));
-  }
-
-  @Test(timeout=10000)
-  public void withTemplateTest() {
-    // Arrange
-    ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-
-    // Act and Assert
-    assertSame(excelWriterBuilder, excelWriterBuilder.withTemplate((File) null));
-  }
+    @Test(timeout=10000)
+    public void withTemplate2() {
+        ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
+        assertThat(excelWriterBuilder.withTemplate("/bin/bash"), sameInstance(excelWriterBuilder));
+    }
 }
-

@@ -1,43 +1,51 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
+
+import java.util.HashMap;
 import java.util.Map;
+
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.BaseRowModel
+ *
+ * @author Diffblue JCover
+ */
+
 public class BaseRowModelDiffblueTest {
-  @Test(timeout=10000)
-  public void getStyleTest() {
-    // Arrange, Act and Assert
-    assertNull((new BaseRowModel()).getStyle(Integer.valueOf(1)));
-  }
 
-  @Test(timeout=10000)
-  public void getCellStyleMapTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new BaseRowModel()).getCellStyleMap().size());
-  }
+    @Test(timeout=10000)
+    public void addStyleRowIsOne() {
+        BaseRowModel baseRowModel = new BaseRowModel();
+        CellStyle cellStyle = mock(CellStyle.class);
+        baseRowModel.addStyle(1, cellStyle);
+        assertThat(baseRowModel.getCellStyleMap().get(1), sameInstance(cellStyle));
+    }
 
-  @Test(timeout=10000)
-  public void setCellStyleMapTest() {
-    // Arrange
-    BaseRowModel baseRowModel = new BaseRowModel();
+    @Test(timeout=10000)
+    public void getCellStyleMapReturnsEmpty() {
+        BaseRowModel baseRowModel = new BaseRowModel();
+        Map<Integer, CellStyle> result = baseRowModel.getCellStyleMap();
+        assertThat(result.isEmpty(), is(true));
+        assertThat(baseRowModel.getCellStyleMap(), sameInstance(result));
+    }
 
-    // Act
-    baseRowModel.setCellStyleMap(null);
+    @Test(timeout=10000)
+    public void getStyleRowIsOneReturnsNull() {
+        assertThat(new BaseRowModel().getStyle(1), is(nullValue()));
+    }
 
-    // Assert
-    assertNull(baseRowModel.getCellStyleMap());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange, Act and Assert
-    Map<Integer, CellStyle> cellStyleMap = (new BaseRowModel()).getCellStyleMap();
-    assertTrue(cellStyleMap instanceof java.util.HashMap);
-    assertEquals(0, cellStyleMap.size());
-  }
+    @Test(timeout=10000)
+    public void setCellStyleMapToEmpty() {
+        BaseRowModel baseRowModel = new BaseRowModel();
+        Map<Integer, CellStyle> cellStyleMap = new HashMap<Integer, CellStyle>();
+        baseRowModel.setCellStyleMap(cellStyleMap);
+        assertThat(baseRowModel.getCellStyleMap(), sameInstance(cellStyleMap));
+    }
 }
-

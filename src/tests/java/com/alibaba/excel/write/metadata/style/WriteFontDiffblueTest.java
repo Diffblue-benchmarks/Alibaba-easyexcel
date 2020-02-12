@@ -1,195 +1,124 @@
 package com.alibaba.excel.write.metadata.style;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.metadata.style.WriteFont
+ *
+ * @author Diffblue JCover
+ */
+
 public class WriteFontDiffblueTest {
-  @Test(timeout=10000)
-  public void getColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getColor());
-  }
 
-  @Test(timeout=10000)
-  public void setTypeOffsetTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
+    @Test(timeout=10000)
+    public void getBoldReturnsNull() {
+        assertThat(new WriteFont().getBold(), is(nullValue()));
+    }
 
-    // Act
-    writeFont.setTypeOffset(Short.valueOf((short) 291));
+    @Test(timeout=10000)
+    public void getCharsetReturnsNull() {
+        assertThat(new WriteFont().getCharset(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeFont.getTypeOffset());
-  }
+    @Test(timeout=10000)
+    public void getColorReturnsNull() {
+        assertThat(new WriteFont().getColor(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void getStrikeoutTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getStrikeout());
-  }
+    @Test(timeout=10000)
+    public void getFontHeightInPointsReturnsNull() {
+        assertThat(new WriteFont().getFontHeightInPoints(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setUnderlineTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
+    @Test(timeout=10000)
+    public void getFontNameReturnsNull() {
+        assertThat(new WriteFont().getFontName(), is(nullValue()));
+    }
 
-    // Act
-    writeFont.setUnderline(Byte.valueOf((byte) 1));
+    @Test(timeout=10000)
+    public void getItalicReturnsNull() {
+        assertThat(new WriteFont().getItalic(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(Byte.valueOf((byte) 1), writeFont.getUnderline());
-  }
+    @Test(timeout=10000)
+    public void getStrikeoutReturnsNull() {
+        assertThat(new WriteFont().getStrikeout(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setCharsetTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
+    @Test(timeout=10000)
+    public void getTypeOffsetReturnsNull() {
+        assertThat(new WriteFont().getTypeOffset(), is(nullValue()));
+    }
 
-    // Act
-    writeFont.setCharset(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void getUnderlineReturnsNull() {
+        assertThat(new WriteFont().getUnderline(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), writeFont.getCharset());
-  }
+    @Test(timeout=10000)
+    public void setBoldToFalse() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setBold(false);
+        assertThat(writeFont.getBold(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void setBoldTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
+    @Test(timeout=10000)
+    public void setCharsetToOne() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setCharset(1);
+        assertThat(writeFont.getCharset(), is(1));
+    }
 
-    // Act
-    writeFont.setBold(Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void setColorToOne() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setColor((short)1);
+        assertThat(writeFont.getColor(), is((short)1));
+    }
 
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeFont.getBold());
-  }
+    @Test(timeout=10000)
+    public void setFontHeightInPointsToOne() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setFontHeightInPoints((short)1);
+        assertThat(writeFont.getFontHeightInPoints(), is((short)1));
+    }
 
-  @Test(timeout=10000)
-  public void getItalicTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getItalic());
-  }
+    @Test(timeout=10000)
+    public void setFontName() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setFontName("/bin/bash");
+        assertThat(writeFont.getFontName(), is("/bin/bash"));
+    }
 
-  @Test(timeout=10000)
-  public void getUnderlineTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getUnderline());
-  }
+    @Test(timeout=10000)
+    public void setItalicToFalse() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setItalic(false);
+        assertThat(writeFont.getItalic(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void getFontHeightInPointsTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getFontHeightInPoints());
-  }
+    @Test(timeout=10000)
+    public void setStrikeoutToFalse() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setStrikeout(false);
+        assertThat(writeFont.getStrikeout(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void setFontNameTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
+    @Test(timeout=10000)
+    public void setTypeOffsetToOne() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setTypeOffset((short)1);
+        assertThat(writeFont.getTypeOffset(), is((short)1));
+    }
 
-    // Act
-    writeFont.setFontName("name");
-
-    // Assert
-    assertEquals("name", writeFont.getFontName());
-  }
-
-  @Test(timeout=10000)
-  public void getCharsetTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getCharset());
-  }
-
-  @Test(timeout=10000)
-  public void setFontHeightInPointsTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
-
-    // Act
-    writeFont.setFontHeightInPoints(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeFont.getFontHeightInPoints());
-  }
-
-  @Test(timeout=10000)
-  public void setItalicTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
-
-    // Act
-    writeFont.setItalic(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeFont.getItalic());
-  }
-
-  @Test(timeout=10000)
-  public void setStrikeoutTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
-
-    // Act
-    writeFont.setStrikeout(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), writeFont.getStrikeout());
-  }
-
-  @Test(timeout=10000)
-  public void setColorTest() {
-    // Arrange
-    WriteFont writeFont = new WriteFont();
-
-    // Act
-    writeFont.setColor(Short.valueOf((short) 291));
-
-    // Assert
-    assertEquals(Short.valueOf((short) 291), writeFont.getColor());
-  }
-
-  @Test(timeout=10000)
-  public void getFontNameTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getFontName());
-  }
-
-  @Test(timeout=10000)
-  public void getBoldTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getBold());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    WriteFont actualWriteFont = new WriteFont();
-
-    // Assert
-    Short actualFontHeightInPoints = actualWriteFont.getFontHeightInPoints();
-    Byte actualUnderline = actualWriteFont.getUnderline();
-    Boolean actualItalic = actualWriteFont.getItalic();
-    Short actualTypeOffset = actualWriteFont.getTypeOffset();
-    Boolean actualBold = actualWriteFont.getBold();
-    String actualFontName = actualWriteFont.getFontName();
-    Boolean actualStrikeout = actualWriteFont.getStrikeout();
-    Short actualColor = actualWriteFont.getColor();
-    assertNull(actualFontHeightInPoints);
-    assertNull(actualWriteFont.getCharset());
-    assertNull(actualColor);
-    assertNull(actualStrikeout);
-    assertNull(actualFontName);
-    assertNull(actualBold);
-    assertNull(actualTypeOffset);
-    assertNull(actualItalic);
-    assertNull(actualUnderline);
-  }
-
-  @Test(timeout=10000)
-  public void getTypeOffsetTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteFont()).getTypeOffset());
-  }
+    @Test(timeout=10000)
+    public void setUnderlineToOne() {
+        WriteFont writeFont = new WriteFont();
+        writeFont.setUnderline((byte)1);
+        assertThat(writeFont.getUnderline(), is((byte)1));
+    }
 }
-

@@ -1,90 +1,60 @@
 package com.alibaba.excel.read.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.alibaba.excel.read.listener.ReadListener;
-import java.util.ArrayList;
-import java.util.List;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.read.metadata.ReadSheet
+ *
+ * @author Diffblue JCover
+ */
+
 public class ReadSheetDiffblueTest {
-  @Test(timeout=10000)
-  public void setSheetNoTest() {
-    // Arrange
-    ReadSheet readSheet = new ReadSheet();
 
-    // Act
-    readSheet.setSheetNo(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void copyBasicParameter1() {
+        new ReadSheet().copyBasicParameter(new ReadSheet());
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), readSheet.getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void copyBasicParameter2() {
+        new ReadSheet(1).copyBasicParameter(new ReadSheet());
+    }
 
-  @Test(timeout=10000)
-  public void getSheetNoTest() {
-    // Arrange, Act and Assert
-    assertNull((new ReadSheet()).getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void copyBasicParameter3() {
+        new ReadSheet(1, "/bin/bash").copyBasicParameter(new ReadSheet());
+    }
 
-  @Test(timeout=10000)
-  public void getSheetNameTest() {
-    // Arrange, Act and Assert
-    assertNull((new ReadSheet()).getSheetName());
-  }
+    @Test(timeout=10000)
+    public void copyBasicParameterOtherIsNull() {
+        new ReadSheet().copyBasicParameter(null);
+    }
 
-  @Test(timeout=10000)
-  public void copyBasicParameterTest() {
-    // Arrange
-    ReadSheet readSheet = new ReadSheet();
-    ReadSheet readSheet1 = new ReadSheet();
+    @Test(timeout=10000)
+    public void getSheetNameReturnsNull() {
+        assertThat(new ReadSheet().getSheetName(), is(nullValue()));
+    }
 
-    // Act
-    readSheet.copyBasicParameter(readSheet1);
+    @Test(timeout=10000)
+    public void getSheetNoReturnsNull() {
+        assertThat(new ReadSheet().getSheetNo(), is(nullValue()));
+    }
 
-    // Assert
-    Class actualClazz = readSheet.getClazz();
-    List<List<String>> actualHead = readSheet.getHead();
-    Integer actualHeadRowNumber = readSheet.getHeadRowNumber();
-    Boolean actualAutoTrim = readSheet.getAutoTrim();
-    List<ReadListener> actualCustomReadListenerList = readSheet.getCustomReadListenerList();
-    Boolean actualUse1904windowing = readSheet.getUse1904windowing();
-    assertNull(actualClazz);
-    assertNull(readSheet.getCustomConverterList());
-    assertNull(actualUse1904windowing);
-    assertSame(readSheet1.getCustomReadListenerList(), actualCustomReadListenerList);
-    assertNull(actualAutoTrim);
-    assertNull(actualHeadRowNumber);
-    assertNull(actualHead);
-  }
+    @Test(timeout=10000)
+    public void setSheetName() {
+        ReadSheet readSheet = new ReadSheet();
+        readSheet.setSheetName("/bin/bash");
+        assertThat(readSheet.getSheetName(), is("/bin/bash"));
+    }
 
-  @Test(timeout=10000)
-  public void setSheetNameTest() {
-    // Arrange
-    ReadSheet readSheet = new ReadSheet();
-
-    // Act
-    readSheet.setSheetName("name");
-
-    // Assert
-    assertEquals("name", readSheet.getSheetName());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest2() {
-    // Arrange and Act
-    ReadSheet actualReadSheet = new ReadSheet(Integer.valueOf(1), "name");
-
-    // Assert
-    String actualSheetName = actualReadSheet.getSheetName();
-    assertEquals(Integer.valueOf(1), actualReadSheet.getSheetNo());
-    assertEquals("name", actualSheetName);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange, Act and Assert
-    assertEquals(Integer.valueOf(1), (new ReadSheet(Integer.valueOf(1))).getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void setSheetNoToOne() {
+        ReadSheet readSheet = new ReadSheet();
+        readSheet.setSheetNo(1);
+        assertThat(readSheet.getSheetNo(), is(1));
+    }
 }
-

@@ -1,108 +1,59 @@
 package com.alibaba.excel.parameter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import com.alibaba.excel.support.ExcelTypeEnum;
-import java.io.ByteArrayInputStream;
-import java.util.Arrays;
+
+import java.io.InputStream;
+import java.io.StringBufferInputStream;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.parameter.AnalysisParam
+ *
+ * @author Diffblue JCover
+ */
+
 public class AnalysisParamDiffblueTest {
-  @Test(timeout=10000)
-  public void setInTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    AnalysisParam analysisParam = new AnalysisParam(new ByteArrayInputStream(byteArray), ExcelTypeEnum.XLS, "foo");
-    byte[] byteArray1 = new byte[24];
-    Arrays.fill(byteArray1, (byte) 1);
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray1);
 
-    // Act
-    analysisParam.setIn(byteArrayInputStream);
+    @Test(timeout=10000)
+    public void getCustomContent() {
+        Object customContent = new Object();
+        assertThat(new AnalysisParam(new StringBufferInputStream("Broadway"), ExcelTypeEnum.XLS, customContent).getCustomContent(), sameInstance(customContent));
+    }
 
-    // Assert
-    assertSame(byteArrayInputStream, analysisParam.getIn());
-  }
+    @Test(timeout=10000)
+    public void getExcelTypeEnumReturnsXLS() {
+        assertThat(new AnalysisParam(new StringBufferInputStream("Broadway"), ExcelTypeEnum.XLS, new Object()).getExcelTypeEnum(), is(ExcelTypeEnum.XLS));
+    }
 
-  @Test(timeout=10000)
-  public void getInTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+    @Test(timeout=10000)
+    public void getIn() {
+        InputStream in = new StringBufferInputStream("Broadway");
+        assertThat(new AnalysisParam(in, ExcelTypeEnum.XLS, new Object()).getIn(), sameInstance(in));
+    }
 
-    // Act and Assert
-    assertSame(byteArrayInputStream, (new AnalysisParam(byteArrayInputStream, ExcelTypeEnum.XLS, "foo")).getIn());
-  }
+    @Test(timeout=10000)
+    public void setCustomContent() {
+        AnalysisParam analysisParam = new AnalysisParam(new StringBufferInputStream("Broadway"), ExcelTypeEnum.XLS, new Object());
+        Object customContent = new Object();
+        analysisParam.setCustomContent(customContent);
+        assertThat(analysisParam.getCustomContent(), sameInstance(customContent));
+    }
 
-  @Test(timeout=10000)
-  public void getExcelTypeEnumTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
+    @Test(timeout=10000)
+    public void setExcelTypeEnumToXLS() {
+        new AnalysisParam(new StringBufferInputStream("Broadway"), ExcelTypeEnum.XLS, new Object()).setExcelTypeEnum(ExcelTypeEnum.XLS);
+    }
 
-    // Act and Assert
-    assertEquals(ExcelTypeEnum.XLS,
-        (new AnalysisParam(new ByteArrayInputStream(byteArray), ExcelTypeEnum.XLS, "foo")).getExcelTypeEnum());
-  }
-
-  @Test(timeout=10000)
-  public void setExcelTypeEnumTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    AnalysisParam analysisParam = new AnalysisParam(new ByteArrayInputStream(byteArray), ExcelTypeEnum.XLS, "foo");
-
-    // Act
-    analysisParam.setExcelTypeEnum(ExcelTypeEnum.XLS);
-
-    // Assert
-    assertEquals(ExcelTypeEnum.XLS, analysisParam.getExcelTypeEnum());
-  }
-
-  @Test(timeout=10000)
-  public void setCustomContentTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    AnalysisParam analysisParam = new AnalysisParam(new ByteArrayInputStream(byteArray), ExcelTypeEnum.XLS, "foo");
-
-    // Act
-    analysisParam.setCustomContent("foo");
-
-    // Assert
-    assertTrue(analysisParam.getCustomContent() instanceof String);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-
-    // Act
-    AnalysisParam actualAnalysisParam = new AnalysisParam(byteArrayInputStream, ExcelTypeEnum.XLS, "foo");
-
-    // Assert
-    Object customContent = actualAnalysisParam.getCustomContent();
-    ExcelTypeEnum actualExcelTypeEnum = actualAnalysisParam.getExcelTypeEnum();
-    assertTrue(customContent instanceof String);
-    assertSame(byteArrayInputStream, actualAnalysisParam.getIn());
-    assertEquals(ExcelTypeEnum.XLS, actualExcelTypeEnum);
-  }
-
-  @Test(timeout=10000)
-  public void getCustomContentTest() {
-    // Arrange
-    byte[] byteArray = new byte[24];
-    Arrays.fill(byteArray, (byte) 1);
-
-    // Act and Assert
-    assertEquals("foo",
-        (new AnalysisParam(new ByteArrayInputStream(byteArray), ExcelTypeEnum.XLS, "foo")).getCustomContent());
-  }
+    @Test(timeout=10000)
+    public void setIn() {
+        AnalysisParam analysisParam = new AnalysisParam(new StringBufferInputStream("Broadway"), ExcelTypeEnum.XLS, new Object());
+        InputStream in = new StringBufferInputStream("Broadway");
+        analysisParam.setIn(in);
+        assertThat(analysisParam.getIn(), sameInstance(in));
+    }
 }
-

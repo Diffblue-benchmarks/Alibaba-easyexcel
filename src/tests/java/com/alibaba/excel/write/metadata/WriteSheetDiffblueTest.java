@@ -1,83 +1,75 @@
 package com.alibaba.excel.write.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import com.alibaba.excel.metadata.TableStyle;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.metadata.WriteSheet
+ *
+ * @author Diffblue JCover
+ */
+
 public class WriteSheetDiffblueTest {
-  @Test(timeout=10000)
-  public void getColumnWidthMapTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new WriteSheet()).getColumnWidthMap().size());
-  }
 
-  @Test(timeout=10000)
-  public void setTableStyleTest() {
-    // Arrange
-    WriteSheet writeSheet = new WriteSheet();
-    TableStyle tableStyle = new TableStyle();
+    @Test(timeout=10000)
+    public void getColumnWidthMapReturnsEmpty() {
+        WriteSheet writeSheet = new WriteSheet();
+        Map<Integer, Integer> result = writeSheet.getColumnWidthMap();
+        assertThat(result.isEmpty(), is(true));
+        assertThat(writeSheet.getColumnWidthMap(), sameInstance(result));
+    }
 
-    // Act
-    writeSheet.setTableStyle(tableStyle);
+    @Test(timeout=10000)
+    public void getSheetNameReturnsNull() {
+        assertThat(new WriteSheet().getSheetName(), is(nullValue()));
+    }
 
-    // Assert
-    assertSame(tableStyle, writeSheet.getTableStyle());
-  }
+    @Test(timeout=10000)
+    public void getSheetNoReturnsNull() {
+        assertThat(new WriteSheet().getSheetNo(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setSheetNoTest() {
-    // Arrange
-    WriteSheet writeSheet = new WriteSheet();
+    @Test(timeout=10000)
+    public void getTableStyleReturnsNull() {
+        assertThat(new WriteSheet().getTableStyle(), is(nullValue()));
+    }
 
-    // Act
-    writeSheet.setSheetNo(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void setColumnWidthMapToEmpty() {
+        WriteSheet writeSheet = new WriteSheet();
+        Map<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        writeSheet.setColumnWidthMap(columnWidthMap);
+        assertThat(writeSheet.getColumnWidthMap(), sameInstance(columnWidthMap));
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), writeSheet.getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void setSheetName() {
+        WriteSheet writeSheet = new WriteSheet();
+        writeSheet.setSheetName("/bin/bash");
+        assertThat(writeSheet.getSheetName(), is("/bin/bash"));
+    }
 
-  @Test(timeout=10000)
-  public void getSheetNoTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteSheet()).getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void setSheetNoToOne() {
+        WriteSheet writeSheet = new WriteSheet();
+        writeSheet.setSheetNo(1);
+        assertThat(writeSheet.getSheetNo(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void getTableStyleTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteSheet()).getTableStyle());
-  }
-
-  @Test(timeout=10000)
-  public void getSheetNameTest() {
-    // Arrange, Act and Assert
-    assertNull((new WriteSheet()).getSheetName());
-  }
-
-  @Test(timeout=10000)
-  public void setColumnWidthMapTest() {
-    // Arrange
-    WriteSheet writeSheet = new WriteSheet();
-
-    // Act
-    writeSheet.setColumnWidthMap(null);
-
-    // Assert
-    assertNull(writeSheet.getColumnWidthMap());
-  }
-
-  @Test(timeout=10000)
-  public void setSheetNameTest() {
-    // Arrange
-    WriteSheet writeSheet = new WriteSheet();
-
-    // Act
-    writeSheet.setSheetName("name");
-
-    // Assert
-    assertEquals("name", writeSheet.getSheetName());
-  }
+    @Test(timeout=10000)
+    public void setTableStyle() {
+        WriteSheet writeSheet = new WriteSheet();
+        TableStyle tableStyle = new TableStyle();
+        writeSheet.setTableStyle(tableStyle);
+        assertThat(writeSheet.getTableStyle(), sameInstance(tableStyle));
+    }
 }
-

@@ -1,260 +1,146 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.Sheet
+ *
+ * @author Diffblue JCover
+ */
+
 public class SheetDiffblueTest {
-  @Test(timeout=10000)
-  public void getColumnWidthMapTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new Sheet(1)).getColumnWidthMap().size());
-  }
 
-  @Test(timeout=10000)
-  public void setClazzTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
+    @Test(timeout=10000)
+    public void getAutoWidthReturnsFalse() {
+        assertThat(new Sheet(1).getAutoWidth(), is(false));
+    }
 
-    // Act
-    sheet.setClazz(null);
+    @Test(timeout=10000)
+    public void getClazzReturnsNull() {
+        assertThat(new Sheet(1).getClazz(), is(nullValue()));
+    }
 
-    // Assert
-    Class<? extends BaseRowModel> actualClazz = sheet.getClazz();
-    assertNull(actualClazz);
-    assertEquals(1, sheet.getHeadLineMun());
-  }
+    @Test(timeout=10000)
+    public void getColumnWidthMapReturnsEmpty() {
+        Sheet sheet = new Sheet(1);
+        Map<Integer, Integer> result = sheet.getColumnWidthMap();
+        assertThat(result.isEmpty(), is(true));
+        assertThat(sheet.getColumnWidthMap(), sameInstance(result));
+    }
 
-  @Test(timeout=10000)
-  public void setStartRowTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
+    @Test(timeout=10000)
+    public void getHeadLineMun() {
+        assertThat(new Sheet(1, 1).getHeadLineMun(), is(1));
+        assertThat(new Sheet(1).getHeadLineMun(), is(0));
+    }
 
-    // Act
-    sheet.setStartRow(1);
+    @Test(timeout=10000)
+    public void getHeadReturnsNull() {
+        assertThat(new Sheet(1).getHead(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(1, sheet.getStartRow());
-  }
+    @Test(timeout=10000)
+    public void getSheetNameReturnsNull() {
+        assertThat(new Sheet(1).getSheetName(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setTableStyleTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-    TableStyle tableStyle = new TableStyle();
+    @Test(timeout=10000)
+    public void getSheetNo() {
+        assertThat(new Sheet(1).getSheetNo(), is(1));
+        assertThat(new Sheet(0).getSheetNo(), is(0));
+    }
 
-    // Act
-    sheet.setTableStyle(tableStyle);
+    @Test(timeout=10000)
+    public void getStartRow() {
+        assertThat(new Sheet(1).getStartRow(), is(0));
+        assertThat(new Sheet(0, 1).getStartRow(), is(0));
+        assertThat(new Sheet(0, 1, BaseRowModel.class).getStartRow(), is(0));
+        assertThat(new Sheet(0, 1, BaseRowModel.class, "bar", new ArrayList<java.util.List<String>>()).getStartRow(), is(0));
+    }
 
-    // Assert
-    assertSame(tableStyle, sheet.getTableStyle());
-  }
+    @Test(timeout=10000)
+    public void getTableStyleReturnsNull() {
+        assertThat(new Sheet(1).getTableStyle(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest4() {
-    // Arrange and Act
-    Sheet actualSheet = new Sheet(1, 2);
+    @Test(timeout=10000)
+    public void setAutoWidthToFalse() {
+        new Sheet(1).setAutoWidth(false);
+    }
 
-    // Assert
-    String actualToStringResult = actualSheet.toString();
-    int actualHeadLineMun = actualSheet.getHeadLineMun();
-    int actualSheetNo = actualSheet.getSheetNo();
-    Boolean actualAutoWidth = actualSheet.getAutoWidth();
-    assertEquals(0, actualSheet.getStartRow());
-    assertEquals(Boolean.valueOf(false), actualAutoWidth);
-    assertEquals(1, actualSheetNo);
-    assertEquals(2, actualHeadLineMun);
-    assertEquals("Sheet{headLineMun=2, sheetNo=1, sheetName='null'," + " clazz=null, head=null, tableStyle=null,"
-        + " columnWidthMap={}}", actualToStringResult);
-  }
+    @Test(timeout=10000)
+    public void setClazz1() {
+        Sheet sheet = new Sheet(1);
+        sheet.setClazz(BaseRowModel.class);
+        assertThat((Class<BaseRowModel>)sheet.getClazz(), equalTo((Class)BaseRowModel.class));
+        assertThat(sheet.getHeadLineMun(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void getStartRowTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new Sheet(1)).getStartRow());
-  }
+    @Test(timeout=10000)
+    public void setClazz2() {
+        Sheet sheet = new Sheet(1, 1);
+        sheet.setClazz(BaseRowModel.class);
+        assertThat((Class<BaseRowModel>)sheet.getClazz(), equalTo((Class)BaseRowModel.class));
+    }
 
-  @Test(timeout=10000)
-  public void getAutoWidthTest() {
-    // Arrange, Act and Assert
-    assertEquals(Boolean.valueOf(false), (new Sheet(1)).getAutoWidth());
-  }
+    @Test(timeout=10000)
+    public void setColumnWidthMapToEmpty() {
+        Sheet sheet = new Sheet(1);
+        Map<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        sheet.setColumnWidthMap(columnWidthMap);
+        assertThat(sheet.getColumnWidthMap(), sameInstance(columnWidthMap));
+    }
 
-  @Test(timeout=10000)
-  public void getSheetNoTest() {
-    // Arrange, Act and Assert
-    assertEquals(1, (new Sheet(1)).getSheetNo());
-  }
+    @Test(timeout=10000)
+    public void setHeadLineMunToOne() {
+        Sheet sheet = new Sheet(1);
+        sheet.setHeadLineMun(1);
+        assertThat(sheet.getHeadLineMun(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest3() {
-    // Arrange and Act
-    Sheet actualSheet = new Sheet(1, 2, null, "name", null);
+    @Test(timeout=10000)
+    public void setHeadToEmpty() {
+        Sheet sheet = new Sheet(1);
+        List<List<String>> head2 = new ArrayList<List<String>>();
+        sheet.setHead(head2);
+        assertThat(sheet.getHead(), sameInstance(head2));
+    }
 
-    // Assert
-    Class<? extends BaseRowModel> actualClazz = actualSheet.getClazz();
-    List<List<String>> actualHead = actualSheet.getHead();
-    String actualToStringResult = actualSheet.toString();
-    int actualHeadLineMun = actualSheet.getHeadLineMun();
-    int actualSheetNo = actualSheet.getSheetNo();
-    String actualSheetName = actualSheet.getSheetName();
-    Boolean actualAutoWidth = actualSheet.getAutoWidth();
-    assertNull(actualClazz);
-    assertEquals(0, actualSheet.getStartRow());
-    assertEquals(Boolean.valueOf(false), actualAutoWidth);
-    assertEquals("name", actualSheetName);
-    assertEquals(1, actualSheetNo);
-    assertEquals(2, actualHeadLineMun);
-    assertEquals("Sheet{headLineMun=2, sheetNo=1, sheetName='name'," + " clazz=null, head=null, tableStyle=null,"
-        + " columnWidthMap={}}", actualToStringResult);
-    assertNull(actualHead);
-  }
+    @Test(timeout=10000)
+    public void setSheetName() {
+        Sheet sheet = new Sheet(1);
+        sheet.setSheetName("/bin/bash");
+        assertThat(sheet.getSheetName(), is("/bin/bash"));
+    }
 
-  @Test(timeout=10000)
-  public void getHeadLineMunTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new Sheet(1)).getHeadLineMun());
-  }
+    @Test(timeout=10000)
+    public void setSheetNoToOne() {
+        new Sheet(1).setSheetNo(1);
+    }
 
-  @Test(timeout=10000)
-  public void setHeadTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
+    @Test(timeout=10000)
+    public void setStartRowToOne() {
+        Sheet sheet = new Sheet(1);
+        sheet.setStartRow(1);
+        assertThat(sheet.getStartRow(), is(1));
+    }
 
-    // Act
-    sheet.setHead(null);
-
-    // Assert
-    assertNull(sheet.getHead());
-  }
-
-  @Test(timeout=10000)
-  public void setColumnWidthMapTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-
-    // Act
-    sheet.setColumnWidthMap(null);
-
-    // Assert
-    assertNull(sheet.getColumnWidthMap());
-  }
-
-  @Test(timeout=10000)
-  public void getHeadTest() {
-    // Arrange, Act and Assert
-    assertNull((new Sheet(1)).getHead());
-  }
-
-  @Test(timeout=10000)
-  public void setAutoWidthTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-
-    // Act
-    sheet.setAutoWidth(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), sheet.getAutoWidth());
-  }
-
-  @Test(timeout=10000)
-  public void setHeadLineMunTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-
-    // Act
-    sheet.setHeadLineMun(2);
-
-    // Assert
-    assertEquals(2, sheet.getHeadLineMun());
-  }
-
-  @Test(timeout=10000)
-  public void getTableStyleTest() {
-    // Arrange, Act and Assert
-    assertNull((new Sheet(1)).getTableStyle());
-  }
-
-  @Test(timeout=10000)
-  public void getSheetNameTest() {
-    // Arrange, Act and Assert
-    assertNull((new Sheet(1)).getSheetName());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest2() {
-    // Arrange and Act
-    Sheet actualSheet = new Sheet(1);
-
-    // Assert
-    String actualToStringResult = actualSheet.toString();
-    int actualSheetNo = actualSheet.getSheetNo();
-    Boolean actualAutoWidth = actualSheet.getAutoWidth();
-    assertEquals(0, actualSheet.getStartRow());
-    assertEquals(Boolean.valueOf(false), actualAutoWidth);
-    assertEquals(1, actualSheetNo);
-    assertEquals("Sheet{headLineMun=0, sheetNo=1, sheetName='null'," + " clazz=null, head=null, tableStyle=null,"
-        + " columnWidthMap={}}", actualToStringResult);
-  }
-
-  @Test(timeout=10000)
-  public void toStringTest() {
-    // Arrange, Act and Assert
-    assertEquals("Sheet{headLineMun=0, sheetNo=1, sheetName='null'," + " clazz=null, head=null, tableStyle=null,"
-        + " columnWidthMap={}}", (new Sheet(1)).toString());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    Sheet actualSheet = new Sheet(1, 2, null);
-
-    // Assert
-    Class<? extends BaseRowModel> actualClazz = actualSheet.getClazz();
-    String actualToStringResult = actualSheet.toString();
-    int actualHeadLineMun = actualSheet.getHeadLineMun();
-    int actualSheetNo = actualSheet.getSheetNo();
-    Boolean actualAutoWidth = actualSheet.getAutoWidth();
-    assertNull(actualClazz);
-    assertEquals(0, actualSheet.getStartRow());
-    assertEquals(Boolean.valueOf(false), actualAutoWidth);
-    assertEquals(1, actualSheetNo);
-    assertEquals(2, actualHeadLineMun);
-    assertEquals("Sheet{headLineMun=2, sheetNo=1, sheetName='null'," + " clazz=null, head=null, tableStyle=null,"
-        + " columnWidthMap={}}", actualToStringResult);
-  }
-
-  @Test(timeout=10000)
-  public void setSheetNameTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-
-    // Act
-    sheet.setSheetName("name");
-
-    // Assert
-    assertEquals("name", sheet.getSheetName());
-  }
-
-  @Test(timeout=10000)
-  public void setSheetNoTest() {
-    // Arrange
-    Sheet sheet = new Sheet(1);
-
-    // Act
-    sheet.setSheetNo(1);
-
-    // Assert
-    assertEquals(1, sheet.getSheetNo());
-  }
-
-  @Test(timeout=10000)
-  public void getClazzTest() {
-    // Arrange, Act and Assert
-    assertNull((new Sheet(1)).getClazz());
-  }
+    @Test(timeout=10000)
+    public void setTableStyle() {
+        Sheet sheet = new Sheet(1);
+        TableStyle tableStyle = new TableStyle();
+        sheet.setTableStyle(tableStyle);
+        assertThat(sheet.getTableStyle(), sameInstance(tableStyle));
+    }
 }
-

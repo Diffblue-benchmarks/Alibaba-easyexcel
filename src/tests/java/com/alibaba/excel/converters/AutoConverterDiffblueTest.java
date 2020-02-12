@@ -1,43 +1,40 @@
 package com.alibaba.excel.converters;
 
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.converters.AutoConverter
+ *
+ * @author Diffblue JCover
+ */
+
 public class AutoConverterDiffblueTest {
-  @Test(timeout=10000)
-  public void convertToJavaDataTest() {
-    // Arrange
-    AutoConverter autoConverter = new AutoConverter();
-    CellData cellData = new CellData();
-    ExcelContentProperty contentProperty = new ExcelContentProperty();
 
-    // Act and Assert
-    assertNull(autoConverter.convertToJavaData(cellData, contentProperty, new GlobalConfiguration()));
-  }
+    @Test(timeout=10000)
+    public void convertToExcelDataReturnsNull() {
+        assertThat(new AutoConverter().convertToExcelData(new Object(), new ExcelContentProperty(), new GlobalConfiguration()), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void supportExcelTypeKeyTest() {
-    // Arrange, Act and Assert
-    assertNull((new AutoConverter()).supportExcelTypeKey());
-  }
+    @Test(timeout=10000)
+    public void convertToJavaDataReturnsNull() {
+        assertThat(new AutoConverter().convertToJavaData(new CellData(), new ExcelContentProperty(), new GlobalConfiguration()), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void supportJavaTypeKeyTest() {
-    // Arrange, Act and Assert
-    assertNull((new AutoConverter()).supportJavaTypeKey());
-  }
+    @Test(timeout=10000)
+    public void supportExcelTypeKeyReturnsNull() {
+        assertThat(new AutoConverter().supportExcelTypeKey(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void convertToExcelDataTest() {
-    // Arrange
-    AutoConverter autoConverter = new AutoConverter();
-    ExcelContentProperty contentProperty = new ExcelContentProperty();
-
-    // Act and Assert
-    assertNull(autoConverter.convertToExcelData("value", contentProperty, new GlobalConfiguration()));
-  }
+    @Test(timeout=10000)
+    public void supportJavaTypeKeyReturnsNull() {
+        assertThat(new AutoConverter().supportJavaTypeKey(), is(nullValue()));
+    }
 }
-

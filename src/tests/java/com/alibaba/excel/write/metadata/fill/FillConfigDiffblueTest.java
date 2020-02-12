@@ -1,92 +1,55 @@
 package com.alibaba.excel.write.metadata.fill;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import com.alibaba.excel.enums.WriteDirectionEnum;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.write.metadata.fill.FillConfig
+ *
+ * @author Diffblue JCover
+ */
+
 public class FillConfigDiffblueTest {
-  @Test(timeout=10000)
-  public void buildTest2() {
-    // Arrange and Act
-    FillConfig actualBuildResult = FillConfig.builder().build(true);
 
-    // Assert
-    WriteDirectionEnum actualDirection = actualBuildResult.getDirection();
-    assertEquals(WriteDirectionEnum.VERTICAL, actualDirection);
-    assertEquals(Boolean.valueOf(false), actualBuildResult.getForceNewRow());
-  }
+    @Test(timeout=10000)
+    public void builder() {
+        // pojo FillConfig.FillConfigBuilder
+    }
 
-  @Test(timeout=10000)
-  public void buildTest() {
-    // Arrange and Act
-    FillConfig actualBuildResult = FillConfig.builder().build();
+    @Test(timeout=10000)
+    public void getDirectionReturnsNull() {
+        assertThat(new FillConfig().getDirection(), is(nullValue()));
+    }
 
-    // Assert
-    WriteDirectionEnum actualDirection = actualBuildResult.getDirection();
-    assertEquals(WriteDirectionEnum.VERTICAL, actualDirection);
-    assertEquals(Boolean.valueOf(false), actualBuildResult.getForceNewRow());
-  }
+    @Test(timeout=10000)
+    public void getForceNewRowReturnsNull() {
+        assertThat(new FillConfig().getForceNewRow(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void initTest() {
-    // Arrange
-    FillConfig fillConfig = new FillConfig();
+    @Test(timeout=10000)
+    public void init() {
+        FillConfig fillConfig = new FillConfig();
+        fillConfig.init();
+        assertThat(fillConfig.getDirection(), is(WriteDirectionEnum.VERTICAL));
+        assertThat(fillConfig.getForceNewRow(), is(false));
+    }
 
-    // Act
-    fillConfig.init();
+    @Test(timeout=10000)
+    public void setDirectionToVERTICAL() {
+        FillConfig fillConfig = new FillConfig();
+        fillConfig.setDirection(WriteDirectionEnum.VERTICAL);
+        assertThat(fillConfig.getDirection(), is(WriteDirectionEnum.VERTICAL));
+    }
 
-    // Assert
-    WriteDirectionEnum actualDirection = fillConfig.getDirection();
-    assertEquals(WriteDirectionEnum.VERTICAL, actualDirection);
-    assertEquals(Boolean.valueOf(false), fillConfig.getForceNewRow());
-  }
-
-  @Test(timeout=10000)
-  public void setDirectionTest() {
-    // Arrange
-    FillConfig fillConfig = new FillConfig();
-
-    // Act
-    fillConfig.setDirection(WriteDirectionEnum.VERTICAL);
-
-    // Assert
-    assertEquals(WriteDirectionEnum.VERTICAL, fillConfig.getDirection());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    FillConfig actualFillConfig = new FillConfig();
-
-    // Assert
-    WriteDirectionEnum actualDirection = actualFillConfig.getDirection();
-    assertNull(actualDirection);
-    assertNull(actualFillConfig.getForceNewRow());
-  }
-
-  @Test(timeout=10000)
-  public void getForceNewRowTest() {
-    // Arrange, Act and Assert
-    assertNull((new FillConfig()).getForceNewRow());
-  }
-
-  @Test(timeout=10000)
-  public void getDirectionTest() {
-    // Arrange, Act and Assert
-    assertNull((new FillConfig()).getDirection());
-  }
-
-  @Test(timeout=10000)
-  public void setForceNewRowTest() {
-    // Arrange
-    FillConfig fillConfig = new FillConfig();
-
-    // Act
-    fillConfig.setForceNewRow(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), fillConfig.getForceNewRow());
-  }
+    @Test(timeout=10000)
+    public void setForceNewRowToFalse() {
+        FillConfig fillConfig = new FillConfig();
+        fillConfig.setForceNewRow(false);
+        assertThat(fillConfig.getForceNewRow(), is(false));
+    }
 }
-

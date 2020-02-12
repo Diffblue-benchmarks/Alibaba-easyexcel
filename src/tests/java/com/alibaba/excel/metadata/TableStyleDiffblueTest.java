@@ -1,99 +1,68 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.TableStyle
+ *
+ * @author Diffblue JCover
+ */
+
 public class TableStyleDiffblueTest {
-  @Test(timeout=10000)
-  public void getTableContentBackGroundColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new TableStyle()).getTableContentBackGroundColor());
-  }
 
-  @Test(timeout=10000)
-  public void setTableContentFontTest() {
-    // Arrange
-    TableStyle tableStyle = new TableStyle();
-    Font font = new Font();
+    @Test(timeout=10000)
+    public void getTableContentBackGroundColorReturnsNull() {
+        assertThat(new TableStyle().getTableContentBackGroundColor(), is(nullValue()));
+    }
 
-    // Act
-    tableStyle.setTableContentFont(font);
+    @Test(timeout=10000)
+    public void getTableContentFontReturnsNull() {
+        assertThat(new TableStyle().getTableContentFont(), is(nullValue()));
+    }
 
-    // Assert
-    assertSame(font, tableStyle.getTableContentFont());
-  }
+    @Test(timeout=10000)
+    public void getTableHeadBackGroundColorReturnsNull() {
+        assertThat(new TableStyle().getTableHeadBackGroundColor(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setTableHeadBackGroundColorTest() {
-    // Arrange
-    TableStyle tableStyle = new TableStyle();
+    @Test(timeout=10000)
+    public void getTableHeadFontReturnsNull() {
+        assertThat(new TableStyle().getTableHeadFont(), is(nullValue()));
+    }
 
-    // Act
-    tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
+    @Test(timeout=10000)
+    public void setTableContentBackGroundColorToBLACK1() {
+        TableStyle tableStyle = new TableStyle();
+        tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
+        assertThat(tableStyle.getTableContentBackGroundColor(), is(IndexedColors.BLACK1));
+    }
 
-    // Assert
-    assertEquals(IndexedColors.BLACK1, tableStyle.getTableHeadBackGroundColor());
-  }
+    @Test(timeout=10000)
+    public void setTableContentFont() {
+        TableStyle tableStyle = new TableStyle();
+        Font tableContentFont = new Font();
+        tableStyle.setTableContentFont(tableContentFont);
+        assertThat(tableStyle.getTableContentFont(), sameInstance(tableContentFont));
+    }
 
-  @Test(timeout=10000)
-  public void setTableContentBackGroundColorTest() {
-    // Arrange
-    TableStyle tableStyle = new TableStyle();
+    @Test(timeout=10000)
+    public void setTableHeadBackGroundColorToBLACK1() {
+        TableStyle tableStyle = new TableStyle();
+        tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
+        assertThat(tableStyle.getTableHeadBackGroundColor(), is(IndexedColors.BLACK1));
+    }
 
-    // Act
-    tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-
-    // Assert
-    assertEquals(IndexedColors.BLACK1, tableStyle.getTableContentBackGroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void getTableHeadFontTest() {
-    // Arrange, Act and Assert
-    assertNull((new TableStyle()).getTableHeadFont());
-  }
-
-  @Test(timeout=10000)
-  public void getTableContentFontTest() {
-    // Arrange, Act and Assert
-    assertNull((new TableStyle()).getTableContentFont());
-  }
-
-  @Test(timeout=10000)
-  public void getTableHeadBackGroundColorTest() {
-    // Arrange, Act and Assert
-    assertNull((new TableStyle()).getTableHeadBackGroundColor());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    TableStyle actualTableStyle = new TableStyle();
-
-    // Assert
-    IndexedColors actualTableHeadBackGroundColor = actualTableStyle.getTableHeadBackGroundColor();
-    Font actualTableContentFont = actualTableStyle.getTableContentFont();
-    Font actualTableHeadFont = actualTableStyle.getTableHeadFont();
-    assertNull(actualTableHeadBackGroundColor);
-    assertNull(actualTableStyle.getTableContentBackGroundColor());
-    assertNull(actualTableHeadFont);
-    assertNull(actualTableContentFont);
-  }
-
-  @Test(timeout=10000)
-  public void setTableHeadFontTest() {
-    // Arrange
-    TableStyle tableStyle = new TableStyle();
-    Font font = new Font();
-
-    // Act
-    tableStyle.setTableHeadFont(font);
-
-    // Assert
-    assertSame(font, tableStyle.getTableHeadFont());
-  }
+    @Test(timeout=10000)
+    public void setTableHeadFont() {
+        TableStyle tableStyle = new TableStyle();
+        Font tableHeadFont = new Font();
+        tableStyle.setTableHeadFont(tableHeadFont);
+        assertThat(tableStyle.getTableHeadFont(), sameInstance(tableHeadFont));
+    }
 }
-

@@ -1,55 +1,49 @@
 package com.alibaba.excel.metadata.property;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import com.alibaba.excel.annotation.format.NumberFormat;
+
 import java.math.RoundingMode;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.property.NumberFormatProperty
+ *
+ * @author Diffblue JCover
+ */
+
 public class NumberFormatPropertyDiffblueTest {
-  @Test(timeout=10000)
-  public void getRoundingModeTest() {
-    // Arrange, Act and Assert
-    assertEquals(RoundingMode.UP, (new NumberFormatProperty("foo", RoundingMode.UP)).getRoundingMode());
-  }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    NumberFormatProperty actualNumberFormatProperty = new NumberFormatProperty("foo", RoundingMode.UP);
+    @Test(timeout=10000)
+    public void build() {
+        NumberFormat numberFormat = mock(NumberFormat.class);
+        when(numberFormat.roundingMode())
+            .thenReturn(RoundingMode.UP);
+        when(numberFormat.value())
+            .thenReturn("foo");
+        NumberFormatProperty result = NumberFormatProperty.build(numberFormat);
+        assertThat(result.getFormat(), is("foo"));
+        assertThat(result.getRoundingMode(), is(RoundingMode.UP));
+    }
 
-    // Assert
-    String actualFormat = actualNumberFormatProperty.getFormat();
-    assertEquals("foo", actualFormat);
-    assertEquals(RoundingMode.UP, actualNumberFormatProperty.getRoundingMode());
-  }
+    @Test(timeout=10000)
+    public void buildReturnsNull() {
+        assertThat(NumberFormatProperty.build(null), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setFormatTest() {
-    // Arrange
-    NumberFormatProperty numberFormatProperty = new NumberFormatProperty("foo", RoundingMode.UP);
+    @Test(timeout=10000)
+    public void setFormat() {
+        new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP).setFormat("yyyy-MM-dd");
+    }
 
-    // Act
-    numberFormatProperty.setFormat("foo");
-
-    // Assert
-    assertEquals("foo", numberFormatProperty.getFormat());
-  }
-
-  @Test(timeout=10000)
-  public void getFormatTest() {
-    // Arrange, Act and Assert
-    assertEquals("foo", (new NumberFormatProperty("foo", RoundingMode.UP)).getFormat());
-  }
-
-  @Test(timeout=10000)
-  public void setRoundingModeTest() {
-    // Arrange
-    NumberFormatProperty numberFormatProperty = new NumberFormatProperty("foo", RoundingMode.UP);
-
-    // Act
-    numberFormatProperty.setRoundingMode(RoundingMode.UP);
-
-    // Assert
-    assertEquals(RoundingMode.UP, numberFormatProperty.getRoundingMode());
-  }
+    @Test(timeout=10000)
+    public void setRoundingModeToUP() {
+        new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP).setRoundingMode(RoundingMode.UP);
+    }
 }
-

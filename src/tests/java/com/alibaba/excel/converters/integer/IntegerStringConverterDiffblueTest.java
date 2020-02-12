@@ -1,53 +1,47 @@
 package com.alibaba.excel.converters.integer;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
-import java.text.ParseException;
-import org.junit.Rule;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+/**
+ * Unit tests for com.alibaba.excel.converters.integer.IntegerStringConverter
+ *
+ * @author Diffblue JCover
+ */
 
 public class IntegerStringConverterDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
-  @Test(timeout=10000)
-  public void convertToExcelDataTest() {
-    // Arrange
-    IntegerStringConverter integerStringConverter = new IntegerStringConverter();
-    ExcelContentProperty contentProperty = new ExcelContentProperty();
+    @Test(timeout=10000)
+    public void convertToExcelDataValueIsOne() {
+        CellData result = new IntegerStringConverter().convertToExcelData((Integer)1, new ExcelContentProperty(), new GlobalConfiguration());
+        assertThat(result.getBooleanValue(), is(nullValue()));
+        assertThat(result.getData(), is(nullValue()));
+        assertThat(result.getDataFormat(), is(nullValue()));
+        assertThat(result.getDataFormatString(), is(nullValue()));
+        assertThat(result.getFormula(), is(false));
+        assertThat(result.getFormulaValue(), is(nullValue()));
+        assertThat(result.getImageValue(), is(nullValue()));
+        assertThat(result.getNumberValue(), is(nullValue()));
+        assertThat(result.getStringValue(), is("1"));
+        assertThat(result.getType(), is(CellDataTypeEnum.STRING));
+    }
 
-    // Act
-    CellData actualConvertToExcelDataResult = integerStringConverter.convertToExcelData(Integer.valueOf(42),
-        contentProperty, new GlobalConfiguration());
+    @Test(timeout=10000)
+    public void supportExcelTypeKeyReturnsSTRING() {
+        assertThat(new IntegerStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
+    }
 
-    // Assert
-    String actualStringValue = actualConvertToExcelDataResult.getStringValue();
-    CellDataTypeEnum actualType = actualConvertToExcelDataResult.getType();
-    assertEquals("42", actualStringValue);
-    assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
-    assertEquals(CellDataTypeEnum.STRING, actualType);
-  }
-
-  @Test(timeout=10000)
-  public void convertToJavaDataTest() throws ParseException {
-    // Arrange
-    IntegerStringConverter integerStringConverter = new IntegerStringConverter();
-    CellData cellData = new CellData();
-    ExcelContentProperty contentProperty = new ExcelContentProperty();
-
-    // Act and Assert
-    thrown.expect(NumberFormatException.class);
-    integerStringConverter.convertToJavaData(cellData, contentProperty, new GlobalConfiguration());
-  }
-
-  @Test(timeout=10000)
-  public void supportExcelTypeKeyTest() {
-    // Arrange, Act and Assert
-    assertEquals(CellDataTypeEnum.STRING, (new IntegerStringConverter()).supportExcelTypeKey());
-  }
+    @Test(timeout=10000)
+    public void supportJavaTypeKeyReturnsInteger() {
+        assertThat(new IntegerStringConverter().supportJavaTypeKey(), equalTo((Class)Integer.class));
+    }
 }
-

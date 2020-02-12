@@ -1,140 +1,118 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import com.alibaba.excel.metadata.property.ColumnWidthProperty;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.Head
+ *
+ * @author Diffblue JCover
+ */
+
 public class HeadDiffblueTest {
-  @Test(timeout=10000)
-  public void setColumnWidthPropertyTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
-    ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(Integer.valueOf(1));
 
-    // Act
-    head.setColumnWidthProperty(columnWidthProperty);
+    @Test(timeout=10000)
+    public void constructor() {
+        List<String> headNameList = new ArrayList<String>();
+        ((ArrayList<String>)headNameList).add("Smith");
+        Head head = new Head(1, "/bin/bash", headNameList, false, false);
+        assertThat(head.getColumnIndex(), is(1));
+        assertThat(head.getColumnWidthProperty(), is(nullValue()));
+        assertThat(head.getFieldName(), is("/bin/bash"));
+        assertThat(head.getForceIndex(), is(false));
+        assertThat(head.getForceName(), is(false));
+        assertThat(head.getHeadNameList(), sameInstance(headNameList));
+    }
 
-    // Assert
-    assertSame(columnWidthProperty, head.getColumnWidthProperty());
-  }
+    @Test(timeout=10000)
+    public void getColumnIndexReturnsOne() {
+        assertThat(new Head(1, "bar", new ArrayList<String>(), false, false).getColumnIndex(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void setFieldNameTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void getColumnWidthPropertyReturnsNull() {
+        assertThat(new Head(1, "bar", new ArrayList<String>(), false, false).getColumnWidthProperty(), is(nullValue()));
+    }
 
-    // Act
-    head.setFieldName("name");
+    @Test(timeout=10000)
+    public void getFieldNameReturnsBar() {
+        assertThat(new Head(1, "bar", new ArrayList<String>(), false, false).getFieldName(), is("bar"));
+    }
 
-    // Assert
-    assertEquals("name", head.getFieldName());
-  }
+    @Test(timeout=10000)
+    public void getForceIndexReturnsFalse() {
+        assertThat(new Head(1, "bar", new ArrayList<String>(), false, false).getForceIndex(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void setColumnIndexTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void getForceNameReturnsFalse() {
+        assertThat(new Head(1, "bar", new ArrayList<String>(), false, false).getForceName(), is(false));
+    }
 
-    // Act
-    head.setColumnIndex(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void getHeadNameList() {
+        List<String> headNameList = new ArrayList<String>();
+        assertThat(new Head(1, "bar", headNameList, false, false).getHeadNameList(), sameInstance(headNameList));
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), head.getColumnIndex());
-  }
+    @Test(timeout=10000)
+    public void setColumnIndexToOne() {
+        Head head = new Head(0, "/bin/bash", new ArrayList<String>(), false, false);
+        head.setColumnIndex(1);
+        assertThat(head.getColumnIndex(), is(1));
+    }
 
-  @Test(timeout=10000)
-  public void setHeadNameListTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void setColumnWidthProperty() {
+        Head head = new Head(1, "bar", new ArrayList<String>(), false, false);
+        ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
+        head.setColumnWidthProperty(columnWidthProperty);
+        assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
+    }
 
-    // Act
-    head.setHeadNameList(null);
+    @Test(timeout=10000)
+    public void setFieldName() {
+        Head head = new Head(1, "bar", new ArrayList<String>(), false, false);
+        head.setFieldName("/bin/bash");
+        assertThat(head.getFieldName(), is("/bin/bash"));
+    }
 
-    // Assert
-    assertNull(head.getHeadNameList());
-  }
+    @Test(timeout=10000)
+    public void setForceIndexToFalse() {
+        Head head = new Head(1, "/bin/bash", new ArrayList<String>(), true, false);
+        head.setForceIndex(false);
+        assertThat(head.getForceIndex(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    Head actualHead = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void setForceNameToFalse() {
+        Head head = new Head(1, "/bin/bash", new ArrayList<String>(), false, true);
+        head.setForceName(false);
+        assertThat(head.getForceName(), is(false));
+    }
 
-    // Assert
-    Boolean actualForceIndex = actualHead.getForceIndex();
-    String actualFieldName = actualHead.getFieldName();
-    Integer actualColumnIndex = actualHead.getColumnIndex();
-    assertEquals(Boolean.valueOf(true), actualForceIndex);
-    assertEquals(Boolean.valueOf(true), actualHead.getForceName());
-    assertEquals(Integer.valueOf(1), actualColumnIndex);
-    assertEquals("name", actualFieldName);
-  }
+    @Test(timeout=10000)
+    public void setHeadNameList1() {
+        Head head = new Head(1, "bar", new ArrayList<String>(), false, false);
+        List<String> headNameList = new ArrayList<String>();
+        head.setHeadNameList(headNameList);
+        assertThat(head.getHeadNameList(), sameInstance(headNameList));
+    }
 
-  @Test(timeout=10000)
-  public void setForceIndexTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
-
-    // Act
-    head.setForceIndex(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), head.getForceIndex());
-  }
-
-  @Test(timeout=10000)
-  public void setForceNameTest() {
-    // Arrange
-    Head head = new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true));
-
-    // Act
-    head.setForceName(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), head.getForceName());
-  }
-
-  @Test(timeout=10000)
-  public void getForceIndexTest() {
-    // Arrange, Act and Assert
-    assertEquals(Boolean.valueOf(true),
-        (new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true))).getForceIndex());
-  }
-
-  @Test(timeout=10000)
-  public void getHeadNameListTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true)))
-        .getHeadNameList().size());
-  }
-
-  @Test(timeout=10000)
-  public void getForceNameTest() {
-    // Arrange, Act and Assert
-    assertEquals(Boolean.valueOf(true),
-        (new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true))).getForceName());
-  }
-
-  @Test(timeout=10000)
-  public void getColumnIndexTest() {
-    // Arrange, Act and Assert
-    assertEquals(Integer.valueOf(1),
-        (new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true))).getColumnIndex());
-  }
-
-  @Test(timeout=10000)
-  public void getColumnWidthPropertyTest() {
-    // Arrange, Act and Assert
-    assertNull((new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true)))
-        .getColumnWidthProperty());
-  }
-
-  @Test(timeout=10000)
-  public void getFieldNameTest() {
-    // Arrange, Act and Assert
-    assertEquals("name",
-        (new Head(Integer.valueOf(1), "name", null, Boolean.valueOf(true), Boolean.valueOf(true))).getFieldName());
-  }
+    @Test(timeout=10000)
+    public void setHeadNameList2() {
+        Head head = new Head(1, "/bin/bash", null, false, false);
+        List<String> headNameList = new ArrayList<String>();
+        head.setHeadNameList(headNameList);
+        assertThat(head.getHeadNameList(), sameInstance(headNameList));
+    }
 }
-

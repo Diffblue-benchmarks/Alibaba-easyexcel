@@ -1,77 +1,50 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.Font
+ *
+ * @author Diffblue JCover
+ */
+
 public class FontDiffblueTest {
-  @Test(timeout=10000)
-  public void getFontHeightInPointsTest() {
-    // Arrange, Act and Assert
-    assertEquals((short) 0, (new Font()).getFontHeightInPoints());
-  }
 
-  @Test(timeout=10000)
-  public void isBoldTest() {
-    // Arrange, Act and Assert
-    assertFalse((new Font()).isBold());
-  }
+    @Test(timeout=10000)
+    public void getFontHeightInPointsReturnsZero() {
+        assertThat(new Font().getFontHeightInPoints(), is((short)0));
+    }
 
-  @Test(timeout=10000)
-  public void getFontNameTest() {
-    // Arrange, Act and Assert
-    assertNull((new Font()).getFontName());
-  }
+    @Test(timeout=10000)
+    public void getFontNameReturnsNull() {
+        assertThat(new Font().getFontName(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    Font actualFont = new Font();
+    @Test(timeout=10000)
+    public void isBoldReturnsFalse() {
+        assertThat(new Font().isBold(), is(false));
+    }
 
-    // Assert
-    String actualFontName = actualFont.getFontName();
-    boolean actualIsBoldResult = actualFont.isBold();
-    assertNull(actualFontName);
-    assertEquals((short) 0, actualFont.getFontHeightInPoints());
-    assertFalse(actualIsBoldResult);
-  }
+    @Test(timeout=10000)
+    public void setBoldToFalse() {
+        new Font().setBold(false);
+    }
 
-  @Test(timeout=10000)
-  public void setFontHeightInPointsTest() {
-    // Arrange
-    Font font = new Font();
+    @Test(timeout=10000)
+    public void setFontHeightInPointsToOne() {
+        Font font = new Font();
+        font.setFontHeightInPoints((short)1);
+        assertThat(font.getFontHeightInPoints(), is((short)1));
+    }
 
-    // Act
-    font.setFontHeightInPoints((short) 1);
-
-    // Assert
-    assertEquals((short) 1, font.getFontHeightInPoints());
-  }
-
-  @Test(timeout=10000)
-  public void setBoldTest() {
-    // Arrange
-    Font font = new Font();
-
-    // Act
-    font.setBold(true);
-
-    // Assert
-    assertTrue(font.isBold());
-  }
-
-  @Test(timeout=10000)
-  public void setFontNameTest() {
-    // Arrange
-    Font font = new Font();
-
-    // Act
-    font.setFontName("name");
-
-    // Assert
-    assertEquals("name", font.getFontName());
-  }
+    @Test(timeout=10000)
+    public void setFontName() {
+        Font font = new Font();
+        font.setFontName("/bin/bash");
+        assertThat(font.getFontName(), is("/bin/bash"));
+    }
 }
-

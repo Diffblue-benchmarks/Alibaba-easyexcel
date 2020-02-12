@@ -1,55 +1,47 @@
 package com.alibaba.excel.metadata.property;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import com.alibaba.excel.annotation.format.DateTimeFormat;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.property.DateTimeFormatProperty
+ *
+ * @author Diffblue JCover
+ */
+
 public class DateTimeFormatPropertyDiffblueTest {
-  @Test(timeout=10000)
-  public void getUse1904windowingTest() {
-    // Arrange, Act and Assert
-    assertEquals(Boolean.valueOf(true),
-        (new DateTimeFormatProperty("foo", Boolean.valueOf(true))).getUse1904windowing());
-  }
 
-  @Test(timeout=10000)
-  public void setFormatTest() {
-    // Arrange
-    DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("foo", Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void build() {
+        DateTimeFormat dateTimeFormat = mock(DateTimeFormat.class);
+        when(dateTimeFormat.use1904windowing())
+            .thenReturn(false);
+        when(dateTimeFormat.value())
+            .thenReturn("foo");
+        DateTimeFormatProperty result = DateTimeFormatProperty.build(dateTimeFormat);
+        assertThat(result.getFormat(), is("foo"));
+        assertThat(result.getUse1904windowing(), is(false));
+    }
 
-    // Act
-    dateTimeFormatProperty.setFormat("foo");
+    @Test(timeout=10000)
+    public void buildReturnsNull() {
+        assertThat(DateTimeFormatProperty.build(null), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals("foo", dateTimeFormatProperty.getFormat());
-  }
+    @Test(timeout=10000)
+    public void setFormat() {
+        new DateTimeFormatProperty("yyyy-MM-dd", false).setFormat("yyyy-MM-dd");
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    DateTimeFormatProperty actualDateTimeFormatProperty = new DateTimeFormatProperty("foo", Boolean.valueOf(true));
-
-    // Assert
-    String actualFormat = actualDateTimeFormatProperty.getFormat();
-    assertEquals("foo", actualFormat);
-    assertEquals(Boolean.valueOf(true), actualDateTimeFormatProperty.getUse1904windowing());
-  }
-
-  @Test(timeout=10000)
-  public void getFormatTest() {
-    // Arrange, Act and Assert
-    assertEquals("foo", (new DateTimeFormatProperty("foo", Boolean.valueOf(true))).getFormat());
-  }
-
-  @Test(timeout=10000)
-  public void setUse1904windowingTest() {
-    // Arrange
-    DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("foo", Boolean.valueOf(true));
-
-    // Act
-    dateTimeFormatProperty.setUse1904windowing(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), dateTimeFormatProperty.getUse1904windowing());
-  }
+    @Test(timeout=10000)
+    public void setUse1904windowingToFalse() {
+        new DateTimeFormatProperty("yyyy-MM-dd", false).setUse1904windowing(false);
+    }
 }
-

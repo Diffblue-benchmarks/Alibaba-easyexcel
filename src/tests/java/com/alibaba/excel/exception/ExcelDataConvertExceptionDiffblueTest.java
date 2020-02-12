@@ -1,139 +1,52 @@
 package com.alibaba.excel.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsSame.sameInstance;
+
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.exception.ExcelDataConvertException
+ *
+ * @author Diffblue JCover
+ */
+
 public class ExcelDataConvertExceptionDiffblueTest {
-  @Test(timeout=10000)
-  public void setExcelContentPropertyTest() {
-    // Arrange
-    ExcelDataConvertException excelDataConvertException = new ExcelDataConvertException("An error occurred");
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
 
-    // Act
-    excelDataConvertException.setExcelContentProperty(excelContentProperty);
+    @Test(timeout=10000)
+    public void getColumnIndexReturnsOne() {
+        assertThat(new ExcelDataConvertException(1, 1, new ExcelContentProperty(), "jpg").getColumnIndex(), is(1));
+    }
 
-    // Assert
-    assertSame(excelContentProperty, excelDataConvertException.getExcelContentProperty());
-  }
+    @Test(timeout=10000)
+    public void getExcelContentProperty() {
+        ExcelContentProperty excelContentProperty1 = new ExcelContentProperty();
+        assertThat(new ExcelDataConvertException(1, 1, excelContentProperty1, "jpg").getExcelContentProperty(), sameInstance(excelContentProperty1));
+    }
 
-  @Test(timeout=10000)
-  public void setColumnIndexTest() {
-    // Arrange
-    ExcelDataConvertException excelDataConvertException = new ExcelDataConvertException("An error occurred");
+    @Test(timeout=10000)
+    public void getRowIndexReturnsOne() {
+        assertThat(new ExcelDataConvertException(1, 1, new ExcelContentProperty(), "jpg").getRowIndex(), is(1));
+    }
 
-    // Act
-    excelDataConvertException.setColumnIndex(Integer.valueOf(1));
+    @Test(timeout=10000)
+    public void setColumnIndexToOne() {
+        new ExcelDataConvertException(1, 1, new ExcelContentProperty(), "jpg").setColumnIndex(1);
+    }
 
-    // Assert
-    assertEquals(Integer.valueOf(1), excelDataConvertException.getColumnIndex());
-  }
+    @Test(timeout=10000)
+    public void setExcelContentProperty() {
+        ExcelDataConvertException excelDataConvertException = new ExcelDataConvertException(1, 1, new ExcelContentProperty(), "jpg");
+        ExcelContentProperty excelContentProperty2 = new ExcelContentProperty();
+        excelDataConvertException.setExcelContentProperty(excelContentProperty2);
+        assertThat(excelDataConvertException.getExcelContentProperty(), sameInstance(excelContentProperty2));
+    }
 
-  @Test(timeout=10000)
-  public void getColumnIndexTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelDataConvertException("An error occurred")).getColumnIndex());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest5() {
-    // Arrange and Act
-    ExcelDataConvertException actualExcelDataConvertException = new ExcelDataConvertException((Throwable) null);
-
-    // Assert
-    Integer actualRowIndex = actualExcelDataConvertException.getRowIndex();
-    ExcelContentProperty actualExcelContentProperty = actualExcelDataConvertException.getExcelContentProperty();
-    assertNull(actualRowIndex);
-    assertNull(actualExcelDataConvertException.getColumnIndex());
-    assertNull(actualExcelContentProperty);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest4() {
-    // Arrange and Act
-    ExcelDataConvertException actualExcelDataConvertException = new ExcelDataConvertException("An error occurred");
-
-    // Assert
-    Integer actualRowIndex = actualExcelDataConvertException.getRowIndex();
-    ExcelContentProperty actualExcelContentProperty = actualExcelDataConvertException.getExcelContentProperty();
-    assertNull(actualRowIndex);
-    assertNull(actualExcelDataConvertException.getColumnIndex());
-    assertNull(actualExcelContentProperty);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest3() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-
-    // Act
-    ExcelDataConvertException actualExcelDataConvertException = new ExcelDataConvertException(Integer.valueOf(1),
-        Integer.valueOf(1), excelContentProperty, "An error occurred");
-
-    // Assert
-    Integer actualRowIndex = actualExcelDataConvertException.getRowIndex();
-    ExcelContentProperty actualExcelContentProperty = actualExcelDataConvertException.getExcelContentProperty();
-    assertEquals(Integer.valueOf(1), actualRowIndex);
-    assertEquals(Integer.valueOf(1), actualExcelDataConvertException.getColumnIndex());
-    assertSame(excelContentProperty, actualExcelContentProperty);
-  }
-
-  @Test(timeout=10000)
-  public void setRowIndexTest() {
-    // Arrange
-    ExcelDataConvertException excelDataConvertException = new ExcelDataConvertException("An error occurred");
-
-    // Act
-    excelDataConvertException.setRowIndex(Integer.valueOf(1));
-
-    // Assert
-    assertEquals(Integer.valueOf(1), excelDataConvertException.getRowIndex());
-  }
-
-  @Test(timeout=10000)
-  public void getExcelContentPropertyTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelDataConvertException("An error occurred")).getExcelContentProperty());
-  }
-
-  @Test(timeout=10000)
-  public void getRowIndexTest() {
-    // Arrange, Act and Assert
-    assertNull((new ExcelDataConvertException("An error occurred")).getRowIndex());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest2() {
-    // Arrange
-    ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-
-    // Act
-    ExcelDataConvertException actualExcelDataConvertException = new ExcelDataConvertException(Integer.valueOf(1),
-        Integer.valueOf(1), excelContentProperty, "An error occurred", null);
-
-    // Assert
-    Integer actualRowIndex = actualExcelDataConvertException.getRowIndex();
-    ExcelContentProperty actualExcelContentProperty = actualExcelDataConvertException.getExcelContentProperty();
-    assertEquals(Integer.valueOf(1), actualRowIndex);
-    assertEquals(Integer.valueOf(1), actualExcelDataConvertException.getColumnIndex());
-    assertSame(excelContentProperty, actualExcelContentProperty);
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    ExcelDataConvertException actualExcelDataConvertException = new ExcelDataConvertException("An error occurred",
-        null);
-
-    // Assert
-    Integer actualRowIndex = actualExcelDataConvertException.getRowIndex();
-    ExcelContentProperty actualExcelContentProperty = actualExcelDataConvertException.getExcelContentProperty();
-    assertNull(actualRowIndex);
-    assertNull(actualExcelDataConvertException.getColumnIndex());
-    assertNull(actualExcelContentProperty);
-  }
+    @Test(timeout=10000)
+    public void setRowIndexToOne() {
+        new ExcelDataConvertException(1, 1, new ExcelContentProperty(), "jpg").setRowIndex(1);
+    }
 }
-

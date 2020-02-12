@@ -1,88 +1,70 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.Table
+ *
+ * @author Diffblue JCover
+ */
+
 public class TableDiffblueTest {
-  @Test(timeout=10000)
-  public void setClazzTest() {
-    // Arrange
-    Table table = new Table(Integer.valueOf(1));
 
-    // Act
-    table.setClazz(null);
+    @Test(timeout=10000)
+    public void getClazzReturnsNull() {
+        assertThat(new Table(1).getClazz(), is(nullValue()));
+    }
 
-    // Assert
-    assertNull(table.getClazz());
-  }
+    @Test(timeout=10000)
+    public void getHeadReturnsNull() {
+        assertThat(new Table(1).getHead(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void setTableStyleTest() {
-    // Arrange
-    Table table = new Table(Integer.valueOf(1));
-    TableStyle tableStyle = new TableStyle();
+    @Test(timeout=10000)
+    public void getTableNo() {
+        assertThat(new Table(1).getTableNo(), is(1));
+        assertThat(new Table(0).getTableNo(), is(0));
+    }
 
-    // Act
-    table.setTableStyle(tableStyle);
+    @Test(timeout=10000)
+    public void getTableStyleReturnsNull() {
+        assertThat(new Table(1).getTableStyle(), is(nullValue()));
+    }
 
-    // Assert
-    assertSame(tableStyle, table.getTableStyle());
-  }
+    @Test(timeout=10000)
+    public void setClazzToBaseRowModel() {
+        Table table = new Table(1);
+        table.setClazz(BaseRowModel.class);
+        assertThat((Class<BaseRowModel>)table.getClazz(), equalTo((Class)BaseRowModel.class));
+    }
 
-  @Test(timeout=10000)
-  public void getTableNoTest() {
-    // Arrange, Act and Assert
-    assertEquals(1, (new Table(Integer.valueOf(1))).getTableNo());
-  }
+    @Test(timeout=10000)
+    public void setHeadToEmpty() {
+        Table table = new Table(1);
+        List<List<String>> head = new ArrayList<List<String>>();
+        table.setHead(head);
+        assertThat(table.getHead(), sameInstance(head));
+    }
 
-  @Test(timeout=10000)
-  public void getTableStyleTest() {
-    // Arrange, Act and Assert
-    assertNull((new Table(Integer.valueOf(1))).getTableStyle());
-  }
+    @Test(timeout=10000)
+    public void setTableNoToOne() {
+        new Table(1).setTableNo(1);
+    }
 
-  @Test(timeout=10000)
-  public void setHeadTest() {
-    // Arrange
-    Table table = new Table(Integer.valueOf(1));
-
-    // Act
-    table.setHead(null);
-
-    // Assert
-    assertNull(table.getHead());
-  }
-
-  @Test(timeout=10000)
-  public void setTableNoTest() {
-    // Arrange
-    Table table = new Table(Integer.valueOf(1));
-
-    // Act
-    table.setTableNo(1);
-
-    // Assert
-    assertEquals(1, table.getTableNo());
-  }
-
-  @Test(timeout=10000)
-  public void getHeadTest() {
-    // Arrange, Act and Assert
-    assertNull((new Table(Integer.valueOf(1))).getHead());
-  }
-
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange, Act and Assert
-    assertEquals(1, (new Table(Integer.valueOf(1))).getTableNo());
-  }
-
-  @Test(timeout=10000)
-  public void getClazzTest() {
-    // Arrange, Act and Assert
-    assertNull((new Table(Integer.valueOf(1))).getClazz());
-  }
+    @Test(timeout=10000)
+    public void setTableStyle() {
+        Table table = new Table(1);
+        TableStyle tableStyle = new TableStyle();
+        table.setTableStyle(tableStyle);
+        assertThat(table.getTableStyle(), sameInstance(tableStyle));
+    }
 }
-

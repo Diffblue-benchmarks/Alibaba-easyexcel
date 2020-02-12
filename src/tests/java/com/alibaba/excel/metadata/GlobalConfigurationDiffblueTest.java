@@ -1,55 +1,40 @@
 package com.alibaba.excel.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.metadata.GlobalConfiguration
+ *
+ * @author Diffblue JCover
+ */
+
 public class GlobalConfigurationDiffblueTest {
-  @Test(timeout=10000)
-  public void setAutoTrimTest() {
-    // Arrange
-    GlobalConfiguration globalConfiguration = new GlobalConfiguration();
 
-    // Act
-    globalConfiguration.setAutoTrim(Boolean.valueOf(true));
+    @Test(timeout=10000)
+    public void getAutoTrimReturnsNull() {
+        assertThat(new GlobalConfiguration().getAutoTrim(), is(nullValue()));
+    }
 
-    // Assert
-    assertEquals(Boolean.valueOf(true), globalConfiguration.getAutoTrim());
-  }
+    @Test(timeout=10000)
+    public void getUse1904windowingReturnsNull() {
+        assertThat(new GlobalConfiguration().getUse1904windowing(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void getUse1904windowingTest() {
-    // Arrange, Act and Assert
-    assertNull((new GlobalConfiguration()).getUse1904windowing());
-  }
+    @Test(timeout=10000)
+    public void setAutoTrimToFalse() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setAutoTrim(false);
+        assertThat(globalConfiguration.getAutoTrim(), is(false));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    GlobalConfiguration actualGlobalConfiguration = new GlobalConfiguration();
-
-    // Assert
-    Boolean actualAutoTrim = actualGlobalConfiguration.getAutoTrim();
-    assertNull(actualAutoTrim);
-    assertNull(actualGlobalConfiguration.getUse1904windowing());
-  }
-
-  @Test(timeout=10000)
-  public void getAutoTrimTest() {
-    // Arrange, Act and Assert
-    assertNull((new GlobalConfiguration()).getAutoTrim());
-  }
-
-  @Test(timeout=10000)
-  public void setUse1904windowingTest() {
-    // Arrange
-    GlobalConfiguration globalConfiguration = new GlobalConfiguration();
-
-    // Act
-    globalConfiguration.setUse1904windowing(Boolean.valueOf(true));
-
-    // Assert
-    assertEquals(Boolean.valueOf(true), globalConfiguration.getUse1904windowing());
-  }
+    @Test(timeout=10000)
+    public void setUse1904windowingToFalse() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setUse1904windowing(false);
+        assertThat(globalConfiguration.getUse1904windowing(), is(false));
+    }
 }
-

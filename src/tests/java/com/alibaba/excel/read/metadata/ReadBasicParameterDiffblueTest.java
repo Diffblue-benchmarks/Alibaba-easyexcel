@@ -1,69 +1,49 @@
 package com.alibaba.excel.read.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.core.IsSame.sameInstance;
 import static org.junit.Assert.assertTrue;
-import com.alibaba.excel.read.listener.ReadListener;
+
+import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
 
+/**
+ * Unit tests for com.alibaba.excel.read.metadata.ReadBasicParameter
+ *
+ * @author Diffblue JCover
+ */
+
 public class ReadBasicParameterDiffblueTest {
-  @Test(timeout=10000)
-  public void setCustomReadListenerListTest() {
-    // Arrange
-    ReadBasicParameter readBasicParameter = new ReadBasicParameter();
 
-    // Act
-    readBasicParameter.setCustomReadListenerList(null);
+    @Test(timeout=10000)
+    public void getCustomReadListenerListReturnsEmpty() {
+        ReadBasicParameter readBasicParameter = new ReadBasicParameter();
+        List<com.alibaba.excel.read.listener.ReadListener> result = readBasicParameter.getCustomReadListenerList();
+        assertTrue(result.isEmpty());
+        assertThat(readBasicParameter.getCustomReadListenerList(), sameInstance(result));
+    }
 
-    // Assert
-    assertNull(readBasicParameter.getCustomReadListenerList());
-  }
+    @Test(timeout=10000)
+    public void getHeadRowNumberReturnsNull() {
+        assertThat(new ReadBasicParameter().getHeadRowNumber(), is(nullValue()));
+    }
 
-  @Test(timeout=10000)
-  public void getCustomReadListenerListTest() {
-    // Arrange, Act and Assert
-    assertEquals(0, (new ReadBasicParameter()).getCustomReadListenerList().size());
-  }
+    @Test(timeout=10000)
+    public void setCustomReadListenerListToEmpty() {
+        ReadBasicParameter readBasicParameter = new ReadBasicParameter();
+        List<com.alibaba.excel.read.listener.ReadListener> customReadListenerList = new ArrayList<com.alibaba.excel.read.listener.ReadListener>();
+        readBasicParameter.setCustomReadListenerList(customReadListenerList);
+        assertThat(readBasicParameter.getCustomReadListenerList(), sameInstance(customReadListenerList));
+    }
 
-  @Test(timeout=10000)
-  public void constructorTest() {
-    // Arrange and Act
-    ReadBasicParameter actualReadBasicParameter = new ReadBasicParameter();
-
-    // Assert
-    Class actualClazz = actualReadBasicParameter.getClazz();
-    List<List<String>> actualHead = actualReadBasicParameter.getHead();
-    Integer actualHeadRowNumber = actualReadBasicParameter.getHeadRowNumber();
-    Boolean actualAutoTrim = actualReadBasicParameter.getAutoTrim();
-    List<ReadListener> customReadListenerList = actualReadBasicParameter.getCustomReadListenerList();
-    Boolean actualUse1904windowing = actualReadBasicParameter.getUse1904windowing();
-    assertNull(actualClazz);
-    assertNull(actualReadBasicParameter.getCustomConverterList());
-    assertNull(actualUse1904windowing);
-    assertTrue(customReadListenerList instanceof java.util.ArrayList);
-    assertNull(actualAutoTrim);
-    assertEquals(0, customReadListenerList.size());
-    assertNull(actualHeadRowNumber);
-    assertNull(actualHead);
-  }
-
-  @Test(timeout=10000)
-  public void setHeadRowNumberTest() {
-    // Arrange
-    ReadBasicParameter readBasicParameter = new ReadBasicParameter();
-
-    // Act
-    readBasicParameter.setHeadRowNumber(Integer.valueOf(10));
-
-    // Assert
-    assertEquals(Integer.valueOf(10), readBasicParameter.getHeadRowNumber());
-  }
-
-  @Test(timeout=10000)
-  public void getHeadRowNumberTest() {
-    // Arrange, Act and Assert
-    assertNull((new ReadBasicParameter()).getHeadRowNumber());
-  }
+    @Test(timeout=10000)
+    public void setHeadRowNumberToOne() {
+        ReadBasicParameter readBasicParameter = new ReadBasicParameter();
+        readBasicParameter.setHeadRowNumber(1);
+        assertThat(readBasicParameter.getHeadRowNumber(), is(1));
+    }
 }
-

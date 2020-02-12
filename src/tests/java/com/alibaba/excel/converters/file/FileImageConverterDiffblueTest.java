@@ -1,32 +1,28 @@
 package com.alibaba.excel.converters.file;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 import com.alibaba.excel.enums.CellDataTypeEnum;
-import com.alibaba.excel.metadata.CellData;
-import com.alibaba.excel.metadata.GlobalConfiguration;
-import com.alibaba.excel.metadata.property.ExcelContentProperty;
-import org.junit.Rule;
+
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+/**
+ * Unit tests for com.alibaba.excel.converters.file.FileImageConverter
+ *
+ * @author Diffblue JCover
+ */
 
 public class FileImageConverterDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-  @Test(timeout=10000)
-  public void supportExcelTypeKeyTest() {
-    // Arrange, Act and Assert
-    assertEquals(CellDataTypeEnum.IMAGE, (new FileImageConverter()).supportExcelTypeKey());
-  }
-  @Test(timeout=10000)
-  public void convertToJavaDataTest() {
-    // Arrange
-    FileImageConverter fileImageConverter = new FileImageConverter();
-    CellData cellData = new CellData();
-    ExcelContentProperty contentProperty = new ExcelContentProperty();
 
-    // Act and Assert
-    thrown.expect(UnsupportedOperationException.class);
-    fileImageConverter.convertToJavaData(cellData, contentProperty, new GlobalConfiguration());
-  }
+    @Test(timeout=10000)
+    public void supportExcelTypeKeyReturnsIMAGE() {
+        assertThat(new FileImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
+    }
+
+    @Test(timeout=10000)
+    public void supportJavaTypeKeyReturnsFile() {
+        assertThat(new FileImageConverter().supportJavaTypeKey(), equalTo((Class)java.io.File.class));
+    }
 }
-
