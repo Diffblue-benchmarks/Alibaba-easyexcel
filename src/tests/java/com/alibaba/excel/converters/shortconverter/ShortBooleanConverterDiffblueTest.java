@@ -15,6 +15,24 @@ public class ShortBooleanConverterDiffblueTest {
   }
 
   @Test(timeout=10000)
+  public void convertToExcelDataTest2() {
+    // Arrange
+    ShortBooleanConverter shortBooleanConverter = new ShortBooleanConverter();
+    ExcelContentProperty contentProperty = new ExcelContentProperty();
+
+    // Act
+    CellData actualConvertToExcelDataResult = shortBooleanConverter.convertToExcelData(Short.valueOf((short) -1),
+        contentProperty, new GlobalConfiguration());
+
+    // Assert
+    Boolean actualBooleanValue = actualConvertToExcelDataResult.getBooleanValue();
+    CellDataTypeEnum actualType = actualConvertToExcelDataResult.getType();
+    assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
+    assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
+    assertEquals(Boolean.valueOf(false), actualBooleanValue);
+  }
+
+  @Test(timeout=10000)
   public void convertToExcelDataTest() {
     // Arrange
     ShortBooleanConverter shortBooleanConverter = new ShortBooleanConverter();

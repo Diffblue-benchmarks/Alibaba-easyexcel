@@ -15,6 +15,24 @@ public class LongBooleanConverterDiffblueTest {
   }
 
   @Test(timeout=10000)
+  public void convertToExcelDataTest2() {
+    // Arrange
+    LongBooleanConverter longBooleanConverter = new LongBooleanConverter();
+    ExcelContentProperty contentProperty = new ExcelContentProperty();
+
+    // Act
+    CellData actualConvertToExcelDataResult = longBooleanConverter.convertToExcelData(Long.valueOf(1L), contentProperty,
+        new GlobalConfiguration());
+
+    // Assert
+    Boolean actualBooleanValue = actualConvertToExcelDataResult.getBooleanValue();
+    CellDataTypeEnum actualType = actualConvertToExcelDataResult.getType();
+    assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
+    assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
+    assertEquals(Boolean.valueOf(true), actualBooleanValue);
+  }
+
+  @Test(timeout=10000)
   public void convertToExcelDataTest() {
     // Arrange
     LongBooleanConverter longBooleanConverter = new LongBooleanConverter();

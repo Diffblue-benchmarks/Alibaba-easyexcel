@@ -15,7 +15,7 @@ public class ByteBooleanConverterDiffblueTest {
   }
 
   @Test(timeout=10000)
-  public void convertToExcelDataTest() {
+  public void convertToExcelDataTest2() {
     // Arrange
     ByteBooleanConverter byteBooleanConverter = new ByteBooleanConverter();
     ExcelContentProperty contentProperty = new ExcelContentProperty();
@@ -30,6 +30,24 @@ public class ByteBooleanConverterDiffblueTest {
     assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
     assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
     assertEquals(Boolean.valueOf(true), actualBooleanValue);
+  }
+
+  @Test(timeout=10000)
+  public void convertToExcelDataTest() {
+    // Arrange
+    ByteBooleanConverter byteBooleanConverter = new ByteBooleanConverter();
+    ExcelContentProperty contentProperty = new ExcelContentProperty();
+
+    // Act
+    CellData actualConvertToExcelDataResult = byteBooleanConverter.convertToExcelData(Byte.valueOf((byte) 127),
+        contentProperty, new GlobalConfiguration());
+
+    // Assert
+    Boolean actualBooleanValue = actualConvertToExcelDataResult.getBooleanValue();
+    CellDataTypeEnum actualType = actualConvertToExcelDataResult.getType();
+    assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
+    assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
+    assertEquals(Boolean.valueOf(false), actualBooleanValue);
   }
 }
 

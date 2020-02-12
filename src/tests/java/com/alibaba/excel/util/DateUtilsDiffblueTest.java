@@ -12,10 +12,16 @@ public class DateUtilsDiffblueTest {
   @Rule
   public ExpectedException thrown = ExpectedException.none();
   @Test(timeout=10000)
-  public void parseDateTest2() throws ParseException {
+  public void parseDateTest3() throws ParseException {
     // Arrange, Act and Assert
     thrown.expect(IllegalArgumentException.class);
     DateUtils.parseDate("foo", "foo");
+  }
+  @Test(timeout=10000)
+  public void parseDateTest2() throws ParseException {
+    // Arrange, Act and Assert
+    thrown.expect(ExcelDataConvertException.class);
+    DateUtils.parseDate("foo", "");
   }
   @Test(timeout=10000)
   public void formatTest2() {

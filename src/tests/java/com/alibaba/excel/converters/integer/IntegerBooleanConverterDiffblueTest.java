@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class IntegerBooleanConverterDiffblueTest {
   @Test(timeout=10000)
-  public void convertToExcelDataTest() {
+  public void convertToExcelDataTest2() {
     // Arrange
     IntegerBooleanConverter integerBooleanConverter = new IntegerBooleanConverter();
     ExcelContentProperty contentProperty = new ExcelContentProperty();
@@ -24,6 +24,24 @@ public class IntegerBooleanConverterDiffblueTest {
     assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
     assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
     assertEquals(Boolean.valueOf(false), actualBooleanValue);
+  }
+
+  @Test(timeout=10000)
+  public void convertToExcelDataTest() {
+    // Arrange
+    IntegerBooleanConverter integerBooleanConverter = new IntegerBooleanConverter();
+    ExcelContentProperty contentProperty = new ExcelContentProperty();
+
+    // Act
+    CellData actualConvertToExcelDataResult = integerBooleanConverter.convertToExcelData(Integer.valueOf(1),
+        contentProperty, new GlobalConfiguration());
+
+    // Assert
+    Boolean actualBooleanValue = actualConvertToExcelDataResult.getBooleanValue();
+    CellDataTypeEnum actualType = actualConvertToExcelDataResult.getType();
+    assertEquals(Boolean.valueOf(false), actualConvertToExcelDataResult.getFormula());
+    assertEquals(CellDataTypeEnum.BOOLEAN, actualType);
+    assertEquals(Boolean.valueOf(true), actualBooleanValue);
   }
 
   @Test(timeout=10000)
