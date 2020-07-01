@@ -17,8 +17,52 @@
     <properties>
         <!--<gpg.skip>true</gpg.skip>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdk.version>1.7</jdk.version>
-    </properties>
+	<jdk.version>1.7</jdk.version>
+	<currentTestSourceDirectory>src/test/java</currentTestSourceDirectory>
+</properties>
+<profiles>
+    <profile>
+      <id>Dcover</id>
+      <properties>
+        <currentTestSourceDirectory>src/dcover/java</currentTestSourceDirectory>
+      </properties>
+    </profile>
+    <profile>
+      <id>Jcover</id>
+      <properties>
+        <currentTestSourceDirectory>src/jcover/java</currentTestSourceDirectory>
+      </properties>
+    </profile>
+    <profile>
+      <id>Combined</id>
+      <properties>
+        <currentTestSourceDirectory>src/jcover/java</currentTestSourceDirectory>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>add-test-source</id>
+                <phase>generate-test-sources</phase>
+                <goals>
+                  <goal>add-test-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/dcover/java/</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
     <scm>
         <url>https://github.com/alibaba/easyexcel</url>
@@ -223,6 +267,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+    </plugins>
+    <testSourceDirectory>${currentTestSourceDirectory}</testSourceDirectory>
     </build>
 </project>
