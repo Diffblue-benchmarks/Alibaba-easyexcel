@@ -174,7 +174,21 @@
 
     <build>
         <plugins>
-            
+           <plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.4.5</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.8</version>
+        </dependency>
+    </dependencies>
+    <configuration>
+        ...
+    </configuration>
+</plugin> 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
