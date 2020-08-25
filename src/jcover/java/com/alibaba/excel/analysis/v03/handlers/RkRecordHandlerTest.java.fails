@@ -1,0 +1,44 @@
+package com.alibaba.excel.analysis.v03.handlers;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.apache.poi.hssf.record.Record;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Unit tests for com.alibaba.excel.analysis.v03.handlers.RkRecordHandler
+ *
+ * @author Diffblue Cover
+ */
+
+class RkRecordHandlerTest {
+
+    @Test
+    void supportReturnsFalse() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(1);
+        assertThat(new RkRecordHandler().support(record), is(false));
+    }
+
+    @Test
+    void supportReturnsTrue() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(638);
+        assertThat(new RkRecordHandler().support(record), is(true));
+    }
+
+    @Test
+    void compareToReturnsZero() {
+        assertThat(new RkRecordHandler().compareTo(new BlankOrErrorRecordHandler()), is(0));
+    }
+
+    @Test
+    void init() {
+        new RkRecordHandler().init();
+    }
+}

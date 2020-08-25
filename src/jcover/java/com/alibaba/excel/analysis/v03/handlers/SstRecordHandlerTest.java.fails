@@ -1,0 +1,63 @@
+package com.alibaba.excel.analysis.v03.handlers;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.apache.poi.hssf.record.Record;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Unit tests for com.alibaba.excel.analysis.v03.handlers.SstRecordHandler
+ *
+ * @author Diffblue Cover
+ */
+
+class SstRecordHandlerTest {
+
+    @Test
+    void support1() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(252);
+        assertThat(new SstRecordHandler().support(record), is(true));
+    }
+
+    @Test
+    void support2() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(1)
+            .thenReturn(253);
+        assertThat(new SstRecordHandler().support(record), is(true));
+    }
+
+    @Test
+    void supportReturnsFalse() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(1)
+            .thenReturn(0);
+        assertThat(new SstRecordHandler().support(record), is(false));
+    }
+
+    @Test
+    void processRecord() throws CloneNotSupportedException {
+        Record record = mock(Record.class);
+        when(record.getSid())
+            .thenReturn(1)
+            .thenReturn(0);
+        new SstRecordHandler().processRecord(record);
+    }
+
+    @Test
+    void compareToReturnsZero() {
+        assertThat(new SstRecordHandler().compareTo(new BlankOrErrorRecordHandler()), is(0));
+    }
+
+    @Test
+    void init() {
+        new SstRecordHandler().init();
+    }
+}
