@@ -154,7 +154,7 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void doFillDataIsNull() {
-        new ExcelWriterSheetBuilder(new ExcelWriter(new com.alibaba.excel.parameter.GenerateParam("name", String.class, new ByteArrayOutputStream()))).doFill(null);
+        new ExcelWriterSheetBuilder(new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS)).doFill(null);
     }
 
     @Test

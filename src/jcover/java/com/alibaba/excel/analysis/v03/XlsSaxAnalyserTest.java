@@ -1,7 +1,5 @@
 package com.alibaba.excel.analysis.v03;
 
-import static org.mockito.Mockito.mock;
-
 import com.alibaba.excel.cache.Ehcache;
 import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.converters.Converter;
@@ -14,7 +12,6 @@ import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.poi.hssf.record.Record;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.junit.jupiter.api.Test;
 
@@ -54,14 +51,5 @@ class XlsSaxAnalyserTest {
         readWorkbook.setHead(head);
         readWorkbook.setUse1904windowing(false);
         // pojo XlsSaxAnalyser
-    }
-
-    @Test
-    void processRecord() throws CloneNotSupportedException {
-        ReadWorkbook readWorkbook = new ReadWorkbook();
-        readWorkbook.setExcelType(ExcelTypeEnum.XLS);
-        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
-        Record record = mock(Record.class);
-        new XlsSaxAnalyser(new AnalysisContextImpl(readWorkbook), new POIFSFileSystem()).processRecord(record);
     }
 }

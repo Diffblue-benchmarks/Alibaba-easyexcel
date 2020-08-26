@@ -35,13 +35,13 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(null, String.class, head1, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x409 = new ExcelContentProperty();
-        x409.setConverter(new AutoConverter());
+        ExcelContentProperty x348 = new ExcelContentProperty();
+        x348.setConverter(new AutoConverter());
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
-        x409.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        x348.setDateTimeFormatProperty(dateTimeFormatProperty1);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head2 = new Head(1, "data", headNameList1, false, false);
@@ -52,23 +52,23 @@ class ExcelHeadPropertyTest {
         ArrayList<String> headNameList2 = new ArrayList<String>();
         headNameList2.add("Smith");
         head2.setHeadNameList(headNameList2);
-        x409.setHead(head2);
+        x348.setHead(head2);
         NumberFormatProperty numberFormatProperty1 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty1.setFormat("yyyy-MM-dd");
         numberFormatProperty1.setRoundingMode(RoundingMode.UP);
-        x409.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x409);
+        x348.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, x348);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x470 = new ExcelContentProperty();
-        x470.setConverter(new AutoConverter());
+        ExcelContentProperty x409 = new ExcelContentProperty();
+        x409.setConverter(new AutoConverter());
         DateTimeFormatProperty dateTimeFormatProperty3 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty3.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty3.setUse1904windowing(false);
-        x470.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        x409.setDateTimeFormatProperty(dateTimeFormatProperty3);
         ArrayList<String> headNameList5 = new ArrayList<String>();
         headNameList5.add("Smith");
         Head head4 = new Head(1, "data", headNameList5, false, false);
@@ -79,39 +79,39 @@ class ExcelHeadPropertyTest {
         ArrayList<String> headNameList6 = new ArrayList<String>();
         headNameList6.add("Smith");
         head4.setHeadNameList(headNameList6);
-        x470.setHead(head4);
+        x409.setHead(head4);
         NumberFormatProperty numberFormatProperty3 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty3.setFormat("yyyy-MM-dd");
         numberFormatProperty3.setRoundingMode(RoundingMode.UP);
-        x470.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("foo", x470);
+        x409.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", x409);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList9 = new ArrayList<String>();
         headNameList9.add("Smith");
-        Head x533 = new Head(1, "data", headNameList9, false, false);
-        x533.setColumnIndex(1);
+        Head x472 = new Head(1, "data", headNameList9, false, false);
+        x472.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty1 = new ColumnWidthProperty(1);
         columnWidthProperty1.setWidth(1);
-        x533.setColumnWidthProperty(columnWidthProperty1);
-        x533.setFieldName("data");
-        x533.setForceIndex(false);
-        x533.setForceName(false);
+        x472.setColumnWidthProperty(columnWidthProperty1);
+        x472.setFieldName("data");
+        x472.setForceIndex(false);
+        x472.setForceName(false);
         ArrayList<String> headNameList10 = new ArrayList<String>();
         headNameList10.add("Smith");
-        x533.setHeadNameList(headNameList10);
-        headMap.put(1, x533);
+        x472.setHeadNameList(headNameList10);
+        headMap.put(1, x472);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x409));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(x470));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x348));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(x409));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x533));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x472));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }

@@ -16,14 +16,6 @@ import org.junit.jupiter.api.Test;
 class FillConfigTest {
 
     @Test
-    void init() {
-        FillConfig.builder()
-            .direction(WriteDirectionEnum.VERTICAL)
-            .forceNewRow(false)
-            .build().init();
-    }
-
-    @Test
     void builder1() {
         FillConfig object = FillConfig.builder()
             .direction(WriteDirectionEnum.VERTICAL)
