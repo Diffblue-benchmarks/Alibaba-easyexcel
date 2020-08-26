@@ -21,28 +21,28 @@ class CellDataTest {
 
     @Test
     void factory1() {
-        CellData<String> other = new CellData<String>();
-        other.setBooleanValue(false);
-        other.setData("something");
-        other.setDataFormat(1);
-        other.setDataFormatString("yyyy-MM-dd");
-        other.setFormula(false);
-        other.setFormulaValue("value");
-        byte[] imageValue2 = new byte[] { 1 };
-        other.setImageValue(imageValue2);
-        BigDecimal numberValue2 = BigDecimal.valueOf(1L);
-        other.setNumberValue(numberValue2);
-        other.setStringValue("foo");
-        other.setType(CellDataTypeEnum.STRING);
-        CellData<String> cellData = new CellData<String>(other);
+        CellData<String> other1 = new CellData<String>();
+        other1.setBooleanValue(false);
+        other1.setData("something");
+        other1.setDataFormat(1);
+        other1.setDataFormatString("yyyy-MM-dd");
+        other1.setFormula(false);
+        other1.setFormulaValue("value");
+        byte[] imageValue4 = new byte[] { 1 };
+        other1.setImageValue(imageValue4);
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        other1.setNumberValue(numberValue4);
+        other1.setStringValue("foo");
+        other1.setType(CellDataTypeEnum.STRING);
+        CellData<String> cellData = new CellData<String>(other1);
         cellData.setBooleanValue(false);
         cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue3 = new byte[] { 1 };
-        cellData.setImageValue(imageValue3);
+        byte[] imageValue5 = new byte[] { 1 };
+        cellData.setImageValue(imageValue5);
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
@@ -53,7 +53,7 @@ class CellDataTest {
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
         assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
-        assertThat(cellData.getNumberValue(), sameInstance(numberValue2));
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue4));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
     }

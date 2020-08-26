@@ -29,8 +29,8 @@ class EachRowAnalysisFinishEventTest {
         x56.setDataFormatString("yyyy-MM-dd");
         x56.setFormula(false);
         x56.setFormulaValue("value");
-        byte[] imageValue2 = new byte[] { 1 };
-        x56.setImageValue(imageValue2);
+        byte[] imageValue4 = new byte[] { 1 };
+        x56.setImageValue(imageValue4);
         x56.setNumberValue(BigDecimal.valueOf(1L));
         x56.setStringValue("foo");
         x56.setType(CellDataTypeEnum.STRING);

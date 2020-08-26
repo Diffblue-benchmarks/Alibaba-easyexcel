@@ -37,9 +37,9 @@ class BigDecimalBooleanConverterTest {
     void convertToJavaData1() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(true);
-        BigDecimal numberValue2 = BigDecimal.valueOf(1L);
-        cellData.setNumberValue(numberValue2);
-        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), sameInstance(numberValue2));
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue4);
+        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), sameInstance(numberValue4));
     }
 
     @Test
