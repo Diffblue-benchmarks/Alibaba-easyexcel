@@ -1,6 +1,7 @@
 package com.alibaba.excel.analysis.v03.handlers;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 
@@ -16,6 +17,16 @@ import org.junit.jupiter.api.Test;
 class MissingCellDummyRecordHandlerTest {
 
     @Test
+    void factory() {
+        MissingCellDummyRecordHandler missingCellDummyRecordHandler =
+             new MissingCellDummyRecordHandler();
+        assertThat(missingCellDummyRecordHandler.getOrder(), is(1));
+        assertThat(missingCellDummyRecordHandler.getCellData(), is(nullValue()));
+        assertThat(missingCellDummyRecordHandler.getColumn(), is(-1));
+        assertThat(missingCellDummyRecordHandler.getRow(), is(-1));
+    }
+
+    @Test
     void supportReturnsFalse() throws CloneNotSupportedException {
         Record record = mock(Record.class);
         assertThat(new MissingCellDummyRecordHandler().support(record), is(false));
@@ -24,10 +35,5 @@ class MissingCellDummyRecordHandlerTest {
     @Test
     void init() {
         new MissingCellDummyRecordHandler().init();
-    }
-
-    @Test
-    void compareToReturnsOne() {
-        assertThat(new MissingCellDummyRecordHandler().compareTo(new BlankOrErrorRecordHandler()), is(1));
     }
 }

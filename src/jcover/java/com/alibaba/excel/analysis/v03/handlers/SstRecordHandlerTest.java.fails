@@ -1,6 +1,7 @@
 package com.alibaba.excel.analysis.v03.handlers;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -15,6 +16,15 @@ import org.junit.jupiter.api.Test;
  */
 
 class SstRecordHandlerTest {
+
+    @Test
+    void factory() {
+        SstRecordHandler sstRecordHandler = new SstRecordHandler();
+        assertThat(sstRecordHandler.getOrder(), is(0));
+        assertThat(sstRecordHandler.getCellData(), is(nullValue()));
+        assertThat(sstRecordHandler.getColumn(), is(-1));
+        assertThat(sstRecordHandler.getRow(), is(-1));
+    }
 
     @Test
     void support1() throws CloneNotSupportedException {
@@ -49,11 +59,6 @@ class SstRecordHandlerTest {
             .thenReturn(1)
             .thenReturn(0);
         new SstRecordHandler().processRecord(record);
-    }
-
-    @Test
-    void compareToReturnsZero() {
-        assertThat(new SstRecordHandler().compareTo(new BlankOrErrorRecordHandler()), is(0));
     }
 
     @Test

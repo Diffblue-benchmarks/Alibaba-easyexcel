@@ -2,13 +2,16 @@ package com.alibaba.excel.write.style;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
 
+import com.alibaba.excel.metadata.Head;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 
 import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
@@ -99,5 +102,17 @@ class HorizontalCellStyleStrategyTest {
     @Test
     void uniqueValueReturnsCellStyleStrategy() {
         assertThat(new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).uniqueValue(), is("CellStyleStrategy"));
+    }
+
+    @Test
+    void setHeadCellStyleRelativeRowIndexIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
+        Cell cell = mock(Cell.class);
+        new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).setHeadCellStyle(cell, new Head(1, "data", new ArrayList<String>(), false, false), 1);
+    }
+
+    @Test
+    void setContentCellStyleRelativeRowIndexIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
+        Cell cell = mock(Cell.class);
+        new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).setContentCellStyle(cell, new Head(1, "data", new ArrayList<String>(), false, false), 1);
     }
 }

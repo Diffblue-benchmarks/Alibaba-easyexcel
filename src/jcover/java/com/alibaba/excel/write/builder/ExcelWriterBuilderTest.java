@@ -7,7 +7,7 @@ import static org.mockito.Mockito.mock;
 import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.event.WriteHandler;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.alibaba.excel.write.merge.LoopMergeStrategy;
+import com.alibaba.excel.write.handler.CellWriteHandler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.StringBufferInputStream;
@@ -112,7 +112,8 @@ class ExcelWriterBuilderTest {
     @Test
     void registerWriteHandler2() {
         ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
-        assertThat(excelWriterBuilder.registerWriteHandler(new LoopMergeStrategy(1, 0)), sameInstance(excelWriterBuilder));
+        CellWriteHandler writeHandler = mock(CellWriteHandler.class);
+        assertThat(excelWriterBuilder.registerWriteHandler(writeHandler), sameInstance(excelWriterBuilder));
     }
 
     @Test

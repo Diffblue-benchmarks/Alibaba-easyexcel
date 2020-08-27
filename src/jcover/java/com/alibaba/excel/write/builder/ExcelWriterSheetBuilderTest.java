@@ -5,11 +5,12 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.alibaba.excel.write.merge.LoopMergeStrategy;
+import com.alibaba.excel.write.handler.CellWriteHandler;
 import com.alibaba.excel.write.metadata.WriteSheet;
 
 import java.io.ByteArrayOutputStream;
@@ -80,7 +81,8 @@ class ExcelWriterSheetBuilderTest {
     void registerWriteHandler() {
         ExcelWriterSheetBuilder excelWriterSheetBuilder =
              new ExcelWriterSheetBuilder();
-        assertThat(excelWriterSheetBuilder.registerWriteHandler(new LoopMergeStrategy(1, 0)), sameInstance(excelWriterSheetBuilder));
+        CellWriteHandler writeHandler4 = mock(CellWriteHandler.class);
+        assertThat(excelWriterSheetBuilder.registerWriteHandler(writeHandler4), sameInstance(excelWriterSheetBuilder));
     }
 
     @Test
@@ -154,7 +156,7 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void doFillDataIsNull() {
-        new ExcelWriterSheetBuilder(new ExcelWriter(new com.alibaba.excel.parameter.GenerateParam("name", String.class, new ByteArrayOutputStream()))).doFill(null);
+        new ExcelWriterSheetBuilder(new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS)).doFill(null);
     }
 
     @Test

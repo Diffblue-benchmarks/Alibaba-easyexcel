@@ -5,9 +5,10 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.converters.AutoConverter;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
+import com.alibaba.excel.event.AbstractIgnoreExceptionReadListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
 
 import java.util.ArrayList;
@@ -69,7 +70,9 @@ class ExcelReaderSheetBuilderTest {
     void registerReadListener() {
         ExcelReaderSheetBuilder excelReaderSheetBuilder =
              new ExcelReaderSheetBuilder();
-        assertThat(excelReaderSheetBuilder.registerReadListener(new ModelBuildEventListener()), sameInstance(excelReaderSheetBuilder));
+        AbstractIgnoreExceptionReadListener readListener2 =
+             mock(AbstractIgnoreExceptionReadListener.class);
+        assertThat(excelReaderSheetBuilder.registerReadListener(readListener2), sameInstance(excelReaderSheetBuilder));
     }
 
     @Test

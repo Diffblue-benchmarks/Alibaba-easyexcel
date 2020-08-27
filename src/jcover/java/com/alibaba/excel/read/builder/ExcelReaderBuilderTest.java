@@ -2,11 +2,12 @@ package com.alibaba.excel.read.builder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.cache.Ehcache;
 import com.alibaba.excel.cache.selector.EternalReadCacheSelector;
 import com.alibaba.excel.converters.AutoConverter;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
+import com.alibaba.excel.event.AbstractIgnoreExceptionReadListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.io.StringBufferInputStream;
@@ -104,7 +105,9 @@ class ExcelReaderBuilderTest {
     @Test
     void registerReadListener() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        assertThat(excelReaderBuilder.registerReadListener(new ModelBuildEventListener()), sameInstance(excelReaderBuilder));
+        AbstractIgnoreExceptionReadListener readListener =
+             mock(AbstractIgnoreExceptionReadListener.class);
+        assertThat(excelReaderBuilder.registerReadListener(readListener), sameInstance(excelReaderBuilder));
     }
 
     @Test

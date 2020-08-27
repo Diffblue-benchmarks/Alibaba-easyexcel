@@ -28,8 +28,8 @@ class CellDataTest {
         other1.setDataFormatString("yyyy-MM-dd");
         other1.setFormula(false);
         other1.setFormulaValue("value");
-        byte[] imageValue4 = new byte[] { 1 };
-        other1.setImageValue(imageValue4);
+        byte[] imageValue6 = new byte[] { 1 };
+        other1.setImageValue(imageValue6);
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         other1.setNumberValue(numberValue4);
         other1.setStringValue("foo");
@@ -41,8 +41,8 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue5 = new byte[] { 1 };
-        cellData.setImageValue(imageValue5);
+        byte[] imageValue7 = new byte[] { 1 };
+        cellData.setImageValue(imageValue7);
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);

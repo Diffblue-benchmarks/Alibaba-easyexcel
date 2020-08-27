@@ -5,11 +5,12 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.parameter.GenerateParam;
-import com.alibaba.excel.write.merge.LoopMergeStrategy;
+import com.alibaba.excel.write.handler.CellWriteHandler;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.excel.write.metadata.WriteTable;
 
@@ -81,7 +82,8 @@ class ExcelWriterTableBuilderTest {
     void registerWriteHandler() {
         ExcelWriterTableBuilder excelWriterTableBuilder =
              new ExcelWriterTableBuilder();
-        assertThat(excelWriterTableBuilder.registerWriteHandler(new LoopMergeStrategy(1, 0)), sameInstance(excelWriterTableBuilder));
+        CellWriteHandler writeHandler5 = mock(CellWriteHandler.class);
+        assertThat(excelWriterTableBuilder.registerWriteHandler(writeHandler5), sameInstance(excelWriterTableBuilder));
     }
 
     @Test
