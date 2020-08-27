@@ -22,19 +22,19 @@ class EachRowAnalysisFinishEventTest {
     @Test
     void factory() {
         HashMap<Integer, CellData> content = new HashMap<Integer, CellData>();
-        CellData x56 = new CellData();
-        x56.setBooleanValue(false);
-        x56.setData(new Object());
-        x56.setDataFormat(1);
-        x56.setDataFormatString("yyyy-MM-dd");
-        x56.setFormula(false);
-        x56.setFormulaValue("value");
+        CellData x104 = new CellData();
+        x104.setBooleanValue(false);
+        x104.setData(new Object());
+        x104.setDataFormat(1);
+        x104.setDataFormatString("yyyy-MM-dd");
+        x104.setFormula(false);
+        x104.setFormulaValue("value");
         byte[] imageValue4 = new byte[] { 1 };
-        x56.setImageValue(imageValue4);
-        x56.setNumberValue(BigDecimal.valueOf(1L));
-        x56.setStringValue("foo");
-        x56.setType(CellDataTypeEnum.STRING);
-        content.put(1, x56);
-        assertThat(new EachRowAnalysisFinishEvent(content).getAnalysisResult().get(1), sameInstance(x56));
+        x104.setImageValue(imageValue4);
+        x104.setNumberValue(BigDecimal.valueOf(1L));
+        x104.setStringValue("foo");
+        x104.setType(CellDataTypeEnum.STRING);
+        content.put(1, x104);
+        assertThat(new EachRowAnalysisFinishEvent(content).getAnalysisResult().get(1), sameInstance(x104));
     }
 }

@@ -24,11 +24,6 @@ class FileUtilsTest {
     }
 
     @Test
-    void createTmpDirectoryPathIsBar() {
-        assertThat(FileUtils.createTmpDirectory("bar").getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
-    }
-
-    @Test
     void createTmpFile() {
         assertThat(FileUtils.createTmpFile("data.txt").getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }

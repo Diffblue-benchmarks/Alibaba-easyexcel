@@ -1,16 +1,13 @@
 package com.alibaba.excel.analysis.v07.handlers;
 
-import com.alibaba.excel.cache.Ehcache;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 import com.alibaba.excel.context.AnalysisContextImpl;
-import com.alibaba.excel.converters.Converter;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
-import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.read.metadata.ReadWorkbook;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.io.StringBufferInputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -23,32 +20,18 @@ import org.junit.jupiter.api.Test;
 class CountRowCellHandlerTest {
 
     @Test
-    void factory() {
+    void supportNameIsCurrentReturnsFalse() {
         ReadWorkbook readWorkbook = new ReadWorkbook();
-        readWorkbook.setAutoCloseStream(true);
-        readWorkbook.setConvertAllFiled(false);
-        readWorkbook.setCustomObject(new Object());
-        readWorkbook.setDefaultReturnMap(false);
         readWorkbook.setExcelType(ExcelTypeEnum.XLS);
-        readWorkbook.setIgnoreEmptyRow(false);
         readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
-        readWorkbook.setMandatoryUseInputStream(false);
-        readWorkbook.setPassword("secret");
-        readWorkbook.setReadCache(new Ehcache(1));
-        ArrayList<ReadListener> customReadListenerList =
-             new ArrayList<ReadListener>();
-        customReadListenerList.add(new ModelBuildEventListener());
-        readWorkbook.setCustomReadListenerList(customReadListenerList);
-        readWorkbook.setHeadRowNumber(1);
-        readWorkbook.setAutoTrim(false);
-        readWorkbook.setClazz(String.class);
-        readWorkbook.setCustomConverterList(new ArrayList<Converter>());
-        ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
-        head.add(list);
-        readWorkbook.setHead(head);
-        readWorkbook.setUse1904windowing(false);
-        // pojo CountRowCellHandler
+        assertThat(new CountRowCellHandler(new AnalysisContextImpl(readWorkbook)).support("current"), is(false));
+    }
+
+    @Test
+    void endHandleNameIsCurrent() {
+        ReadWorkbook readWorkbook = new ReadWorkbook();
+        readWorkbook.setExcelType(ExcelTypeEnum.XLS);
+        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
+        new CountRowCellHandler(new AnalysisContextImpl(readWorkbook)).endHandle("current");
     }
 }

@@ -83,4 +83,20 @@ class BofRecordHandlerTest {
         assertThat(bofRecordHandler.getColumn(), is(-1));
         assertThat(bofRecordHandler.getRow(), is(-1));
     }
+
+    @Test
+    void init() {
+        ReadWorkbook readWorkbook = new ReadWorkbook();
+        readWorkbook.setExcelType(ExcelTypeEnum.XLS);
+        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
+        new BofRecordHandler(new AnalysisContextImpl(readWorkbook), new ArrayList<ReadSheet>(), false, false).init();
+    }
+
+    @Test
+    void initReadAllIsFalseAndReadSheetListIsEmpty() {
+        ReadWorkbook readWorkbook = new ReadWorkbook();
+        readWorkbook.setExcelType(ExcelTypeEnum.XLS);
+        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
+        new BofRecordHandler(new AnalysisContextImpl(readWorkbook), new ArrayList<ReadSheet>(), false, false).init(new ArrayList<ReadSheet>(), false);
+    }
 }
