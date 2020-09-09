@@ -32,17 +32,17 @@ class ReadRowHolderTest {
         globalConfiguration1.setUse1904windowing(false);
         globalConfiguration1.setUseScientificFormat(false);
         HashMap<Integer, Cell> cellMap1 = new HashMap<Integer, Cell>();
-        AbstractCell x301 = new CellData();
-        x301.setColumnIndex(1);
-        x301.setRowIndex(1);
-        cellMap1.put(1, x301);
+        AbstractCell x225 = new CellData();
+        x225.setColumnIndex(1);
+        x225.setRowIndex(1);
+        cellMap1.put(1, x225);
         ReadRowHolder readRowHolder =
              new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
-        AbstractCell x436 = new CellData();
-        x436.setColumnIndex(1);
-        x436.setRowIndex(1);
-        cellMap2.put(1, x436);
+        AbstractCell x360 = new CellData();
+        x360.setColumnIndex(1);
+        x360.setRowIndex(1);
+        cellMap2.put(1, x360);
         readRowHolder.setCellMap(cellMap2);
         Object currentRowAnalysisResult = new Object();
         readRowHolder.setCurrentRowAnalysisResult(currentRowAnalysisResult);

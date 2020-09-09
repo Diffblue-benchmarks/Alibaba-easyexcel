@@ -29,10 +29,10 @@ class ConverterUtilsTest {
         // arrange
         HashMap<Integer, CellData> cellDataMap =
              new HashMap<Integer, CellData>();
-        CellData x176 = new CellData();
-        x176.setStringValue("foo");
-        x176.setType(CellDataTypeEnum.STRING);
-        cellDataMap.put(1, x176);
+        CellData x178 = new CellData();
+        x178.setStringValue("foo");
+        x178.setType(CellDataTypeEnum.STRING);
+        cellDataMap.put(1, x178);
 
         // act
         Map<Integer, String> result =
