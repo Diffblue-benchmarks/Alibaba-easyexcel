@@ -1,0 +1,225 @@
+package com.alibaba.excel.metadata;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsSame.sameInstance;
+
+import com.alibaba.excel.metadata.property.ColumnWidthProperty;
+import com.alibaba.excel.metadata.property.FontProperty;
+import com.alibaba.excel.metadata.property.LoopMergeProperty;
+import com.alibaba.excel.metadata.property.StyleProperty;
+import com.alibaba.excel.write.metadata.style.WriteFont;
+
+import java.util.ArrayList;
+
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Unit tests for com.alibaba.excel.metadata.Head
+ *
+ * @author Diffblue Cover
+ */
+
+class HeadTest {
+
+    @Test
+    void factory1() {
+        Head head = new Head(1, "Acme", null, false, false);
+        head.setColumnIndex(1);
+        ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
+        columnWidthProperty.setWidth(1);
+        head.setColumnWidthProperty(columnWidthProperty);
+        FontProperty contentFontProperty = new FontProperty();
+        contentFontProperty.setBold(false);
+        contentFontProperty.setCharset(1);
+        contentFontProperty.setColor((short) 1);
+        contentFontProperty.setFontHeightInPoints((short) 1);
+        contentFontProperty.setFontName("Acme");
+        contentFontProperty.setItalic(false);
+        contentFontProperty.setStrikeout(false);
+        contentFontProperty.setTypeOffset((short) 1);
+        contentFontProperty.setUnderline((byte) 1);
+        head.setContentFontProperty(contentFontProperty);
+        StyleProperty contentStyleProperty = new StyleProperty();
+        contentStyleProperty.setBorderBottom(BorderStyle.NONE);
+        contentStyleProperty.setBorderLeft(BorderStyle.NONE);
+        contentStyleProperty.setBorderRight(BorderStyle.NONE);
+        contentStyleProperty.setBorderTop(BorderStyle.NONE);
+        contentStyleProperty.setBottomBorderColor((short) 1);
+        contentStyleProperty.setDataFormat((short) 1);
+        contentStyleProperty.setFillBackgroundColor((short) 1);
+        contentStyleProperty.setFillForegroundColor((short) 1);
+        contentStyleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        contentStyleProperty.setHidden(false);
+        contentStyleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        contentStyleProperty.setIndent((short) 1);
+        contentStyleProperty.setLeftBorderColor((short) 1);
+        contentStyleProperty.setLocked(false);
+        contentStyleProperty.setQuotePrefix(false);
+        contentStyleProperty.setRightBorderColor((short) 1);
+        contentStyleProperty.setRotation((short) 1);
+        contentStyleProperty.setShrinkToFit(false);
+        contentStyleProperty.setTopBorderColor((short) 1);
+        contentStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        contentStyleProperty.setWrapped(false);
+        contentStyleProperty.setWriteFont(new WriteFont());
+        head.setContentStyleProperty(contentStyleProperty);
+        head.setFieldName("Acme");
+        head.setForceIndex(false);
+        head.setForceName(false);
+        FontProperty headFontProperty = new FontProperty();
+        headFontProperty.setBold(false);
+        headFontProperty.setCharset(1);
+        headFontProperty.setColor((short) 1);
+        headFontProperty.setFontHeightInPoints((short) 1);
+        headFontProperty.setFontName("Acme");
+        headFontProperty.setItalic(false);
+        headFontProperty.setStrikeout(false);
+        headFontProperty.setTypeOffset((short) 1);
+        headFontProperty.setUnderline((byte) 1);
+        head.setHeadFontProperty(headFontProperty);
+        head.setHeadNameList(new ArrayList<String>());
+        StyleProperty headStyleProperty = new StyleProperty();
+        headStyleProperty.setBorderBottom(BorderStyle.NONE);
+        headStyleProperty.setBorderLeft(BorderStyle.NONE);
+        headStyleProperty.setBorderRight(BorderStyle.NONE);
+        headStyleProperty.setBorderTop(BorderStyle.NONE);
+        headStyleProperty.setBottomBorderColor((short) 1);
+        headStyleProperty.setDataFormat((short) 1);
+        headStyleProperty.setFillBackgroundColor((short) 1);
+        headStyleProperty.setFillForegroundColor((short) 1);
+        headStyleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        headStyleProperty.setHidden(false);
+        headStyleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        headStyleProperty.setIndent((short) 1);
+        headStyleProperty.setLeftBorderColor((short) 1);
+        headStyleProperty.setLocked(false);
+        headStyleProperty.setQuotePrefix(false);
+        headStyleProperty.setRightBorderColor((short) 1);
+        headStyleProperty.setRotation((short) 1);
+        headStyleProperty.setShrinkToFit(false);
+        headStyleProperty.setTopBorderColor((short) 1);
+        headStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        headStyleProperty.setWrapped(false);
+        headStyleProperty.setWriteFont(new WriteFont());
+        head.setHeadStyleProperty(headStyleProperty);
+        LoopMergeProperty loopMergeProperty = new LoopMergeProperty(1, 1);
+        loopMergeProperty.setColumnExtend(1);
+        loopMergeProperty.setEachRow(1);
+        head.setLoopMergeProperty(loopMergeProperty);
+        assertThat(head.getColumnIndex(), is(1));
+        assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
+        assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
+        assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
+        assertThat(head.getFieldName(), is("Acme"));
+        assertThat(head.getForceIndex(), is(false));
+        assertThat(head.getForceName(), is(false));
+        assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
+        assertThat(head.getHeadNameList(), empty());
+        assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
+        assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
+    }
+
+    @Test
+    void factory2() {
+        Head head = new Head(1, "Acme", new ArrayList<String>(), true, false);
+        head.setColumnIndex(1);
+        ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
+        columnWidthProperty.setWidth(1);
+        head.setColumnWidthProperty(columnWidthProperty);
+        FontProperty contentFontProperty = new FontProperty();
+        contentFontProperty.setBold(false);
+        contentFontProperty.setCharset(1);
+        contentFontProperty.setColor((short) 1);
+        contentFontProperty.setFontHeightInPoints((short) 1);
+        contentFontProperty.setFontName("Acme");
+        contentFontProperty.setItalic(false);
+        contentFontProperty.setStrikeout(false);
+        contentFontProperty.setTypeOffset((short) 1);
+        contentFontProperty.setUnderline((byte) 1);
+        head.setContentFontProperty(contentFontProperty);
+        StyleProperty contentStyleProperty = new StyleProperty();
+        contentStyleProperty.setBorderBottom(BorderStyle.NONE);
+        contentStyleProperty.setBorderLeft(BorderStyle.NONE);
+        contentStyleProperty.setBorderRight(BorderStyle.NONE);
+        contentStyleProperty.setBorderTop(BorderStyle.NONE);
+        contentStyleProperty.setBottomBorderColor((short) 1);
+        contentStyleProperty.setDataFormat((short) 1);
+        contentStyleProperty.setFillBackgroundColor((short) 1);
+        contentStyleProperty.setFillForegroundColor((short) 1);
+        contentStyleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        contentStyleProperty.setHidden(false);
+        contentStyleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        contentStyleProperty.setIndent((short) 1);
+        contentStyleProperty.setLeftBorderColor((short) 1);
+        contentStyleProperty.setLocked(false);
+        contentStyleProperty.setQuotePrefix(false);
+        contentStyleProperty.setRightBorderColor((short) 1);
+        contentStyleProperty.setRotation((short) 1);
+        contentStyleProperty.setShrinkToFit(false);
+        contentStyleProperty.setTopBorderColor((short) 1);
+        contentStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        contentStyleProperty.setWrapped(false);
+        contentStyleProperty.setWriteFont(new WriteFont());
+        head.setContentStyleProperty(contentStyleProperty);
+        head.setFieldName("Acme");
+        head.setForceIndex(false);
+        head.setForceName(false);
+        FontProperty headFontProperty = new FontProperty();
+        headFontProperty.setBold(false);
+        headFontProperty.setCharset(1);
+        headFontProperty.setColor((short) 1);
+        headFontProperty.setFontHeightInPoints((short) 1);
+        headFontProperty.setFontName("Acme");
+        headFontProperty.setItalic(false);
+        headFontProperty.setStrikeout(false);
+        headFontProperty.setTypeOffset((short) 1);
+        headFontProperty.setUnderline((byte) 1);
+        head.setHeadFontProperty(headFontProperty);
+        head.setHeadNameList(new ArrayList<String>());
+        StyleProperty headStyleProperty = new StyleProperty();
+        headStyleProperty.setBorderBottom(BorderStyle.NONE);
+        headStyleProperty.setBorderLeft(BorderStyle.NONE);
+        headStyleProperty.setBorderRight(BorderStyle.NONE);
+        headStyleProperty.setBorderTop(BorderStyle.NONE);
+        headStyleProperty.setBottomBorderColor((short) 1);
+        headStyleProperty.setDataFormat((short) 1);
+        headStyleProperty.setFillBackgroundColor((short) 1);
+        headStyleProperty.setFillForegroundColor((short) 1);
+        headStyleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        headStyleProperty.setHidden(false);
+        headStyleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        headStyleProperty.setIndent((short) 1);
+        headStyleProperty.setLeftBorderColor((short) 1);
+        headStyleProperty.setLocked(false);
+        headStyleProperty.setQuotePrefix(false);
+        headStyleProperty.setRightBorderColor((short) 1);
+        headStyleProperty.setRotation((short) 1);
+        headStyleProperty.setShrinkToFit(false);
+        headStyleProperty.setTopBorderColor((short) 1);
+        headStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        headStyleProperty.setWrapped(false);
+        headStyleProperty.setWriteFont(new WriteFont());
+        head.setHeadStyleProperty(headStyleProperty);
+        LoopMergeProperty loopMergeProperty = new LoopMergeProperty(1, 1);
+        loopMergeProperty.setColumnExtend(1);
+        loopMergeProperty.setEachRow(1);
+        head.setLoopMergeProperty(loopMergeProperty);
+        assertThat(head.getColumnIndex(), is(1));
+        assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
+        assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
+        assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
+        assertThat(head.getFieldName(), is("Acme"));
+        assertThat(head.getForceIndex(), is(false));
+        assertThat(head.getForceName(), is(false));
+        assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
+        assertThat(head.getHeadNameList(), empty());
+        assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
+        assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
+    }
+}

@@ -1,0 +1,578 @@
+package com.alibaba.excel.util;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsSame.sameInstance;
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Comment;
+import org.apache.poi.ss.usermodel.DataValidation;
+import org.apache.poi.ss.usermodel.DataValidationHelper;
+import org.apache.poi.ss.usermodel.Drawing;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Footer;
+import org.apache.poi.ss.usermodel.Header;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.Hyperlink;
+import org.apache.poi.ss.usermodel.PrintSetup;
+import org.apache.poi.ss.usermodel.RichTextString;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.SheetConditionalFormatting;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellAddress;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.PaneInformation;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+
+/**
+ * Unit tests for com.alibaba.excel.util.WorkBookUtil
+ *
+ * @author Diffblue Cover
+ */
+
+class WorkBookUtilTest {
+
+    @Test
+    void createSheetSheetNameIsAcme() throws java.io.IOException {
+
+        // arrange
+        CellAddress cellAddress = new CellAddress(1, 1);
+        Map<CellAddress, ? extends Comment> map = new HashMap<CellAddress, Comment>();
+        Comment x3731 = mock(Comment.class);
+        ((HashMap<CellAddress, Comment>) map).put(new CellAddress(1, 1), x3731);
+        int[] obj1 = new int[] { 1 };
+        DataValidationHelper dataValidationHelper = mock(DataValidationHelper.class);
+        List<? extends DataValidation> list1 = new ArrayList<DataValidation>();
+        @SuppressWarnings("unchecked")
+        Drawing<?> drawing = mock(Drawing.class);
+        Footer footer = mock(Footer.class);
+        Header header1 = mock(Header.class);
+        List<? extends Hyperlink> list2 = new ArrayList<Hyperlink>();
+        List<CellRangeAddress> list3 = new ArrayList<CellRangeAddress>();
+        PaneInformation paneInformation = new PaneInformation((short) 1, (short) 1, (short) 1, (short) 1, (byte) 1, false);
+        PrintSetup printSetup = mock(PrintSetup.class);
+        CellRangeAddress cellRangeAddress2 = new CellRangeAddress(1, 1, 1, 1);
+        cellRangeAddress2.setFirstColumn(1);
+        cellRangeAddress2.setFirstRow(1);
+        cellRangeAddress2.setLastColumn(1);
+        cellRangeAddress2.setLastRow(1);
+        CellRangeAddress cellRangeAddress3 = new CellRangeAddress(1, 1, 1, 1);
+        cellRangeAddress3.setFirstColumn(1);
+        cellRangeAddress3.setFirstRow(1);
+        cellRangeAddress3.setLastColumn(1);
+        cellRangeAddress3.setLastRow(1);
+        int[] obj2 = new int[] { 1 };
+        SheetConditionalFormatting sheetConditionalFormatting = mock(SheetConditionalFormatting.class);
+        Workbook workbook1 = mock(Workbook.class);
+        Sheet sheet = mock(Sheet.class);
+        when(sheet.getActiveCell())
+            .thenReturn(cellAddress);
+        when(sheet.getAutobreaks())
+            .thenReturn(false);
+        when(sheet.getCellComments())
+            .thenReturn(map);
+        when(sheet.getColumnBreaks())
+            .thenReturn(obj1);
+        when(sheet.getDataValidationHelper())
+            .thenReturn(dataValidationHelper);
+        when(sheet.getDataValidations())
+            .thenReturn(list1);
+        when(sheet.getDefaultColumnWidth())
+            .thenReturn(1);
+        when(sheet.getDefaultRowHeight())
+            .thenReturn(1);
+        when(sheet.getDefaultRowHeightInPoints())
+            .thenReturn(1.0f);
+        when(sheet.getDisplayGuts())
+            .thenReturn(false);
+        when(sheet.getDrawingPatriarch())
+            .thenReturn(drawing);
+        when(sheet.getFirstRowNum())
+            .thenReturn(1);
+        when(sheet.getFitToPage())
+            .thenReturn(false);
+        when(sheet.getFooter())
+            .thenReturn(footer);
+        when(sheet.getForceFormulaRecalculation())
+            .thenReturn(false);
+        when(sheet.getHeader())
+            .thenReturn(header1);
+        when(sheet.getHorizontallyCenter())
+            .thenReturn(false);
+        when(sheet.getHyperlinkList())
+            .thenReturn(list2);
+        when(sheet.getLastRowNum())
+            .thenReturn(1);
+        when(sheet.getLeftCol())
+            .thenReturn(1);
+        when(sheet.getMergedRegions())
+            .thenReturn(list3);
+        when(sheet.getNumMergedRegions())
+            .thenReturn(1);
+        when(sheet.getPaneInformation())
+            .thenReturn(paneInformation);
+        when(sheet.getPhysicalNumberOfRows())
+            .thenReturn(1);
+        when(sheet.getPrintSetup())
+            .thenReturn(printSetup);
+        when(sheet.getProtect())
+            .thenReturn(false);
+        when(sheet.getRepeatingColumns())
+            .thenReturn(cellRangeAddress2);
+        when(sheet.getRepeatingRows())
+            .thenReturn(cellRangeAddress3);
+        when(sheet.getRowBreaks())
+            .thenReturn(obj2);
+        when(sheet.getRowSumsBelow())
+            .thenReturn(false);
+        when(sheet.getRowSumsRight())
+            .thenReturn(false);
+        when(sheet.getScenarioProtect())
+            .thenReturn(false);
+        when(sheet.getSheetConditionalFormatting())
+            .thenReturn(sheetConditionalFormatting);
+        when(sheet.getSheetName())
+            .thenReturn("foo");
+        when(sheet.getTopRow())
+            .thenReturn(1);
+        when(sheet.getVerticallyCenter())
+            .thenReturn(false);
+        when(sheet.getWorkbook())
+            .thenReturn(workbook1);
+        when(sheet.isDisplayFormulas())
+            .thenReturn(false);
+        when(sheet.isDisplayGridlines())
+            .thenReturn(false);
+        when(sheet.isDisplayRowColHeadings())
+            .thenReturn(false);
+        when(sheet.isDisplayZeros())
+            .thenReturn(false);
+        when(sheet.isPrintGridlines())
+            .thenReturn(false);
+        when(sheet.isPrintRowAndColumnHeadings())
+            .thenReturn(false);
+        when(sheet.isRightToLeft())
+            .thenReturn(false);
+        when(sheet.isSelected())
+            .thenReturn(false);
+        Workbook workbook2 = mock(Workbook.class);
+        when(workbook2.createSheet(Mockito.<String>any()))
+            .thenReturn(sheet);
+
+        // act
+        Sheet result = WorkBookUtil.createSheet(workbook2, "Acme");
+
+        // assert
+        assertThat(result.getActiveCell(), sameInstance(cellAddress));
+        assertThat(result.getAutobreaks(), is(false));
+        assertThat(result.getCellComments(), sameInstance(map));
+        assertArrayEquals(new int[] { 1 }, result.getColumnBreaks());
+        assertThat(result.getDataValidationHelper(), sameInstance(dataValidationHelper));
+        assertThat(result.getDataValidations(), sameInstance(list1));
+        assertThat(result.getDefaultColumnWidth(), is(1));
+        assertThat(result.getDefaultRowHeight(), is((short) 1));
+        assertThat(result.getDefaultRowHeightInPoints(), closeTo(1.0f, 0.0));
+        assertThat(result.getDisplayGuts(), is(false));
+        assertThat(result.getDrawingPatriarch(), sameInstance(drawing));
+        assertThat(result.getFirstRowNum(), is(1));
+        assertThat(result.getFitToPage(), is(false));
+        assertThat(result.getFooter(), sameInstance(footer));
+        assertThat(result.getForceFormulaRecalculation(), is(false));
+        assertThat(result.getHeader(), sameInstance(header1));
+        assertThat(result.getHorizontallyCenter(), is(false));
+        assertThat(result.getHyperlinkList(), sameInstance(list2));
+        assertThat(result.getLastRowNum(), is(1));
+        assertThat(result.getLeftCol(), is((short) 1));
+        assertThat(result.getMergedRegions(), sameInstance(list3));
+        assertThat(result.getNumMergedRegions(), is(1));
+        assertThat(result.getPaneInformation(), sameInstance(paneInformation));
+        assertThat(result.getPhysicalNumberOfRows(), is(1));
+        assertThat(result.getPrintSetup(), sameInstance(printSetup));
+        assertThat(result.getProtect(), is(false));
+        assertThat(result.getRepeatingColumns(), sameInstance(cellRangeAddress2));
+        assertThat(result.getRepeatingRows(), sameInstance(cellRangeAddress3));
+        assertArrayEquals(new int[] { 1 }, result.getRowBreaks());
+        assertThat(result.getRowSumsBelow(), is(false));
+        assertThat(result.getRowSumsRight(), is(false));
+        assertThat(result.getScenarioProtect(), is(false));
+        assertThat(result.getSheetConditionalFormatting(), sameInstance(sheetConditionalFormatting));
+        assertThat(result.getSheetName(), is("foo"));
+        assertThat(result.getTopRow(), is((short) 1));
+        assertThat(result.getVerticallyCenter(), is(false));
+        assertThat(result.getWorkbook(), sameInstance(workbook1));
+        assertThat(result.isDisplayFormulas(), is(false));
+        assertThat(result.isDisplayGridlines(), is(false));
+        assertThat(result.isDisplayRowColHeadings(), is(false));
+        assertThat(result.isDisplayZeros(), is(false));
+        assertThat(result.isPrintGridlines(), is(false));
+        assertThat(result.isPrintRowAndColumnHeadings(), is(false));
+        assertThat(result.isRightToLeft(), is(false));
+        assertThat(result.isSelected(), is(false));
+    }
+
+    @Test
+    void createCellColNumIsOne() throws java.text.ParseException, org.apache.poi.ss.formula.FormulaParseException {
+
+        // arrange
+        CellAddress cellAddress = new CellAddress(1, 1);
+        CellRangeAddress cellRangeAddress = new CellRangeAddress(1, 1, 1, 1);
+        cellRangeAddress.setFirstColumn(1);
+        cellRangeAddress.setFirstRow(1);
+        cellRangeAddress.setLastColumn(1);
+        cellRangeAddress.setLastRow(1);
+        Comment comment = mock(Comment.class);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        Date date = new java.text.SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31");
+        Hyperlink hyperlink = mock(Hyperlink.class);
+        RichTextString richTextString = mock(RichTextString.class);
+        Row row2 = mock(Row.class);
+        Sheet sheet1 = mock(Sheet.class);
+        Cell cell3 = mock(Cell.class);
+        when(cell3.getAddress())
+            .thenReturn(cellAddress);
+        when(cell3.getArrayFormulaRange())
+            .thenReturn(cellRangeAddress);
+        when(cell3.getBooleanCellValue())
+            .thenReturn(false);
+        when(cell3.getCachedFormulaResultType())
+            .thenReturn(1);
+        when(cell3.getCachedFormulaResultTypeEnum())
+            .thenReturn(CellType._NONE);
+        when(cell3.getCellComment())
+            .thenReturn(comment);
+        when(cell3.getCellFormula())
+            .thenReturn("foo");
+        when(cell3.getCellStyle())
+            .thenReturn(cellStyle1);
+        when(cell3.getCellType())
+            .thenReturn(1);
+        when(cell3.getCellTypeEnum())
+            .thenReturn(CellType._NONE);
+        when(cell3.getColumnIndex())
+            .thenReturn(1);
+        when(cell3.getDateCellValue())
+            .thenReturn(date);
+        when(cell3.getErrorCellValue())
+            .thenReturn(1);
+        when(cell3.getHyperlink())
+            .thenReturn(hyperlink);
+        when(cell3.getNumericCellValue())
+            .thenReturn(1.0);
+        when(cell3.getRichStringCellValue())
+            .thenReturn(richTextString);
+        when(cell3.getRow())
+            .thenReturn(row2);
+        when(cell3.getRowIndex())
+            .thenReturn(1);
+        when(cell3.getSheet())
+            .thenReturn(sheet1);
+        when(cell3.getStringCellValue())
+            .thenReturn("foo");
+        when(cell3.isPartOfArrayFormulaGroup())
+            .thenReturn(false);
+        CellStyle cellStyle2 = mock(CellStyle.class);
+        Sheet sheet2 = mock(Sheet.class);
+        Row row3 = mock(Row.class);
+        when(row3.createCell(anyInt()))
+            .thenReturn(cell3);
+        when(row3.getFirstCellNum())
+            .thenReturn(1);
+        when(row3.getHeight())
+            .thenReturn(1);
+        when(row3.getHeightInPoints())
+            .thenReturn(1.0f);
+        when(row3.getLastCellNum())
+            .thenReturn(1);
+        when(row3.getOutlineLevel())
+            .thenReturn(1);
+        when(row3.getPhysicalNumberOfCells())
+            .thenReturn(1);
+        when(row3.getRowNum())
+            .thenReturn(1);
+        when(row3.getRowStyle())
+            .thenReturn(cellStyle2);
+        when(row3.getSheet())
+            .thenReturn(sheet2);
+        when(row3.getZeroHeight())
+            .thenReturn(false);
+        when(row3.isFormatted())
+            .thenReturn(false);
+        Sheet sheet3 = mock(Sheet.class);
+        when(sheet3.createRow(anyInt()))
+            .thenReturn(row3);
+        Row row4 = WorkBookUtil.createRow(sheet3, 1);
+
+        // act
+        Cell result = WorkBookUtil.createCell(row4, 1);
+
+        // assert
+        assertThat(result.getAddress(), sameInstance(cellAddress));
+        assertThat(result.getArrayFormulaRange(), sameInstance(cellRangeAddress));
+        assertThat(result.getBooleanCellValue(), is(false));
+        assertThat(result.getCachedFormulaResultType(), is(1));
+        assertThat(result.getCachedFormulaResultTypeEnum(), is(CellType._NONE));
+        assertThat(result.getCellComment(), sameInstance(comment));
+        assertThat(result.getCellFormula(), is("foo"));
+        assertThat(result.getCellStyle(), sameInstance(cellStyle1));
+        assertThat(result.getCellType(), is(1));
+        assertThat(result.getCellTypeEnum(), is(CellType._NONE));
+        assertThat(result.getColumnIndex(), is(1));
+        assertThat(result.getDateCellValue(), sameInstance(date));
+        assertThat(result.getErrorCellValue(), is((byte) 1));
+        assertThat(result.getHyperlink(), sameInstance(hyperlink));
+        assertThat(result.getNumericCellValue(), closeTo(1.0, 0.0));
+        assertThat(result.getRichStringCellValue(), sameInstance(richTextString));
+        assertThat(result.getRow(), sameInstance(row2));
+        assertThat(result.getRowIndex(), is(1));
+        assertThat(result.getSheet(), sameInstance(sheet1));
+        assertThat(result.getStringCellValue(), is("foo"));
+        assertThat(result.isPartOfArrayFormulaGroup(), is(false));
+        // pojo Row
+    }
+
+    @Test
+    void createCell2() throws org.apache.poi.ss.formula.FormulaParseException, java.io.IOException {
+        Cell cell = mock(Cell.class);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        Sheet sheet1 = mock(Sheet.class);
+        Row row1 = mock(Row.class);
+        when(row1.createCell(anyInt()))
+            .thenReturn(cell);
+        when(row1.getFirstCellNum())
+            .thenReturn(1);
+        when(row1.getHeight())
+            .thenReturn(1);
+        when(row1.getHeightInPoints())
+            .thenReturn(1.0f);
+        when(row1.getLastCellNum())
+            .thenReturn(1);
+        when(row1.getOutlineLevel())
+            .thenReturn(1);
+        when(row1.getPhysicalNumberOfCells())
+            .thenReturn(1);
+        when(row1.getRowNum())
+            .thenReturn(1);
+        when(row1.getRowStyle())
+            .thenReturn(cellStyle1);
+        when(row1.getSheet())
+            .thenReturn(sheet1);
+        when(row1.getZeroHeight())
+            .thenReturn(false);
+        when(row1.isFormatted())
+            .thenReturn(false);
+        Sheet sheet2 = mock(Sheet.class);
+        when(sheet2.createRow(anyInt()))
+            .thenReturn(row1);
+        Row row2 = WorkBookUtil.createRow(sheet2, 1);
+        CellStyle cellStyle2 = mock(CellStyle.class);
+        Workbook workbook = mock(Workbook.class);
+        when(workbook.createCellStyle())
+            .thenReturn(cellStyle2);
+        // pojo Cell
+        // pojo Row
+        Mockito.verify(cell).setCellStyle(ArgumentMatchers.<CellStyle>any());
+        Mockito.verify(cellStyle2).setAlignment(ArgumentMatchers.<HorizontalAlignment>any());
+        Mockito.verify(cellStyle2).setBorderBottom(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderLeft(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderRight(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderTop(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setFillForegroundColor((short) 22);
+        Mockito.verify(cellStyle2).setFillPattern(ArgumentMatchers.<FillPatternType>any());
+        Mockito.verify(cellStyle2).setLocked(true);
+        Mockito.verify(cellStyle2).setVerticalAlignment(ArgumentMatchers.<VerticalAlignment>any());
+        Mockito.verify(cellStyle2).setWrapText(true);
+    }
+
+    @Test
+    void createCell3() throws org.apache.poi.ss.formula.FormulaParseException, java.io.IOException {
+        Cell cell = mock(Cell.class);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        Sheet sheet1 = mock(Sheet.class);
+        Row row1 = mock(Row.class);
+        when(row1.createCell(anyInt()))
+            .thenReturn(cell);
+        when(row1.getFirstCellNum())
+            .thenReturn(1);
+        when(row1.getHeight())
+            .thenReturn(1);
+        when(row1.getHeightInPoints())
+            .thenReturn(1.0f);
+        when(row1.getLastCellNum())
+            .thenReturn(1);
+        when(row1.getOutlineLevel())
+            .thenReturn(1);
+        when(row1.getPhysicalNumberOfCells())
+            .thenReturn(1);
+        when(row1.getRowNum())
+            .thenReturn(1);
+        when(row1.getRowStyle())
+            .thenReturn(cellStyle1);
+        when(row1.getSheet())
+            .thenReturn(sheet1);
+        when(row1.getZeroHeight())
+            .thenReturn(false);
+        when(row1.isFormatted())
+            .thenReturn(false);
+        Sheet sheet2 = mock(Sheet.class);
+        when(sheet2.createRow(anyInt()))
+            .thenReturn(row1);
+        Row row2 = WorkBookUtil.createRow(sheet2, 1);
+        CellStyle cellStyle2 = mock(CellStyle.class);
+        Workbook workbook = mock(Workbook.class);
+        when(workbook.createCellStyle())
+            .thenReturn(cellStyle2);
+        // pojo Cell
+        // pojo Row
+        Mockito.verify(cell).setCellStyle(ArgumentMatchers.<CellStyle>any());
+        Mockito.verify(cell).setCellValue("value");
+        Mockito.verify(cellStyle2).setAlignment(ArgumentMatchers.<HorizontalAlignment>any());
+        Mockito.verify(cellStyle2).setBorderBottom(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderLeft(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderRight(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setBorderTop(ArgumentMatchers.<BorderStyle>any());
+        Mockito.verify(cellStyle2).setFillForegroundColor((short) 22);
+        Mockito.verify(cellStyle2).setFillPattern(ArgumentMatchers.<FillPatternType>any());
+        Mockito.verify(cellStyle2).setLocked(true);
+        Mockito.verify(cellStyle2).setVerticalAlignment(ArgumentMatchers.<VerticalAlignment>any());
+        Mockito.verify(cellStyle2).setWrapText(true);
+    }
+
+    @Test
+    void createCell1() throws java.text.ParseException, org.apache.poi.ss.formula.FormulaParseException {
+
+        // arrange
+        CellAddress cellAddress = new CellAddress(1, 1);
+        CellRangeAddress cellRangeAddress = new CellRangeAddress(1, 1, 1, 1);
+        cellRangeAddress.setFirstColumn(1);
+        cellRangeAddress.setFirstRow(1);
+        cellRangeAddress.setLastColumn(1);
+        cellRangeAddress.setLastRow(1);
+        Comment comment = mock(Comment.class);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        Date date = new java.text.SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31");
+        Hyperlink hyperlink = mock(Hyperlink.class);
+        RichTextString richTextString = mock(RichTextString.class);
+        Row row2 = mock(Row.class);
+        Sheet sheet1 = mock(Sheet.class);
+        Cell cell3 = mock(Cell.class);
+        when(cell3.getAddress())
+            .thenReturn(cellAddress);
+        when(cell3.getArrayFormulaRange())
+            .thenReturn(cellRangeAddress);
+        when(cell3.getBooleanCellValue())
+            .thenReturn(false);
+        when(cell3.getCachedFormulaResultType())
+            .thenReturn(1);
+        when(cell3.getCachedFormulaResultTypeEnum())
+            .thenReturn(CellType._NONE);
+        when(cell3.getCellComment())
+            .thenReturn(comment);
+        when(cell3.getCellFormula())
+            .thenReturn("foo");
+        when(cell3.getCellStyle())
+            .thenReturn(cellStyle1);
+        when(cell3.getCellType())
+            .thenReturn(1);
+        when(cell3.getCellTypeEnum())
+            .thenReturn(CellType._NONE);
+        when(cell3.getColumnIndex())
+            .thenReturn(1);
+        when(cell3.getDateCellValue())
+            .thenReturn(date);
+        when(cell3.getErrorCellValue())
+            .thenReturn(1);
+        when(cell3.getHyperlink())
+            .thenReturn(hyperlink);
+        when(cell3.getNumericCellValue())
+            .thenReturn(1.0);
+        when(cell3.getRichStringCellValue())
+            .thenReturn(richTextString);
+        when(cell3.getRow())
+            .thenReturn(row2);
+        when(cell3.getRowIndex())
+            .thenReturn(1);
+        when(cell3.getSheet())
+            .thenReturn(sheet1);
+        when(cell3.getStringCellValue())
+            .thenReturn("foo");
+        when(cell3.isPartOfArrayFormulaGroup())
+            .thenReturn(false);
+        CellStyle cellStyle2 = mock(CellStyle.class);
+        Sheet sheet2 = mock(Sheet.class);
+        Row row3 = mock(Row.class);
+        when(row3.createCell(anyInt()))
+            .thenReturn(cell3);
+        when(row3.getFirstCellNum())
+            .thenReturn(1);
+        when(row3.getHeight())
+            .thenReturn(1);
+        when(row3.getHeightInPoints())
+            .thenReturn(1.0f);
+        when(row3.getLastCellNum())
+            .thenReturn(1);
+        when(row3.getOutlineLevel())
+            .thenReturn(1);
+        when(row3.getPhysicalNumberOfCells())
+            .thenReturn(1);
+        when(row3.getRowNum())
+            .thenReturn(1);
+        when(row3.getRowStyle())
+            .thenReturn(cellStyle2);
+        when(row3.getSheet())
+            .thenReturn(sheet2);
+        when(row3.getZeroHeight())
+            .thenReturn(false);
+        when(row3.isFormatted())
+            .thenReturn(false);
+        Sheet sheet3 = mock(Sheet.class);
+        when(sheet3.createRow(anyInt()))
+            .thenReturn(row3);
+        Row row4 = WorkBookUtil.createRow(sheet3, 1);
+
+        // act
+        Cell result = WorkBookUtil.createCell(row4, 1, "value");
+
+        // assert
+        assertThat(result.getAddress(), sameInstance(cellAddress));
+        assertThat(result.getArrayFormulaRange(), sameInstance(cellRangeAddress));
+        assertThat(result.getBooleanCellValue(), is(false));
+        assertThat(result.getCachedFormulaResultType(), is(1));
+        assertThat(result.getCachedFormulaResultTypeEnum(), is(CellType._NONE));
+        assertThat(result.getCellComment(), sameInstance(comment));
+        assertThat(result.getCellFormula(), is("foo"));
+        assertThat(result.getCellStyle(), sameInstance(cellStyle1));
+        assertThat(result.getCellType(), is(1));
+        assertThat(result.getCellTypeEnum(), is(CellType._NONE));
+        assertThat(result.getColumnIndex(), is(1));
+        assertThat(result.getDateCellValue(), sameInstance(date));
+        assertThat(result.getErrorCellValue(), is((byte) 1));
+        assertThat(result.getHyperlink(), sameInstance(hyperlink));
+        assertThat(result.getNumericCellValue(), closeTo(1.0, 0.0));
+        assertThat(result.getRichStringCellValue(), sameInstance(richTextString));
+        assertThat(result.getRow(), sameInstance(row2));
+        assertThat(result.getRowIndex(), is(1));
+        assertThat(result.getSheet(), sameInstance(sheet1));
+        assertThat(result.getStringCellValue(), is("foo"));
+        assertThat(result.isPartOfArrayFormulaGroup(), is(false));
+        // pojo Row
+        Mockito.verify(cell3).setCellValue("value");
+    }
+}
