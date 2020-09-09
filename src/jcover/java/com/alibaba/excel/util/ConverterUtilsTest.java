@@ -42,23 +42,4 @@ class ConverterUtilsTest {
         assertThat(result.get(0), is(nullValue()));
         assertThat(result.get(1), is("foo"));
     }
-
-    @Test
-    void convertToStringMapReturnsNullNull() {
-
-        // arrange
-        HashMap<Integer, CellData> cellDataMap =
-             new HashMap<Integer, CellData>();
-        CellData x176 = new CellData();
-        x176.setType(CellDataTypeEnum.EMPTY);
-        cellDataMap.put(1, x176);
-
-        // act
-        Map<Integer, String> result =
-             ConverterUtils.convertToStringMap(cellDataMap, new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
-
-        // assert
-        assertThat(result.get(0), is(nullValue()));
-        assertThat(result.get(1), is(nullValue()));
-    }
 }

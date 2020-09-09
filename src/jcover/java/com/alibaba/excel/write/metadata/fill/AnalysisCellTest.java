@@ -2,6 +2,7 @@ package com.alibaba.excel.write.metadata.fill;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 
 import com.alibaba.excel.enums.WriteTemplateAnalysisCellTypeEnum;
@@ -25,18 +26,21 @@ class AnalysisCellTest {
         analysisCell.setColumnIndex(1);
         analysisCell.setFirstRow(true);
         analysisCell.setOnlyOneVariable(false);
-        analysisCell.setPrefix("bar");
+        analysisCell.setPrefix("/bin/bash");
         analysisCell.setPrepareDataList(new ArrayList<String>());
         analysisCell.setRowIndex(1);
-        analysisCell.setVariableList(new ArrayList<String>());
+        ArrayList<String> variableList = new ArrayList<String>();
+        variableList.add("Smith");
+        analysisCell.setVariableList(variableList);
         assertThat(analysisCell.getCellType(), is(WriteTemplateAnalysisCellTypeEnum.COMMON));
         assertThat(analysisCell.getColumnIndex(), is(1));
         assertThat(analysisCell.getFirstRow(), is(true));
         assertThat(analysisCell.getOnlyOneVariable(), is(false));
-        assertThat(analysisCell.getPrefix(), is("bar"));
+        assertThat(analysisCell.getPrefix(), is("/bin/bash"));
         assertThat(analysisCell.getPrepareDataList(), empty());
         assertThat(analysisCell.getRowIndex(), is(1));
-        assertThat(analysisCell.getVariableList(), empty());
+        assertThat(analysisCell.getVariableList(), hasSize(1));
+        assertThat(analysisCell.getVariableList().get(0), is("Smith"));
     }
 
     @Test

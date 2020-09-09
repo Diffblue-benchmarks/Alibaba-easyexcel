@@ -1,8 +1,8 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 
@@ -94,7 +94,9 @@ class HeadTest {
         headFontProperty.setTypeOffset((short) 1);
         headFontProperty.setUnderline((byte) 1);
         head.setHeadFontProperty(headFontProperty);
-        head.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty = new StyleProperty();
         headStyleProperty.setBorderBottom(BorderStyle.NONE);
         headStyleProperty.setBorderLeft(BorderStyle.NONE);
@@ -141,14 +143,17 @@ class HeadTest {
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
-        assertThat(head.getHeadNameList(), empty());
+        assertThat(head.getHeadNameList(), hasSize(1));
+        assertThat(head.getHeadNameList().get(0), is("Smith"));
         assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
         assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
     }
 
     @Test
     void factory2() {
-        Head head = new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList1 = new ArrayList<String>();
+        headNameList1.add("Smith");
+        Head head = new Head(1, "data", headNameList1, false, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -179,7 +184,9 @@ class HeadTest {
         headFontProperty.setTypeOffset((short) 1);
         headFontProperty.setUnderline((byte) 1);
         head.setHeadFontProperty(headFontProperty);
-        head.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty = new StyleProperty();
         headStyleProperty.setBorderBottom(BorderStyle.NONE);
         headStyleProperty.setBorderLeft(BorderStyle.NONE);
@@ -226,7 +233,8 @@ class HeadTest {
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
-        assertThat(head.getHeadNameList(), empty());
+        assertThat(head.getHeadNameList(), hasSize(1));
+        assertThat(head.getHeadNameList().get(0), is("Smith"));
         assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
         assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
     }

@@ -26,7 +26,7 @@ class CollectionUtilsTest {
     @Test
     void isEmptyReturnsFalse1() {
         LinkedList<Object> collection = new LinkedList<Object>();
-        collection.add(new Object());
+        collection.add("foo");
         assertThat(CollectionUtils.isEmpty(collection), is(false));
     }
 

@@ -35,7 +35,9 @@ class ExcelContentPropertyTest {
         dateTimeFormatProperty.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty.setUse1904windowing(false);
         excelContentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
-        Head head = new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList1 = new ArrayList<String>();
+        headNameList1.add("Smith");
+        Head head = new Head(1, "data", headNameList1, false, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -99,7 +101,9 @@ class ExcelContentPropertyTest {
         headFontProperty.setTypeOffset((short) 1);
         headFontProperty.setUnderline((byte) 1);
         head.setHeadFontProperty(headFontProperty);
-        head.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty = new StyleProperty();
         headStyleProperty.setBorderBottom(BorderStyle.NONE);
         headStyleProperty.setBorderLeft(BorderStyle.NONE);

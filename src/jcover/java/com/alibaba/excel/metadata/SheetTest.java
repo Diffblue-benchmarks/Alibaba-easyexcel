@@ -30,7 +30,11 @@ class SheetTest {
              new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
-        sheet.setHead(new ArrayList<List<String>>());
+        ArrayList<List<String>> head = new ArrayList<List<String>>();
+        List<String> list = new ArrayList<String>();
+        list.add("foo");
+        head.add(list);
+        sheet.setHead(head);
         sheet.setHeadLineMun(1);
         sheet.setSheetName("Acme");
         sheet.setSheetNo(1);
@@ -52,7 +56,8 @@ class SheetTest {
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().get(1), is(1));
-        assertThat(sheet.getHead(), empty());
+        assertThat(sheet.getHead().size(), is(1));
+        assertThat(sheet.getHead().get(0), sameInstance(list));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));
@@ -69,7 +74,11 @@ class SheetTest {
              new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
-        sheet.setHead(new ArrayList<List<String>>());
+        ArrayList<List<String>> head = new ArrayList<List<String>>();
+        List<String> list = new ArrayList<String>();
+        list.add("foo");
+        head.add(list);
+        sheet.setHead(head);
         sheet.setHeadLineMun(1);
         sheet.setSheetName("Acme");
         sheet.setSheetNo(1);
@@ -91,7 +100,8 @@ class SheetTest {
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().get(1), is(1));
-        assertThat(sheet.getHead(), empty());
+        assertThat(sheet.getHead().size(), is(1));
+        assertThat(sheet.getHead().get(0), sameInstance(list));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));
@@ -101,8 +111,55 @@ class SheetTest {
 
     @Test
     void factory3() {
-        Sheet sheet =
-             new Sheet(1, 1, BaseRowModel.class, "Acme", new ArrayList<List<String>>());
+        ArrayList<List<String>> head1 = new ArrayList<List<String>>();
+        List<String> list1 = new ArrayList<String>();
+        list1.add("foo");
+        head1.add(list1);
+        Sheet sheet = new Sheet(1, 1, BaseRowModel.class, "Acme", head1);
+        sheet.setAutoWidth(false);
+        sheet.setClazz(BaseRowModel.class);
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
+        columnWidthMap.put(1, 1);
+        sheet.setColumnWidthMap(columnWidthMap);
+        ArrayList<List<String>> head2 = new ArrayList<List<String>>();
+        List<String> list2 = new ArrayList<String>();
+        list2.add("foo");
+        head2.add(list2);
+        sheet.setHead(head2);
+        sheet.setHeadLineMun(1);
+        sheet.setSheetName("Acme");
+        sheet.setSheetNo(1);
+        sheet.setStartRow(1);
+        TableStyle tableStyle = new TableStyle();
+        tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(false);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
+        tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
+        sheet.setTableStyle(tableStyle);
+        assertThat(sheet.getAutoWidth(), is(false));
+        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat(sheet.getColumnWidthMap().get(1), is(1));
+        assertThat(sheet.getHead().size(), is(1));
+        assertThat(sheet.getHead().get(0), sameInstance(list2));
+        assertThat(sheet.getHeadLineMun(), is(1));
+        assertThat(sheet.getSheetName(), is("Acme"));
+        assertThat(sheet.getSheetNo(), is(1));
+        assertThat(sheet.getStartRow(), is(1));
+        assertThat(sheet.getTableStyle(), sameInstance(tableStyle));
+    }
+
+    @Test
+    void factory4() {
+        Sheet sheet = new Sheet(1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
         HashMap<Integer, Integer> columnWidthMap =
@@ -129,45 +186,6 @@ class SheetTest {
         tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
-        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
-        assertThat(sheet.getColumnWidthMap().get(1), is(1));
-        assertThat(sheet.getHead(), empty());
-        assertThat(sheet.getHeadLineMun(), is(1));
-        assertThat(sheet.getSheetName(), is("Acme"));
-        assertThat(sheet.getSheetNo(), is(1));
-        assertThat(sheet.getStartRow(), is(1));
-        assertThat(sheet.getTableStyle(), sameInstance(tableStyle));
-    }
-
-    @Test
-    void factory4() {
-        Sheet sheet = new Sheet(1);
-        sheet.setAutoWidth(true);
-        sheet.setClazz(BaseRowModel.class);
-        HashMap<Integer, Integer> columnWidthMap =
-             new HashMap<Integer, Integer>();
-        columnWidthMap.put(1, 1);
-        sheet.setColumnWidthMap(columnWidthMap);
-        sheet.setHead(new ArrayList<List<String>>());
-        sheet.setHeadLineMun(1);
-        sheet.setSheetName("Acme");
-        sheet.setSheetNo(1);
-        sheet.setStartRow(1);
-        TableStyle tableStyle = new TableStyle();
-        tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        Font tableContentFont = new Font();
-        tableContentFont.setBold(false);
-        tableContentFont.setFontHeightInPoints((short) 1);
-        tableContentFont.setFontName("Acme");
-        tableStyle.setTableContentFont(tableContentFont);
-        tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        Font tableHeadFont = new Font();
-        tableHeadFont.setBold(false);
-        tableHeadFont.setFontHeightInPoints((short) 1);
-        tableHeadFont.setFontName("Acme");
-        tableStyle.setTableHeadFont(tableHeadFont);
-        sheet.setTableStyle(tableStyle);
-        assertThat(sheet.getAutoWidth(), is(true));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().get(1), is(1));
         assertThat(sheet.getHead(), empty());

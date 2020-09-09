@@ -57,6 +57,42 @@ class HorizontalCellStyleStrategyTest {
         writeFont2.setTypeOffset((short) 1);
         writeFont2.setUnderline((byte) 1);
         headWriteCellStyle.setWriteFont(writeFont2);
+        ArrayList<WriteCellStyle> contentWriteCellStyleList =
+             new ArrayList<WriteCellStyle>();
+        WriteCellStyle writeCellStyle = new WriteCellStyle();
+        writeCellStyle.setBorderBottom(BorderStyle.NONE);
+        writeCellStyle.setBorderLeft(BorderStyle.NONE);
+        writeCellStyle.setBorderRight(BorderStyle.NONE);
+        writeCellStyle.setBorderTop(BorderStyle.NONE);
+        writeCellStyle.setBottomBorderColor((short) 1);
+        writeCellStyle.setDataFormat((short) 1);
+        writeCellStyle.setFillBackgroundColor((short) 1);
+        writeCellStyle.setFillForegroundColor((short) 1);
+        writeCellStyle.setFillPatternType(FillPatternType.NO_FILL);
+        writeCellStyle.setHidden(false);
+        writeCellStyle.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        writeCellStyle.setIndent((short) 1);
+        writeCellStyle.setLeftBorderColor((short) 1);
+        writeCellStyle.setLocked(false);
+        writeCellStyle.setQuotePrefix(false);
+        writeCellStyle.setRightBorderColor((short) 1);
+        writeCellStyle.setRotation((short) 1);
+        writeCellStyle.setShrinkToFit(false);
+        writeCellStyle.setTopBorderColor((short) 1);
+        writeCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
+        writeCellStyle.setWrapped(false);
+        WriteFont writeFont4 = new WriteFont();
+        writeFont4.setBold(false);
+        writeFont4.setCharset(1);
+        writeFont4.setColor((short) 1);
+        writeFont4.setFontHeightInPoints((short) 1);
+        writeFont4.setFontName("Acme");
+        writeFont4.setItalic(false);
+        writeFont4.setStrikeout(false);
+        writeFont4.setTypeOffset((short) 1);
+        writeFont4.setUnderline((byte) 1);
+        writeCellStyle.setWriteFont(writeFont4);
+        contentWriteCellStyleList.add(writeCellStyle);
         // pojo HorizontalCellStyleStrategy
     }
 

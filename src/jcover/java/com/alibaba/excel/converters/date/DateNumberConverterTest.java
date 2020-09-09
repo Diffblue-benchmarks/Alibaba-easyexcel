@@ -17,6 +17,7 @@ import com.alibaba.excel.metadata.property.FontProperty;
 import com.alibaba.excel.metadata.property.LoopMergeProperty;
 import com.alibaba.excel.metadata.property.NumberFormatProperty;
 import com.alibaba.excel.metadata.property.StyleProperty;
+import com.alibaba.excel.write.metadata.style.WriteFont;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -72,7 +73,9 @@ class DateNumberConverterTest {
         dateTimeFormatProperty.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty.setUse1904windowing(false);
         contentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
-        Head head = new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList1 = new ArrayList<String>();
+        headNameList1.add("Smith");
+        Head head = new Head(1, "data", headNameList1, false, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -110,6 +113,7 @@ class DateNumberConverterTest {
         contentStyleProperty.setTopBorderColor((short) 1);
         contentStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty.setWrapped(false);
+        contentStyleProperty.setWriteFont(new WriteFont());
         head.setContentStyleProperty(contentStyleProperty);
         head.setFieldName("data");
         head.setForceIndex(false);
@@ -125,7 +129,9 @@ class DateNumberConverterTest {
         headFontProperty.setTypeOffset((short) 1);
         headFontProperty.setUnderline((byte) 1);
         head.setHeadFontProperty(headFontProperty);
-        head.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty = new StyleProperty();
         headStyleProperty.setBorderBottom(BorderStyle.NONE);
         headStyleProperty.setBorderLeft(BorderStyle.NONE);
@@ -148,6 +154,7 @@ class DateNumberConverterTest {
         headStyleProperty.setTopBorderColor((short) 1);
         headStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty.setWrapped(false);
+        headStyleProperty.setWriteFont(new WriteFont());
         head.setHeadStyleProperty(headStyleProperty);
         LoopMergeProperty loopMergeProperty = new LoopMergeProperty(1, 1);
         loopMergeProperty.setColumnExtend(1);

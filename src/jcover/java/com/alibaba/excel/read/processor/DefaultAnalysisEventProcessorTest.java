@@ -15,22 +15,12 @@ import org.junit.jupiter.api.Test;
 class DefaultAnalysisEventProcessorTest {
 
     @Test
-    void extra1() {
+    void extra() {
         new DefaultAnalysisEventProcessor().extra(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 
     @Test
-    void extra2() {
-        new DefaultAnalysisEventProcessor().extra(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
-    }
-
-    @Test
-    void endSheet1() {
-        new DefaultAnalysisEventProcessor().endSheet(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
-    }
-
-    @Test
-    void endSheet2() {
+    void endSheet() {
         new DefaultAnalysisEventProcessor().endSheet(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 }

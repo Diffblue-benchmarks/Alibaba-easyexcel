@@ -16,6 +16,7 @@ import com.alibaba.excel.metadata.property.FontProperty;
 import com.alibaba.excel.metadata.property.LoopMergeProperty;
 import com.alibaba.excel.metadata.property.NumberFormatProperty;
 import com.alibaba.excel.metadata.property.StyleProperty;
+import com.alibaba.excel.write.metadata.style.WriteFont;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -59,8 +60,9 @@ class ExcelDataConvertExceptionTest {
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
         excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
-        Head head1 =
-             new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList1 = new ArrayList<String>();
+        headNameList1.add("Smith");
+        Head head1 = new Head(1, "data", headNameList1, false, false);
         head1.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty1 = new ColumnWidthProperty(1);
         columnWidthProperty1.setWidth(1);
@@ -98,6 +100,7 @@ class ExcelDataConvertExceptionTest {
         contentStyleProperty1.setTopBorderColor((short) 1);
         contentStyleProperty1.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty1.setWrapped(false);
+        contentStyleProperty1.setWriteFont(new WriteFont());
         head1.setContentStyleProperty(contentStyleProperty1);
         head1.setFieldName("data");
         head1.setForceIndex(false);
@@ -113,7 +116,9 @@ class ExcelDataConvertExceptionTest {
         headFontProperty1.setTypeOffset((short) 1);
         headFontProperty1.setUnderline((byte) 1);
         head1.setHeadFontProperty(headFontProperty1);
-        head1.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head1.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty1 = new StyleProperty();
         headStyleProperty1.setBorderBottom(BorderStyle.NONE);
         headStyleProperty1.setBorderLeft(BorderStyle.NONE);
@@ -136,6 +141,7 @@ class ExcelDataConvertExceptionTest {
         headStyleProperty1.setTopBorderColor((short) 1);
         headStyleProperty1.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty1.setWrapped(false);
+        headStyleProperty1.setWriteFont(new WriteFont());
         head1.setHeadStyleProperty(headStyleProperty1);
         LoopMergeProperty loopMergeProperty1 = new LoopMergeProperty(1, 1);
         loopMergeProperty1.setColumnExtend(1);
@@ -173,8 +179,9 @@ class ExcelDataConvertExceptionTest {
         dateTimeFormatProperty2.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty2.setUse1904windowing(false);
         excelContentProperty2.setDateTimeFormatProperty(dateTimeFormatProperty2);
-        Head head2 =
-             new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList3 = new ArrayList<String>();
+        headNameList3.add("Smith");
+        Head head2 = new Head(1, "data", headNameList3, false, false);
         head2.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty2 = new ColumnWidthProperty(1);
         columnWidthProperty2.setWidth(1);
@@ -212,6 +219,7 @@ class ExcelDataConvertExceptionTest {
         contentStyleProperty2.setTopBorderColor((short) 1);
         contentStyleProperty2.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty2.setWrapped(false);
+        contentStyleProperty2.setWriteFont(new WriteFont());
         head2.setContentStyleProperty(contentStyleProperty2);
         head2.setFieldName("data");
         head2.setForceIndex(false);
@@ -227,7 +235,9 @@ class ExcelDataConvertExceptionTest {
         headFontProperty2.setTypeOffset((short) 1);
         headFontProperty2.setUnderline((byte) 1);
         head2.setHeadFontProperty(headFontProperty2);
-        head2.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList4 = new ArrayList<String>();
+        headNameList4.add("Smith");
+        head2.setHeadNameList(headNameList4);
         StyleProperty headStyleProperty2 = new StyleProperty();
         headStyleProperty2.setBorderBottom(BorderStyle.NONE);
         headStyleProperty2.setBorderLeft(BorderStyle.NONE);
@@ -250,6 +260,7 @@ class ExcelDataConvertExceptionTest {
         headStyleProperty2.setTopBorderColor((short) 1);
         headStyleProperty2.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty2.setWrapped(false);
+        headStyleProperty2.setWriteFont(new WriteFont());
         head2.setHeadStyleProperty(headStyleProperty2);
         LoopMergeProperty loopMergeProperty2 = new LoopMergeProperty(1, 1);
         loopMergeProperty2.setColumnExtend(1);
@@ -295,8 +306,9 @@ class ExcelDataConvertExceptionTest {
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
         excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
-        Head head1 =
-             new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList1 = new ArrayList<String>();
+        headNameList1.add("Smith");
+        Head head1 = new Head(1, "data", headNameList1, false, false);
         head1.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty1 = new ColumnWidthProperty(1);
         columnWidthProperty1.setWidth(1);
@@ -334,6 +346,7 @@ class ExcelDataConvertExceptionTest {
         contentStyleProperty1.setTopBorderColor((short) 1);
         contentStyleProperty1.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty1.setWrapped(false);
+        contentStyleProperty1.setWriteFont(new WriteFont());
         head1.setContentStyleProperty(contentStyleProperty1);
         head1.setFieldName("data");
         head1.setForceIndex(false);
@@ -349,7 +362,9 @@ class ExcelDataConvertExceptionTest {
         headFontProperty1.setTypeOffset((short) 1);
         headFontProperty1.setUnderline((byte) 1);
         head1.setHeadFontProperty(headFontProperty1);
-        head1.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList2 = new ArrayList<String>();
+        headNameList2.add("Smith");
+        head1.setHeadNameList(headNameList2);
         StyleProperty headStyleProperty1 = new StyleProperty();
         headStyleProperty1.setBorderBottom(BorderStyle.NONE);
         headStyleProperty1.setBorderLeft(BorderStyle.NONE);
@@ -372,6 +387,7 @@ class ExcelDataConvertExceptionTest {
         headStyleProperty1.setTopBorderColor((short) 1);
         headStyleProperty1.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty1.setWrapped(false);
+        headStyleProperty1.setWriteFont(new WriteFont());
         head1.setHeadStyleProperty(headStyleProperty1);
         LoopMergeProperty loopMergeProperty1 = new LoopMergeProperty(1, 1);
         loopMergeProperty1.setColumnExtend(1);
@@ -411,8 +427,9 @@ class ExcelDataConvertExceptionTest {
         dateTimeFormatProperty2.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty2.setUse1904windowing(false);
         excelContentProperty2.setDateTimeFormatProperty(dateTimeFormatProperty2);
-        Head head2 =
-             new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList3 = new ArrayList<String>();
+        headNameList3.add("Smith");
+        Head head2 = new Head(1, "data", headNameList3, false, false);
         head2.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty2 = new ColumnWidthProperty(1);
         columnWidthProperty2.setWidth(1);
@@ -450,6 +467,7 @@ class ExcelDataConvertExceptionTest {
         contentStyleProperty2.setTopBorderColor((short) 1);
         contentStyleProperty2.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty2.setWrapped(false);
+        contentStyleProperty2.setWriteFont(new WriteFont());
         head2.setContentStyleProperty(contentStyleProperty2);
         head2.setFieldName("data");
         head2.setForceIndex(false);
@@ -465,7 +483,9 @@ class ExcelDataConvertExceptionTest {
         headFontProperty2.setTypeOffset((short) 1);
         headFontProperty2.setUnderline((byte) 1);
         head2.setHeadFontProperty(headFontProperty2);
-        head2.setHeadNameList(new ArrayList<String>());
+        ArrayList<String> headNameList4 = new ArrayList<String>();
+        headNameList4.add("Smith");
+        head2.setHeadNameList(headNameList4);
         StyleProperty headStyleProperty2 = new StyleProperty();
         headStyleProperty2.setBorderBottom(BorderStyle.NONE);
         headStyleProperty2.setBorderLeft(BorderStyle.NONE);
@@ -488,6 +508,7 @@ class ExcelDataConvertExceptionTest {
         headStyleProperty2.setTopBorderColor((short) 1);
         headStyleProperty2.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty2.setWrapped(false);
+        headStyleProperty2.setWriteFont(new WriteFont());
         head2.setHeadStyleProperty(headStyleProperty2);
         LoopMergeProperty loopMergeProperty2 = new LoopMergeProperty(1, 1);
         loopMergeProperty2.setColumnExtend(1);

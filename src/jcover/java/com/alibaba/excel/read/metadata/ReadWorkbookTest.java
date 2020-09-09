@@ -9,8 +9,10 @@ import static org.hamcrest.core.IsSame.sameInstance;
 
 import com.alibaba.excel.cache.Ehcache;
 import com.alibaba.excel.cache.selector.EternalReadCacheSelector;
+import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.enums.CellExtraTypeEnum;
+import com.alibaba.excel.read.listener.ModelBuildEventListener;
 import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -48,12 +50,23 @@ class ReadWorkbookTest {
         readWorkbook.setReadCacheSelector(new EternalReadCacheSelector(new Ehcache(1)));
         readWorkbook.setUseDefaultListener(false);
         readWorkbook.setXlsxSAXParserFactoryName("Acme");
-        readWorkbook.setCustomReadListenerList(new ArrayList<ReadListener>());
+        ArrayList<ReadListener> customReadListenerList =
+             new ArrayList<ReadListener>();
+        ReadListener readListener = new ModelBuildEventListener();
+        customReadListenerList.add(readListener);
+        readWorkbook.setCustomReadListenerList(customReadListenerList);
         readWorkbook.setHeadRowNumber(1);
         readWorkbook.setAutoTrim(false);
         readWorkbook.setClazz(String.class);
-        readWorkbook.setCustomConverterList(new ArrayList<Converter>());
-        readWorkbook.setHead(new ArrayList<List<String>>());
+        ArrayList<Converter> customConverterList = new ArrayList<Converter>();
+        Converter converter = new AutoConverter();
+        customConverterList.add(converter);
+        readWorkbook.setCustomConverterList(customConverterList);
+        ArrayList<List<String>> head = new ArrayList<List<String>>();
+        List<String> list = new ArrayList<String>();
+        list.add("foo");
+        head.add(list);
+        readWorkbook.setHead(head);
         Locale locale = new Locale("en");
         readWorkbook.setLocale(locale);
         readWorkbook.setUse1904windowing(false);
@@ -70,12 +83,15 @@ class ReadWorkbookTest {
         assertThat(readWorkbook.getPassword(), is("secret"));
         assertThat(readWorkbook.getUseDefaultListener(), is(false));
         assertThat(readWorkbook.getXlsxSAXParserFactoryName(), is("Acme"));
-        assertThat(readWorkbook.getCustomReadListenerList(), empty());
+        assertThat(readWorkbook.getCustomReadListenerList().size(), is(1));
+        assertThat(readWorkbook.getCustomReadListenerList().get(0), sameInstance(readListener));
         assertThat(readWorkbook.getHeadRowNumber(), is(1));
         assertThat(readWorkbook.getAutoTrim(), is(false));
         assertThat((Class<String>) readWorkbook.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbook.getCustomConverterList(), empty());
-        assertThat(readWorkbook.getHead(), empty());
+        assertThat(readWorkbook.getCustomConverterList().size(), is(1));
+        assertThat(readWorkbook.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readWorkbook.getHead().size(), is(1));
+        assertThat(readWorkbook.getHead().get(0), sameInstance(list));
         assertThat(readWorkbook.getLocale(), sameInstance(locale));
         assertThat(readWorkbook.getUse1904windowing(), is(false));
         assertThat(readWorkbook.getUseScientificFormat(), is(false));

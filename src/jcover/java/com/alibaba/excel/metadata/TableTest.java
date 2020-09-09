@@ -29,7 +29,7 @@ class TableTest {
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
         Font tableContentFont = new Font();
-        tableContentFont.setBold(true);
+        tableContentFont.setBold(false);
         tableContentFont.setFontHeightInPoints((short) 1);
         tableContentFont.setFontName("Acme");
         tableStyle.setTableContentFont(tableContentFont);
