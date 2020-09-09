@@ -30,7 +30,7 @@ class BigDecimalStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new BigDecimalStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

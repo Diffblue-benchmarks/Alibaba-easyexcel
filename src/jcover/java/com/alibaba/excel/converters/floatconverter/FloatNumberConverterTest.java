@@ -29,13 +29,15 @@ class FloatNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new FloatNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
     void convertToJavaDataReturnsOne() {
-        assertEquals(1.0f, new FloatNumberConverter().convertToJavaData(new CellData(BigDecimal.valueOf(1L)), new ExcelContentProperty(), new GlobalConfiguration()), 0);
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        assertEquals(1.0f, new FloatNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), 0);
     }
 
     @Test

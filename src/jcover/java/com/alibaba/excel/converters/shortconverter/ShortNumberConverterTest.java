@@ -28,13 +28,15 @@ class ShortNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new ShortNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
     void convertToJavaDataReturnsOne() {
-        assertThat(new ShortNumberConverter().convertToJavaData(new CellData(BigDecimal.valueOf(1L)), new ExcelContentProperty(), new GlobalConfiguration()), is((short) 1));
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        assertThat(new ShortNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((short) 1));
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 
@@ -67,7 +68,17 @@ class HeadTest {
         contentStyleProperty.setTopBorderColor((short) 1);
         contentStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty.setWrapped(false);
-        contentStyleProperty.setWriteFont(new WriteFont());
+        WriteFont writeFont1 = new WriteFont();
+        writeFont1.setBold(false);
+        writeFont1.setCharset(1);
+        writeFont1.setColor((short) 1);
+        writeFont1.setFontHeightInPoints((short) 1);
+        writeFont1.setFontName("Acme");
+        writeFont1.setItalic(false);
+        writeFont1.setStrikeout(false);
+        writeFont1.setTypeOffset((short) 1);
+        writeFont1.setUnderline((byte) 1);
+        contentStyleProperty.setWriteFont(writeFont1);
         head.setContentStyleProperty(contentStyleProperty);
         head.setFieldName("data");
         head.setForceIndex(false);
@@ -106,7 +117,17 @@ class HeadTest {
         headStyleProperty.setTopBorderColor((short) 1);
         headStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty.setWrapped(false);
-        headStyleProperty.setWriteFont(new WriteFont());
+        WriteFont writeFont2 = new WriteFont();
+        writeFont2.setBold(false);
+        writeFont2.setCharset(1);
+        writeFont2.setColor((short) 1);
+        writeFont2.setFontHeightInPoints((short) 1);
+        writeFont2.setFontName("Acme");
+        writeFont2.setItalic(false);
+        writeFont2.setStrikeout(false);
+        writeFont2.setTypeOffset((short) 1);
+        writeFont2.setUnderline((byte) 1);
+        headStyleProperty.setWriteFont(writeFont2);
         head.setHeadStyleProperty(headStyleProperty);
         LoopMergeProperty loopMergeProperty = new LoopMergeProperty(1, 1);
         loopMergeProperty.setColumnExtend(1);
@@ -127,7 +148,7 @@ class HeadTest {
 
     @Test
     void factory2() {
-        Head head = new Head(1, "data", new ArrayList<String>(), true, false);
+        Head head = new Head(1, "data", new ArrayList<String>(), false, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -143,30 +164,7 @@ class HeadTest {
         contentFontProperty.setTypeOffset((short) 1);
         contentFontProperty.setUnderline((byte) 1);
         head.setContentFontProperty(contentFontProperty);
-        StyleProperty contentStyleProperty = new StyleProperty();
-        contentStyleProperty.setBorderBottom(BorderStyle.NONE);
-        contentStyleProperty.setBorderLeft(BorderStyle.NONE);
-        contentStyleProperty.setBorderRight(BorderStyle.NONE);
-        contentStyleProperty.setBorderTop(BorderStyle.NONE);
-        contentStyleProperty.setBottomBorderColor((short) 1);
-        contentStyleProperty.setDataFormat((short) 1);
-        contentStyleProperty.setFillBackgroundColor((short) 1);
-        contentStyleProperty.setFillForegroundColor((short) 1);
-        contentStyleProperty.setFillPatternType(FillPatternType.NO_FILL);
-        contentStyleProperty.setHidden(false);
-        contentStyleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
-        contentStyleProperty.setIndent((short) 1);
-        contentStyleProperty.setLeftBorderColor((short) 1);
-        contentStyleProperty.setLocked(false);
-        contentStyleProperty.setQuotePrefix(false);
-        contentStyleProperty.setRightBorderColor((short) 1);
-        contentStyleProperty.setRotation((short) 1);
-        contentStyleProperty.setShrinkToFit(false);
-        contentStyleProperty.setTopBorderColor((short) 1);
-        contentStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
-        contentStyleProperty.setWrapped(false);
-        contentStyleProperty.setWriteFont(new WriteFont());
-        head.setContentStyleProperty(contentStyleProperty);
+        head.setContentStyleProperty(null);
         head.setFieldName("data");
         head.setForceIndex(false);
         head.setForceName(false);
@@ -204,7 +202,17 @@ class HeadTest {
         headStyleProperty.setTopBorderColor((short) 1);
         headStyleProperty.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty.setWrapped(false);
-        headStyleProperty.setWriteFont(new WriteFont());
+        WriteFont writeFont = new WriteFont();
+        writeFont.setBold(false);
+        writeFont.setCharset(1);
+        writeFont.setColor((short) 1);
+        writeFont.setFontHeightInPoints((short) 1);
+        writeFont.setFontName("Acme");
+        writeFont.setItalic(false);
+        writeFont.setStrikeout(false);
+        writeFont.setTypeOffset((short) 1);
+        writeFont.setUnderline((byte) 1);
+        headStyleProperty.setWriteFont(writeFont);
         head.setHeadStyleProperty(headStyleProperty);
         LoopMergeProperty loopMergeProperty = new LoopMergeProperty(1, 1);
         loopMergeProperty.setColumnExtend(1);
@@ -213,7 +221,7 @@ class HeadTest {
         assertThat(head.getColumnIndex(), is(1));
         assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
         assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
-        assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
+        assertThat(head.getContentStyleProperty(), is(nullValue()));
         assertThat(head.getFieldName(), is("data"));
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));

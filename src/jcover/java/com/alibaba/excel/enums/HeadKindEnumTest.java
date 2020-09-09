@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class HeadKindEnumTest {
 
     @Test
-    void valuesReturnsNONECLASSSTRING() {
+    void valuesReturnsNoneClassString() {
         HeadKindEnum[] result = HeadKindEnum.values();
         assertThat(result[0], is(HeadKindEnum.NONE));
         assertThat(result[1], is(HeadKindEnum.CLASS));

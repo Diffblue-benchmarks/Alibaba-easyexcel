@@ -29,7 +29,7 @@ class DateStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new DateStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

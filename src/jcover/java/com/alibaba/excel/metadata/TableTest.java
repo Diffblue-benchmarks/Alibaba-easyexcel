@@ -22,15 +22,23 @@ class TableTest {
 
     @Test
     void factory() {
-        Table table = new Table(0);
+        Table table = new Table(1);
         table.setClazz(BaseRowModel.class);
         table.setHead(new ArrayList<List<String>>());
         table.setTableNo(1);
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableContentFont(new Font());
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(true);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
         tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableHeadFont(new Font());
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
         table.setTableStyle(tableStyle);
         assertThat((Class<BaseRowModel>) table.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(table.getHead(), empty());

@@ -29,7 +29,7 @@ class FloatStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new FloatStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

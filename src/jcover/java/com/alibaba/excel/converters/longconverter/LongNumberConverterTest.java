@@ -28,13 +28,15 @@ class LongNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new LongNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
     void convertToJavaDataReturnsOne() {
-        assertThat(new LongNumberConverter().convertToJavaData(new CellData(BigDecimal.valueOf(1L)), new ExcelContentProperty(), new GlobalConfiguration()), is(1L));
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        assertThat(new LongNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(1L));
     }
 
     @Test

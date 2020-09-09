@@ -22,7 +22,7 @@ class FileImageConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsIMAGE() {
+    void supportExcelTypeKeyReturnsImage() {
         assertThat(new FileImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
     }
 }

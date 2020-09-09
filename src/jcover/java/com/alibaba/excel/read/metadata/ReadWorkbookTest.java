@@ -41,7 +41,7 @@ class ReadWorkbookTest {
         readWorkbook.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook.setIgnoreEmptyRow(false);
-        readWorkbook.setInputStream(new StringBufferInputStream("foo"));
+        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
         readWorkbook.setMandatoryUseInputStream(false);
         readWorkbook.setPassword("secret");
         readWorkbook.setReadCache(new Ehcache(1));

@@ -19,14 +19,18 @@ class FileUtilsTest {
     }
 
     @Test
-    void getters() {
-        assertThat(FileUtils.createCacheTmpFile().getPath(), is("/tmp/8525d80d-5351-4b3d-a974-909ed3bbaa3d/excache/0e44c62e-8ea4-4279-b6d1-fe2dd539b198"));
-        assertThat(FileUtils.createTmpFile("data.txt").getPath(), is("/tmp/8525d80d-5351-4b3d-a974-909ed3bbaa3d/data.txt"));
+    void createCacheTmpFile() {
+        assertThat(FileUtils.createCacheTmpFile().getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
+    }
+
+    @Test
+    void createTmpFile() {
+        assertThat(FileUtils.createTmpFile("data.txt").getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test
     void getTempFilePrefix() {
-        assertThat(FileUtils.getTempFilePrefix(), is("/tmp/8525d80d-5351-4b3d-a974-909ed3bbaa3d/"));
+        assertThat(FileUtils.getTempFilePrefix().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test
@@ -36,7 +40,7 @@ class FileUtilsTest {
 
     @Test
     void getPoiFilesPath() {
-        assertThat(FileUtils.getPoiFilesPath(), is("/tmp/8525d80d-5351-4b3d-a974-909ed3bbaa3d/poifiles/"));
+        assertThat(FileUtils.getPoiFilesPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test
@@ -46,7 +50,7 @@ class FileUtilsTest {
 
     @Test
     void getCachePath() {
-        assertThat(FileUtils.getCachePath(), is("/tmp/8525d80d-5351-4b3d-a974-909ed3bbaa3d/excache/"));
+        assertThat(FileUtils.getCachePath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test

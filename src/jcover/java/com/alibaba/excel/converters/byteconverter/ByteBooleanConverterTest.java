@@ -26,15 +26,8 @@ class ByteBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new ByteBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
-    }
-
-    @Test
-    void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
-        cellData.setBooleanValue(true);
-        assertThat(new ByteBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((byte) 1));
     }
 
     @Test

@@ -27,7 +27,7 @@ class BoxingByteArrayImageConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsIMAGE() {
+    void supportExcelTypeKeyReturnsImage() {
         assertThat(new BoxingByteArrayImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
     }
 

@@ -29,13 +29,15 @@ class DoubleNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new DoubleNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
     void convertToJavaDataReturnsOne() {
-        assertThat(new DoubleNumberConverter().convertToJavaData(new CellData(BigDecimal.valueOf(1L)), new ExcelContentProperty(), new GlobalConfiguration()), closeTo(1.0, 0.0));
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        assertThat(new DoubleNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), closeTo(1.0, 0.0));
     }
 
     @Test

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class WriteTypeEnumTest {
 
     @Test
-    void valuesReturnsADDFILL() {
+    void valuesReturnsAddFill() {
         WriteTypeEnum[] result = WriteTypeEnum.values();
         assertThat(result[0], is(WriteTypeEnum.ADD));
         assertThat(result[1], is(WriteTypeEnum.FILL));

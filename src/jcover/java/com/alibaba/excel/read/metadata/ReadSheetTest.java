@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 class ReadSheetTest {
 
     @Test
-    void factory() {
+    void factory1() {
         ReadSheet readSheet = new ReadSheet();
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
@@ -52,17 +52,63 @@ class ReadSheetTest {
     }
 
     @Test
-    void copyBasicParameter1() {
-        new ReadSheet(1).copyBasicParameter(new ReadSheet());
+    void factory2() {
+        ReadSheet readSheet = new ReadSheet(1);
+        readSheet.setSheetName("Acme");
+        readSheet.setSheetNo(1);
+        readSheet.setCustomReadListenerList(new ArrayList<ReadListener>());
+        readSheet.setHeadRowNumber(1);
+        readSheet.setAutoTrim(false);
+        readSheet.setClazz(String.class);
+        readSheet.setCustomConverterList(new ArrayList<Converter>());
+        readSheet.setHead(new ArrayList<List<String>>());
+        Locale locale = new Locale("en");
+        readSheet.setLocale(locale);
+        readSheet.setUse1904windowing(false);
+        readSheet.setUseScientificFormat(false);
+        assertThat(readSheet.getSheetName(), is("Acme"));
+        assertThat(readSheet.getSheetNo(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), empty());
+        assertThat(readSheet.getHeadRowNumber(), is(1));
+        assertThat(readSheet.getAutoTrim(), is(false));
+        assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
+        assertThat(readSheet.getCustomConverterList(), empty());
+        assertThat(readSheet.getHead(), empty());
+        assertThat(readSheet.getLocale(), sameInstance(locale));
+        assertThat(readSheet.getUse1904windowing(), is(false));
+        assertThat(readSheet.getUseScientificFormat(), is(false));
     }
 
     @Test
-    void copyBasicParameter2() {
-        new ReadSheet(1, "Acme").copyBasicParameter(new ReadSheet());
+    void factory3() {
+        ReadSheet readSheet = new ReadSheet(1, "Acme");
+        readSheet.setSheetName("Acme");
+        readSheet.setSheetNo(1);
+        readSheet.setCustomReadListenerList(new ArrayList<ReadListener>());
+        readSheet.setHeadRowNumber(1);
+        readSheet.setAutoTrim(false);
+        readSheet.setClazz(String.class);
+        readSheet.setCustomConverterList(new ArrayList<Converter>());
+        readSheet.setHead(new ArrayList<List<String>>());
+        Locale locale = new Locale("en");
+        readSheet.setLocale(locale);
+        readSheet.setUse1904windowing(false);
+        readSheet.setUseScientificFormat(false);
+        assertThat(readSheet.getSheetName(), is("Acme"));
+        assertThat(readSheet.getSheetNo(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), empty());
+        assertThat(readSheet.getHeadRowNumber(), is(1));
+        assertThat(readSheet.getAutoTrim(), is(false));
+        assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
+        assertThat(readSheet.getCustomConverterList(), empty());
+        assertThat(readSheet.getHead(), empty());
+        assertThat(readSheet.getLocale(), sameInstance(locale));
+        assertThat(readSheet.getUse1904windowing(), is(false));
+        assertThat(readSheet.getUseScientificFormat(), is(false));
     }
 
     @Test
-    void copyBasicParameter3() {
+    void copyBasicParameter() {
 
         // arrange
         ReadSheet readSheet = new ReadSheet();

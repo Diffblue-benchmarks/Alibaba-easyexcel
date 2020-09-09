@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class WriteTemplateAnalysisCellTypeEnumTest {
 
     @Test
-    void valuesReturnsCOMMONCOLLECTION() {
+    void valuesReturnsCommonCollection() {
         WriteTemplateAnalysisCellTypeEnum[] result =
              WriteTemplateAnalysisCellTypeEnum.values();
         assertThat(result[0], is(WriteTemplateAnalysisCellTypeEnum.COMMON));

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class RowTypeEnumTest {
 
     @Test
-    void valuesReturnsDATAEMPTY() {
+    void valuesReturnsDataEmpty() {
         RowTypeEnum[] result = RowTypeEnum.values();
         assertThat(result[0], is(RowTypeEnum.DATA));
         assertThat(result[1], is(RowTypeEnum.EMPTY));

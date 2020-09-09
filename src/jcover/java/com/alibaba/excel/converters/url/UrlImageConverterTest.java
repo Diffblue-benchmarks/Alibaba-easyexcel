@@ -22,7 +22,7 @@ class UrlImageConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsIMAGE() {
+    void supportExcelTypeKeyReturnsImage() {
         assertThat(new UrlImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
     }
 }

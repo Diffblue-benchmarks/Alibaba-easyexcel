@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class CellExtraTypeEnumTest {
 
     @Test
-    void valuesReturnsCOMMENTHYPERLINKMERGE() {
+    void valuesReturnsCommentHyperlinkMerge() {
         CellExtraTypeEnum[] result = CellExtraTypeEnum.values();
         assertThat(result[0], is(CellExtraTypeEnum.COMMENT));
         assertThat(result[1], is(CellExtraTypeEnum.HYPERLINK));

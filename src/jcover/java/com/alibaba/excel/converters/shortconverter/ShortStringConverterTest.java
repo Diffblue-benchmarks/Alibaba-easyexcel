@@ -29,7 +29,7 @@ class ShortStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new ShortStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

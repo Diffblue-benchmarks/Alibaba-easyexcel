@@ -21,18 +21,32 @@ import org.junit.jupiter.api.Test;
 class CellDataTest {
 
     @Test
-    void factory() {
-        CellData<String> cellData = new CellData<String>();
+    void factory1() {
+        CellData<String> other = new CellData<String>();
+        other.setBooleanValue(false);
+        other.setData("something");
+        other.setDataFormat(1);
+        other.setDataFormatString("yyyy-MM-dd");
+        other.setFormula(false);
+        other.setFormulaValue("value");
+        byte[] imageValue2 = new byte[] { 1 };
+        other.setImageValue(imageValue2);
+        BigDecimal numberValue3 = BigDecimal.valueOf(1L);
+        other.setNumberValue(numberValue3);
+        other.setStringValue("foo");
+        other.setType(CellDataTypeEnum.STRING);
+        other.setColumnIndex(1);
+        other.setRowIndex(1);
+        CellData<String> cellData = new CellData<String>(other);
         cellData.setBooleanValue(false);
         cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue2 = new byte[] { 1 };
-        cellData.setImageValue(imageValue2);
-        BigDecimal numberValue2 = BigDecimal.valueOf(1L);
-        cellData.setNumberValue(numberValue2);
+        byte[] imageValue3 = new byte[] { 1 };
+        cellData.setImageValue(imageValue3);
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
         cellData.setColumnIndex(1);
@@ -44,7 +58,7 @@ class CellDataTest {
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
         assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
-        assertThat(cellData.getNumberValue(), sameInstance(numberValue2));
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue3));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
         assertThat(cellData.getColumnIndex(), is(1));
@@ -52,72 +66,167 @@ class CellDataTest {
     }
 
     @Test
-    void checkEmpty1() {
+    void factory2() {
         CellData<String> cellData = new CellData<String>("something");
+        cellData.setBooleanValue(false);
+        cellData.setData("something");
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue = new byte[] { 1 };
+        cellData.setImageValue(imageValue);
+        BigDecimal numberValue = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue);
+        cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
-        cellData.checkEmpty();
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        assertThat(cellData.getBooleanValue(), is(false));
+        assertThat(cellData.getData(), is("something"));
+        assertThat(cellData.getDataFormat(), is(1));
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(cellData.getFormula(), is(false));
+        assertThat(cellData.getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue));
+        assertThat(cellData.getStringValue(), is("foo"));
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+        assertThat(cellData.getColumnIndex(), is(1));
+        assertThat(cellData.getRowIndex(), is(1));
     }
 
     @Test
-    void checkEmpty2() {
+    void factory3() {
         CellData<String> cellData = new CellData<String>("something", "value");
+        cellData.setBooleanValue(false);
+        cellData.setData("something");
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue = new byte[] { 1 };
+        cellData.setImageValue(imageValue);
+        BigDecimal numberValue = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue);
+        cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
-        cellData.checkEmpty();
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        assertThat(cellData.getBooleanValue(), is(false));
+        assertThat(cellData.getData(), is("something"));
+        assertThat(cellData.getDataFormat(), is(1));
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(cellData.getFormula(), is(false));
+        assertThat(cellData.getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue));
+        assertThat(cellData.getStringValue(), is("foo"));
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+        assertThat(cellData.getColumnIndex(), is(1));
+        assertThat(cellData.getRowIndex(), is(1));
     }
 
     @Test
-    void checkEmpty3() {
+    void factory4() {
         byte[] imageValue1 = new byte[] { 1 };
         CellData<String> cellData = new CellData<String>(imageValue1);
+        cellData.setBooleanValue(false);
+        cellData.setData("something");
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue2 = new byte[] { 1 };
+        cellData.setImageValue(imageValue2);
+        BigDecimal numberValue = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue);
+        cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
-        cellData.checkEmpty();
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        assertThat(cellData.getBooleanValue(), is(false));
+        assertThat(cellData.getData(), is("something"));
+        assertThat(cellData.getDataFormat(), is(1));
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(cellData.getFormula(), is(false));
+        assertThat(cellData.getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue));
+        assertThat(cellData.getStringValue(), is("foo"));
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+        assertThat(cellData.getColumnIndex(), is(1));
+        assertThat(cellData.getRowIndex(), is(1));
     }
 
     @Test
-    void checkEmpty4() {
+    void factory5() {
+        CellData<String> cellData =
+             new CellData<String>(CellDataTypeEnum.STRING);
+        cellData.setBooleanValue(true);
+        cellData.setData("something");
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue = new byte[] { 1 };
+        cellData.setImageValue(imageValue);
+        BigDecimal numberValue = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue);
+        cellData.setStringValue("foo");
+        cellData.setType(CellDataTypeEnum.STRING);
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        assertThat(cellData.getBooleanValue(), is(true));
+        assertThat(cellData.getData(), is("something"));
+        assertThat(cellData.getDataFormat(), is(1));
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(cellData.getFormula(), is(false));
+        assertThat(cellData.getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue));
+        assertThat(cellData.getStringValue(), is("foo"));
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+        assertThat(cellData.getColumnIndex(), is(1));
+        assertThat(cellData.getRowIndex(), is(1));
+    }
+
+    @Test
+    void factory6() {
+        CellData<String> cellData =
+             new CellData<String>(CellDataTypeEnum.ERROR, "foo");
+        cellData.setBooleanValue(false);
+        cellData.setData("something");
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue = new byte[] { 1 };
+        cellData.setImageValue(imageValue);
+        BigDecimal numberValue = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue);
+        cellData.setStringValue("foo");
+        cellData.setType(CellDataTypeEnum.STRING);
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        assertThat(cellData.getBooleanValue(), is(false));
+        assertThat(cellData.getData(), is("something"));
+        assertThat(cellData.getDataFormat(), is(1));
+        assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(cellData.getFormula(), is(false));
+        assertThat(cellData.getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertThat(cellData.getNumberValue(), sameInstance(numberValue));
+        assertThat(cellData.getStringValue(), is("foo"));
+        assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
+        assertThat(cellData.getColumnIndex(), is(1));
+        assertThat(cellData.getRowIndex(), is(1));
+    }
+
+    @Test
+    void checkEmpty() {
         CellData<String> cellData = new CellData<String>();
         cellData.setType(CellDataTypeEnum.STRING);
-        cellData.checkEmpty();
-    }
-
-    @Test
-    void checkEmpty5() {
-
-        // arrange
-        CellData<String> cellData = new CellData<String>();
-        cellData.setType(CellDataTypeEnum.STRING);
-
-        // act
-        cellData.checkEmpty();
-
-        // assert
-        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
-    }
-
-    @Test
-    void checkEmpty6() {
-
-        // arrange
-        CellData<String> cellData = new CellData<String>();
-
-        // act
-        cellData.checkEmpty();
-
-        // assert
-        assertThat(cellData.getType(), is(CellDataTypeEnum.EMPTY));
-    }
-
-    @Test
-    void checkEmpty7() {
-        CellData<String> cellData = new CellData<String>();
-        cellData.setType(CellDataTypeEnum.NUMBER);
-        cellData.checkEmpty();
-    }
-
-    @Test
-    void checkEmpty8() {
-        CellData<String> cellData = new CellData<String>();
-        cellData.setType(CellDataTypeEnum.BOOLEAN);
         cellData.checkEmpty();
     }
 

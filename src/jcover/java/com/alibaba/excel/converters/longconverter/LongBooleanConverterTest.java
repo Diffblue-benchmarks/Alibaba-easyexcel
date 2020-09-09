@@ -26,15 +26,8 @@ class LongBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new LongBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
-    }
-
-    @Test
-    void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
-        cellData.setBooleanValue(true);
-        assertThat(new LongBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(1L));
     }
 
     @Test

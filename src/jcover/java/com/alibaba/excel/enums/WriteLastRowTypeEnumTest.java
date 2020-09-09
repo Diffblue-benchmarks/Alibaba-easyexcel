@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class WriteLastRowTypeEnumTest {
 
     @Test
-    void valuesReturnsCOMMON_EMPTYTEMPLATE_EMPTYHAS_DATA() {
+    void valuesReturnsCommon_emptyTemplate_emptyHas_data() {
         WriteLastRowTypeEnum[] result = WriteLastRowTypeEnum.values();
         assertThat(result[0], is(WriteLastRowTypeEnum.COMMON_EMPTY));
         assertThat(result[1], is(WriteLastRowTypeEnum.TEMPLATE_EMPTY));

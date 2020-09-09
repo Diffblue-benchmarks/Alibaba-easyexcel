@@ -27,7 +27,7 @@ class ByteArrayImageConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsIMAGE() {
+    void supportExcelTypeKeyReturnsImage() {
         assertThat(new ByteArrayImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
     }
 

@@ -29,7 +29,7 @@ class InputStreamImageConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsIMAGE() {
+    void supportExcelTypeKeyReturnsImage() {
         assertThat(new InputStreamImageConverter().supportExcelTypeKey(), is(CellDataTypeEnum.IMAGE));
     }
 

@@ -37,9 +37,17 @@ class SheetTest {
         sheet.setStartRow(1);
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableContentFont(new Font());
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(false);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
         tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableHeadFont(new Font());
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
@@ -68,9 +76,17 @@ class SheetTest {
         sheet.setStartRow(1);
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableContentFont(new Font());
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(false);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
         tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableHeadFont(new Font());
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
@@ -100,9 +116,17 @@ class SheetTest {
         sheet.setStartRow(1);
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableContentFont(new Font());
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(false);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
         tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableHeadFont(new Font());
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
@@ -117,8 +141,8 @@ class SheetTest {
 
     @Test
     void factory4() {
-        Sheet sheet = new Sheet(0);
-        sheet.setAutoWidth(false);
+        Sheet sheet = new Sheet(1);
+        sheet.setAutoWidth(true);
         sheet.setClazz(BaseRowModel.class);
         HashMap<Integer, Integer> columnWidthMap =
              new HashMap<Integer, Integer>();
@@ -131,11 +155,19 @@ class SheetTest {
         sheet.setStartRow(1);
         TableStyle tableStyle = new TableStyle();
         tableStyle.setTableContentBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableContentFont(new Font());
+        Font tableContentFont = new Font();
+        tableContentFont.setBold(false);
+        tableContentFont.setFontHeightInPoints((short) 1);
+        tableContentFont.setFontName("Acme");
+        tableStyle.setTableContentFont(tableContentFont);
         tableStyle.setTableHeadBackGroundColor(IndexedColors.BLACK1);
-        tableStyle.setTableHeadFont(new Font());
+        Font tableHeadFont = new Font();
+        tableHeadFont.setBold(false);
+        tableHeadFont.setFontHeightInPoints((short) 1);
+        tableHeadFont.setFontName("Acme");
+        tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
-        assertThat(sheet.getAutoWidth(), is(false));
+        assertThat(sheet.getAutoWidth(), is(true));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().get(1), is(1));
         assertThat(sheet.getHead(), empty());

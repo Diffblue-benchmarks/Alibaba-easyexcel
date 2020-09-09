@@ -15,10 +15,32 @@ import org.junit.jupiter.api.Test;
 class ExcelGenerateExceptionTest {
 
     @Test
-    void factory() {
+    void factory1() {
         ExcelGenerateException excelGenerateException =
-             new ExcelGenerateException("jpg");
+             new ExcelGenerateException("an error has happened");
         assertThat(excelGenerateException.getCause(), is(nullValue()));
-        assertThat(excelGenerateException.getMessage(), is("jpg"));
+        assertThat(excelGenerateException.getMessage(), is("an error has happened"));
+    }
+
+    @Test
+    void factory2() {
+        Exception cause = new Exception();
+        cause.setStackTrace(new StackTraceElement[] { });
+        ExcelGenerateException excelGenerateException =
+             new ExcelGenerateException("an error has happened", cause);
+        assertThat(excelGenerateException.getCause().getCause(), is(nullValue()));
+        assertThat(excelGenerateException.getCause().getMessage(), is(nullValue()));
+        assertThat(excelGenerateException.getMessage(), is("an error has happened"));
+    }
+
+    @Test
+    void factory3() {
+        Exception cause = new Exception();
+        cause.setStackTrace(new StackTraceElement[] { });
+        ExcelGenerateException excelGenerateException =
+             new ExcelGenerateException(cause);
+        assertThat(excelGenerateException.getCause().getCause(), is(nullValue()));
+        assertThat(excelGenerateException.getCause().getMessage(), is(nullValue()));
+        assertThat(excelGenerateException.getMessage(), is("java.lang.Exception"));
     }
 }

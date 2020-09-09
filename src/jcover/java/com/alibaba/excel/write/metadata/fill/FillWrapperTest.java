@@ -17,9 +17,17 @@ import org.junit.jupiter.api.Test;
 class FillWrapperTest {
 
     @Test
-    void factory() {
-        FillWrapper fillWrapper =
-             new FillWrapper("data.txt", new LinkedList());
+    void factory1() {
+        FillWrapper fillWrapper = new FillWrapper("Acme", new LinkedList());
+        fillWrapper.setCollectionData(new LinkedList());
+        fillWrapper.setName("data.txt");
+        assertTrue((fillWrapper.getCollectionData()).isEmpty());
+        assertThat(fillWrapper.getName(), is("data.txt"));
+    }
+
+    @Test
+    void factory2() {
+        FillWrapper fillWrapper = new FillWrapper(new LinkedList());
         fillWrapper.setCollectionData(new LinkedList());
         fillWrapper.setName("data.txt");
         assertTrue((fillWrapper.getCollectionData()).isEmpty());

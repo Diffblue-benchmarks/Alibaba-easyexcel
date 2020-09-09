@@ -29,7 +29,7 @@ class ByteStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new ByteStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

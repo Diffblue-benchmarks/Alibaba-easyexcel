@@ -16,42 +16,40 @@ import org.junit.jupiter.api.Test;
 class FillConfigTest {
 
     @Test
-    void factory() {
-        FillConfig fillConfig = new FillConfig();
-        fillConfig.setDirection(WriteDirectionEnum.VERTICAL);
-        fillConfig.setForceNewRow(false);
-        assertThat(fillConfig.getDirection(), is(WriteDirectionEnum.VERTICAL));
-        assertThat(fillConfig.getForceNewRow(), is(false));
+    void init() {
+        FillConfig.builder()
+            .direction(WriteDirectionEnum.VERTICAL)
+            .forceNewRow(false)
+            .build().init();
     }
 
     @Test
-    void init1() {
-
-        // arrange
-        FillConfig fillConfig = new FillConfig();
-
-        // act
-        fillConfig.init();
-
-        // assert
-        assertThat(fillConfig.getDirection(), is(WriteDirectionEnum.VERTICAL));
+    void builder1() {
+        FillConfig object = FillConfig.builder()
+            .direction(WriteDirectionEnum.VERTICAL)
+            .forceNewRow(false)
+            .build();
+        assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
+        assertThat(object.getForceNewRow(), is(false));
     }
 
     @Test
-    void init2() {
-
-        // arrange
-        FillConfig fillConfig = new FillConfig();
-
-        // act
-        fillConfig.init();
-
-        // assert
-        assertThat(fillConfig.getForceNewRow(), is(false));
+    void builder2() {
+        FillConfig object = FillConfig.builder()
+            .direction(null)
+            .forceNewRow(false)
+            .build();
+        assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
+        assertThat(object.getForceNewRow(), is(false));
     }
 
     @Test
-    void builder() {
-        // pojo FillConfig.FillConfigBuilder
+    void builder3() {
+        FillConfig object = FillConfig.builder()
+            .direction(WriteDirectionEnum.VERTICAL)
+            .forceNewRow(null)
+            .build();
+        assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
+        assertThat(object.getForceNewRow(), is(false));
     }
 }

@@ -57,7 +57,7 @@ class ExcelWriterBuilderTest {
     }
 
     @Test
-    void excelTypeExcelTypeIsXLS() {
+    void excelTypeExcelTypeIsXls() {
         ExcelWriterBuilder excelWriterBuilder = new ExcelWriterBuilder();
         assertThat(excelWriterBuilder.excelType(ExcelTypeEnum.XLS), sameInstance(excelWriterBuilder));
     }

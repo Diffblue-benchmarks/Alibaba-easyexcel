@@ -26,15 +26,8 @@ class ShortBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new ShortBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
-    }
-
-    @Test
-    void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
-        cellData.setBooleanValue(true);
-        assertThat(new ShortBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((short) 1));
     }
 
     @Test

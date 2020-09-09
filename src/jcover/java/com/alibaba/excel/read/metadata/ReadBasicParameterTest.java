@@ -25,7 +25,7 @@ class ReadBasicParameterTest {
 
     @Test
     void factory() {
-        ReadBasicParameter readBasicParameter = new ReadSheet();
+        ReadBasicParameter readBasicParameter = new ReadBasicParameter();
         readBasicParameter.setCustomReadListenerList(new ArrayList<ReadListener>());
         readBasicParameter.setHeadRowNumber(1);
         readBasicParameter.setAutoTrim(false);

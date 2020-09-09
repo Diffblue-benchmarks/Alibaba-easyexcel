@@ -28,19 +28,12 @@ class BigDecimalBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new BigDecimalBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
     }
 
     @Test
-    void convertToJavaData1() {
-        CellData cellData = new CellData();
-        cellData.setBooleanValue(true);
-        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), equalTo(new BigDecimal("1")));
-    }
-
-    @Test
-    void convertToJavaData2() {
+    void convertToJavaData() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
         assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), equalTo(new BigDecimal("0")));

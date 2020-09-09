@@ -32,17 +32,17 @@ class ReadRowHolderTest {
         globalConfiguration1.setUse1904windowing(false);
         globalConfiguration1.setUseScientificFormat(false);
         HashMap<Integer, Cell> cellMap1 = new HashMap<Integer, Cell>();
-        AbstractCell x12 = new CellData();
-        x12.setColumnIndex(1);
-        x12.setRowIndex(1);
-        cellMap1.put(1, x12);
+        AbstractCell x301 = new CellData();
+        x301.setColumnIndex(1);
+        x301.setRowIndex(1);
+        cellMap1.put(1, x301);
         ReadRowHolder readRowHolder =
              new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
-        AbstractCell x147 = new CellData();
-        x147.setColumnIndex(1);
-        x147.setRowIndex(1);
-        cellMap2.put(1, x147);
+        AbstractCell x436 = new CellData();
+        x436.setColumnIndex(1);
+        x436.setRowIndex(1);
+        cellMap2.put(1, x436);
         readRowHolder.setCellMap(cellMap2);
         Object currentRowAnalysisResult = new Object();
         readRowHolder.setCurrentRowAnalysisResult(currentRowAnalysisResult);
@@ -63,7 +63,7 @@ class ReadRowHolderTest {
     }
 
     @Test
-    void holderTypeReturnsROW() {
+    void holderTypeReturnsRow() {
         assertThat(new ReadRowHolder(1, RowTypeEnum.DATA, new GlobalConfiguration(), new HashMap<Integer, Cell>()).holderType(), is(HolderEnum.ROW));
     }
 }

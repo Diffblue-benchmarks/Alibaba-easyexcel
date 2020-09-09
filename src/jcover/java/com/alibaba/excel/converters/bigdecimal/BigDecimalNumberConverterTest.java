@@ -29,13 +29,16 @@ class BigDecimalNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new BigDecimalNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
-    void convertToJavaDataReturnsNull() {
-        assertThat(new BigDecimalNumberConverter().convertToJavaData(new CellData(), new ExcelContentProperty(), new GlobalConfiguration()), is(nullValue()));
+    void convertToJavaData() {
+        CellData cellData = new CellData();
+        BigDecimal numberValue3 = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue3);
+        assertThat(new BigDecimalNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), sameInstance(numberValue3));
     }
 
     @Test

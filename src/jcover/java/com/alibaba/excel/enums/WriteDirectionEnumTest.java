@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class WriteDirectionEnumTest {
 
     @Test
-    void valuesReturnsVERTICALHORIZONTAL() {
+    void valuesReturnsVerticalHorizontal() {
         WriteDirectionEnum[] result = WriteDirectionEnum.values();
         assertThat(result[0], is(WriteDirectionEnum.VERTICAL));
         assertThat(result[1], is(WriteDirectionEnum.HORIZONTAL));

@@ -15,7 +15,7 @@ class AbstractCellTest {
 
     @Test
     void factory() {
-        AbstractCell abstractCell = new CellData();
+        AbstractCell abstractCell = new AbstractCell();
         abstractCell.setColumnIndex(1);
         abstractCell.setRowIndex(1);
         assertThat(abstractCell.getColumnIndex(), is(1));

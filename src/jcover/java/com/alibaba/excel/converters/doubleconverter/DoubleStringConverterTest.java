@@ -29,7 +29,7 @@ class DoubleStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new DoubleStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

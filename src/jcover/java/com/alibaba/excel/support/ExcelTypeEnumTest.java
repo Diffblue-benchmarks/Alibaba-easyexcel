@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
 class ExcelTypeEnumTest {
 
     @Test
-    void valuesReturnsXLSXLSX() {
+    void valuesReturnsXlsXlsx() {
         ExcelTypeEnum[] result = ExcelTypeEnum.values();
         assertThat(result[0], is(ExcelTypeEnum.XLS));
         assertThat(result[1], is(ExcelTypeEnum.XLSX));
     }
 
     @Test
-    void valueOfReturnsXLS() {
+    void valueOfReturnsXls() {
         ReadWorkbook readWorkbook = new ReadWorkbook();
         readWorkbook.setExcelType(ExcelTypeEnum.XLS);
         assertThat(ExcelTypeEnum.valueOf(readWorkbook), is(ExcelTypeEnum.XLS));

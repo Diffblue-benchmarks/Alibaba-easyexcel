@@ -27,7 +27,7 @@ class ExcelReaderBuilderTest {
     }
 
     @Test
-    void excelTypeExcelTypeIsXLS() {
+    void excelTypeExcelTypeIsXls() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
         assertThat(excelReaderBuilder.excelType(ExcelTypeEnum.XLS), sameInstance(excelReaderBuilder));
     }
@@ -35,7 +35,7 @@ class ExcelReaderBuilderTest {
     @Test
     void file1() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        assertThat(excelReaderBuilder.file(new StringBufferInputStream("foo")), sameInstance(excelReaderBuilder));
+        assertThat(excelReaderBuilder.file(new StringBufferInputStream("/bin/bash")), sameInstance(excelReaderBuilder));
     }
 
     @Test
@@ -93,7 +93,7 @@ class ExcelReaderBuilderTest {
     }
 
     @Test
-    void extraReadExtraTypeIsCOMMENT() {
+    void extraReadExtraTypeIsComment() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
         assertThat(excelReaderBuilder.extraRead(CellExtraTypeEnum.COMMENT), sameInstance(excelReaderBuilder));
     }

@@ -26,7 +26,7 @@ class StringErrorConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsERROR() {
+    void supportExcelTypeKeyReturnsError() {
         assertThat(new StringErrorConverter().supportExcelTypeKey(), is(CellDataTypeEnum.ERROR));
     }
 

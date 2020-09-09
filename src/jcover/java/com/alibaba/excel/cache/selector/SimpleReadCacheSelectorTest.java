@@ -19,8 +19,6 @@ class SimpleReadCacheSelectorTest {
     @Test
     void readCache1() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1L);
         // pojo com.alibaba.excel.cache.ReadCache
@@ -29,8 +27,6 @@ class SimpleReadCacheSelectorTest {
     @Test
     void readCache2() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1L);
         // pojo com.alibaba.excel.cache.ReadCache
@@ -39,8 +35,6 @@ class SimpleReadCacheSelectorTest {
     @Test
     void readCache3() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1000000L);
         // pojo com.alibaba.excel.cache.ReadCache
@@ -51,8 +45,6 @@ class SimpleReadCacheSelectorTest {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getInputStream())
             .thenReturn(new StringBufferInputStream("foo"));
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(-1L);
         // pojo com.alibaba.excel.cache.ReadCache
@@ -61,8 +53,6 @@ class SimpleReadCacheSelectorTest {
     @Test
     void readCache5() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1L);
         // pojo com.alibaba.excel.cache.ReadCache

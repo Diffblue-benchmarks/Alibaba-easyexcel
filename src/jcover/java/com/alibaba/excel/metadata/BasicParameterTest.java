@@ -7,7 +7,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 
 import com.alibaba.excel.converters.Converter;
-import com.alibaba.excel.read.metadata.ReadSheet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ class BasicParameterTest {
 
     @Test
     void factory() {
-        BasicParameter basicParameter = new ReadSheet();
+        BasicParameter basicParameter = new BasicParameter();
         basicParameter.setAutoTrim(false);
         basicParameter.setClazz(String.class);
         basicParameter.setCustomConverterList(new ArrayList<Converter>());

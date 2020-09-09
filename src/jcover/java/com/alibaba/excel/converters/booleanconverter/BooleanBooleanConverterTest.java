@@ -26,7 +26,7 @@ class BooleanBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new BooleanBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
     }
 

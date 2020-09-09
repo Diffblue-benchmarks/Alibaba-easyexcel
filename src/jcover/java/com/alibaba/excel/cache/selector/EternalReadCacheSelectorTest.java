@@ -22,8 +22,6 @@ class EternalReadCacheSelectorTest {
     void readCache() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
         Ehcache readCache = new Ehcache(1);
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
-        // inaccessible mock: PackagePart.getInputStreamImpl
-        // inaccessible mock: PackagePart.getOutputStreamImpl
         assertThat(new EternalReadCacheSelector(readCache).readCache(sharedStringsTablePackagePart), instanceOf(Ehcache.class));
         assertThat((Ehcache) new EternalReadCacheSelector(readCache).readCache(sharedStringsTablePackagePart), sameInstance(readCache));
     }

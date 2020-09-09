@@ -29,7 +29,7 @@ class LongStringConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsSTRING() {
+    void supportExcelTypeKeyReturnsString() {
         assertThat(new LongStringConverter().supportExcelTypeKey(), is(CellDataTypeEnum.STRING));
     }
 

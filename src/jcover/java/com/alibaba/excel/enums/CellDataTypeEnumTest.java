@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class CellDataTypeEnumTest {
 
     @Test
-    void valuesReturnsSTRINGDIRECT_STRINGNUMBERBOOLEANEMPTYERRORIMAGE() {
+    void valuesReturnsStringDirect_stringNumberBooleanEmptyErrorImage() {
         CellDataTypeEnum[] result = CellDataTypeEnum.values();
         assertThat(result[0], is(CellDataTypeEnum.STRING));
         assertThat(result[1], is(CellDataTypeEnum.DIRECT_STRING));

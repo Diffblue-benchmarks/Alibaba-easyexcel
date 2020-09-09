@@ -26,7 +26,7 @@ class WriteBasicParameterTest {
 
     @Test
     void factory() {
-        WriteBasicParameter writeBasicParameter = new WriteSheet();
+        WriteBasicParameter writeBasicParameter = new WriteBasicParameter();
         writeBasicParameter.setAutomaticMergeHead(false);
         writeBasicParameter.setCustomWriteHandlerList(new ArrayList<WriteHandler>());
         writeBasicParameter.setExcludeColumnFiledNames(new LinkedList<String>());

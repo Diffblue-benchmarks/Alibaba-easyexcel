@@ -28,14 +28,16 @@ class StringNumberConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsNUMBER() {
+    void supportExcelTypeKeyReturnsNumber() {
         assertThat(new StringNumberConverter().supportExcelTypeKey(), is(CellDataTypeEnum.NUMBER));
     }
 
     @Test
     void convertToJavaData() {
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
-        assertThat(new StringNumberConverter().convertToJavaData(new CellData(BigDecimal.valueOf(1L)), contentProperty, new GlobalConfiguration()), is("1900-01-01"));
+        assertThat(new StringNumberConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is("1900-01-01"));
     }
 }

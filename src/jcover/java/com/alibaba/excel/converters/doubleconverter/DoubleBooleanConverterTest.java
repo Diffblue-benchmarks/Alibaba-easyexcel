@@ -27,15 +27,8 @@ class DoubleBooleanConverterTest {
     }
 
     @Test
-    void supportExcelTypeKeyReturnsBOOLEAN() {
+    void supportExcelTypeKeyReturnsBoolean() {
         assertThat(new DoubleBooleanConverter().supportExcelTypeKey(), is(CellDataTypeEnum.BOOLEAN));
-    }
-
-    @Test
-    void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
-        cellData.setBooleanValue(true);
-        assertThat(new DoubleBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), closeTo(1.0, 0.0));
     }
 
     @Test

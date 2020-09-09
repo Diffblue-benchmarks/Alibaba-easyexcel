@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class HolderEnumTest {
 
     @Test
-    void valuesReturnsWORKBOOKSHEETTABLEROW() {
+    void valuesReturnsWorkbookSheetTableRow() {
         HolderEnum[] result = HolderEnum.values();
         assertThat(result[0], is(HolderEnum.WORKBOOK));
         assertThat(result[1], is(HolderEnum.SHEET));
