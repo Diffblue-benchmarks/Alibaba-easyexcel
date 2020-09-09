@@ -17,7 +17,8 @@ class CellExtraTest {
 
     @Test
     void factory() {
-        CellExtra cellExtra = new CellExtra(CellExtraTypeEnum.COMMENT, "hello", 1, 1);
+        CellExtra cellExtra =
+             new CellExtra(CellExtraTypeEnum.COMMENT, "hello", 1, 1);
         cellExtra.setFirstColumnIndex(1);
         cellExtra.setFirstRowIndex(1);
         cellExtra.setLastColumnIndex(1);

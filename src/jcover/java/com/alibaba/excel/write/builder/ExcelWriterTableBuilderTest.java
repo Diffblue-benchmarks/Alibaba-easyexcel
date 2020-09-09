@@ -22,7 +22,8 @@ class ExcelWriterTableBuilderTest {
 
     @Test
     void tableNoTableNoIsOne() {
-        ExcelWriterTableBuilder excelWriterTableBuilder = new ExcelWriterTableBuilder();
+        ExcelWriterTableBuilder excelWriterTableBuilder =
+             new ExcelWriterTableBuilder();
         assertThat(excelWriterTableBuilder.tableNo(1), sameInstance(excelWriterTableBuilder));
     }
 
@@ -56,7 +57,8 @@ class ExcelWriterTableBuilderTest {
 
     @Test
     void automaticMergeHeadAutomaticMergeHeadIsFalse() {
-        ExcelWriterTableBuilder excelWriterTableBuilder = new ExcelWriterTableBuilder();
+        ExcelWriterTableBuilder excelWriterTableBuilder =
+             new ExcelWriterTableBuilder();
         assertThat(excelWriterTableBuilder.automaticMergeHead(false), sameInstance(excelWriterTableBuilder));
     }
 }

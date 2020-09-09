@@ -46,7 +46,8 @@ class LongBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
-        CellData result = new LongBooleanConverter().convertToExcelData((Long) 1L, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new LongBooleanConverter().convertToExcelData((Long) 1L, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -63,7 +64,8 @@ class LongBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsZero() {
-        CellData result = new LongBooleanConverter().convertToExcelData((Long) 0L, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new LongBooleanConverter().convertToExcelData((Long) 0L, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(false));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

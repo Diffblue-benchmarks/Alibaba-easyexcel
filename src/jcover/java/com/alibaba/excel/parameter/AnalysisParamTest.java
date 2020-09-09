@@ -20,7 +20,8 @@ class AnalysisParamTest {
 
     @Test
     void factory() {
-        AnalysisParam analysisParam = new AnalysisParam(new StringBufferInputStream("foo"), ExcelTypeEnum.XLS, new Object());
+        AnalysisParam analysisParam =
+             new AnalysisParam(new StringBufferInputStream("foo"), ExcelTypeEnum.XLS, new Object());
         Object customContent2 = new Object();
         analysisParam.setCustomContent(customContent2);
         analysisParam.setExcelTypeEnum(ExcelTypeEnum.XLS);

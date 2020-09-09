@@ -15,7 +15,8 @@ class WriteTemplateAnalysisCellTypeEnumTest {
 
     @Test
     void valuesReturnsCOMMONCOLLECTION() {
-        WriteTemplateAnalysisCellTypeEnum[] result = WriteTemplateAnalysisCellTypeEnum.values();
+        WriteTemplateAnalysisCellTypeEnum[] result =
+             WriteTemplateAnalysisCellTypeEnum.values();
         assertThat(result[0], is(WriteTemplateAnalysisCellTypeEnum.COMMON));
         assertThat(result[1], is(WriteTemplateAnalysisCellTypeEnum.COLLECTION));
     }

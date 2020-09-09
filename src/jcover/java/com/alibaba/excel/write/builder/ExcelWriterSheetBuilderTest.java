@@ -22,13 +22,15 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void sheetNoSheetNoIsOne() {
-        ExcelWriterSheetBuilder excelWriterSheetBuilder = new ExcelWriterSheetBuilder();
+        ExcelWriterSheetBuilder excelWriterSheetBuilder =
+             new ExcelWriterSheetBuilder();
         assertThat(excelWriterSheetBuilder.sheetNo(1), sameInstance(excelWriterSheetBuilder));
     }
 
     @Test
     void sheetNameSheetNameIsAcme() {
-        ExcelWriterSheetBuilder excelWriterSheetBuilder = new ExcelWriterSheetBuilder();
+        ExcelWriterSheetBuilder excelWriterSheetBuilder =
+             new ExcelWriterSheetBuilder();
         assertThat(excelWriterSheetBuilder.sheetName("Acme"), sameInstance(excelWriterSheetBuilder));
     }
 
@@ -64,7 +66,8 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void automaticMergeHeadAutomaticMergeHeadIsFalse() {
-        ExcelWriterSheetBuilder excelWriterSheetBuilder = new ExcelWriterSheetBuilder();
+        ExcelWriterSheetBuilder excelWriterSheetBuilder =
+             new ExcelWriterSheetBuilder();
         assertThat(excelWriterSheetBuilder.automaticMergeHead(false), sameInstance(excelWriterSheetBuilder));
     }
 

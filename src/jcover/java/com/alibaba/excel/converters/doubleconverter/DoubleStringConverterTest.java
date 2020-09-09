@@ -41,7 +41,8 @@ class DoubleStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new DoubleStringConverter().convertToExcelData((Double) 1.0, contentProperty, new GlobalConfiguration());
+        CellData result =
+             new DoubleStringConverter().convertToExcelData((Double) 1.0, contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

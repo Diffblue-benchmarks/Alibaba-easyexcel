@@ -19,7 +19,7 @@ class SimpleColumnWidthStyleStrategyTest {
 
     @Test
     void columnWidthColumnIndexIsOneReturnsOne() {
-        assertThat(new SimpleColumnWidthStyleStrategy(1).columnWidth(new Head(1, "Acme", new ArrayList<String>(), false, false), 1), is(1));
+        assertThat(new SimpleColumnWidthStyleStrategy(1).columnWidth(new Head(1, "data", new ArrayList<String>(), false, false), 1), is(1));
     }
 
     @Test

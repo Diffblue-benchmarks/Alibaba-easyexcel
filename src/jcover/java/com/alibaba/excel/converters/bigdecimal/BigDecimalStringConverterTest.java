@@ -42,7 +42,8 @@ class BigDecimalStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new BigDecimalStringConverter().convertToExcelData(BigDecimal.valueOf(1L), contentProperty, new GlobalConfiguration());
+        CellData result =
+             new BigDecimalStringConverter().convertToExcelData(BigDecimal.valueOf(1L), contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

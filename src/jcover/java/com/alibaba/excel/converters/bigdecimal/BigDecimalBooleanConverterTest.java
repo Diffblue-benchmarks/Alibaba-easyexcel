@@ -48,7 +48,8 @@ class BigDecimalBooleanConverterTest {
 
     @Test
     void convertToExcelData1() {
-        CellData result = new BigDecimalBooleanConverter().convertToExcelData(BigDecimal.valueOf(0L), new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BigDecimalBooleanConverter().convertToExcelData(BigDecimal.valueOf(0L), new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(false));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -65,7 +66,8 @@ class BigDecimalBooleanConverterTest {
 
     @Test
     void convertToExcelData2() {
-        CellData result = new BigDecimalBooleanConverter().convertToExcelData(BigDecimal.valueOf(1L), new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BigDecimalBooleanConverter().convertToExcelData(BigDecimal.valueOf(1L), new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

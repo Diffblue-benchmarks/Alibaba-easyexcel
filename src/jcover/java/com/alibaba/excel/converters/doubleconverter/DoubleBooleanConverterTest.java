@@ -47,7 +47,8 @@ class DoubleBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsNaN() {
-        CellData result = new DoubleBooleanConverter().convertToExcelData((Double) Double.NaN, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new DoubleBooleanConverter().convertToExcelData((Double) Double.NaN, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(false));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -64,7 +65,8 @@ class DoubleBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
-        CellData result = new DoubleBooleanConverter().convertToExcelData((Double) 1.0, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new DoubleBooleanConverter().convertToExcelData((Double) 1.0, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

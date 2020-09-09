@@ -20,7 +20,8 @@ class OnceAbsoluteMergePropertyTest {
 
     @Test
     void factory() {
-        OnceAbsoluteMergeProperty onceAbsoluteMergeProperty = new OnceAbsoluteMergeProperty(-1, 0, 1, 1);
+        OnceAbsoluteMergeProperty onceAbsoluteMergeProperty =
+             new OnceAbsoluteMergeProperty(-1, 0, 1, 1);
         onceAbsoluteMergeProperty.setFirstColumnIndex(1);
         onceAbsoluteMergeProperty.setFirstRowIndex(1);
         onceAbsoluteMergeProperty.setLastColumnIndex(1);
@@ -42,7 +43,8 @@ class OnceAbsoluteMergePropertyTest {
             .thenReturn(-1);
         when(onceAbsoluteMerge.lastRowIndex())
             .thenReturn(1);
-        OnceAbsoluteMergeProperty result = OnceAbsoluteMergeProperty.build(onceAbsoluteMerge);
+        OnceAbsoluteMergeProperty result =
+             OnceAbsoluteMergeProperty.build(onceAbsoluteMerge);
         assertThat(result.getFirstColumnIndex(), is(0));
         assertThat(result.getFirstRowIndex(), is(1));
         assertThat(result.getLastColumnIndex(), is(-1));

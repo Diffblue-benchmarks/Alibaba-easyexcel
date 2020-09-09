@@ -39,7 +39,8 @@ class StringErrorConverterTest {
 
     @Test
     void convertToExcelDataValueIsFoo() {
-        CellData result = new StringErrorConverter().convertToExcelData("foo", new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new StringErrorConverter().convertToExcelData("foo", new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

@@ -41,7 +41,8 @@ class LongStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new LongStringConverter().convertToExcelData((Long) 1L, contentProperty, new GlobalConfiguration());
+        CellData result =
+             new LongStringConverter().convertToExcelData((Long) 1L, contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

@@ -46,7 +46,8 @@ class ShortBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
-        CellData result = new ShortBooleanConverter().convertToExcelData((short) 1, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new ShortBooleanConverter().convertToExcelData((short) 1, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -63,7 +64,8 @@ class ShortBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsZero() {
-        CellData result = new ShortBooleanConverter().convertToExcelData((short) 0, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new ShortBooleanConverter().convertToExcelData((short) 0, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(false));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

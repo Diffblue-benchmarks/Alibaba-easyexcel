@@ -1,8 +1,8 @@
 package com.alibaba.excel.write.metadata.fill;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.LinkedList;
 
@@ -18,10 +18,11 @@ class FillWrapperTest {
 
     @Test
     void factory() {
-        FillWrapper fillWrapper = new FillWrapper("data.txt", new LinkedList());
+        FillWrapper fillWrapper =
+             new FillWrapper("data.txt", new LinkedList());
         fillWrapper.setCollectionData(new LinkedList());
         fillWrapper.setName("data.txt");
-        assertThat(fillWrapper.getCollectionData(), empty());
+        assertTrue((fillWrapper.getCollectionData()).isEmpty());
         assertThat(fillWrapper.getName(), is("data.txt"));
     }
 }

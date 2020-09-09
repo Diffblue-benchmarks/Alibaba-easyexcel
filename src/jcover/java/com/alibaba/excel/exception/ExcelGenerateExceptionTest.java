@@ -16,7 +16,8 @@ class ExcelGenerateExceptionTest {
 
     @Test
     void factory() {
-        ExcelGenerateException excelGenerateException = new ExcelGenerateException("jpg");
+        ExcelGenerateException excelGenerateException =
+             new ExcelGenerateException("jpg");
         assertThat(excelGenerateException.getCause(), is(nullValue()));
         assertThat(excelGenerateException.getMessage(), is("jpg"));
     }

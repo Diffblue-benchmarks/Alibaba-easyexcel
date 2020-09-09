@@ -38,7 +38,8 @@ class BoxingByteArrayImageConverterTest {
         Byte[] value = new Byte[] { 1 };
 
         // act
-        CellData result = new BoxingByteArrayImageConverter().convertToExcelData(value, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BoxingByteArrayImageConverter().convertToExcelData(value, new ExcelContentProperty(), new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

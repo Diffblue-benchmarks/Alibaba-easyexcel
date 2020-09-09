@@ -59,7 +59,7 @@ class DateNumberConverterTest {
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setConverter(new AutoConverter());
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
-        contentProperty.setHead(new Head(1, "Acme", new ArrayList<String>(), false, false));
+        contentProperty.setHead(new Head(1, "data", new ArrayList<String>(), false, false));
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setAutoTrim(false);
@@ -77,7 +77,8 @@ class DateNumberConverterTest {
         globalConfiguration.setUse1904windowing(false);
 
         // act
-        CellData result = new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), new ExcelContentProperty(), globalConfiguration);
+        CellData result =
+             new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), new ExcelContentProperty(), globalConfiguration);
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));
@@ -102,7 +103,8 @@ class DateNumberConverterTest {
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("bar", false));
 
         // act
-        CellData result = new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), contentProperty, new GlobalConfiguration());
+        CellData result =
+             new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));
@@ -127,7 +129,8 @@ class DateNumberConverterTest {
         globalConfiguration.setUse1904windowing(false);
 
         // act
-        CellData result = new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), (ExcelContentProperty) null, globalConfiguration);
+        CellData result =
+             new DateNumberConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), (ExcelContentProperty) null, globalConfiguration);
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

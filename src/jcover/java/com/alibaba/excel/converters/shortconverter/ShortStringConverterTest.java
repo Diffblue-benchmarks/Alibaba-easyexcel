@@ -41,7 +41,8 @@ class ShortStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new ShortStringConverter().convertToExcelData((short) 1, contentProperty, new GlobalConfiguration());
+        CellData result =
+             new ShortStringConverter().convertToExcelData((short) 1, contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

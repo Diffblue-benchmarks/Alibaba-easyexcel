@@ -25,16 +25,17 @@ class ExcelContentPropertyTest {
     void factory() {
         ExcelContentProperty excelContentProperty = new ExcelContentProperty();
         excelContentProperty.setConverter(new AutoConverter());
-        DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("yyyy-MM-dd", false);
+        DateTimeFormatProperty dateTimeFormatProperty =
+             new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty.setUse1904windowing(false);
         excelContentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
-        Head head = new Head(1, "Acme", new ArrayList<String>(), false, false);
+        Head head = new Head(1, "data", new ArrayList<String>(), false, false);
         head.setColumnIndex(1);
         head.setColumnWidthProperty(new ColumnWidthProperty(1));
         head.setContentFontProperty(new FontProperty());
         head.setContentStyleProperty(new StyleProperty());
-        head.setFieldName("Acme");
+        head.setFieldName("data");
         head.setForceIndex(false);
         head.setForceName(false);
         head.setHeadFontProperty(new FontProperty());
@@ -42,7 +43,8 @@ class ExcelContentPropertyTest {
         head.setHeadStyleProperty(new StyleProperty());
         head.setLoopMergeProperty(new LoopMergeProperty(1, 1));
         excelContentProperty.setHead(head);
-        NumberFormatProperty numberFormatProperty = new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
+        NumberFormatProperty numberFormatProperty =
+             new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty.setFormat("yyyy-MM-dd");
         numberFormatProperty.setRoundingMode(RoundingMode.UP);
         excelContentProperty.setNumberFormatProperty(numberFormatProperty);

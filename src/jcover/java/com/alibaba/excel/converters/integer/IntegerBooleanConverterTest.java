@@ -46,7 +46,8 @@ class IntegerBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
-        CellData result = new IntegerBooleanConverter().convertToExcelData((Integer) 1, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new IntegerBooleanConverter().convertToExcelData((Integer) 1, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -63,7 +64,8 @@ class IntegerBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsZero() {
-        CellData result = new IntegerBooleanConverter().convertToExcelData((Integer) 0, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new IntegerBooleanConverter().convertToExcelData((Integer) 0, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(false));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

@@ -29,7 +29,7 @@ class HeadTest {
 
     @Test
     void factory1() {
-        Head head = new Head(1, "Acme", null, false, false);
+        Head head = new Head(1, "data", null, false, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -69,7 +69,7 @@ class HeadTest {
         contentStyleProperty.setWrapped(false);
         contentStyleProperty.setWriteFont(new WriteFont());
         head.setContentStyleProperty(contentStyleProperty);
-        head.setFieldName("Acme");
+        head.setFieldName("data");
         head.setForceIndex(false);
         head.setForceName(false);
         FontProperty headFontProperty = new FontProperty();
@@ -116,7 +116,7 @@ class HeadTest {
         assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
         assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
         assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
-        assertThat(head.getFieldName(), is("Acme"));
+        assertThat(head.getFieldName(), is("data"));
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
@@ -127,7 +127,7 @@ class HeadTest {
 
     @Test
     void factory2() {
-        Head head = new Head(1, "Acme", new ArrayList<String>(), true, false);
+        Head head = new Head(1, "data", new ArrayList<String>(), true, false);
         head.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty = new ColumnWidthProperty(1);
         columnWidthProperty.setWidth(1);
@@ -167,7 +167,7 @@ class HeadTest {
         contentStyleProperty.setWrapped(false);
         contentStyleProperty.setWriteFont(new WriteFont());
         head.setContentStyleProperty(contentStyleProperty);
-        head.setFieldName("Acme");
+        head.setFieldName("data");
         head.setForceIndex(false);
         head.setForceName(false);
         FontProperty headFontProperty = new FontProperty();
@@ -214,7 +214,7 @@ class HeadTest {
         assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
         assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
         assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
-        assertThat(head.getFieldName(), is("Acme"));
+        assertThat(head.getFieldName(), is("data"));
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));

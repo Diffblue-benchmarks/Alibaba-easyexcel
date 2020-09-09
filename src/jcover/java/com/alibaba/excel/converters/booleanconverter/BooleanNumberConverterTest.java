@@ -39,7 +39,8 @@ class BooleanNumberConverterTest {
 
     @Test
     void convertToExcelDataValueIsFalse() {
-        CellData result = new BooleanNumberConverter().convertToExcelData((Boolean) false, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BooleanNumberConverter().convertToExcelData((Boolean) false, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -56,7 +57,8 @@ class BooleanNumberConverterTest {
 
     @Test
     void convertToExcelDataValueIsTrue() {
-        CellData result = new BooleanNumberConverter().convertToExcelData((Boolean) true, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BooleanNumberConverter().convertToExcelData((Boolean) true, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

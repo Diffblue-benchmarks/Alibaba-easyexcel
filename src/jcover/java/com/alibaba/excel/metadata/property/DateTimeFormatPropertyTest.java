@@ -20,7 +20,8 @@ class DateTimeFormatPropertyTest {
 
     @Test
     void factory() {
-        DateTimeFormatProperty dateTimeFormatProperty = new DateTimeFormatProperty("yyyy-MM-dd", false);
+        DateTimeFormatProperty dateTimeFormatProperty =
+             new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty.setUse1904windowing(false);
         assertThat(dateTimeFormatProperty.getFormat(), is("yyyy-MM-dd"));
@@ -34,7 +35,8 @@ class DateTimeFormatPropertyTest {
             .thenReturn(false);
         when(dateTimeFormat.value())
             .thenReturn("foo");
-        DateTimeFormatProperty result = DateTimeFormatProperty.build(dateTimeFormat);
+        DateTimeFormatProperty result =
+             DateTimeFormatProperty.build(dateTimeFormat);
         assertThat(result.getFormat(), is("foo"));
         assertThat(result.getUse1904windowing(), is(false));
     }

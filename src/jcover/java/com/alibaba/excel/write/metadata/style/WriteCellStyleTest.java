@@ -119,7 +119,8 @@ class WriteCellStyleTest {
         fontProperty.setUnderline((byte) 1);
 
         // act
-        WriteCellStyle result = WriteCellStyle.build(styleProperty, fontProperty);
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
 
         // assert
         assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
@@ -192,7 +193,8 @@ class WriteCellStyleTest {
         fontProperty.setUnderline((byte) 1);
 
         // act
-        WriteCellStyle result = WriteCellStyle.build(styleProperty, fontProperty);
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
 
         // assert
         assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
@@ -265,7 +267,8 @@ class WriteCellStyleTest {
         fontProperty.setUnderline((byte) 1);
 
         // act
-        WriteCellStyle result = WriteCellStyle.build(styleProperty, fontProperty);
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
 
         // assert
         assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
@@ -338,7 +341,8 @@ class WriteCellStyleTest {
         fontProperty.setUnderline((byte) 1);
 
         // act
-        WriteCellStyle result = WriteCellStyle.build(styleProperty, fontProperty);
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
 
         // assert
         assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
@@ -411,7 +415,8 @@ class WriteCellStyleTest {
         fontProperty.setUnderline((byte) 1);
 
         // act
-        WriteCellStyle result = WriteCellStyle.build(styleProperty, fontProperty);
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
 
         // assert
         assertThat(result.getBorderBottom(), is(BorderStyle.NONE));

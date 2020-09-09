@@ -45,7 +45,8 @@ class BigDecimalNumberConverterTest {
         BigDecimal value = BigDecimal.valueOf(1L);
 
         // act
-        CellData result = new BigDecimalNumberConverter().convertToExcelData(value, new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new BigDecimalNumberConverter().convertToExcelData(value, new ExcelContentProperty(), new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

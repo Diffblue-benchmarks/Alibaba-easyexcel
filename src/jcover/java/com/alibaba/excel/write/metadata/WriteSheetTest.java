@@ -31,7 +31,8 @@ class WriteSheetTest {
     @Test
     void factory() {
         WriteSheet writeSheet = new WriteSheet();
-        HashMap<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         writeSheet.setColumnWidthMap(columnWidthMap);
         writeSheet.setSheetName("Acme");

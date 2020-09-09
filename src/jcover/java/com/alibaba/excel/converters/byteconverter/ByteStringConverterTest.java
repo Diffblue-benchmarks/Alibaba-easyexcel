@@ -41,7 +41,8 @@ class ByteStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new ByteStringConverter().convertToExcelData((byte) 1, contentProperty, new GlobalConfiguration());
+        CellData result =
+             new ByteStringConverter().convertToExcelData((byte) 1, contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

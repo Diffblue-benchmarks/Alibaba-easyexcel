@@ -35,7 +35,8 @@ class DateStringConverterTest {
 
     @Test
     void convertToExcelData1() throws java.text.ParseException {
-        CellData result = new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
@@ -58,7 +59,8 @@ class DateStringConverterTest {
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
 
         // act
-        CellData result = new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), contentProperty, new GlobalConfiguration());
+        CellData result =
+             new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));
@@ -77,7 +79,8 @@ class DateStringConverterTest {
 
     @Test
     void convertToExcelDataContentPropertyIsNull() throws java.text.ParseException {
-        CellData result = new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), (ExcelContentProperty) null, new GlobalConfiguration());
+        CellData result =
+             new DateStringConverter().convertToExcelData(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), (ExcelContentProperty) null, new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

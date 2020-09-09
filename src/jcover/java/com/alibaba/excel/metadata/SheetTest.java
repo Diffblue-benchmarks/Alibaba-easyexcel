@@ -26,7 +26,8 @@ class SheetTest {
         Sheet sheet = new Sheet(1, 1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
-        HashMap<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
         sheet.setHead(new ArrayList<List<String>>());
@@ -56,7 +57,8 @@ class SheetTest {
         Sheet sheet = new Sheet(1, 1, BaseRowModel.class);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
-        HashMap<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
         sheet.setHead(new ArrayList<List<String>>());
@@ -83,10 +85,12 @@ class SheetTest {
 
     @Test
     void factory3() {
-        Sheet sheet = new Sheet(1, 1, BaseRowModel.class, "Acme", new ArrayList<List<String>>());
+        Sheet sheet =
+             new Sheet(1, 1, BaseRowModel.class, "Acme", new ArrayList<List<String>>());
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
-        HashMap<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
         sheet.setHead(new ArrayList<List<String>>());
@@ -116,7 +120,8 @@ class SheetTest {
         Sheet sheet = new Sheet(0);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
-        HashMap<Integer, Integer> columnWidthMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
         columnWidthMap.put(1, 1);
         sheet.setColumnWidthMap(columnWidthMap);
         sheet.setHead(new ArrayList<List<String>>());

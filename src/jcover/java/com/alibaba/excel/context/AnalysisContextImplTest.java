@@ -69,7 +69,8 @@ class AnalysisContextImplTest {
     @Test
     void getInputStream() {
         ReadWorkbook readWorkbook = new ReadWorkbook();
-        StringBufferInputStream inputStream = new StringBufferInputStream("foo");
+        StringBufferInputStream inputStream =
+             new StringBufferInputStream("foo");
         readWorkbook.setInputStream(inputStream);
         assertThat(new DefaultXlsReadContext(readWorkbook, ExcelTypeEnum.XLS).getInputStream(), instanceOf(StringBufferInputStream.class));
         assertThat((StringBufferInputStream) new DefaultXlsReadContext(readWorkbook, ExcelTypeEnum.XLS).getInputStream(), sameInstance(inputStream));

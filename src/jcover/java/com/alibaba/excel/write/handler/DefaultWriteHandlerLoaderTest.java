@@ -23,7 +23,8 @@ class DefaultWriteHandlerLoaderTest {
 
     @Test
     void loadDefaultHandlerUseDefaultStyleIsTrue() {
-        List<WriteHandler> result = DefaultWriteHandlerLoader.loadDefaultHandler(true);
+        List<WriteHandler> result =
+             DefaultWriteHandlerLoader.loadDefaultHandler(true);
         assertThat(result.size(), is(1));
         // pojo WriteHandler
     }

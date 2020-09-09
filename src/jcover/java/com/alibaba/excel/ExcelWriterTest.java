@@ -28,37 +28,43 @@ class ExcelWriterTest {
 
     @Test
     void write1() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write(new ArrayList(), new Sheet(1)), sameInstance(excelWriter));
     }
 
     @Test
     void write2() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write(new ArrayList(), new Sheet(1), new Table(1)), sameInstance(excelWriter));
     }
 
     @Test
     void write3() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write0(new ArrayList(), new Sheet(1)), sameInstance(excelWriter));
     }
 
     @Test
     void write4() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write0(new ArrayList(), new Sheet(1), new Table(1)), sameInstance(excelWriter));
     }
 
     @Test
     void write5() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write1(new ArrayList(), new Sheet(1)), sameInstance(excelWriter));
     }
 
     @Test
     void write6() {
-        ExcelWriter excelWriter = new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
+        ExcelWriter excelWriter =
+             new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS);
         assertThat(excelWriter.write1(new ArrayList(), new Sheet(1), new Table(1)), sameInstance(excelWriter));
     }
 
@@ -74,7 +80,8 @@ class ExcelWriterTest {
 
     @Test
     void testFinalize2() {
-        GenerateParam generateParam = new GenerateParam("name", String.class, new ByteArrayOutputStream());
+        GenerateParam generateParam =
+             new GenerateParam("name", String.class, new ByteArrayOutputStream());
         generateParam.setOutputStream(null);
         new ExcelWriter(generateParam).finalize();
     }
@@ -83,7 +90,8 @@ class ExcelWriterTest {
     void writeContext() {
 
         // arrange
-        GenerateParam generateParam = new GenerateParam("name", String.class, new ByteArrayOutputStream());
+        GenerateParam generateParam =
+             new GenerateParam("name", String.class, new ByteArrayOutputStream());
         generateParam.setType(ExcelTypeEnum.XLS);
 
         // act

@@ -41,7 +41,8 @@ class FloatStringConverterTest {
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
 
         // act
-        CellData result = new FloatStringConverter().convertToExcelData((Float) 1.0f, contentProperty, new GlobalConfiguration());
+        CellData result =
+             new FloatStringConverter().convertToExcelData((Float) 1.0f, contentProperty, new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));

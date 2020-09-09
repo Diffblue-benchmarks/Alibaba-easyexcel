@@ -20,19 +20,22 @@ class ExcelReaderSheetBuilderTest {
 
     @Test
     void headRowNumberHeadRowNumberIsOne() {
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = new ExcelReaderSheetBuilder();
+        ExcelReaderSheetBuilder excelReaderSheetBuilder =
+             new ExcelReaderSheetBuilder();
         assertThat(excelReaderSheetBuilder.headRowNumber(1), sameInstance(excelReaderSheetBuilder));
     }
 
     @Test
     void sheetNoSheetNoIsOne() {
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = new ExcelReaderSheetBuilder();
+        ExcelReaderSheetBuilder excelReaderSheetBuilder =
+             new ExcelReaderSheetBuilder();
         assertThat(excelReaderSheetBuilder.sheetNo(1), sameInstance(excelReaderSheetBuilder));
     }
 
     @Test
     void sheetNameSheetNameIsAcme() {
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = new ExcelReaderSheetBuilder();
+        ExcelReaderSheetBuilder excelReaderSheetBuilder =
+             new ExcelReaderSheetBuilder();
         assertThat(excelReaderSheetBuilder.sheetName("Acme"), sameInstance(excelReaderSheetBuilder));
     }
 

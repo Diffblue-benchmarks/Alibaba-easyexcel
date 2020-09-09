@@ -22,7 +22,8 @@ class NumberFormatPropertyTest {
 
     @Test
     void factory() {
-        NumberFormatProperty numberFormatProperty = new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
+        NumberFormatProperty numberFormatProperty =
+             new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty.setFormat("yyyy-MM-dd");
         numberFormatProperty.setRoundingMode(RoundingMode.UP);
         assertThat(numberFormatProperty.getFormat(), is("yyyy-MM-dd"));

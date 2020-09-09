@@ -35,7 +35,8 @@ class InputStreamImageConverterTest {
 
     @Test
     void convertToExcelData() throws java.io.IOException {
-        CellData result = new InputStreamImageConverter().convertToExcelData(new StringBufferInputStream("foo"), new ExcelContentProperty(), new GlobalConfiguration());
+        CellData result =
+             new InputStreamImageConverter().convertToExcelData(new StringBufferInputStream("foo"), new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

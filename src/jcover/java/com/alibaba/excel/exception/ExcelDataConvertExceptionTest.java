@@ -41,12 +41,14 @@ class ExcelDataConvertExceptionTest {
         cellData1.setType(CellDataTypeEnum.STRING);
         cellData1.setColumnIndex(1);
         cellData1.setRowIndex(1);
-        ExcelContentProperty excelContentProperty1 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         excelContentProperty1.setConverter(new AutoConverter());
         excelContentProperty1.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
-        excelContentProperty1.setHead(new Head(1, "Acme", new ArrayList<String>(), false, false));
+        excelContentProperty1.setHead(new Head(1, "data", new ArrayList<String>(), false, false));
         excelContentProperty1.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
-        ExcelDataConvertException excelDataConvertException = new ExcelDataConvertException(1, 1, cellData1, excelContentProperty1, "jpg");
+        ExcelDataConvertException excelDataConvertException =
+             new ExcelDataConvertException(1, 1, cellData1, excelContentProperty1, "jpg");
         CellData cellData3 = new CellData();
         cellData3.setBooleanValue(false);
         cellData3.setData(new Object());
@@ -62,10 +64,11 @@ class ExcelDataConvertExceptionTest {
         cellData3.setRowIndex(1);
         excelDataConvertException.setCellData(cellData3);
         excelDataConvertException.setColumnIndex(1);
-        ExcelContentProperty excelContentProperty3 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         excelContentProperty3.setConverter(new AutoConverter());
         excelContentProperty3.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
-        excelContentProperty3.setHead(new Head(1, "Acme", new ArrayList<String>(), false, false));
+        excelContentProperty3.setHead(new Head(1, "data", new ArrayList<String>(), false, false));
         excelContentProperty3.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
         excelDataConvertException.setExcelContentProperty(excelContentProperty3);
         excelDataConvertException.setRowIndex(1);

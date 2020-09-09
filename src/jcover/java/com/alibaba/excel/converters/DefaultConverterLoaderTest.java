@@ -14,7 +14,8 @@ class DefaultConverterLoaderTest {
 
     @Test
     void loadDefaultWriteConverter() {
-        Map<String, Converter> result = DefaultConverterLoader.loadDefaultWriteConverter();
+        Map<String, Converter> result =
+             DefaultConverterLoader.loadDefaultWriteConverter();
         // pojo Converter
         // pojo Converter
         // pojo Converter
@@ -34,7 +35,8 @@ class DefaultConverterLoaderTest {
 
     @Test
     void loadDefaultReadConverter() {
-        Map<String, Converter> result = DefaultConverterLoader.loadDefaultReadConverter();
+        Map<String, Converter> result =
+             DefaultConverterLoader.loadDefaultReadConverter();
         // pojo Converter
         // pojo Converter
         // pojo Converter
@@ -69,7 +71,8 @@ class DefaultConverterLoaderTest {
 
     @Test
     void loadAllConverter() {
-        Map<String, Converter> result = DefaultConverterLoader.loadAllConverter();
+        Map<String, Converter> result =
+             DefaultConverterLoader.loadAllConverter();
         // pojo Converter
         // pojo Converter
         // pojo Converter

@@ -36,7 +36,8 @@ class ReadRowHolderTest {
         x12.setColumnIndex(1);
         x12.setRowIndex(1);
         cellMap1.put(1, x12);
-        ReadRowHolder readRowHolder = new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
+        ReadRowHolder readRowHolder =
+             new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
         AbstractCell x147 = new CellData();
         x147.setColumnIndex(1);

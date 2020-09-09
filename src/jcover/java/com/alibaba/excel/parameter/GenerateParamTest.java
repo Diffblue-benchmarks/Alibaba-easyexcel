@@ -20,7 +20,8 @@ class GenerateParamTest {
 
     @Test
     void factory() {
-        GenerateParam generateParam = new GenerateParam("bar", String.class, new ByteArrayOutputStream());
+        GenerateParam generateParam =
+             new GenerateParam("bar", String.class, new ByteArrayOutputStream());
         generateParam.setClazz(String.class);
         generateParam.setNeedHead(false);
         generateParam.setOutputStream(new ByteArrayOutputStream());
