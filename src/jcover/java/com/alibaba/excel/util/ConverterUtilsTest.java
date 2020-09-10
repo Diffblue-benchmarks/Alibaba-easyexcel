@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 
-import com.alibaba.excel.context.xls.DefaultXlsReadContext;
+import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.read.metadata.ReadWorkbook;
@@ -29,14 +29,14 @@ class ConverterUtilsTest {
         // arrange
         HashMap<Integer, CellData> cellDataMap =
              new HashMap<Integer, CellData>();
-        CellData x216 = new CellData();
-        x216.setStringValue("foo");
-        x216.setType(CellDataTypeEnum.STRING);
-        cellDataMap.put(1, x216);
+        CellData x202 = new CellData();
+        x202.setStringValue("foo");
+        x202.setType(CellDataTypeEnum.STRING);
+        cellDataMap.put(1, x202);
 
         // act
         Map<Integer, String> result =
-             ConverterUtils.convertToStringMap(cellDataMap, new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+             ConverterUtils.convertToStringMap(cellDataMap, new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
 
         // assert
         assertThat(result.get(0), is(nullValue()));

@@ -45,8 +45,8 @@ class ExcelDataConvertExceptionTest {
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
-        byte[] imageValue4 = new byte[] { 1 };
-        cellData1.setImageValue(imageValue4);
+        byte[] imageValue6 = new byte[] { 1 };
+        cellData1.setImageValue(imageValue6);
         cellData1.setNumberValue(BigDecimal.valueOf(1L));
         cellData1.setStringValue("foo");
         cellData1.setType(CellDataTypeEnum.STRING);
@@ -162,8 +162,8 @@ class ExcelDataConvertExceptionTest {
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
         cellData2.setFormulaValue("value");
-        byte[] imageValue8 = new byte[] { 1 };
-        cellData2.setImageValue(imageValue8);
+        byte[] imageValue12 = new byte[] { 1 };
+        cellData2.setImageValue(imageValue12);
         cellData2.setNumberValue(BigDecimal.valueOf(1L));
         cellData2.setStringValue("foo");
         cellData2.setType(CellDataTypeEnum.STRING);
@@ -291,8 +291,8 @@ class ExcelDataConvertExceptionTest {
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
-        byte[] imageValue4 = new byte[] { 1 };
-        cellData1.setImageValue(imageValue4);
+        byte[] imageValue6 = new byte[] { 1 };
+        cellData1.setImageValue(imageValue6);
         cellData1.setNumberValue(BigDecimal.valueOf(1L));
         cellData1.setStringValue("foo");
         cellData1.setType(CellDataTypeEnum.STRING);
@@ -410,8 +410,8 @@ class ExcelDataConvertExceptionTest {
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
         cellData2.setFormulaValue("value");
-        byte[] imageValue8 = new byte[] { 1 };
-        cellData2.setImageValue(imageValue8);
+        byte[] imageValue12 = new byte[] { 1 };
+        cellData2.setImageValue(imageValue12);
         cellData2.setNumberValue(BigDecimal.valueOf(1L));
         cellData2.setStringValue("foo");
         cellData2.setType(CellDataTypeEnum.STRING);

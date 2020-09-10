@@ -1,6 +1,6 @@
 package com.alibaba.excel.read.processor;
 
-import com.alibaba.excel.context.xls.DefaultXlsReadContext;
+import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.read.metadata.ReadWorkbook;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -16,11 +16,11 @@ class DefaultAnalysisEventProcessorTest {
 
     @Test
     void extra() {
-        new DefaultAnalysisEventProcessor().extra(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        new DefaultAnalysisEventProcessor().extra(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 
     @Test
     void endSheet() {
-        new DefaultAnalysisEventProcessor().endSheet(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        new DefaultAnalysisEventProcessor().endSheet(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 }

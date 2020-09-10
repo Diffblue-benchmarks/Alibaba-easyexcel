@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 
-import com.alibaba.excel.context.xls.DefaultXlsReadContext;
+import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.read.metadata.ReadWorkbook;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -42,7 +42,7 @@ class SyncReadListenerTest {
         Object object2 = new Object();
 
         // act
-        syncReadListener.invoke(object2, new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        syncReadListener.invoke(object2, new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
 
         // assert
         assertThat(syncReadListener.getList().size(), is(2));
@@ -51,6 +51,6 @@ class SyncReadListenerTest {
 
     @Test
     void doAfterAllAnalysed() {
-        new SyncReadListener().doAfterAllAnalysed(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        new SyncReadListener().doAfterAllAnalysed(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 }

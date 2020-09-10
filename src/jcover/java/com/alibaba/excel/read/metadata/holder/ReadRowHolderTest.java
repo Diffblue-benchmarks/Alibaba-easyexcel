@@ -8,7 +8,6 @@ import com.alibaba.excel.enums.HolderEnum;
 import com.alibaba.excel.enums.RowTypeEnum;
 import com.alibaba.excel.metadata.AbstractCell;
 import com.alibaba.excel.metadata.Cell;
-import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
 
 import java.util.HashMap;
@@ -32,17 +31,17 @@ class ReadRowHolderTest {
         globalConfiguration1.setUse1904windowing(false);
         globalConfiguration1.setUseScientificFormat(false);
         HashMap<Integer, Cell> cellMap1 = new HashMap<Integer, Cell>();
-        AbstractCell x301 = new CellData();
-        x301.setColumnIndex(1);
-        x301.setRowIndex(1);
-        cellMap1.put(1, x301);
+        AbstractCell x49 = new AbstractCell();
+        x49.setColumnIndex(1);
+        x49.setRowIndex(1);
+        cellMap1.put(1, x49);
         ReadRowHolder readRowHolder =
              new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
-        AbstractCell x436 = new CellData();
-        x436.setColumnIndex(1);
-        x436.setRowIndex(1);
-        cellMap2.put(1, x436);
+        AbstractCell x58 = new AbstractCell();
+        x58.setColumnIndex(1);
+        x58.setRowIndex(1);
+        cellMap2.put(1, x58);
         readRowHolder.setCellMap(cellMap2);
         Object currentRowAnalysisResult = new Object();
         readRowHolder.setCurrentRowAnalysisResult(currentRowAnalysisResult);

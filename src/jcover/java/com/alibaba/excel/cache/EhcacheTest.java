@@ -4,7 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 
-import com.alibaba.excel.context.xls.DefaultXlsReadContext;
+import com.alibaba.excel.context.AnalysisContextImpl;
 import com.alibaba.excel.read.metadata.ReadWorkbook;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -20,7 +20,7 @@ class EhcacheTest {
 
     @Test
     void init() {
-        new Ehcache(1).init(new DefaultXlsReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        new Ehcache(1).init(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
     }
 
     @Test

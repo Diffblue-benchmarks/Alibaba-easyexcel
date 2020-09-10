@@ -2,13 +2,16 @@ package com.alibaba.excel.write.style;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
 
+import com.alibaba.excel.metadata.Head;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 
 import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
@@ -46,17 +49,17 @@ class HorizontalCellStyleStrategyTest {
         headWriteCellStyle.setTopBorderColor((short) 1);
         headWriteCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
         headWriteCellStyle.setWrapped(false);
-        WriteFont writeFont2 = new WriteFont();
-        writeFont2.setBold(false);
-        writeFont2.setCharset(1);
-        writeFont2.setColor((short) 1);
-        writeFont2.setFontHeightInPoints((short) 1);
-        writeFont2.setFontName("Acme");
-        writeFont2.setItalic(false);
-        writeFont2.setStrikeout(false);
-        writeFont2.setTypeOffset((short) 1);
-        writeFont2.setUnderline((byte) 1);
-        headWriteCellStyle.setWriteFont(writeFont2);
+        WriteFont writeFont1 = new WriteFont();
+        writeFont1.setBold(false);
+        writeFont1.setCharset(1);
+        writeFont1.setColor((short) 1);
+        writeFont1.setFontHeightInPoints((short) 1);
+        writeFont1.setFontName("Acme");
+        writeFont1.setItalic(false);
+        writeFont1.setStrikeout(false);
+        writeFont1.setTypeOffset((short) 1);
+        writeFont1.setUnderline((byte) 1);
+        headWriteCellStyle.setWriteFont(writeFont1);
         ArrayList<WriteCellStyle> contentWriteCellStyleList =
              new ArrayList<WriteCellStyle>();
         WriteCellStyle writeCellStyle = new WriteCellStyle();
@@ -81,17 +84,17 @@ class HorizontalCellStyleStrategyTest {
         writeCellStyle.setTopBorderColor((short) 1);
         writeCellStyle.setVerticalAlignment(VerticalAlignment.TOP);
         writeCellStyle.setWrapped(false);
-        WriteFont writeFont4 = new WriteFont();
-        writeFont4.setBold(false);
-        writeFont4.setCharset(1);
-        writeFont4.setColor((short) 1);
-        writeFont4.setFontHeightInPoints((short) 1);
-        writeFont4.setFontName("Acme");
-        writeFont4.setItalic(false);
-        writeFont4.setStrikeout(false);
-        writeFont4.setTypeOffset((short) 1);
-        writeFont4.setUnderline((byte) 1);
-        writeCellStyle.setWriteFont(writeFont4);
+        WriteFont writeFont3 = new WriteFont();
+        writeFont3.setBold(false);
+        writeFont3.setCharset(1);
+        writeFont3.setColor((short) 1);
+        writeFont3.setFontHeightInPoints((short) 1);
+        writeFont3.setFontName("Acme");
+        writeFont3.setItalic(false);
+        writeFont3.setStrikeout(false);
+        writeFont3.setTypeOffset((short) 1);
+        writeFont3.setUnderline((byte) 1);
+        writeCellStyle.setWriteFont(writeFont3);
         contentWriteCellStyleList.add(writeCellStyle);
         // pojo HorizontalCellStyleStrategy
     }
@@ -99,5 +102,17 @@ class HorizontalCellStyleStrategyTest {
     @Test
     void uniqueValueReturnsCellStyleStrategy() {
         assertThat(new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).uniqueValue(), is("CellStyleStrategy"));
+    }
+
+    @Test
+    void setHeadCellStyleRelativeRowIndexIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
+        Cell cell = mock(Cell.class);
+        new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).setHeadCellStyle(cell, new Head(1, "data", new ArrayList<String>(), false, false), 1);
+    }
+
+    @Test
+    void setContentCellStyleRelativeRowIndexIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
+        Cell cell = mock(Cell.class);
+        new HorizontalCellStyleStrategy(new WriteCellStyle(), new WriteCellStyle()).setContentCellStyle(cell, new Head(1, "data", new ArrayList<String>(), false, false), 1);
     }
 }
