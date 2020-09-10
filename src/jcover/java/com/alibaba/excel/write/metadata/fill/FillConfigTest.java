@@ -16,30 +16,36 @@ import org.junit.jupiter.api.Test;
 class FillConfigTest {
 
     @Test
-    void builder1() {
-        FillConfig object = FillConfig.builder()
-            .direction(WriteDirectionEnum.VERTICAL)
-            .forceNewRow(false)
-            .build();
-        assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
-        assertThat(object.getForceNewRow(), is(false));
+    void init1() {
+
+        // arrange
+        FillConfig fillConfig = new FillConfig();
+
+        // act
+        fillConfig.init();
+
+        // assert
+        assertThat(fillConfig.getDirection(), is(WriteDirectionEnum.VERTICAL));
     }
 
     @Test
-    void builder2() {
-        FillConfig object = FillConfig.builder()
-            .direction(null)
-            .forceNewRow(false)
-            .build();
-        assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
-        assertThat(object.getForceNewRow(), is(false));
+    void init2() {
+
+        // arrange
+        FillConfig fillConfig = new FillConfig();
+
+        // act
+        fillConfig.init();
+
+        // assert
+        assertThat(fillConfig.getForceNewRow(), is(false));
     }
 
     @Test
-    void builder3() {
+    void builder() {
         FillConfig object = FillConfig.builder()
             .direction(WriteDirectionEnum.VERTICAL)
-            .forceNewRow(null)
+            .forceNewRow(false)
             .build();
         assertThat(object.getDirection(), is(WriteDirectionEnum.VERTICAL));
         assertThat(object.getForceNewRow(), is(false));
