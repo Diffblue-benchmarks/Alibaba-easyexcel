@@ -4,8 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
+import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.Head;
@@ -37,7 +38,7 @@ import org.junit.jupiter.api.Test;
 class ExcelDataConvertExceptionTest {
 
     @Test
-    void factory1() {
+    void factory1() throws Exception {
         CellData cellData1 = new CellData();
         cellData1.setBooleanValue(false);
         cellData1.setData(new Object());
@@ -54,7 +55,8 @@ class ExcelDataConvertExceptionTest {
         cellData1.setRowIndex(1);
         ExcelContentProperty excelContentProperty1 =
              new ExcelContentProperty();
-        excelContentProperty1.setConverter(new AutoConverter());
+        Converter converter1 = mock(Converter.class);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
@@ -173,7 +175,8 @@ class ExcelDataConvertExceptionTest {
         excelDataConvertException.setColumnIndex(1);
         ExcelContentProperty excelContentProperty2 =
              new ExcelContentProperty();
-        excelContentProperty2.setConverter(new AutoConverter());
+        Converter converter2 = mock(Converter.class);
+        excelContentProperty2.setConverter(converter2);
         DateTimeFormatProperty dateTimeFormatProperty2 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty2.setFormat("yyyy-MM-dd");
@@ -283,7 +286,7 @@ class ExcelDataConvertExceptionTest {
     }
 
     @Test
-    void factory2() {
+    void factory2() throws Exception {
         CellData cellData1 = new CellData();
         cellData1.setBooleanValue(false);
         cellData1.setData(new Object());
@@ -300,7 +303,8 @@ class ExcelDataConvertExceptionTest {
         cellData1.setRowIndex(1);
         ExcelContentProperty excelContentProperty1 =
              new ExcelContentProperty();
-        excelContentProperty1.setConverter(new AutoConverter());
+        Converter converter1 = mock(Converter.class);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
@@ -421,7 +425,8 @@ class ExcelDataConvertExceptionTest {
         excelDataConvertException.setColumnIndex(1);
         ExcelContentProperty excelContentProperty2 =
              new ExcelContentProperty();
-        excelContentProperty2.setConverter(new AutoConverter());
+        Converter converter2 = mock(Converter.class);
+        excelContentProperty2.setConverter(converter2);
         DateTimeFormatProperty dateTimeFormatProperty2 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty2.setFormat("yyyy-MM-dd");

@@ -6,13 +6,12 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.cache.Ehcache;
-import com.alibaba.excel.cache.selector.EternalReadCacheSelector;
-import com.alibaba.excel.converters.AutoConverter;
+import com.alibaba.excel.cache.ReadCache;
+import com.alibaba.excel.cache.selector.ReadCacheSelector;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.enums.CellExtraTypeEnum;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
 import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -33,7 +32,7 @@ import org.junit.jupiter.api.Test;
 class ReadWorkbookTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         ReadWorkbook readWorkbook = new ReadWorkbook();
         readWorkbook.setAutoCloseStream(false);
         readWorkbook.setConvertAllFiled(false);
@@ -46,20 +45,22 @@ class ReadWorkbookTest {
         readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
         readWorkbook.setMandatoryUseInputStream(false);
         readWorkbook.setPassword("secret");
-        readWorkbook.setReadCache(new Ehcache(1));
-        readWorkbook.setReadCacheSelector(new EternalReadCacheSelector(new Ehcache(1)));
+        ReadCache readCache = mock(ReadCache.class);
+        readWorkbook.setReadCache(readCache);
+        ReadCacheSelector readCacheSelector = mock(ReadCacheSelector.class);
+        readWorkbook.setReadCacheSelector(readCacheSelector);
         readWorkbook.setUseDefaultListener(false);
         readWorkbook.setXlsxSAXParserFactoryName("Acme");
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = new ModelBuildEventListener();
+        ReadListener readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readWorkbook.setCustomReadListenerList(customReadListenerList);
         readWorkbook.setHeadRowNumber(1);
         readWorkbook.setAutoTrim(false);
         readWorkbook.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         readWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
@@ -81,6 +82,8 @@ class ReadWorkbookTest {
         assertThat(readWorkbook.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbook.getMandatoryUseInputStream(), is(false));
         assertThat(readWorkbook.getPassword(), is("secret"));
+        assertThat(readWorkbook.getReadCache(), sameInstance(readCache));
+        assertThat(readWorkbook.getReadCacheSelector(), sameInstance(readCacheSelector));
         assertThat(readWorkbook.getUseDefaultListener(), is(false));
         assertThat(readWorkbook.getXlsxSAXParserFactoryName(), is("Acme"));
         assertThat(readWorkbook.getCustomReadListenerList().size(), is(1));

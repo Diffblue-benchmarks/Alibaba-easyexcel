@@ -3,10 +3,10 @@ package com.alibaba.excel.read.metadata.holder;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.enums.HolderEnum;
 import com.alibaba.excel.enums.RowTypeEnum;
-import com.alibaba.excel.metadata.AbstractCell;
 import com.alibaba.excel.metadata.Cell;
 import com.alibaba.excel.metadata.GlobalConfiguration;
 
@@ -31,17 +31,13 @@ class ReadRowHolderTest {
         globalConfiguration1.setUse1904windowing(false);
         globalConfiguration1.setUseScientificFormat(false);
         HashMap<Integer, Cell> cellMap1 = new HashMap<Integer, Cell>();
-        AbstractCell x49 = new AbstractCell();
-        x49.setColumnIndex(1);
-        x49.setRowIndex(1);
-        cellMap1.put(1, x49);
+        Cell x41 = mock(Cell.class);
+        cellMap1.put(1, x41);
         ReadRowHolder readRowHolder =
              new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
-        AbstractCell x58 = new AbstractCell();
-        x58.setColumnIndex(1);
-        x58.setRowIndex(1);
-        cellMap2.put(1, x58);
+        Cell x46 = mock(Cell.class);
+        cellMap2.put(1, x46);
         readRowHolder.setCellMap(cellMap2);
         Object currentRowAnalysisResult = new Object();
         readRowHolder.setCurrentRowAnalysisResult(currentRowAnalysisResult);
@@ -53,8 +49,7 @@ class ReadRowHolderTest {
         readRowHolder.setGlobalConfiguration(globalConfiguration2);
         readRowHolder.setRowIndex(1);
         readRowHolder.setRowType(RowTypeEnum.DATA);
-        assertThat(readRowHolder.getCellMap().get(1).getColumnIndex(), is(1));
-        assertThat(readRowHolder.getCellMap().get(1).getRowIndex(), is(1));
+        assertThat(readRowHolder.getCellMap().get(1), sameInstance(x46));
         assertThat(readRowHolder.getCurrentRowAnalysisResult(), sameInstance(currentRowAnalysisResult));
         assertThat(readRowHolder.getGlobalConfiguration(), sameInstance(globalConfiguration2));
         assertThat(readRowHolder.getRowIndex(), is(1));

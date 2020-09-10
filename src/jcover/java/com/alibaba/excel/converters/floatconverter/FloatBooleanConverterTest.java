@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
@@ -58,8 +59,10 @@ class FloatBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
         CellData result =
-             new FloatBooleanConverter().convertToExcelData((Float) 1.0f, new ExcelContentProperty(), new GlobalConfiguration());
+             new FloatBooleanConverter().convertToExcelData((Float) 1.0f, contentProperty, new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

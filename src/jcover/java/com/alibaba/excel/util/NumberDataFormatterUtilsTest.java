@@ -2,6 +2,7 @@ package com.alibaba.excel.util;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.metadata.GlobalConfiguration;
 
@@ -29,7 +30,9 @@ class NumberDataFormatterUtilsTest {
 
     @Test
     void format2() {
-        assertThat(NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", new GlobalConfiguration()), is("1900-01-01"));
+        GlobalConfiguration globalConfiguration =
+             mock(GlobalConfiguration.class);
+        assertThat(NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", globalConfiguration), is("1900-01-01"));
     }
 
     @Test

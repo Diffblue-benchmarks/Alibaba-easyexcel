@@ -2,9 +2,10 @@ package com.alibaba.excel.read.builder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.cache.Ehcache;
-import com.alibaba.excel.cache.selector.EternalReadCacheSelector;
+import com.alibaba.excel.cache.ReadCache;
+import com.alibaba.excel.cache.selector.ReadCacheSelector;
 import com.alibaba.excel.enums.CellExtraTypeEnum;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
@@ -71,13 +72,15 @@ class ExcelReaderBuilderTest {
     @Test
     void readCache() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        assertThat(excelReaderBuilder.readCache(new Ehcache(1)), sameInstance(excelReaderBuilder));
+        ReadCache readCache = mock(ReadCache.class);
+        assertThat(excelReaderBuilder.readCache(readCache), sameInstance(excelReaderBuilder));
     }
 
     @Test
     void readCacheSelector() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        assertThat(excelReaderBuilder.readCacheSelector(new EternalReadCacheSelector(new Ehcache(1))), sameInstance(excelReaderBuilder));
+        ReadCacheSelector readCacheSelector = mock(ReadCacheSelector.class);
+        assertThat(excelReaderBuilder.readCacheSelector(readCacheSelector), sameInstance(excelReaderBuilder));
     }
 
     @Test

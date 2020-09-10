@@ -4,8 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 
 import java.util.ArrayList;
@@ -23,12 +23,12 @@ import org.junit.jupiter.api.Test;
 class BasicParameterTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         BasicParameter basicParameter = new BasicParameter();
         basicParameter.setAutoTrim(false);
         basicParameter.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         basicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();

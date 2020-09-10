@@ -1,8 +1,8 @@
 package com.alibaba.excel.cache;
 
-import com.alibaba.excel.context.AnalysisContextImpl;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import static org.mockito.Mockito.mock;
+
+import com.alibaba.excel.context.AnalysisContext;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,7 +17,8 @@ class XlsCacheTest {
 
     @Test
     void init() {
-        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).init(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext analysisContext = mock(AnalysisContext.class);
+        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).init(analysisContext);
     }
 
     @Test

@@ -58,14 +58,21 @@ class DataFormatterTest {
     }
 
     @Test
-    void formatDataFormatIsNull() {
+    void format6() {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        DataFormatter dataFormatter = new DataFormatter(globalConfiguration);
-        dataFormatter.setDefaultNumberFormat(new ExcelGeneralNumberFormat(new Locale("en"), false));
-        assertThat(dataFormatter.format(1.0, null, "yyyy-MM-dd"), is("1"));
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "."), is("."));
+    }
+
+    @Test
+    void formatReturnsT() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "'T'"), is("T"));
     }
 
     @Test

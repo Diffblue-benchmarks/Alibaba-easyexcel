@@ -4,10 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
 import com.alibaba.excel.read.listener.ReadListener;
 
 import java.util.ArrayList;
@@ -25,18 +24,18 @@ import org.junit.jupiter.api.Test;
 class ReadBasicParameterTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         ReadBasicParameter readBasicParameter = new ReadBasicParameter();
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = new ModelBuildEventListener();
+        ReadListener readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readBasicParameter.setCustomReadListenerList(customReadListenerList);
         readBasicParameter.setHeadRowNumber(1);
         readBasicParameter.setAutoTrim(false);
         readBasicParameter.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         readBasicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();

@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
@@ -41,8 +42,10 @@ class BooleanNumberConverterTest {
 
     @Test
     void convertToExcelDataValueIsFalse() {
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
         CellData result =
-             new BooleanNumberConverter().convertToExcelData((Boolean) false, new ExcelContentProperty(), new GlobalConfiguration());
+             new BooleanNumberConverter().convertToExcelData((Boolean) false, contentProperty, new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

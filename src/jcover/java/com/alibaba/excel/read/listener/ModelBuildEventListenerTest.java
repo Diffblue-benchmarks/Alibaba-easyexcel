@@ -1,9 +1,9 @@
 package com.alibaba.excel.read.listener;
 
-import com.alibaba.excel.context.AnalysisContextImpl;
+import static org.mockito.Mockito.mock;
+
+import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.metadata.CellData;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.util.HashMap;
 
@@ -19,11 +19,13 @@ class ModelBuildEventListenerTest {
 
     @Test
     void invokeHeadCellDataMapIsEmpty() {
-        new ModelBuildEventListener().invokeHead(new HashMap<Integer, CellData>(), new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext context = mock(AnalysisContext.class);
+        new ModelBuildEventListener().invokeHead(new HashMap<Integer, CellData>(), context);
     }
 
     @Test
     void doAfterAllAnalysed() {
-        new ModelBuildEventListener().doAfterAllAnalysed(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext context = mock(AnalysisContext.class);
+        new ModelBuildEventListener().doAfterAllAnalysed(context);
     }
 }

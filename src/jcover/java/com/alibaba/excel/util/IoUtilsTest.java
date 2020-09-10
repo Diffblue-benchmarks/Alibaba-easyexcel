@@ -21,7 +21,11 @@ class IoUtilsTest {
     void toByteArray() throws java.io.IOException {
         assertArrayEquals(new byte[] { 98, 97, 114 }, IoUtils.toByteArray(new StringBufferInputStream("bar")));
         assertArrayEquals(new byte[] { 102 }, IoUtils.toByteArray(new StringBufferInputStream("foo"), 1));
-        assertArrayEquals(new byte[] { }, IoUtils.toByteArray(new StringBufferInputStream("foo"), 0));
+    }
+
+    @Test
+    void toByteArraySizeIsZeroReturnsEmpty() throws java.io.IOException {
+        assertThat(IoUtils.toByteArray(new StringBufferInputStream("foo"), 0).length, is(0));
     }
 
     @Test

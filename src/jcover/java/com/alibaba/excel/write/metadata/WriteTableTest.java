@@ -6,13 +6,12 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.metadata.Font;
 import com.alibaba.excel.metadata.TableStyle;
 import com.alibaba.excel.write.handler.WriteHandler;
-import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -31,7 +30,7 @@ import org.junit.jupiter.api.Test;
 class WriteTableTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         WriteTable writeTable = new WriteTable();
         writeTable.setTableNo(1);
         TableStyle tableStyle = new TableStyle();
@@ -51,7 +50,7 @@ class WriteTableTest {
         writeTable.setAutomaticMergeHead(false);
         ArrayList<WriteHandler> customWriteHandlerList =
              new ArrayList<WriteHandler>();
-        WriteHandler writeHandler = new SimpleColumnWidthStyleStrategy(1);
+        WriteHandler writeHandler = mock(WriteHandler.class);
         customWriteHandlerList.add(writeHandler);
         writeTable.setCustomWriteHandlerList(customWriteHandlerList);
         LinkedList<String> excludeColumnFiledNames = new LinkedList<String>();
@@ -72,7 +71,7 @@ class WriteTableTest {
         writeTable.setAutoTrim(false);
         writeTable.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         writeTable.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();

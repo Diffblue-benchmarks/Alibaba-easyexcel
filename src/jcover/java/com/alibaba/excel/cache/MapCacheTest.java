@@ -3,10 +3,9 @@ package com.alibaba.excel.cache;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.context.AnalysisContextImpl;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.context.AnalysisContext;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +19,8 @@ class MapCacheTest {
 
     @Test
     void init() {
-        new MapCache().init(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext analysisContext = mock(AnalysisContext.class);
+        new MapCache().init(analysisContext);
     }
 
     @Test

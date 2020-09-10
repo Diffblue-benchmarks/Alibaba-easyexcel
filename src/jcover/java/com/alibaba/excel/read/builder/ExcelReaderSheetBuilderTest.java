@@ -5,7 +5,9 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
+import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.read.metadata.ReadSheet;
 
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,12 @@ import org.junit.jupiter.api.Test;
  */
 
 class ExcelReaderSheetBuilderTest {
+
+    @Test
+    void factory() {
+        ExcelReader excelReader = mock(ExcelReader.class);
+        // pojo ExcelReaderSheetBuilder
+    }
 
     @Test
     void headRowNumberHeadRowNumberIsOne() {

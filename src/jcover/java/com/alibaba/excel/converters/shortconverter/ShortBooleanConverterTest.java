@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
@@ -39,8 +40,10 @@ class ShortBooleanConverterTest {
 
     @Test
     void convertToExcelDataValueIsOne() {
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
         CellData result =
-             new ShortBooleanConverter().convertToExcelData((short) 1, new ExcelContentProperty(), new GlobalConfiguration());
+             new ShortBooleanConverter().convertToExcelData((short) 1, contentProperty, new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(true));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));

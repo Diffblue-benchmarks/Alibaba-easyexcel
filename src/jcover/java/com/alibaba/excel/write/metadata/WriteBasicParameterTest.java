@@ -6,11 +6,10 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.write.handler.WriteHandler;
-import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,12 +27,12 @@ import org.junit.jupiter.api.Test;
 class WriteBasicParameterTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         WriteBasicParameter writeBasicParameter = new WriteBasicParameter();
         writeBasicParameter.setAutomaticMergeHead(false);
         ArrayList<WriteHandler> customWriteHandlerList =
              new ArrayList<WriteHandler>();
-        WriteHandler writeHandler = new SimpleColumnWidthStyleStrategy(1);
+        WriteHandler writeHandler = mock(WriteHandler.class);
         customWriteHandlerList.add(writeHandler);
         writeBasicParameter.setCustomWriteHandlerList(customWriteHandlerList);
         LinkedList<String> excludeColumnFiledNames = new LinkedList<String>();
@@ -54,7 +53,7 @@ class WriteBasicParameterTest {
         writeBasicParameter.setAutoTrim(false);
         writeBasicParameter.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         writeBasicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();

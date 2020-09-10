@@ -1,13 +1,13 @@
 package com.alibaba.excel.analysis.v07.handlers;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import com.alibaba.excel.context.xlsx.DefaultXlsxReadContext;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.context.xlsx.XlsxReadContext;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.xml.sax.Attributes;
 
 /**
  * Unit tests for com.alibaba.excel.analysis.v07.handlers.MergeCellTagHandler
@@ -18,7 +18,11 @@ import org.junit.jupiter.api.Test;
 class MergeCellTagHandlerTest {
 
     @Test
-    void supportReturnsFalse() {
-        assertThat(new MergeCellTagHandler().support(new DefaultXlsxReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS)), is(false));
+    void startElementNameIsAcme() {
+        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
+        Attributes attributes = mock(Attributes.class);
+        when(attributes.getValue(Mockito.<String>any()))
+            .thenReturn("");
+        new MergeCellTagHandler().startElement(xlsxReadContext, "Acme", attributes);
     }
 }

@@ -2,7 +2,7 @@ package com.alibaba.excel;
 
 import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.event.AbstractIgnoreExceptionReadListener;
+import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.io.ByteArrayOutputStream;
@@ -54,30 +54,26 @@ class EasyExcelFactoryTest {
     }
 
     @Test
-    void read2() {
-        AbstractIgnoreExceptionReadListener readListener =
-             mock(AbstractIgnoreExceptionReadListener.class);
+    void read2() throws Exception {
+        ReadListener readListener = mock(ReadListener.class);
         // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
     }
 
     @Test
-    void readHeadIsString2() {
-        AbstractIgnoreExceptionReadListener readListener =
-             mock(AbstractIgnoreExceptionReadListener.class);
+    void readHeadIsString2() throws Exception {
+        ReadListener readListener = mock(ReadListener.class);
         // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
     }
 
     @Test
-    void read1() {
-        AbstractIgnoreExceptionReadListener readListener =
-             mock(AbstractIgnoreExceptionReadListener.class);
+    void read1() throws Exception {
+        ReadListener readListener = mock(ReadListener.class);
         // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
     }
 
     @Test
-    void readHeadIsString1() {
-        AbstractIgnoreExceptionReadListener readListener =
-             mock(AbstractIgnoreExceptionReadListener.class);
+    void readHeadIsString1() throws Exception {
+        ReadListener readListener = mock(ReadListener.class);
         // pojo com.alibaba.excel.read.builder.ExcelReaderBuilder
     }
 

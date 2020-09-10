@@ -5,8 +5,8 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.metadata.ConfigurationHolder;
-import com.alibaba.excel.write.metadata.holder.AbstractWriteHolder;
+import com.alibaba.excel.metadata.Holder;
+import com.alibaba.excel.write.metadata.holder.WriteHolder;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ class ClassUtilsTest {
 
         // arrange
         HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
-        ConfigurationHolder holder = mock(ConfigurationHolder.class);
+        Holder holder = mock(Holder.class);
 
         // act
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), new HashMap<Integer, Field>(), ignoreMap, false, true, holder);
@@ -49,7 +49,7 @@ class ClassUtilsTest {
 
         // arrange
         HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
-        ConfigurationHolder holder = mock(ConfigurationHolder.class);
+        Holder holder = mock(Holder.class);
 
         // act
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), new HashMap<Integer, Field>(), ignoreMap, true, false, holder);
@@ -72,7 +72,7 @@ class ClassUtilsTest {
 
         // arrange
         HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
-        ConfigurationHolder holder = mock(ConfigurationHolder.class);
+        Holder holder = mock(Holder.class);
 
         // act
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), null, ignoreMap, true, false, holder);
@@ -92,25 +92,25 @@ class ClassUtilsTest {
 
     @Test
     void declaredFields() {
-        AbstractWriteHolder writeHolder = mock(AbstractWriteHolder.class);
+        WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), true, false, writeHolder);
     }
 
     @Test
     void declaredFieldsClazzIsBaseRowModelAndConvertAllFiledIsFalse() {
-        AbstractWriteHolder writeHolder = mock(AbstractWriteHolder.class);
+        WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(com.alibaba.excel.metadata.BaseRowModel.class, new HashMap<Integer, Field>(), false, false, writeHolder);
     }
 
     @Test
     void declaredFieldsClazzIsNull() {
-        AbstractWriteHolder writeHolder = mock(AbstractWriteHolder.class);
+        WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(null, new HashMap<Integer, Field>(), true, false, writeHolder);
     }
 
     @Test
     void declaredFieldsConvertAllFiledIsFalse() {
-        AbstractWriteHolder writeHolder = mock(AbstractWriteHolder.class);
+        WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), false, false, writeHolder);
     }
 }

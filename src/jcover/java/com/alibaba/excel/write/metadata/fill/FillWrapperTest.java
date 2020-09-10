@@ -19,7 +19,7 @@ class FillWrapperTest {
     void factory1() {
         LinkedList collectionData1 = new LinkedList();
         collectionData1.add(new Object());
-        FillWrapper fillWrapper = new FillWrapper("Acme", collectionData1);
+        FillWrapper fillWrapper = new FillWrapper("data.txt", collectionData1);
         LinkedList collectionData2 = new LinkedList();
         Object object2 = new Object();
         collectionData2.add(object2);

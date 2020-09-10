@@ -3,10 +3,9 @@ package com.alibaba.excel.cache;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.context.AnalysisContextImpl;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.context.AnalysisContext;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +19,8 @@ class EhcacheTest {
 
     @Test
     void init() {
-        new Ehcache(1).init(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext analysisContext = mock(AnalysisContext.class);
+        new Ehcache(1).init(analysisContext);
     }
 
     @Test

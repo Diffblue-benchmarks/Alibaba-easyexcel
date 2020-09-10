@@ -3,10 +3,9 @@ package com.alibaba.excel.event;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.context.AnalysisContextImpl;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.context.AnalysisContext;
 
 import java.util.ArrayList;
 
@@ -36,13 +35,14 @@ class SyncReadListenerTest {
 
         // arrange
         SyncReadListener syncReadListener = new SyncReadListener();
-        ArrayList<Object> list1 = new ArrayList<Object>();
-        list1.add(new Object());
-        syncReadListener.setList(list1);
+        ArrayList<Object> list = new ArrayList<Object>();
+        list.add(new Object());
+        syncReadListener.setList(list);
         Object object2 = new Object();
+        AnalysisContext context = mock(AnalysisContext.class);
 
         // act
-        syncReadListener.invoke(object2, new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        syncReadListener.invoke(object2, context);
 
         // assert
         assertThat(syncReadListener.getList().size(), is(2));
@@ -51,6 +51,7 @@ class SyncReadListenerTest {
 
     @Test
     void doAfterAllAnalysed() {
-        new SyncReadListener().doAfterAllAnalysed(new AnalysisContextImpl(new ReadWorkbook(), ExcelTypeEnum.XLS));
+        AnalysisContext context = mock(AnalysisContext.class);
+        new SyncReadListener().doAfterAllAnalysed(context);
     }
 }

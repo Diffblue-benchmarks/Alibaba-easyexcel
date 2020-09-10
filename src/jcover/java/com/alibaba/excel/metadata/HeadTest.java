@@ -1,10 +1,10 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.metadata.property.ColumnWidthProperty;
 import com.alibaba.excel.metadata.property.FontProperty;
@@ -169,7 +169,8 @@ class HeadTest {
         contentFontProperty.setTypeOffset((short) 1);
         contentFontProperty.setUnderline((byte) 1);
         head.setContentFontProperty(contentFontProperty);
-        head.setContentStyleProperty(null);
+        StyleProperty contentStyleProperty = mock(StyleProperty.class);
+        head.setContentStyleProperty(contentStyleProperty);
         head.setFieldName("data");
         head.setForceIndex(false);
         head.setForceName(false);
@@ -228,7 +229,7 @@ class HeadTest {
         assertThat(head.getColumnIndex(), is(1));
         assertThat(head.getColumnWidthProperty(), sameInstance(columnWidthProperty));
         assertThat(head.getContentFontProperty(), sameInstance(contentFontProperty));
-        assertThat(head.getContentStyleProperty(), is(nullValue()));
+        assertThat(head.getContentStyleProperty(), sameInstance(contentStyleProperty));
         assertThat(head.getFieldName(), is("data"));
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));

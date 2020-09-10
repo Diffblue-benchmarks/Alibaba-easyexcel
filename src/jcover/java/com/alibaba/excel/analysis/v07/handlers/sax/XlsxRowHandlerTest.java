@@ -5,9 +5,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.context.xlsx.DefaultXlsxReadContext;
-import com.alibaba.excel.read.metadata.ReadWorkbook;
-import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.context.xlsx.XlsxReadContext;
 
 import org.junit.jupiter.api.Test;
 import org.xml.sax.Attributes;
@@ -21,18 +19,21 @@ import org.xml.sax.Attributes;
 class XlsxRowHandlerTest {
 
     @Test
-    void startElementLocalNameIsAcmeAndNameIsAcme() throws org.xml.sax.SAXException {
+    void startElementLocalNameIsAcmeAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
         Attributes attributes = mock(Attributes.class);
-        new XlsxRowHandler(new DefaultXlsxReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS)).startElement("/some/path.html", "Acme", "Acme", attributes);
+        new XlsxRowHandler(xlsxReadContext).startElement("bar", "Acme", "Acme", attributes);
     }
 
     @Test
-    void endElementLocalNameIsAcmeAndNameIsAcme() throws org.xml.sax.SAXException {
-        new XlsxRowHandler(new DefaultXlsxReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS)).endElement("/some/path.html", "Acme", "Acme");
+    void endElementLocalNameIsAcmeAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
+        new XlsxRowHandler(xlsxReadContext).endElement("bar", "Acme", "Acme");
     }
 
     @Test
     void resolveEntityReturnsNull() throws java.io.IOException, org.xml.sax.SAXException {
-        assertThat(new XlsxRowHandler(new DefaultXlsxReadContext(new ReadWorkbook(), ExcelTypeEnum.XLS)).resolveEntity("1234", "1234"), is(nullValue()));
+        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
+        assertThat(new XlsxRowHandler(xlsxReadContext).resolveEntity("1234", "1234"), is(nullValue()));
     }
 }

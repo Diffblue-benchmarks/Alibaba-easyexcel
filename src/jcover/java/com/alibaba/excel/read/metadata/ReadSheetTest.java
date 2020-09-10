@@ -4,10 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
-import com.alibaba.excel.read.listener.ModelBuildEventListener;
 import com.alibaba.excel.read.listener.ReadListener;
 
 import java.util.ArrayList;
@@ -25,20 +24,20 @@ import org.junit.jupiter.api.Test;
 class ReadSheetTest {
 
     @Test
-    void factory1() {
+    void factory1() throws Exception {
         ReadSheet readSheet = new ReadSheet();
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = new ModelBuildEventListener();
+        ReadListener readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
@@ -67,20 +66,20 @@ class ReadSheetTest {
     }
 
     @Test
-    void factory2() {
+    void factory2() throws Exception {
         ReadSheet readSheet = new ReadSheet(1);
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = new ModelBuildEventListener();
+        ReadListener readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
@@ -109,20 +108,20 @@ class ReadSheetTest {
     }
 
     @Test
-    void factory3() {
+    void factory3() throws Exception {
         ReadSheet readSheet = new ReadSheet(1, "Acme");
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = new ModelBuildEventListener();
+        ReadListener readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
@@ -151,33 +150,33 @@ class ReadSheetTest {
     }
 
     @Test
-    void copyBasicParameter() {
+    void copyBasicParameter() throws Exception {
 
         // arrange
         ReadSheet readSheet = new ReadSheet();
         ReadSheet other = new ReadSheet();
         ArrayList<ReadListener> customReadListenerList2 =
              new ArrayList<ReadListener>();
-        ReadListener readListener2 = new ModelBuildEventListener();
-        customReadListenerList2.add(readListener2);
+        ReadListener readListener = mock(ReadListener.class);
+        customReadListenerList2.add(readListener);
         other.setCustomReadListenerList(customReadListenerList2);
         ArrayList<Converter> customConverterList2 = new ArrayList<Converter>();
-        Converter converter2 = new AutoConverter();
+        Converter converter2 = mock(Converter.class);
         customConverterList2.add(converter2);
         other.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        head2.add(list);
+        List<String> list2 = new ArrayList<String>();
+        head2.add(list2);
         other.setHead(head2);
 
         // act
         readSheet.copyBasicParameter(other);
 
         // assert
-        assertThat(readSheet.getCustomReadListenerList().get(0), sameInstance(readListener2));
+        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList().get(0), sameInstance(readListener));
         assertThat(readSheet.getCustomConverterList().get(0), sameInstance(converter2));
-        assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), sameInstance(list));
+        assertThat(readSheet.getHead().get(0), sameInstance(list2));
     }
 
     @Test

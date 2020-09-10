@@ -5,9 +5,9 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.metadata.Font;
 import com.alibaba.excel.metadata.TableStyle;
@@ -16,7 +16,6 @@ import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.excel.write.handler.WriteHandler;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.alibaba.excel.write.metadata.WriteTable;
-import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ import org.junit.jupiter.api.Test;
 class ExcelWriterTableBuilderTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         GenerateParam generateParam =
              new GenerateParam("name", String.class, new ByteArrayOutputStream());
         generateParam.setClazz(String.class);
@@ -69,7 +68,8 @@ class ExcelWriterTableBuilderTest {
         writeSheet.setAutomaticMergeHead(false);
         ArrayList<WriteHandler> customWriteHandlerList2 =
              new ArrayList<WriteHandler>();
-        customWriteHandlerList2.add(new SimpleColumnWidthStyleStrategy(1));
+        WriteHandler writeHandler4 = mock(WriteHandler.class);
+        customWriteHandlerList2.add(writeHandler4);
         writeSheet.setCustomWriteHandlerList(customWriteHandlerList2);
         LinkedList<String> excludeColumnFiledNames2 = new LinkedList<String>();
         excludeColumnFiledNames2.add("data.txt");
@@ -89,7 +89,8 @@ class ExcelWriterTableBuilderTest {
         writeSheet.setAutoTrim(false);
         writeSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList2 = new ArrayList<Converter>();
-        customConverterList2.add(new AutoConverter());
+        Converter converter2 = mock(Converter.class);
+        customConverterList2.add(converter2);
         writeSheet.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
         List<String> list2 = new ArrayList<String>();

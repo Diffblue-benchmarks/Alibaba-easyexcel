@@ -4,8 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
+import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.enums.CellDataTypeEnum;
 import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
@@ -51,7 +52,7 @@ class DateNumberConverterTest {
     }
 
     @Test
-    void convertToJavaData() {
+    void convertToJavaData() throws Exception {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
         cellData.setData(new Object());
@@ -67,7 +68,8 @@ class DateNumberConverterTest {
         cellData.setColumnIndex(1);
         cellData.setRowIndex(1);
         ExcelContentProperty contentProperty = new ExcelContentProperty();
-        contentProperty.setConverter(new AutoConverter());
+        Converter converter = mock(Converter.class);
+        contentProperty.setConverter(converter);
         DateTimeFormatProperty dateTimeFormatProperty =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty.setFormat("yyyy-MM-dd");

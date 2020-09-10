@@ -9,11 +9,9 @@ import static org.hamcrest.core.IsSame.sameInstance;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import com.alibaba.excel.converters.AutoConverter;
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.event.WriteHandler;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
 
 import java.io.ByteArrayOutputStream;
 import java.io.StringBufferInputStream;
@@ -33,7 +31,7 @@ import org.junit.jupiter.api.Test;
 class WriteWorkbookTest {
 
     @Test
-    void factory() {
+    void factory() throws Exception {
         WriteWorkbook writeWorkbook = new WriteWorkbook();
         writeWorkbook.setAutoCloseStream(false);
         writeWorkbook.setConvertAllFiled(false);
@@ -50,7 +48,7 @@ class WriteWorkbookTest {
         ArrayList<com.alibaba.excel.write.handler.WriteHandler> customWriteHandlerList =
              new ArrayList<com.alibaba.excel.write.handler.WriteHandler>();
         com.alibaba.excel.write.handler.WriteHandler writeHandler2 =
-             new SimpleColumnWidthStyleStrategy(1);
+             mock(com.alibaba.excel.write.handler.WriteHandler.class);
         customWriteHandlerList.add(writeHandler2);
         writeWorkbook.setCustomWriteHandlerList(customWriteHandlerList);
         LinkedList<String> excludeColumnFiledNames = new LinkedList<String>();
@@ -71,7 +69,7 @@ class WriteWorkbookTest {
         writeWorkbook.setAutoTrim(false);
         writeWorkbook.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = new AutoConverter();
+        Converter converter = mock(Converter.class);
         customConverterList.add(converter);
         writeWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
