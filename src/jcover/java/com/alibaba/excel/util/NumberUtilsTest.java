@@ -22,14 +22,18 @@ import org.junit.jupiter.api.Test;
 class NumberUtilsTest {
 
     @Test
-    void format() {
+    void format1() {
         ExcelContentProperty contentProperty = new ExcelContentProperty();
-        contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
-        assertThat(NumberUtils.format(1, contentProperty), is("yyyy-MM-dd1"));
+        NumberFormatProperty numberFormatProperty =
+             new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
+        numberFormatProperty.setFormat("");
+        contentProperty.setNumberFormatProperty(numberFormatProperty);
+        assertThat(NumberUtils.format(1, contentProperty), is("1"));
     }
 
     @Test
-    void formatContentPropertyIsNull() {
+    void format2() {
+        assertThat(NumberUtils.format(1, new ExcelContentProperty()), is("1"));
         assertThat(NumberUtils.format(1, null), is("1"));
     }
 

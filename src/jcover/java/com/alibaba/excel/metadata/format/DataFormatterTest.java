@@ -67,6 +67,42 @@ class DataFormatterTest {
     }
 
     @Test
+    void format7() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "[$-0"), is("[$-0"));
+    }
+
+    @Test
+    void format8() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "\\\\ "), is("\\ "));
+    }
+
+    @Test
+    void formatDataFormatStringIsAReturnsAM() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "A"), is("AM"));
+    }
+
+    @Test
+    void formatDataFormatStringIsDddReturnsMon() {
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "ddd"), is("Mon"));
+    }
+
+    @Test
     void formatReturnsT() {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));

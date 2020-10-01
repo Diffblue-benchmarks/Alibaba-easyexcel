@@ -23,6 +23,17 @@ import org.mockito.Mockito;
 class DefaultAnalysisEventProcessorTest {
 
     @Test
+    void extra() {
+        ReadHolder readHolder = mock(ReadHolder.class);
+        when(readHolder.readListenerList())
+            .thenReturn(new ArrayList<ReadListener>());
+        AnalysisContext analysisContext = mock(AnalysisContext.class);
+        when(analysisContext.currentReadHolder())
+            .thenReturn(readHolder);
+        new DefaultAnalysisEventProcessor().extra(analysisContext);
+    }
+
+    @Test
     void endSheet() throws Exception {
 
         // arrange

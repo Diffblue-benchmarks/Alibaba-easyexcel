@@ -32,10 +32,19 @@ class ByteBooleanConverterTest {
     }
 
     @Test
+    void convertToJavaDataReturnsOne() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(true);
+        assertThat(new ByteBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((byte) 1));
+    }
+
+    @Test
     void convertToJavaDataReturnsZero() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
-        assertThat(new ByteBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((byte) 0));
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
+        assertThat(new ByteBooleanConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is((byte) 0));
     }
 
     @Test

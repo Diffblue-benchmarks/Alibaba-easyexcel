@@ -9,8 +9,10 @@ import com.alibaba.excel.metadata.CellData;
 import com.alibaba.excel.metadata.GlobalConfiguration;
 import com.alibaba.excel.metadata.property.DateTimeFormatProperty;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
+import com.alibaba.excel.metadata.property.NumberFormatProperty;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,11 +35,29 @@ class StringNumberConverterTest {
     }
 
     @Test
-    void convertToJavaData() {
+    void convertToJavaData1() {
+        CellData cellData = new CellData();
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        ExcelContentProperty contentProperty = new ExcelContentProperty();
+        contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
+        assertThat(new StringNumberConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is("yyyy-MM-dd1"));
+    }
+
+    @Test
+    void convertToJavaData2() {
         CellData cellData = new CellData();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
         assertThat(new StringNumberConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is("1900-01-01"));
+    }
+
+    @Test
+    void convertToJavaDataContentPropertyIsNull() {
+        CellData cellData = new CellData();
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        assertThat(new StringNumberConverter().convertToJavaData(cellData, (ExcelContentProperty) null, new GlobalConfiguration()), is("1900-01-01"));
     }
 }

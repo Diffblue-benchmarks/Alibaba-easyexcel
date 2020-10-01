@@ -32,10 +32,19 @@ class IntegerBooleanConverterTest {
     }
 
     @Test
+    void convertToJavaDataReturnsOne() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(true);
+        assertThat(new IntegerBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(1));
+    }
+
+    @Test
     void convertToJavaDataReturnsZero() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
-        assertThat(new IntegerBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(0));
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
+        assertThat(new IntegerBooleanConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is(0));
     }
 
     @Test

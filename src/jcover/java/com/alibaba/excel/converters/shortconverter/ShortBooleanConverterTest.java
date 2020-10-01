@@ -32,10 +32,19 @@ class ShortBooleanConverterTest {
     }
 
     @Test
+    void convertToJavaDataReturnsOne() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(true);
+        assertThat(new ShortBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((short) 1));
+    }
+
+    @Test
     void convertToJavaDataReturnsZero() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
-        assertThat(new ShortBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((short) 0));
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
+        assertThat(new ShortBooleanConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is((short) 0));
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.property;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -443,5 +444,20 @@ class ExcelWriteHeadPropertyTest {
         assertThat(excelWriteHeadProperty.getHeadMap().get(1), sameInstance(x504));
         assertThat(excelWriteHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelWriteHeadProperty.getIgnoreMap().isEmpty(), is(true));
+    }
+
+    @Test
+    void headCellRangeListReturnsEmpty() {
+        Holder holder = mock(Holder.class);
+        ExcelWriteHeadProperty excelWriteHeadProperty =
+             new ExcelWriteHeadProperty(holder, String.class, new ArrayList<List<String>>(), false);
+        HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
+        Head x161 = new Head(1, "data", new ArrayList<String>(), false, false);
+        ArrayList<String> headNameList10 = new ArrayList<String>();
+        headNameList10.add("Smith");
+        x161.setHeadNameList(headNameList10);
+        headMap.put(1, x161);
+        excelWriteHeadProperty.setHeadMap(headMap);
+        assertThat(excelWriteHeadProperty.headCellRangeList(), empty());
     }
 }

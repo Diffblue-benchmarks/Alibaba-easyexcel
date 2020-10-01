@@ -32,10 +32,19 @@ class LongBooleanConverterTest {
     }
 
     @Test
+    void convertToJavaDataReturnsOne() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(true);
+        assertThat(new LongBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(1L));
+    }
+
+    @Test
     void convertToJavaDataReturnsZero() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
-        assertThat(new LongBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(0L));
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
+        assertThat(new LongBooleanConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), is(0L));
     }
 
     @Test

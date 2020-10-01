@@ -20,6 +20,6 @@ class BuiltinFormatsTest {
         assertThat(BuiltinFormats.getBuiltinFormat(-1, "0x00E00", new Locale("en")), is("0x00E00"));
         assertThat(BuiltinFormats.getBuiltinFormat(null, "0x00E00", new Locale("en")), is("0x00E00"));
         assertThat(BuiltinFormats.getBuiltinFormat(1, "0x00E00", new Locale("en")), is("0"));
-        assertThat(BuiltinFormats.getBuiltinFormat(1, "yyyy-MM-dd", null), is("0"));
+        assertThat(BuiltinFormats.getBuiltinFormat(1, "0x00E00", null), is("0"));
     }
 }

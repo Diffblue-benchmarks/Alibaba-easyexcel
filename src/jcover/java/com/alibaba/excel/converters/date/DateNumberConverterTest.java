@@ -52,7 +52,7 @@ class DateNumberConverterTest {
     }
 
     @Test
-    void convertToJavaData() throws Exception {
+    void convertToJavaData1() throws Exception {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
         cellData.setData(new Object());
@@ -70,11 +70,7 @@ class DateNumberConverterTest {
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         Converter converter = mock(Converter.class);
         contentProperty.setConverter(converter);
-        DateTimeFormatProperty dateTimeFormatProperty =
-             new DateTimeFormatProperty("yyyy-MM-dd", false);
-        dateTimeFormatProperty.setFormat("yyyy-MM-dd");
-        dateTimeFormatProperty.setUse1904windowing(false);
-        contentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
+        contentProperty.setDateTimeFormatProperty(null);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head = new Head(1, "data", headNameList1, false, false);
@@ -174,6 +170,69 @@ class DateNumberConverterTest {
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
         assertThat(new DateNumberConverter().convertToJavaData(cellData, contentProperty, globalConfiguration), equalTo(new Date("Jan 01 1900")));
+    }
+
+    @Test
+    void convertToJavaData2() throws Exception {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(false);
+        cellData.setData(new Object());
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue6 = new byte[] { 1 };
+        cellData.setImageValue(imageValue6);
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        cellData.setStringValue("foo");
+        cellData.setType(CellDataTypeEnum.STRING);
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        ExcelContentProperty contentProperty = new ExcelContentProperty();
+        Converter converter = mock(Converter.class);
+        contentProperty.setConverter(converter);
+        DateTimeFormatProperty dateTimeFormatProperty =
+             new DateTimeFormatProperty("yyyy-MM-dd", false);
+        dateTimeFormatProperty.setFormat("yyyy-MM-dd");
+        dateTimeFormatProperty.setUse1904windowing(false);
+        contentProperty.setDateTimeFormatProperty(dateTimeFormatProperty);
+        Head head = mock(Head.class);
+        contentProperty.setHead(head);
+        NumberFormatProperty numberFormatProperty =
+             new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
+        numberFormatProperty.setFormat("yyyy-MM-dd");
+        numberFormatProperty.setRoundingMode(RoundingMode.UP);
+        contentProperty.setNumberFormatProperty(numberFormatProperty);
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setAutoTrim(false);
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DateNumberConverter().convertToJavaData(cellData, contentProperty, globalConfiguration), equalTo(new Date("Jan 01 1900")));
+    }
+
+    @Test
+    void convertToJavaDataContentPropertyIsNull() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(false);
+        cellData.setData(new Object());
+        cellData.setDataFormat(1);
+        cellData.setDataFormatString("yyyy-MM-dd");
+        cellData.setFormula(false);
+        cellData.setFormulaValue("value");
+        byte[] imageValue6 = new byte[] { 1 };
+        cellData.setImageValue(imageValue6);
+        cellData.setNumberValue(BigDecimal.valueOf(1L));
+        cellData.setStringValue("foo");
+        cellData.setType(CellDataTypeEnum.STRING);
+        cellData.setColumnIndex(1);
+        cellData.setRowIndex(1);
+        GlobalConfiguration globalConfiguration = new GlobalConfiguration();
+        globalConfiguration.setAutoTrim(false);
+        globalConfiguration.setLocale(new Locale("en"));
+        globalConfiguration.setUse1904windowing(false);
+        globalConfiguration.setUseScientificFormat(false);
+        assertThat(new DateNumberConverter().convertToJavaData(cellData, (ExcelContentProperty) null, globalConfiguration), equalTo(new Date("Jan 01 1900")));
     }
 
     @Test

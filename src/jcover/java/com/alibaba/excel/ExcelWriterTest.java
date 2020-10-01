@@ -23,18 +23,21 @@ import org.junit.jupiter.api.Test;
 class ExcelWriterTest {
 
     @Test
-    void factory() {
-        // pojo ExcelWriter
-    }
-
-    @Test
     void finish() {
-        new ExcelWriter(new GenerateParam("name", String.class, new ByteArrayOutputStream())).finish();
+        new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS).finish();
     }
 
     @Test
-    void testFinalize() {
-        new ExcelWriter(new GenerateParam("name", String.class, new ByteArrayOutputStream())).finalize();
+    void testFinalize1() {
+        new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS).finalize();
+    }
+
+    @Test
+    void testFinalize2() {
+        GenerateParam generateParam =
+             new GenerateParam("name", String.class, new ByteArrayOutputStream());
+        generateParam.setOutputStream(null);
+        new ExcelWriter(generateParam).finalize();
     }
 
     @Test

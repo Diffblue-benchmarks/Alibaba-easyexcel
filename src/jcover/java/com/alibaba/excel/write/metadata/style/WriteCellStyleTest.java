@@ -156,6 +156,449 @@ class WriteCellStyleTest {
     }
 
     @Test
+    void build10() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build11() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(-1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(nullValue()));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build12() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) -1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is(nullValue()));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build13() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is(nullValue()));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build14() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) -1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is(nullValue()));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build15() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) -1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is(nullValue()));
+    }
+
+    @Test
     void build2() {
 
         // arrange
@@ -391,9 +834,9 @@ class WriteCellStyleTest {
         styleProperty.setFillBackgroundColor((short) 1);
         styleProperty.setFillForegroundColor((short) 1);
         styleProperty.setFillPatternType(FillPatternType.NO_FILL);
-        styleProperty.setHidden(true);
+        styleProperty.setHidden(false);
         styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
-        styleProperty.setIndent((short) 1);
+        styleProperty.setIndent((short) -1);
         styleProperty.setLeftBorderColor((short) 1);
         styleProperty.setLocked(false);
         styleProperty.setQuotePrefix(false);
@@ -428,9 +871,9 @@ class WriteCellStyleTest {
         assertThat(result.getFillBackgroundColor(), is((short) 1));
         assertThat(result.getFillForegroundColor(), is((short) 1));
         assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
-        assertThat(result.getHidden(), is(true));
+        assertThat(result.getHidden(), is(false));
         assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
-        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getIndent(), is(nullValue()));
         assertThat(result.getLeftBorderColor(), is((short) 1));
         assertThat(result.getLocked(), is(false));
         assertThat(result.getQuotePrefix(), is(false));
@@ -449,6 +892,357 @@ class WriteCellStyleTest {
         assertThat(result.getWriteFont().getStrikeout(), is(false));
         assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
         assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build6() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) -1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is(nullValue()));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build7() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) -1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is(nullValue()));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build8() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) -1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is(nullValue()));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build9() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) -1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+        FontProperty fontProperty = new FontProperty();
+        fontProperty.setBold(false);
+        fontProperty.setCharset(1);
+        fontProperty.setColor((short) 1);
+        fontProperty.setFontHeightInPoints((short) 1);
+        fontProperty.setFontName("Acme");
+        fontProperty.setItalic(false);
+        fontProperty.setStrikeout(false);
+        fontProperty.setTypeOffset((short) 1);
+        fontProperty.setUnderline((byte) 1);
+
+        // act
+        WriteCellStyle result =
+             WriteCellStyle.build(styleProperty, fontProperty);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is(nullValue()));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont().getBold(), is(false));
+        assertThat(result.getWriteFont().getCharset(), is(1));
+        assertThat(result.getWriteFont().getColor(), is((short) 1));
+        assertThat(result.getWriteFont().getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getWriteFont().getFontName(), is("Acme"));
+        assertThat(result.getWriteFont().getItalic(), is(false));
+        assertThat(result.getWriteFont().getStrikeout(), is(false));
+        assertThat(result.getWriteFont().getTypeOffset(), is((short) 1));
+        assertThat(result.getWriteFont().getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void buildFontPropertyIsNull() {
+
+        // arrange
+        StyleProperty styleProperty = new StyleProperty();
+        styleProperty.setBorderBottom(BorderStyle.NONE);
+        styleProperty.setBorderLeft(BorderStyle.NONE);
+        styleProperty.setBorderRight(BorderStyle.NONE);
+        styleProperty.setBorderTop(BorderStyle.NONE);
+        styleProperty.setBottomBorderColor((short) 1);
+        styleProperty.setDataFormat((short) 1);
+        styleProperty.setFillBackgroundColor((short) 1);
+        styleProperty.setFillForegroundColor((short) 1);
+        styleProperty.setFillPatternType(FillPatternType.NO_FILL);
+        styleProperty.setHidden(false);
+        styleProperty.setHorizontalAlignment(HorizontalAlignment.GENERAL);
+        styleProperty.setIndent((short) 1);
+        styleProperty.setLeftBorderColor((short) 1);
+        styleProperty.setLocked(false);
+        styleProperty.setQuotePrefix(false);
+        styleProperty.setRightBorderColor((short) 1);
+        styleProperty.setRotation((short) 1);
+        styleProperty.setShrinkToFit(false);
+        styleProperty.setTopBorderColor((short) 1);
+        styleProperty.setVerticalAlignment(VerticalAlignment.TOP);
+        styleProperty.setWrapped(false);
+
+        // act
+        WriteCellStyle result = WriteCellStyle.build(styleProperty, null);
+
+        // assert
+        assertThat(result.getBorderBottom(), is(BorderStyle.NONE));
+        assertThat(result.getBorderLeft(), is(BorderStyle.NONE));
+        assertThat(result.getBorderRight(), is(BorderStyle.NONE));
+        assertThat(result.getBorderTop(), is(BorderStyle.NONE));
+        assertThat(result.getBottomBorderColor(), is((short) 1));
+        assertThat(result.getDataFormat(), is((short) 1));
+        assertThat(result.getFillBackgroundColor(), is((short) 1));
+        assertThat(result.getFillForegroundColor(), is((short) 1));
+        assertThat(result.getFillPatternType(), is(FillPatternType.NO_FILL));
+        assertThat(result.getHidden(), is(false));
+        assertThat(result.getHorizontalAlignment(), is(HorizontalAlignment.GENERAL));
+        assertThat(result.getIndent(), is((short) 1));
+        assertThat(result.getLeftBorderColor(), is((short) 1));
+        assertThat(result.getLocked(), is(false));
+        assertThat(result.getQuotePrefix(), is(false));
+        assertThat(result.getRightBorderColor(), is((short) 1));
+        assertThat(result.getRotation(), is((short) 1));
+        assertThat(result.getShrinkToFit(), is(false));
+        assertThat(result.getTopBorderColor(), is((short) 1));
+        assertThat(result.getVerticalAlignment(), is(VerticalAlignment.TOP));
+        assertThat(result.getWrapped(), is(false));
+        assertThat(result.getWriteFont(), is(nullValue()));
     }
 
     @Test

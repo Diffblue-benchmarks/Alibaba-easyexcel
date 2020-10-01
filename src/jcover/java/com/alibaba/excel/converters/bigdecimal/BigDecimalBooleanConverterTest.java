@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsSame.sameInstance;
 import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.enums.CellDataTypeEnum;
@@ -34,10 +35,21 @@ class BigDecimalBooleanConverterTest {
     }
 
     @Test
-    void convertToJavaData() {
+    void convertToJavaData1() {
+        CellData cellData = new CellData();
+        cellData.setBooleanValue(true);
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue4);
+        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), sameInstance(numberValue4));
+    }
+
+    @Test
+    void convertToJavaData2() {
         CellData cellData = new CellData();
         cellData.setBooleanValue(false);
-        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), equalTo(new BigDecimal("0")));
+        ExcelContentProperty contentProperty =
+             mock(ExcelContentProperty.class);
+        assertThat(new BigDecimalBooleanConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), equalTo(new BigDecimal("0")));
     }
 
     @Test

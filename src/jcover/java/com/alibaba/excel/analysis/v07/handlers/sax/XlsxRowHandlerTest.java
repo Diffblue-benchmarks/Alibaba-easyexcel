@@ -19,16 +19,16 @@ import org.xml.sax.Attributes;
 class XlsxRowHandlerTest {
 
     @Test
-    void startElementLocalNameIsAcmeAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void startElementLocalNameIsFooAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
         XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
         Attributes attributes = mock(Attributes.class);
-        new XlsxRowHandler(xlsxReadContext).startElement("bar", "Acme", "Acme", attributes);
+        new XlsxRowHandler(xlsxReadContext).startElement("bar", "foo", "Acme", attributes);
     }
 
     @Test
-    void endElementLocalNameIsAcmeAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void endElementLocalNameIsFooAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
         XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
-        new XlsxRowHandler(xlsxReadContext).endElement("bar", "Acme", "Acme");
+        new XlsxRowHandler(xlsxReadContext).endElement("bar", "foo", "Acme");
     }
 
     @Test
