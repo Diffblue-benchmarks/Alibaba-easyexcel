@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class EternalReadCacheSelectorTest {
 
     @Test
-    void readCache() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
+    void readCache() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
         ReadCache readCache = mock(ReadCache.class);
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         assertThat(new EternalReadCacheSelector(readCache).readCache(sharedStringsTablePackagePart), sameInstance(readCache));

@@ -32,7 +32,7 @@ class SimpleReadCacheSelectorTest {
     }
 
     @Test
-    void readCache1() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
+    void readCache1() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1L);
@@ -40,7 +40,7 @@ class SimpleReadCacheSelectorTest {
     }
 
     @Test
-    void readCache2() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
+    void readCache2() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1000000L);
@@ -48,7 +48,7 @@ class SimpleReadCacheSelectorTest {
     }
 
     @Test
-    void readCache3() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException {
+    void readCache3() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getInputStream())
             .thenReturn(new StringBufferInputStream("foo"));
