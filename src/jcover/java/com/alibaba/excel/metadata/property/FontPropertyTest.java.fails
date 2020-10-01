@@ -1,0 +1,93 @@
+package com.alibaba.excel.metadata.property;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import com.alibaba.excel.annotation.write.style.ContentFontStyle;
+import com.alibaba.excel.annotation.write.style.HeadFontStyle;
+
+import org.junit.jupiter.api.Test;
+
+/**
+ * Unit tests for com.alibaba.excel.metadata.property.FontProperty
+ *
+ * @author Diffblue Cover
+ */
+
+class FontPropertyTest {
+
+    @Test
+    void build2() {
+        HeadFontStyle headFontStyle = mock(HeadFontStyle.class);
+        when(headFontStyle.bold())
+            .thenReturn(true);
+        when(headFontStyle.charset())
+            .thenReturn(1);
+        when(headFontStyle.color())
+            .thenReturn(1);
+        when(headFontStyle.fontHeightInPoints())
+            .thenReturn(1);
+        when(headFontStyle.fontName())
+            .thenReturn("foo");
+        when(headFontStyle.italic())
+            .thenReturn(false);
+        when(headFontStyle.strikeout())
+            .thenReturn(false);
+        when(headFontStyle.typeOffset())
+            .thenReturn(1);
+        when(headFontStyle.underline())
+            .thenReturn(1);
+        FontProperty result = FontProperty.build(headFontStyle);
+        assertThat(result.getBold(), is(true));
+        assertThat(result.getCharset(), is(1));
+        assertThat(result.getColor(), is((short) 1));
+        assertThat(result.getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getFontName(), is("foo"));
+        assertThat(result.getItalic(), is(false));
+        assertThat(result.getStrikeout(), is(false));
+        assertThat(result.getTypeOffset(), is((short) 1));
+        assertThat(result.getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build1() {
+        ContentFontStyle contentFontStyle = mock(ContentFontStyle.class);
+        when(contentFontStyle.bold())
+            .thenReturn(true);
+        when(contentFontStyle.charset())
+            .thenReturn(1);
+        when(contentFontStyle.color())
+            .thenReturn(1);
+        when(contentFontStyle.fontHeightInPoints())
+            .thenReturn(1);
+        when(contentFontStyle.fontName())
+            .thenReturn("foo");
+        when(contentFontStyle.italic())
+            .thenReturn(false);
+        when(contentFontStyle.strikeout())
+            .thenReturn(false);
+        when(contentFontStyle.typeOffset())
+            .thenReturn(1);
+        when(contentFontStyle.underline())
+            .thenReturn(1);
+        FontProperty result = FontProperty.build(contentFontStyle);
+        assertThat(result.getBold(), is(true));
+        assertThat(result.getCharset(), is(1));
+        assertThat(result.getColor(), is((short) 1));
+        assertThat(result.getFontHeightInPoints(), is((short) 1));
+        assertThat(result.getFontName(), is("foo"));
+        assertThat(result.getItalic(), is(false));
+        assertThat(result.getStrikeout(), is(false));
+        assertThat(result.getTypeOffset(), is((short) 1));
+        assertThat(result.getUnderline(), is((byte) 1));
+    }
+
+    @Test
+    void build3() {
+        assertThat(FontProperty.build((ContentFontStyle) null), is(nullValue()));
+        assertThat(FontProperty.build((HeadFontStyle) null), is(nullValue()));
+    }
+}

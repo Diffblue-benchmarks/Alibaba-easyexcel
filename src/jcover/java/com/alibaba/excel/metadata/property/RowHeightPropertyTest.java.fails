@@ -27,7 +27,16 @@ class RowHeightPropertyTest {
     }
 
     @Test
-    void build2() {
+    void build3() {
+        HeadRowHeight headRowHeight = mock(HeadRowHeight.class);
+        when(headRowHeight.value())
+            .thenReturn(1)
+            .thenReturn(0);
+        assertThat(RowHeightProperty.build(headRowHeight).getHeight(), is((short) 0));
+    }
+
+    @Test
+    void build4() {
         HeadRowHeight headRowHeight = mock(HeadRowHeight.class);
         when(headRowHeight.value())
             .thenReturn(-1);
@@ -35,29 +44,20 @@ class RowHeightPropertyTest {
     }
 
     @Test
-    void build4() {
-        HeadRowHeight headRowHeight = mock(HeadRowHeight.class);
-        when(headRowHeight.value())
-            .thenReturn(0)
-            .thenReturn(1);
-        assertThat(RowHeightProperty.build(headRowHeight).getHeight(), is((short) 1));
+    void build1() {
+        ContentRowHeight contentRowHeight = mock(ContentRowHeight.class);
+        when(contentRowHeight.value())
+            .thenReturn(1)
+            .thenReturn(0);
+        assertThat(RowHeightProperty.build(contentRowHeight).getHeight(), is((short) 0));
     }
 
     @Test
-    void build1() {
+    void build2() {
         ContentRowHeight contentRowHeight = mock(ContentRowHeight.class);
         when(contentRowHeight.value())
             .thenReturn(-1);
         assertThat(RowHeightProperty.build(contentRowHeight), is(nullValue()));
-    }
-
-    @Test
-    void build3() {
-        ContentRowHeight contentRowHeight = mock(ContentRowHeight.class);
-        when(contentRowHeight.value())
-            .thenReturn(0)
-            .thenReturn(1);
-        assertThat(RowHeightProperty.build(contentRowHeight).getHeight(), is((short) 1));
     }
 
     @Test

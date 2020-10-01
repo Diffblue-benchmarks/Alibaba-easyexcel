@@ -5,7 +5,6 @@ import static org.mockito.Mockito.mock;
 import com.alibaba.excel.context.WriteContext;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 /**
  * Unit tests for com.alibaba.excel.write.executor.ExcelWriteFillExecutor

@@ -34,16 +34,16 @@ class ColumnWidthPropertyTest {
     void build2() {
         ColumnWidth columnWidth = mock(ColumnWidth.class);
         when(columnWidth.value())
-            .thenReturn(-1);
-        assertThat(ColumnWidthProperty.build(columnWidth), is(nullValue()));
+            .thenReturn(1)
+            .thenReturn(0);
+        assertThat(ColumnWidthProperty.build(columnWidth).getWidth(), is(0));
     }
 
     @Test
     void build3() {
         ColumnWidth columnWidth = mock(ColumnWidth.class);
         when(columnWidth.value())
-            .thenReturn(0)
-            .thenReturn(1);
-        assertThat(ColumnWidthProperty.build(columnWidth).getWidth(), is(1));
+            .thenReturn(-1);
+        assertThat(ColumnWidthProperty.build(columnWidth), is(nullValue()));
     }
 }
