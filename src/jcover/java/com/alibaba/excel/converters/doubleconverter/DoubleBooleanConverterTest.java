@@ -34,14 +34,14 @@ class DoubleBooleanConverterTest {
 
     @Test
     void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(true);
         assertThat(new DoubleBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), closeTo(1.0, 0.0));
     }
 
     @Test
     void convertToJavaDataReturnsZero() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
         ExcelContentProperty contentProperty =
              mock(ExcelContentProperty.class);

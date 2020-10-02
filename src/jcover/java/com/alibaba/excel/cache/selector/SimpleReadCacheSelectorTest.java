@@ -18,42 +18,42 @@ class SimpleReadCacheSelectorTest {
 
     @Test
     void factory1() {
-        // pojo SimpleReadCacheSelector
+        // pojo SimpleReadCacheSelector new SimpleReadCacheSelector()
     }
 
     @Test
     void factory2() {
-        // pojo SimpleReadCacheSelector
+        // pojo SimpleReadCacheSelector new SimpleReadCacheSelector(0L, 1)
     }
 
     @Test
     void factory3() {
-        // pojo SimpleReadCacheSelector
+        // pojo SimpleReadCacheSelector new SimpleReadCacheSelector(1L, 0)
     }
 
     @Test
-    void readCache1() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
+    void readCache1() {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1L);
-        // pojo com.alibaba.excel.cache.ReadCache
+        // pojo com.alibaba.excel.cache.ReadCache new SimpleReadCacheSelector().readCache(sharedStringsTablePackagePart)
     }
 
     @Test
-    void readCache2() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
+    void readCache2() {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(1000000L);
-        // pojo com.alibaba.excel.cache.ReadCache
+        // pojo com.alibaba.excel.cache.ReadCache new SimpleReadCacheSelector(1L, 1).readCache(sharedStringsTablePackagePart)
     }
 
     @Test
-    void readCache3() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
+    void readCache3() throws java.io.IOException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getInputStream())
             .thenReturn(new StringBufferInputStream("foo"));
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(-1L);
-        // pojo com.alibaba.excel.cache.ReadCache
+        // pojo com.alibaba.excel.cache.ReadCache new SimpleReadCacheSelector().readCache(sharedStringsTablePackagePart)
     }
 }

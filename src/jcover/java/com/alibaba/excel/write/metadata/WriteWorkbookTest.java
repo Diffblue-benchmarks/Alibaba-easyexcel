@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 class WriteWorkbookTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         WriteWorkbook writeWorkbook = new WriteWorkbook();
         writeWorkbook.setAutoCloseStream(false);
         writeWorkbook.setConvertAllFiled(false);

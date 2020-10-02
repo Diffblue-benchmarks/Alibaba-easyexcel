@@ -36,7 +36,7 @@ class BigDecimalBooleanConverterTest {
 
     @Test
     void convertToJavaData1() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(true);
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue4);
@@ -45,7 +45,7 @@ class BigDecimalBooleanConverterTest {
 
     @Test
     void convertToJavaData2() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
         ExcelContentProperty contentProperty =
              mock(ExcelContentProperty.class);

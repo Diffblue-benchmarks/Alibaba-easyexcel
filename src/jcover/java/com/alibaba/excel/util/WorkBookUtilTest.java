@@ -25,7 +25,7 @@ import org.mockito.Mockito;
 class WorkBookUtilTest {
 
     @Test
-    void createSheetSheetNameIsAcme() throws java.io.IOException, Exception {
+    void createSheetSheetNameIsAcme() {
         Sheet sheet = mock(Sheet.class);
         Workbook workbook = mock(Workbook.class);
         when(workbook.createSheet(Mockito.<String>any()))
@@ -43,7 +43,7 @@ class WorkBookUtilTest {
     }
 
     @Test
-    void createCellColNumIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
+    void createCellColNumIsOne() {
         Cell cell = mock(Cell.class);
         Row row = mock(Row.class);
         when(row.createCell(anyInt()))
@@ -52,7 +52,7 @@ class WorkBookUtilTest {
     }
 
     @Test
-    void createCell1() throws org.apache.poi.ss.formula.FormulaParseException {
+    void createCell1() {
         Cell cell = mock(Cell.class);
         Row row = mock(Row.class);
         when(row.createCell(anyInt()))
@@ -63,7 +63,7 @@ class WorkBookUtilTest {
     }
 
     @Test
-    void createCell2() throws org.apache.poi.ss.formula.FormulaParseException {
+    void createCell2() {
         Cell cell = mock(Cell.class);
         Row row = mock(Row.class);
         when(row.createCell(anyInt()))
@@ -75,7 +75,7 @@ class WorkBookUtilTest {
     }
 
     @Test
-    void createCell3() throws org.apache.poi.ss.formula.FormulaParseException {
+    void createCell3() {
         Cell cell = mock(Cell.class);
         Row row = mock(Row.class);
         when(row.createCell(anyInt()))

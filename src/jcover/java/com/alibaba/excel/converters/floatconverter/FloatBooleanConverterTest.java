@@ -34,14 +34,14 @@ class FloatBooleanConverterTest {
 
     @Test
     void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(true);
         assertEquals(1.0f, new FloatBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), 0);
     }
 
     @Test
     void convertToJavaDataReturnsZero() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
         ExcelContentProperty contentProperty =
              mock(ExcelContentProperty.class);

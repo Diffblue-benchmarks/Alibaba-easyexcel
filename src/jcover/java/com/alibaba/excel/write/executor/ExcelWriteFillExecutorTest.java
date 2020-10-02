@@ -30,7 +30,7 @@ import org.mockito.Mockito;
 class ExcelWriteFillExecutorTest {
 
     @Test
-    void convertClazzIsString() throws org.apache.poi.ss.formula.FormulaParseException, Exception {
+    void convertClazzIsString() throws Exception {
 
         // arrange
         WriteContext writeContext = mock(WriteContext.class);
@@ -39,7 +39,7 @@ class ExcelWriteFillExecutorTest {
             .thenReturn(new GlobalConfiguration());
         Cell cell = mock(Cell.class);
         ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-        CellData cellData = new CellData();
+        CellData cellData = new CellData<String>();
         cellData.setBooleanValue(false);
         Object data12 = new Object();
         cellData.setData(data12);
@@ -55,8 +55,9 @@ class ExcelWriteFillExecutorTest {
         cellData.setType(CellDataTypeEnum.STRING);
         cellData.setColumnIndex(1);
         cellData.setRowIndex(1);
-        Converter converter = mock(Converter.class);
-        when(converter.convertToExcelData(Mockito.<Object>any(), Mockito.<ExcelContentProperty>any(), Mockito.<GlobalConfiguration>any()))
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
+        when(converter.convertToExcelData(Mockito.<String>any(), Mockito.<ExcelContentProperty>any(), Mockito.<GlobalConfiguration>any()))
             .thenReturn(cellData);
         excelContentProperty.setConverter(converter);
 

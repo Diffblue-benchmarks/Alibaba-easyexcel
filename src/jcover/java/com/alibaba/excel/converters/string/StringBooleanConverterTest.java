@@ -32,7 +32,7 @@ class StringBooleanConverterTest {
 
     @Test
     void convertToJavaDataReturnsFalse() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
         assertThat(new StringBooleanConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is("false"));
     }

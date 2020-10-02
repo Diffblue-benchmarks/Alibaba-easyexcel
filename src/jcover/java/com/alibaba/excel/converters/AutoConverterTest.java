@@ -30,7 +30,7 @@ class AutoConverterTest {
 
     @Test
     void convertToJavaDataReturnsNull() {
-        assertThat(new AutoConverter().convertToJavaData(new CellData(), new ExcelContentProperty(), new GlobalConfiguration()), is(nullValue()));
+        assertThat(new AutoConverter().convertToJavaData(new CellData<String>(), new ExcelContentProperty(), new GlobalConfiguration()), is(nullValue()));
     }
 
     @Test

@@ -23,7 +23,7 @@ import org.mockito.Mockito;
 class DefaultAnalysisEventProcessorTest {
 
     @Test
-    void endSheet() throws Exception {
+    void endSheet() {
 
         // arrange
         List<ReadListener> list = new ArrayList<ReadListener>();

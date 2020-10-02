@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 class ConverterUtilsTest {
 
     @Test
-    void convertToStringMapReturnsEmpty() throws java.io.IOException, CloneNotSupportedException {
+    void convertToStringMapReturnsEmpty() {
         ReadHolder readHolder = mock(ReadHolder.class);
         AnalysisContext context = mock(AnalysisContext.class);
         when(context.currentReadHolder())

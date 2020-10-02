@@ -35,14 +35,14 @@ class BooleanNumberConverterTest {
 
     @Test
     void convertToJavaDataReturnsFalse() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(0L));
         assertThat(new BooleanNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is(false));
     }
 
     @Test
     void convertToJavaDataReturnsTrue() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty =
              mock(ExcelContentProperty.class);

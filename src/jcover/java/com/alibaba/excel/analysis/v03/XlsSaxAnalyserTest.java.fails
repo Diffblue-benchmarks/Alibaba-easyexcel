@@ -19,11 +19,11 @@ class XlsSaxAnalyserTest {
     @Test
     void factory() {
         XlsReadContext xlsReadContext = mock(XlsReadContext.class);
-        // pojo XlsSaxAnalyser
+        // pojo XlsSaxAnalyser new XlsSaxAnalyser(xlsReadContext)
     }
 
     @Test
-    void processRecord() throws CloneNotSupportedException {
+    void processRecord() {
         XlsReadContext xlsReadContext = mock(XlsReadContext.class);
         Record record = mock(Record.class);
         when(record.getSid())

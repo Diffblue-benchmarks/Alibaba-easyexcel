@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 class SheetTest {
 
     @Test
-    void factory1() throws java.io.IOException, CloneNotSupportedException {
+    void factory1() {
         Sheet sheet = new Sheet(1, 1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
@@ -64,7 +64,7 @@ class SheetTest {
     }
 
     @Test
-    void factory2() throws java.io.IOException, CloneNotSupportedException {
+    void factory2() {
         Sheet sheet = new Sheet(1, 1, BaseRowModel.class);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
@@ -105,7 +105,7 @@ class SheetTest {
     }
 
     @Test
-    void factory3() throws java.io.IOException, CloneNotSupportedException {
+    void factory3() {
         ArrayList<List<String>> head1 = new ArrayList<List<String>>();
         List<String> list1 = new ArrayList<String>();
         list1.add("foo");
@@ -150,7 +150,7 @@ class SheetTest {
     }
 
     @Test
-    void factory4() throws java.io.IOException, CloneNotSupportedException {
+    void factory4() {
         Sheet sheet = new Sheet(1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);

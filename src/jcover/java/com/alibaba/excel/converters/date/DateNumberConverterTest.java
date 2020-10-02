@@ -52,10 +52,10 @@ class DateNumberConverterTest {
     }
 
     @Test
-    void convertToJavaData1() throws Exception {
-        CellData cellData = new CellData();
+    void convertToJavaData1() {
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
-        cellData.setData(new Object());
+        cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
@@ -68,7 +68,8 @@ class DateNumberConverterTest {
         cellData.setColumnIndex(1);
         cellData.setRowIndex(1);
         ExcelContentProperty contentProperty = new ExcelContentProperty();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         contentProperty.setConverter(converter);
         contentProperty.setDateTimeFormatProperty(null);
         ArrayList<String> headNameList1 = new ArrayList<String>();
@@ -173,10 +174,10 @@ class DateNumberConverterTest {
     }
 
     @Test
-    void convertToJavaData2() throws Exception {
-        CellData cellData = new CellData();
+    void convertToJavaData2() {
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
-        cellData.setData(new Object());
+        cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
@@ -189,7 +190,8 @@ class DateNumberConverterTest {
         cellData.setColumnIndex(1);
         cellData.setRowIndex(1);
         ExcelContentProperty contentProperty = new ExcelContentProperty();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         contentProperty.setConverter(converter);
         DateTimeFormatProperty dateTimeFormatProperty =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -213,9 +215,9 @@ class DateNumberConverterTest {
 
     @Test
     void convertToJavaDataContentPropertyIsNull() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setBooleanValue(false);
-        cellData.setData(new Object());
+        cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);

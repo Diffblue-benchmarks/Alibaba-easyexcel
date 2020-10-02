@@ -14,7 +14,7 @@ class LoopMergeStrategyTest {
 
     @Test
     void factory1() {
-        // pojo LoopMergeStrategy
+        // pojo LoopMergeStrategy new LoopMergeStrategy(2, 1)
     }
 
     @Test
@@ -22,7 +22,7 @@ class LoopMergeStrategyTest {
         LoopMergeProperty loopMergeProperty = new LoopMergeProperty(0, 1);
         loopMergeProperty.setColumnExtend(2);
         loopMergeProperty.setEachRow(1);
-        // pojo LoopMergeStrategy
+        // pojo LoopMergeStrategy new LoopMergeStrategy(loopMergeProperty, 1)
     }
 
     @Test
@@ -30,6 +30,6 @@ class LoopMergeStrategyTest {
         LoopMergeProperty loopMergeProperty = new LoopMergeProperty(0, 1);
         loopMergeProperty.setColumnExtend(1);
         loopMergeProperty.setEachRow(2);
-        // pojo LoopMergeStrategy
+        // pojo LoopMergeStrategy new LoopMergeStrategy(loopMergeProperty, 1)
     }
 }

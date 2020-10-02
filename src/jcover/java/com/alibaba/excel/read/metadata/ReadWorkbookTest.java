@@ -1,7 +1,7 @@
 package com.alibaba.excel.read.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 class ReadWorkbookTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         ReadWorkbook readWorkbook = new ReadWorkbook();
         readWorkbook.setAutoCloseStream(false);
         readWorkbook.setConvertAllFiled(false);
@@ -77,7 +77,7 @@ class ReadWorkbookTest {
         assertThat(readWorkbook.getCustomObject(), sameInstance(customObject));
         assertThat(readWorkbook.getDefaultReturnMap(), is(false));
         assertThat(readWorkbook.getExcelType(), is(ExcelTypeEnum.XLS));
-        assertThat(readWorkbook.getExtraReadSet(), empty());
+        assertThat(readWorkbook.getExtraReadSet(), is(notNullValue()));
         assertThat(readWorkbook.getFile(), is(nullValue()));
         assertThat(readWorkbook.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbook.getMandatoryUseInputStream(), is(false));

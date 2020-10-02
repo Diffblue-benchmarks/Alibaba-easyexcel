@@ -36,7 +36,7 @@ class StringNumberConverterTest {
 
     @Test
     void convertToJavaData1() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setNumberFormatProperty(new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP));
@@ -45,7 +45,7 @@ class StringNumberConverterTest {
 
     @Test
     void convertToJavaData2() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
@@ -54,7 +54,7 @@ class StringNumberConverterTest {
 
     @Test
     void convertToJavaDataContentPropertyIsNull() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setNumberValue(BigDecimal.valueOf(1L));

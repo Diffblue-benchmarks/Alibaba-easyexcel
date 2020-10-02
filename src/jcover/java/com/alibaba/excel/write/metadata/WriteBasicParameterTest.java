@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 class WriteBasicParameterTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         WriteBasicParameter writeBasicParameter = new WriteBasicParameter();
         writeBasicParameter.setAutomaticMergeHead(false);
         ArrayList<WriteHandler> customWriteHandlerList =

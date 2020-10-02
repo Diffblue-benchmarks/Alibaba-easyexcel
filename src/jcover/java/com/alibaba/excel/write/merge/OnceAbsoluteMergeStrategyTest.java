@@ -14,7 +14,7 @@ class OnceAbsoluteMergeStrategyTest {
 
     @Test
     void factory1() {
-        // pojo OnceAbsoluteMergeStrategy
+        // pojo OnceAbsoluteMergeStrategy new OnceAbsoluteMergeStrategy(0, 1, 1, 1)
     }
 
     @Test
@@ -25,6 +25,6 @@ class OnceAbsoluteMergeStrategyTest {
         onceAbsoluteMergeProperty.setFirstRowIndex(1);
         onceAbsoluteMergeProperty.setLastColumnIndex(1);
         onceAbsoluteMergeProperty.setLastRowIndex(1);
-        // pojo OnceAbsoluteMergeStrategy
+        // pojo OnceAbsoluteMergeStrategy new OnceAbsoluteMergeStrategy(onceAbsoluteMergeProperty)
     }
 }

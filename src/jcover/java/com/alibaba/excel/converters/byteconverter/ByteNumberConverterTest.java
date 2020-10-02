@@ -34,7 +34,7 @@ class ByteNumberConverterTest {
 
     @Test
     void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         assertThat(new ByteNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((byte) 1));
     }

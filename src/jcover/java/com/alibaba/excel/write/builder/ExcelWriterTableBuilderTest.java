@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
 class ExcelWriterTableBuilderTest {
 
     @Test
-    void factory() throws java.io.IOException, CloneNotSupportedException, Exception {
+    void factory() {
         GenerateParam generateParam =
              new GenerateParam("name", String.class, new ByteArrayOutputStream());
         generateParam.setClazz(String.class);
@@ -97,7 +97,7 @@ class ExcelWriterTableBuilderTest {
         writeSheet.setLocale(new Locale("en"));
         writeSheet.setUse1904windowing(false);
         writeSheet.setUseScientificFormat(false);
-        // pojo ExcelWriterTableBuilder
+        // pojo ExcelWriterTableBuilder new ExcelWriterTableBuilder(new ExcelWriter(generateParam), writeSheet)
     }
 
     @Test

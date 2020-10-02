@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 class WriteTableTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         WriteTable writeTable = new WriteTable();
         writeTable.setTableNo(1);
         TableStyle tableStyle = new TableStyle();

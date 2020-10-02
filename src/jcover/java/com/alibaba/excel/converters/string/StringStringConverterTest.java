@@ -32,7 +32,7 @@ class StringStringConverterTest {
 
     @Test
     void convertToJavaDataReturnsFoo() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setStringValue("foo");
         assertThat(new StringStringConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is("foo"));
     }

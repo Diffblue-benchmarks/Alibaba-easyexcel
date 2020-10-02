@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 class ReadBasicParameterTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         ReadBasicParameter readBasicParameter = new ReadBasicParameter();
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();

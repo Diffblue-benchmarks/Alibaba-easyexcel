@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.converters.Converter;
@@ -38,24 +39,26 @@ import org.junit.jupiter.api.Test;
 class ExcelDataConvertExceptionTest {
 
     @Test
-    void factory1() throws Exception {
-        CellData cellData1 = new CellData();
+    void factory1() {
+        CellData<String> cellData1 = new CellData<String>();
         cellData1.setBooleanValue(false);
-        cellData1.setData(new Object());
+        cellData1.setData("something");
         cellData1.setDataFormat(1);
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
         byte[] imageValue6 = new byte[] { 1 };
         cellData1.setImageValue(imageValue6);
-        cellData1.setNumberValue(BigDecimal.valueOf(1L));
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        cellData1.setNumberValue(numberValue4);
         cellData1.setStringValue("foo");
         cellData1.setType(CellDataTypeEnum.STRING);
         cellData1.setColumnIndex(1);
         cellData1.setRowIndex(1);
         ExcelContentProperty excelContentProperty1 =
              new ExcelContentProperty();
-        Converter converter1 = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter1 = mock(Converter.class);
         excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -157,9 +160,9 @@ class ExcelDataConvertExceptionTest {
         excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
         ExcelDataConvertException excelDataConvertException =
              new ExcelDataConvertException(1, 1, cellData1, excelContentProperty1, "an error has happened");
-        CellData cellData2 = new CellData();
+        CellData<String> cellData2 = new CellData<String>();
         cellData2.setBooleanValue(false);
-        cellData2.setData(new Object());
+        cellData2.setData("something");
         cellData2.setDataFormat(1);
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
@@ -175,7 +178,8 @@ class ExcelDataConvertExceptionTest {
         excelDataConvertException.setColumnIndex(1);
         ExcelContentProperty excelContentProperty2 =
              new ExcelContentProperty();
-        Converter converter2 = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter2 = mock(Converter.class);
         excelContentProperty2.setConverter(converter2);
         DateTimeFormatProperty dateTimeFormatProperty2 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -277,7 +281,18 @@ class ExcelDataConvertExceptionTest {
         excelContentProperty2.setNumberFormatProperty(numberFormatProperty2);
         excelDataConvertException.setExcelContentProperty(excelContentProperty2);
         excelDataConvertException.setRowIndex(1);
-        assertThat(excelDataConvertException.getCellData(), sameInstance(cellData2));
+        assertThat(excelDataConvertException.getCellData().getBooleanValue(), is(false));
+        assertThat((String) excelDataConvertException.getCellData().getData(), is("something"));
+        assertThat(excelDataConvertException.getCellData().getDataFormat(), is(1));
+        assertThat(excelDataConvertException.getCellData().getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(excelDataConvertException.getCellData().getFormula(), is(false));
+        assertThat(excelDataConvertException.getCellData().getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, excelDataConvertException.getCellData().getImageValue());
+        assertThat(excelDataConvertException.getCellData().getNumberValue(), sameInstance(numberValue4));
+        assertThat(excelDataConvertException.getCellData().getStringValue(), is("foo"));
+        assertThat(excelDataConvertException.getCellData().getType(), is(CellDataTypeEnum.STRING));
+        assertThat(excelDataConvertException.getCellData().getColumnIndex(), is(1));
+        assertThat(excelDataConvertException.getCellData().getRowIndex(), is(1));
         assertThat(excelDataConvertException.getColumnIndex(), is(1));
         assertThat(excelDataConvertException.getExcelContentProperty(), sameInstance(excelContentProperty2));
         assertThat(excelDataConvertException.getRowIndex(), is(1));
@@ -286,24 +301,26 @@ class ExcelDataConvertExceptionTest {
     }
 
     @Test
-    void factory2() throws Exception {
-        CellData cellData1 = new CellData();
+    void factory2() {
+        CellData<String> cellData1 = new CellData<String>();
         cellData1.setBooleanValue(false);
-        cellData1.setData(new Object());
+        cellData1.setData("something");
         cellData1.setDataFormat(1);
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
         byte[] imageValue6 = new byte[] { 1 };
         cellData1.setImageValue(imageValue6);
-        cellData1.setNumberValue(BigDecimal.valueOf(1L));
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        cellData1.setNumberValue(numberValue4);
         cellData1.setStringValue("foo");
         cellData1.setType(CellDataTypeEnum.STRING);
         cellData1.setColumnIndex(1);
         cellData1.setRowIndex(1);
         ExcelContentProperty excelContentProperty1 =
              new ExcelContentProperty();
-        Converter converter1 = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter1 = mock(Converter.class);
         excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -407,9 +424,9 @@ class ExcelDataConvertExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelDataConvertException excelDataConvertException =
              new ExcelDataConvertException(1, 1, cellData1, excelContentProperty1, "an error has happened", cause);
-        CellData cellData2 = new CellData();
+        CellData<String> cellData2 = new CellData<String>();
         cellData2.setBooleanValue(false);
-        cellData2.setData(new Object());
+        cellData2.setData("something");
         cellData2.setDataFormat(1);
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
@@ -425,7 +442,8 @@ class ExcelDataConvertExceptionTest {
         excelDataConvertException.setColumnIndex(1);
         ExcelContentProperty excelContentProperty2 =
              new ExcelContentProperty();
-        Converter converter2 = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter2 = mock(Converter.class);
         excelContentProperty2.setConverter(converter2);
         DateTimeFormatProperty dateTimeFormatProperty2 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -527,7 +545,18 @@ class ExcelDataConvertExceptionTest {
         excelContentProperty2.setNumberFormatProperty(numberFormatProperty2);
         excelDataConvertException.setExcelContentProperty(excelContentProperty2);
         excelDataConvertException.setRowIndex(1);
-        assertThat(excelDataConvertException.getCellData(), sameInstance(cellData2));
+        assertThat(excelDataConvertException.getCellData().getBooleanValue(), is(false));
+        assertThat((String) excelDataConvertException.getCellData().getData(), is("something"));
+        assertThat(excelDataConvertException.getCellData().getDataFormat(), is(1));
+        assertThat(excelDataConvertException.getCellData().getDataFormatString(), is("yyyy-MM-dd"));
+        assertThat(excelDataConvertException.getCellData().getFormula(), is(false));
+        assertThat(excelDataConvertException.getCellData().getFormulaValue(), is("value"));
+        assertArrayEquals(new byte[] { 1 }, excelDataConvertException.getCellData().getImageValue());
+        assertThat(excelDataConvertException.getCellData().getNumberValue(), sameInstance(numberValue4));
+        assertThat(excelDataConvertException.getCellData().getStringValue(), is("foo"));
+        assertThat(excelDataConvertException.getCellData().getType(), is(CellDataTypeEnum.STRING));
+        assertThat(excelDataConvertException.getCellData().getColumnIndex(), is(1));
+        assertThat(excelDataConvertException.getCellData().getRowIndex(), is(1));
         assertThat(excelDataConvertException.getColumnIndex(), is(1));
         assertThat(excelDataConvertException.getExcelContentProperty(), sameInstance(excelContentProperty2));
         assertThat(excelDataConvertException.getRowIndex(), is(1));

@@ -26,6 +26,6 @@ class DefaultWriteHandlerLoaderTest {
         List<WriteHandler> result =
              DefaultWriteHandlerLoader.loadDefaultHandler(true);
         assertThat(result.size(), is(1));
-        // pojo WriteHandler
+        // pojo WriteHandler result.get(0)
     }
 }

@@ -1,6 +1,7 @@
 package com.alibaba.excel.metadata.property;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -28,9 +29,10 @@ import org.junit.jupiter.api.Test;
 class ExcelContentPropertyTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         ExcelContentProperty excelContentProperty = new ExcelContentProperty();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         excelContentProperty.setConverter(converter);
         DateTimeFormatProperty dateTimeFormatProperty =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
@@ -150,7 +152,7 @@ class ExcelContentPropertyTest {
         numberFormatProperty.setFormat("yyyy-MM-dd");
         numberFormatProperty.setRoundingMode(RoundingMode.UP);
         excelContentProperty.setNumberFormatProperty(numberFormatProperty);
-        assertThat(excelContentProperty.getConverter(), sameInstance(converter));
+        assertThat(excelContentProperty.getConverter(), is(notNullValue()));
         assertThat(excelContentProperty.getDateTimeFormatProperty(), sameInstance(dateTimeFormatProperty));
         assertThat(excelContentProperty.getField(), is(nullValue()));
         assertThat(excelContentProperty.getHead(), sameInstance(head));

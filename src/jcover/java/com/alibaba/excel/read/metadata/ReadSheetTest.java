@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 class ReadSheetTest {
 
     @Test
-    void factory1() throws Exception {
+    void factory1() {
         ReadSheet readSheet = new ReadSheet();
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
@@ -67,7 +67,7 @@ class ReadSheetTest {
     }
 
     @Test
-    void factory2() throws Exception {
+    void factory2() {
         ReadSheet readSheet = new ReadSheet(1);
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);
@@ -109,7 +109,7 @@ class ReadSheetTest {
     }
 
     @Test
-    void factory3() throws Exception {
+    void factory3() {
         ReadSheet readSheet = new ReadSheet(1, "Acme");
         readSheet.setSheetName("Acme");
         readSheet.setSheetNo(1);

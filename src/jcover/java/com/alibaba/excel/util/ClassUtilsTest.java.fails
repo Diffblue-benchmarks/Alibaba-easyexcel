@@ -22,7 +22,7 @@ import org.mockito.Mockito;
 class ClassUtilsTest {
 
     @Test
-    void declaredFields4() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFields4() {
 
         // arrange
         HashMap<Integer, Field> indexFiledMap = new HashMap<Integer, Field>();
@@ -38,7 +38,7 @@ class ClassUtilsTest {
     }
 
     @Test
-    void declaredFields1() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFields1() {
 
         // arrange
         HashMap<Integer, Field> sortedAllFiledMap =
@@ -53,7 +53,7 @@ class ClassUtilsTest {
     }
 
     @Test
-    void declaredFields2() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFields2() {
 
         // arrange
         HashMap<Integer, Field> sortedAllFiledMap =
@@ -68,7 +68,7 @@ class ClassUtilsTest {
     }
 
     @Test
-    void declaredFields3() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFields3() {
 
         // arrange
         HashMap<Integer, Field> sortedAllFiledMap =
@@ -83,13 +83,13 @@ class ClassUtilsTest {
     }
 
     @Test
-    void declaredFieldsClazzIsNullAndConvertAllFiledIsTrueAndNeedIgnoreIsFalse() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFieldsClazzIsNullAndConvertAllFiledIsTrueAndNeedIgnoreIsFalse() {
         WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(null, new HashMap<Integer, Field>(), true, false, writeHolder);
     }
 
     @Test
-    void declaredFieldsClazzIsStringAndConvertAllFiledIsFalseAndNeedIgnoreIsTrue() throws java.io.IOException, CloneNotSupportedException {
+    void declaredFieldsClazzIsStringAndConvertAllFiledIsFalseAndNeedIgnoreIsTrue() {
         WriteHolder writeHolder = mock(WriteHolder.class);
         ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), false, true, writeHolder);
     }

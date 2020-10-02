@@ -35,7 +35,7 @@ class BigDecimalNumberConverterTest {
 
     @Test
     void convertToJavaData() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue4);
         assertThat(new BigDecimalNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), sameInstance(numberValue4));

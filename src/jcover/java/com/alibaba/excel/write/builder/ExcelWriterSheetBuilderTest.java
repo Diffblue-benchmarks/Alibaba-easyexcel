@@ -6,8 +6,12 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 
+import com.alibaba.excel.ExcelWriter;
+import com.alibaba.excel.parameter.GenerateParam;
+import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.excel.write.metadata.WriteSheet;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +23,18 @@ import org.junit.jupiter.api.Test;
  */
 
 class ExcelWriterSheetBuilderTest {
+
+    @Test
+    void factory() {
+        GenerateParam generateParam =
+             new GenerateParam("name", String.class, new ByteArrayOutputStream());
+        generateParam.setClazz(String.class);
+        generateParam.setNeedHead(false);
+        generateParam.setOutputStream(new ByteArrayOutputStream());
+        generateParam.setSheetName("name");
+        generateParam.setType(ExcelTypeEnum.XLS);
+        // pojo ExcelWriterSheetBuilder new ExcelWriterSheetBuilder(new ExcelWriter(generateParam))
+    }
 
     @Test
     void sheetNoSheetNoIsOne() {
@@ -61,7 +77,7 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void doWriteDataIsEmpty() {
-        new ExcelWriterSheetBuilder(new com.alibaba.excel.ExcelWriter(new java.io.ByteArrayOutputStream(), com.alibaba.excel.support.ExcelTypeEnum.XLS)).doWrite(new ArrayList());
+        new ExcelWriterSheetBuilder(new ExcelWriter(new GenerateParam("name", String.class, new ByteArrayOutputStream()))).doWrite(new ArrayList<String>());
     }
 
     @Test
@@ -73,7 +89,7 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void table() {
-        // pojo ExcelWriterTableBuilder
-        // pojo ExcelWriterTableBuilder
+        // pojo ExcelWriterTableBuilder new ExcelWriterSheetBuilder().table()
+        // pojo ExcelWriterTableBuilder new ExcelWriterSheetBuilder().table(1)
     }
 }

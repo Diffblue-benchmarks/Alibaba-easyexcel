@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 class WriteSheetTest {
 
     @Test
-    void factory() throws java.io.IOException, CloneNotSupportedException, Exception {
+    void factory() {
         WriteSheet writeSheet = new WriteSheet();
         writeSheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         writeSheet.setSheetName("Acme");

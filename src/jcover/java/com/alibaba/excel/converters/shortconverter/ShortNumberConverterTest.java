@@ -34,7 +34,7 @@ class ShortNumberConverterTest {
 
     @Test
     void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         assertThat(new ShortNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), is((short) 1));
     }

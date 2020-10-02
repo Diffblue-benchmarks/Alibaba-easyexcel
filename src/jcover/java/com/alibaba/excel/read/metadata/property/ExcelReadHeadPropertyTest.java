@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 class ExcelReadHeadPropertyTest {
 
     @Test
-    void factory() throws java.io.IOException, CloneNotSupportedException {
+    void factory() {
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
         List<String> list = new ArrayList<String>();

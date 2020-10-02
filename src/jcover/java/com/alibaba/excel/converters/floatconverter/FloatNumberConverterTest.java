@@ -35,7 +35,7 @@ class FloatNumberConverterTest {
 
     @Test
     void convertToJavaDataReturnsOne() {
-        CellData cellData = new CellData();
+        CellData<String> cellData = new CellData<String>();
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         assertEquals(1.0f, new FloatNumberConverter().convertToJavaData(cellData, new ExcelContentProperty(), new GlobalConfiguration()), 0);
     }

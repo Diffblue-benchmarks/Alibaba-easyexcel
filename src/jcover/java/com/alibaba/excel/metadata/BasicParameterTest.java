@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 class BasicParameterTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() {
         BasicParameter basicParameter = new BasicParameter();
         basicParameter.setAutoTrim(false);
         basicParameter.setClazz(String.class);
