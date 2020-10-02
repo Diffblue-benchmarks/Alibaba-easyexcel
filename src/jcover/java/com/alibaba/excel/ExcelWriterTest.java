@@ -23,13 +23,13 @@ import org.junit.jupiter.api.Test;
 class ExcelWriterTest {
 
     @Test
-    void factory() {
-        // pojo ExcelWriter
+    void finish1() {
+        new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS).finish();
     }
 
     @Test
-    void finish() {
-        new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS).finish();
+    void finish2() {
+        new ExcelWriter(null, new ByteArrayOutputStream(), ExcelTypeEnum.XLS, false).finish();
     }
 
     @Test
@@ -39,10 +39,7 @@ class ExcelWriterTest {
 
     @Test
     void testFinalize2() {
-        GenerateParam generateParam =
-             new GenerateParam("name", String.class, new ByteArrayOutputStream());
-        generateParam.setOutputStream(null);
-        new ExcelWriter(generateParam).finalize();
+        new ExcelWriter(null, ExcelTypeEnum.XLS).finalize();
     }
 
     @Test

@@ -26,17 +26,17 @@ class DateUtilsTest {
     @Test
     void format() throws java.text.ParseException {
         assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31")), is("2010-12-31 00:00:00"));
+        assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), "yyyy-MM-dd"), is("2010-12-31"));
+        assertThat(DateUtils.format(null, "bar"), is(""));
         assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), "y"), is("2010"));
-        assertThat(DateUtils.format(null), is(""));
     }
 
     @Test
     void isADateFormat() {
         assertThat(DateUtils.isADateFormat(null, "yyyy-MM-dd"), is(false));
         assertThat(DateUtils.isADateFormat(1, "yyyy-MM-dd"), is(true));
-        assertThat(DateUtils.isADateFormat(1, "bar"), is(false));
+        assertThat(DateUtils.isADateFormat(1, "bar"), is(true));
         assertThat(DateUtils.isADateFormat(0, "yyyy-MM-dd"), is(true));
-        assertThat(DateUtils.isADateFormat(0, "bar"), is(true));
     }
 
     @Test

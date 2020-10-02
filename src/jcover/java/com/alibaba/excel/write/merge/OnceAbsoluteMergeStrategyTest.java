@@ -20,8 +20,8 @@ class OnceAbsoluteMergeStrategyTest {
     @Test
     void factory2() {
         OnceAbsoluteMergeProperty onceAbsoluteMergeProperty =
-             new OnceAbsoluteMergeProperty(-1, 1, 1, 1);
-        onceAbsoluteMergeProperty.setFirstColumnIndex(0);
+             new OnceAbsoluteMergeProperty(0, 1, 1, 1);
+        onceAbsoluteMergeProperty.setFirstColumnIndex(1);
         onceAbsoluteMergeProperty.setFirstRowIndex(1);
         onceAbsoluteMergeProperty.setLastColumnIndex(1);
         onceAbsoluteMergeProperty.setLastRowIndex(1);

@@ -19,6 +19,6 @@ class ConverterKeyBuildTest {
     void buildKey() {
         assertThat(ConverterKeyBuild.buildKey(String.class), is("java.lang.String"));
         assertThat(ConverterKeyBuild.buildKey(String.class, CellDataTypeEnum.STRING), is("java.lang.String-STRING"));
-        assertThat(ConverterKeyBuild.buildKey(int.class), is("java.lang.Integer"));
+        assertThat(ConverterKeyBuild.buildKey(int.class, CellDataTypeEnum.STRING), is("java.lang.Integer-STRING"));
     }
 }

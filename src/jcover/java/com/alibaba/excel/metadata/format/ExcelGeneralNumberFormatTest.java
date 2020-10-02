@@ -1,12 +1,12 @@
 package com.alibaba.excel.metadata.format;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
 
-import java.util.Locale;
+import java.text.AttributedCharacterIterator;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 /**
  * Unit tests for com.alibaba.excel.metadata.format.ExcelGeneralNumberFormat
@@ -17,9 +17,32 @@ import org.mockito.Mockito;
 class ExcelGeneralNumberFormatTest {
 
     @Test
-    void format() {
-        assertThat(new ExcelGeneralNumberFormat(new Locale("en"), false).format(1), is("1"));
-        assertThat(new ExcelGeneralNumberFormat(new Locale("en"), true).format(1), is("1"));
-        assertThat(new ExcelGeneralNumberFormat(new Locale("en"), false).format(0), is("0"));
+    void formatToCharacterIterator1() {
+        AttributedCharacterIterator result =
+             new ExcelGeneralNumberFormat(new java.util.Locale("en"), false).formatToCharacterIterator(1);
+        assertThat(result.getAllAttributeKeys(), empty());
+        assertThat(result.getAttributes().isEmpty(), is(true));
+        assertThat(result.getRunLimit(), is(1));
+        assertThat(result.getRunStart(), is(0));
+    }
+
+    @Test
+    void formatToCharacterIterator2() {
+        AttributedCharacterIterator result =
+             new ExcelGeneralNumberFormat(new java.util.Locale("en"), true).formatToCharacterIterator(1);
+        assertThat(result.getAllAttributeKeys(), empty());
+        assertThat(result.getAttributes().isEmpty(), is(true));
+        assertThat(result.getRunLimit(), is(1));
+        assertThat(result.getRunStart(), is(0));
+    }
+
+    @Test
+    void formatToCharacterIterator3() {
+        AttributedCharacterIterator result =
+             new ExcelGeneralNumberFormat(new java.util.Locale("en"), false).formatToCharacterIterator(0);
+        assertThat(result.getAllAttributeKeys(), empty());
+        assertThat(result.getAttributes().isEmpty(), is(true));
+        assertThat(result.getRunLimit(), is(1));
+        assertThat(result.getRunStart(), is(0));
     }
 }

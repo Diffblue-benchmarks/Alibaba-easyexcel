@@ -21,9 +21,4 @@ class SimpleColumnWidthStyleStrategyTest {
     void columnWidthColumnIndexIsOneReturnsOne() {
         assertThat(new SimpleColumnWidthStyleStrategy(1).columnWidth(new Head(1, "data", new ArrayList<String>(), false, false), 1), is(1));
     }
-
-    @Test
-    void uniqueValueReturnsColumnWidthStyleStrategy() {
-        assertThat(new SimpleColumnWidthStyleStrategy(1).uniqueValue(), is("ColumnWidthStyleStrategy"));
-    }
 }

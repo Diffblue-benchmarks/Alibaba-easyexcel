@@ -5,18 +5,12 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.parameter.GenerateParam;
 import com.alibaba.excel.write.metadata.WriteSheet;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 /**
  * Unit tests for com.alibaba.excel.write.builder.ExcelWriterSheetBuilder
@@ -67,16 +61,7 @@ class ExcelWriterSheetBuilderTest {
 
     @Test
     void doWriteDataIsEmpty() {
-        new ExcelWriterSheetBuilder(new ExcelWriter(new ByteArrayOutputStream(), com.alibaba.excel.support.ExcelTypeEnum.XLS)).doWrite(new ArrayList());
-    }
-
-    @Test
-    void doFill() {
-        ExcelWriter excelWriter2 = mock(ExcelWriter.class);
-        when(excelWriter2.fill(Mockito.<Object>any(), Mockito.<com.alibaba.excel.write.metadata.fill.FillConfig>any(), Mockito.<WriteSheet>any()))
-            .thenReturn(new ExcelWriter(new GenerateParam("name", String.class, new ByteArrayOutputStream())));
-        new ExcelWriterSheetBuilder(excelWriter2).doFill(new Object());
-        Mockito.verify(excelWriter2).finish();
+        new ExcelWriterSheetBuilder(new com.alibaba.excel.ExcelWriter(new java.io.ByteArrayOutputStream(), com.alibaba.excel.support.ExcelTypeEnum.XLS)).doWrite(new ArrayList());
     }
 
     @Test
