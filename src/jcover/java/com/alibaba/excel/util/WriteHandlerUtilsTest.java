@@ -28,15 +28,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeWorkbookCreate1() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list1);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(map);
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -45,9 +39,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeWorkbookCreate2() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -70,6 +70,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeWorkbookCreateRunOwnIsTrue() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map2 =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        map2.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.ownWriteHandlerMap())
             .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
@@ -81,15 +84,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterWorkbookCreate1() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list1);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(map);
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -98,9 +95,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterWorkbookCreate2() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -123,15 +126,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterWorkbookDispose1() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list1);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(map);
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -140,9 +137,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterWorkbookDispose2() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -165,15 +168,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeSheetCreate1() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.SheetWriteHandler.class, list1);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(map);
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -182,9 +179,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeSheetCreate2() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.SheetWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -218,12 +221,21 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeCellCreate1() {
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        when(writeHolder.writeHandlerMap())
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+        WriteContext writeContext = mock(WriteContext.class);
+        when(writeContext.currentWriteHolder())
+            .thenReturn(writeHolder);
+        Row row = mock(Row.class);
+        WriteHandlerUtils.beforeCellCreate(writeContext, row, new Head(1, "data", new ArrayList<String>(), false, false), 1, 1, false);
+    }
+
+    @Test
+    void beforeCellCreate2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list1);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, new ArrayList<WriteHandler>());
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
             .thenReturn(map);
@@ -235,10 +247,16 @@ class WriteHandlerUtilsTest {
     }
 
     @Test
-    void beforeCellCreate2() {
+    void beforeCellCreate3() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -249,12 +267,21 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterCellCreate1() throws org.apache.poi.ss.formula.FormulaParseException {
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        when(writeHolder.writeHandlerMap())
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+        WriteContext writeContext = mock(WriteContext.class);
+        when(writeContext.currentWriteHolder())
+            .thenReturn(writeHolder);
+        Cell cell = mock(Cell.class);
+        WriteHandlerUtils.afterCellCreate(writeContext, cell, new Head(1, "data", new ArrayList<String>(), false, false), 1, false);
+    }
+
+    @Test
+    void afterCellCreate2() throws org.apache.poi.ss.formula.FormulaParseException {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list1);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, new ArrayList<WriteHandler>());
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
             .thenReturn(map);
@@ -266,10 +293,16 @@ class WriteHandlerUtilsTest {
     }
 
     @Test
-    void afterCellCreate2() throws org.apache.poi.ss.formula.FormulaParseException {
+    void afterCellCreate3() throws org.apache.poi.ss.formula.FormulaParseException {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -280,12 +313,21 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterCellDataConverted1() throws org.apache.poi.ss.formula.FormulaParseException {
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        when(writeHolder.writeHandlerMap())
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+        WriteContext writeContext = mock(WriteContext.class);
+        when(writeContext.currentWriteHolder())
+            .thenReturn(writeHolder);
+        Cell cell = mock(Cell.class);
+        WriteHandlerUtils.afterCellDataConverted(writeContext, new CellData(), cell, new Head(1, "data", new ArrayList<String>(), false, false), 1, false);
+    }
+
+    @Test
+    void afterCellDataConverted2() throws org.apache.poi.ss.formula.FormulaParseException {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list1);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, new ArrayList<WriteHandler>());
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
             .thenReturn(map);
@@ -297,10 +339,16 @@ class WriteHandlerUtilsTest {
     }
 
     @Test
-    void afterCellDataConverted2() throws org.apache.poi.ss.formula.FormulaParseException {
+    void afterCellDataConverted3() throws org.apache.poi.ss.formula.FormulaParseException {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -310,18 +358,7 @@ class WriteHandlerUtilsTest {
     }
 
     @Test
-    void afterCellDispose1() {
-        WriteHolder writeHolder = mock(WriteHolder.class);
-        when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
-        WriteContext writeContext = mock(WriteContext.class);
-        when(writeContext.currentWriteHolder())
-            .thenReturn(writeHolder);
-        WriteHandlerUtils.afterCellDispose(writeContext, new CellData(), null, new Head(1, "data", new ArrayList<String>(), false, false), 1, false);
-    }
-
-    @Test
-    void afterCellDispose2() throws org.apache.poi.ss.formula.FormulaParseException {
+    void afterCellDisposeIsHeadIsFalseAndRelativeRowIndexIsOne() throws org.apache.poi.ss.formula.FormulaParseException {
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
             .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
@@ -329,18 +366,17 @@ class WriteHandlerUtilsTest {
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
         Cell cell = mock(Cell.class);
-        Head head = mock(Head.class);
-        WriteHandlerUtils.afterCellDispose(writeContext, new CellData(), cell, head, 1, false);
+        WriteHandlerUtils.afterCellDispose(writeContext, new CellData(), cell, new Head(1, "data", new ArrayList<String>(), false, false), 1, false);
     }
 
     @Test
     void beforeRowCreate1() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list1);
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
             .thenReturn(map);
@@ -377,15 +413,9 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterRowCreate1() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        ArrayList<WriteHandler> list1 = new ArrayList<WriteHandler>();
-        WriteHandler writeHandler1 = mock(WriteHandler.class);
-        list1.add(writeHandler1);
-        map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list1);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(map);
+            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
@@ -395,9 +425,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void afterRowCreate2() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        WriteHandler writeHandler = mock(WriteHandler.class);
+        list.add(writeHandler);
+        map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list);
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);

@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -31,12 +32,9 @@ import org.junit.jupiter.api.Test;
 class WriteSheetTest {
 
     @Test
-    void factory() throws Exception {
+    void factory() throws java.io.IOException, CloneNotSupportedException, Exception {
         WriteSheet writeSheet = new WriteSheet();
-        HashMap<Integer, Integer> columnWidthMap =
-             new HashMap<Integer, Integer>();
-        columnWidthMap.put(1, 1);
-        writeSheet.setColumnWidthMap(columnWidthMap);
+        writeSheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         writeSheet.setSheetName("Acme");
         writeSheet.setSheetNo(1);
         TableStyle tableStyle = new TableStyle();
@@ -89,7 +87,7 @@ class WriteSheetTest {
         writeSheet.setLocale(locale);
         writeSheet.setUse1904windowing(false);
         writeSheet.setUseScientificFormat(false);
-        assertThat(writeSheet.getColumnWidthMap().get(1), is(1));
+        assertThat(writeSheet.getColumnWidthMap(), is(notNullValue()));
         assertThat(writeSheet.getSheetName(), is("Acme"));
         assertThat(writeSheet.getSheetNo(), is(1));
         assertThat(writeSheet.getTableStyle(), sameInstance(tableStyle));

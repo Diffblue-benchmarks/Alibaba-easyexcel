@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class ModelBuildEventListenerTest {
 
     @Test
-    void invokeHeadCellDataMapIsEmpty() {
+    void invokeHead() throws java.io.IOException, CloneNotSupportedException {
         AnalysisContext context = mock(AnalysisContext.class);
         new ModelBuildEventListener().invokeHead(new HashMap<Integer, CellData>(), context);
     }

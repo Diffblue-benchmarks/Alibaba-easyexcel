@@ -1,0 +1,96 @@
+package com.alibaba.excel.util;
+
+import static org.mockito.Mockito.mock;
+
+import com.alibaba.excel.metadata.Holder;
+import com.alibaba.excel.write.metadata.holder.WriteHolder;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+
+/**
+ * Unit tests for com.alibaba.excel.util.ClassUtils
+ *
+ * @author Diffblue Cover
+ */
+
+class ClassUtilsTest {
+
+    @Test
+    void declaredFields4() throws java.io.IOException, CloneNotSupportedException {
+
+        // arrange
+        HashMap<Integer, Field> indexFiledMap = new HashMap<Integer, Field>();
+        HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
+        Holder holder = mock(Holder.class);
+
+        // act
+        ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), indexFiledMap, ignoreMap, false, true, holder);
+
+        // assert
+        Mockito.verify(indexFiledMap).putAll(ArgumentMatchers.<Map<? extends Integer, ? extends Field>>any());
+        Mockito.verify(ignoreMap).putAll(ArgumentMatchers.<Map<? extends String, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFields1() throws java.io.IOException, CloneNotSupportedException {
+
+        // arrange
+        HashMap<Integer, Field> sortedAllFiledMap =
+             new HashMap<Integer, Field>();
+        WriteHolder writeHolder = mock(WriteHolder.class);
+
+        // act
+        ClassUtils.declaredFields(String.class, sortedAllFiledMap, false, false, writeHolder);
+
+        // assert
+        Mockito.verify(sortedAllFiledMap).putAll(ArgumentMatchers.<Map<? extends Integer, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFields2() throws java.io.IOException, CloneNotSupportedException {
+
+        // arrange
+        HashMap<Integer, Field> sortedAllFiledMap =
+             new HashMap<Integer, Field>();
+        WriteHolder writeHolder = mock(WriteHolder.class);
+
+        // act
+        ClassUtils.declaredFields(com.alibaba.excel.metadata.BaseRowModel.class, sortedAllFiledMap, false, false, writeHolder);
+
+        // assert
+        Mockito.verify(sortedAllFiledMap).putAll(ArgumentMatchers.<Map<? extends Integer, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFields3() throws java.io.IOException, CloneNotSupportedException {
+
+        // arrange
+        HashMap<Integer, Field> sortedAllFiledMap =
+             new HashMap<Integer, Field>();
+        WriteHolder writeHolder = mock(WriteHolder.class);
+
+        // act
+        ClassUtils.declaredFields(String.class, sortedAllFiledMap, true, false, writeHolder);
+
+        // assert
+        Mockito.verify(sortedAllFiledMap).putAll(ArgumentMatchers.<Map<? extends Integer, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFieldsClazzIsNullAndConvertAllFiledIsTrueAndNeedIgnoreIsFalse() throws java.io.IOException, CloneNotSupportedException {
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        ClassUtils.declaredFields(null, new HashMap<Integer, Field>(), true, false, writeHolder);
+    }
+
+    @Test
+    void declaredFieldsClazzIsStringAndConvertAllFiledIsFalseAndNeedIgnoreIsTrue() throws java.io.IOException, CloneNotSupportedException {
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        ClassUtils.declaredFields(String.class, new HashMap<Integer, Field>(), false, true, writeHolder);
+    }
+}
