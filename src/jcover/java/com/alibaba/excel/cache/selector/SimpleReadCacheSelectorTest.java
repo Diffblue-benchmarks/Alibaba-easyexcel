@@ -51,7 +51,7 @@ class SimpleReadCacheSelectorTest {
     void readCache3() throws java.io.IOException, org.apache.poi.openxml4j.exceptions.InvalidFormatException, org.apache.poi.openxml4j.exceptions.OpenXML4JException, IllegalArgumentException {
         PackagePart sharedStringsTablePackagePart = mock(PackagePart.class);
         when(sharedStringsTablePackagePart.getInputStream())
-            .thenReturn(new StringBufferInputStream("foo"));
+            .thenReturn(new StringBufferInputStream("Broadway"));
         when(sharedStringsTablePackagePart.getSize())
             .thenReturn(-1L);
         // pojo com.alibaba.excel.cache.ReadCache

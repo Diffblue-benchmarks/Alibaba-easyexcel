@@ -36,9 +36,9 @@ class NumberFormatPropertyTest {
         when(numberFormat.roundingMode())
             .thenReturn(RoundingMode.UP);
         when(numberFormat.value())
-            .thenReturn("foo");
+            .thenReturn("bar");
         NumberFormatProperty result = NumberFormatProperty.build(numberFormat);
-        assertThat(result.getFormat(), is("foo"));
+        assertThat(result.getFormat(), is("bar"));
         assertThat(result.getRoundingMode(), is(RoundingMode.UP));
     }
 

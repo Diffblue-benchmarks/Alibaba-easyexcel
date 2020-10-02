@@ -23,6 +23,11 @@ import org.junit.jupiter.api.Test;
 class ExcelWriterTest {
 
     @Test
+    void factory() {
+        // pojo ExcelWriter
+    }
+
+    @Test
     void finish() {
         new ExcelWriter(new ByteArrayOutputStream(), ExcelTypeEnum.XLS).finish();
     }

@@ -31,7 +31,7 @@ class FontPropertyTest {
         when(headFontStyle.fontHeightInPoints())
             .thenReturn(1);
         when(headFontStyle.fontName())
-            .thenReturn("foo");
+            .thenReturn("Acme");
         when(headFontStyle.italic())
             .thenReturn(false);
         when(headFontStyle.strikeout())
@@ -45,7 +45,7 @@ class FontPropertyTest {
         assertThat(result.getCharset(), is(1));
         assertThat(result.getColor(), is((short) 1));
         assertThat(result.getFontHeightInPoints(), is((short) 1));
-        assertThat(result.getFontName(), is("foo"));
+        assertThat(result.getFontName(), is("Acme"));
         assertThat(result.getItalic(), is(false));
         assertThat(result.getStrikeout(), is(false));
         assertThat(result.getTypeOffset(), is((short) 1));
@@ -64,7 +64,7 @@ class FontPropertyTest {
         when(contentFontStyle.fontHeightInPoints())
             .thenReturn(1);
         when(contentFontStyle.fontName())
-            .thenReturn("foo");
+            .thenReturn("Acme");
         when(contentFontStyle.italic())
             .thenReturn(false);
         when(contentFontStyle.strikeout())
@@ -78,7 +78,7 @@ class FontPropertyTest {
         assertThat(result.getCharset(), is(1));
         assertThat(result.getColor(), is((short) 1));
         assertThat(result.getFontHeightInPoints(), is((short) 1));
-        assertThat(result.getFontName(), is("foo"));
+        assertThat(result.getFontName(), is("Acme"));
         assertThat(result.getItalic(), is(false));
         assertThat(result.getStrikeout(), is(false));
         assertThat(result.getTypeOffset(), is((short) 1));
