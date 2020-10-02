@@ -59,7 +59,7 @@ class ReadWorkbookHolderTest {
         readWorkbook1.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook1.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook1.setIgnoreEmptyRow(false);
-        readWorkbook1.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook1.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook1.setMandatoryUseInputStream(false);
         readWorkbook1.setPassword("secret");
         readWorkbook1.setReadCache(null);
@@ -128,7 +128,7 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbookHolder.setHasReadSheet(new HashSet<Integer>());
         readWorkbookHolder.setIgnoreEmptyRow(false);
-        readWorkbookHolder.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbookHolder.setInputStream(new StringBufferInputStream("foo"));
         readWorkbookHolder.setMandatoryUseInputStream(false);
         ArrayList<ReadSheet> parameterSheetDataList =
              new ArrayList<ReadSheet>();
@@ -171,7 +171,7 @@ class ReadWorkbookHolderTest {
         readWorkbook2.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook2.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook2.setIgnoreEmptyRow(false);
-        readWorkbook2.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook2.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook2.setMandatoryUseInputStream(false);
         readWorkbook2.setPassword("secret");
         ReadCache readCache3 = mock(ReadCache.class);
@@ -210,57 +210,59 @@ class ReadWorkbookHolderTest {
              new ExcelReadHeadProperty(holder, String.class, head5, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x365 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter5 = mock(Converter.class);
-        x365.setConverter(converter5);
+        excelContentProperty1.setConverter(converter5);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              mock(DateTimeFormatProperty.class);
-        x365.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         Head head6 = mock(Head.class);
-        x365.setHead(head6);
+        excelContentProperty1.setHead(head6);
         NumberFormatProperty numberFormatProperty1 =
              mock(NumberFormatProperty.class);
-        x365.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x365);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelReadHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x380 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter7 = mock(Converter.class);
-        x380.setConverter(converter7);
+        excelContentProperty3.setConverter(converter7);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              mock(DateTimeFormatProperty.class);
-        x380.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         Head head8 = mock(Head.class);
-        x380.setHead(head8);
+        excelContentProperty3.setHead(head8);
         NumberFormatProperty numberFormatProperty3 =
              mock(NumberFormatProperty.class);
-        x380.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x380);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelReadHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelReadHeadProperty.setHeadClazz(String.class);
         excelReadHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
-        Head x397 = new Head(1, "data", headNameList1, false, false);
-        x397.setColumnIndex(1);
+        Head head10 = new Head(1, "data", headNameList1, false, false);
+        head10.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty1 =
              mock(ColumnWidthProperty.class);
-        x397.setColumnWidthProperty(columnWidthProperty1);
-        x397.setContentFontProperty(new FontProperty());
-        x397.setContentStyleProperty(new StyleProperty());
-        x397.setFieldName("data");
-        x397.setForceIndex(false);
-        x397.setForceName(false);
-        x397.setHeadFontProperty(new FontProperty());
+        head10.setColumnWidthProperty(columnWidthProperty1);
+        head10.setContentFontProperty(new FontProperty());
+        head10.setContentStyleProperty(new StyleProperty());
+        head10.setFieldName("data");
+        head10.setForceIndex(false);
+        head10.setForceName(false);
+        head10.setHeadFontProperty(new FontProperty());
         ArrayList<String> headNameList2 = new ArrayList<String>();
         headNameList2.add("Smith");
-        x397.setHeadNameList(headNameList2);
-        x397.setHeadStyleProperty(new StyleProperty());
+        head10.setHeadNameList(headNameList2);
+        head10.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
-        x397.setLoopMergeProperty(loopMergeProperty1);
-        headMap.put(1, x397);
+        head10.setLoopMergeProperty(loopMergeProperty1);
+        headMap.put(1, head10);
         excelReadHeadProperty.setHeadMap(headMap);
         excelReadHeadProperty.setHeadRowNumber(1);
         excelReadHeadProperty.setIgnoreMap(new HashMap<String, Field>());
@@ -274,8 +276,8 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setClazz(String.class);
         HashMap<String, Converter> converterMap =
              new HashMap<String, Converter>();
-        Converter x448 = mock(Converter.class);
-        converterMap.put("HmacMD5", x448);
+        Converter converter9 = mock(Converter.class);
+        converterMap.put("foo", converter9);
         readWorkbookHolder.setConverterMap(converterMap);
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setAutoTrim(false);
@@ -283,11 +285,11 @@ class ReadWorkbookHolderTest {
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
         readWorkbookHolder.setGlobalConfiguration(globalConfiguration);
-        ArrayList<List<String>> head10 = new ArrayList<List<String>>();
+        ArrayList<List<String>> head12 = new ArrayList<List<String>>();
         List<String> list6 = new ArrayList<String>();
         list6.add("foo");
-        head10.add(list6);
-        readWorkbookHolder.setHead(head10);
+        head12.add(list6);
+        readWorkbookHolder.setHead(head12);
         readWorkbookHolder.setNewInitialization(false);
         assertThat(readWorkbookHolder.getActualSheetDataList().size(), is(1));
         assertThat(readWorkbookHolder.getActualSheetDataList().get(0), sameInstance(readSheet1));
@@ -314,7 +316,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), sameInstance(readListener5));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap().get("HmacMD5"), sameInstance(x448));
+        assertThat(readWorkbookHolder.getConverterMap().get("foo"), sameInstance(converter9));
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
         assertThat(readWorkbookHolder.getHead().size(), is(1));
         assertThat(readWorkbookHolder.getHead().get(0), sameInstance(list6));
@@ -331,7 +333,7 @@ class ReadWorkbookHolderTest {
         readWorkbook1.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook1.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook1.setIgnoreEmptyRow(false);
-        readWorkbook1.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook1.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook1.setMandatoryUseInputStream(false);
         readWorkbook1.setPassword("secret");
         ReadCache readCache1 = mock(ReadCache.class);
@@ -400,7 +402,7 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbookHolder.setHasReadSheet(new HashSet<Integer>());
         readWorkbookHolder.setIgnoreEmptyRow(false);
-        readWorkbookHolder.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbookHolder.setInputStream(new StringBufferInputStream("foo"));
         readWorkbookHolder.setMandatoryUseInputStream(false);
         ArrayList<ReadSheet> parameterSheetDataList =
              new ArrayList<ReadSheet>();
@@ -443,7 +445,7 @@ class ReadWorkbookHolderTest {
         readWorkbook2.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook2.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook2.setIgnoreEmptyRow(false);
-        readWorkbook2.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook2.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook2.setMandatoryUseInputStream(false);
         readWorkbook2.setPassword("secret");
         ReadCache readCache3 = mock(ReadCache.class);
@@ -482,57 +484,59 @@ class ReadWorkbookHolderTest {
              new ExcelReadHeadProperty(holder, String.class, head5, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x365 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter5 = mock(Converter.class);
-        x365.setConverter(converter5);
+        excelContentProperty1.setConverter(converter5);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              mock(DateTimeFormatProperty.class);
-        x365.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         Head head6 = mock(Head.class);
-        x365.setHead(head6);
+        excelContentProperty1.setHead(head6);
         NumberFormatProperty numberFormatProperty1 =
              mock(NumberFormatProperty.class);
-        x365.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x365);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelReadHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x380 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter7 = mock(Converter.class);
-        x380.setConverter(converter7);
+        excelContentProperty3.setConverter(converter7);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              mock(DateTimeFormatProperty.class);
-        x380.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         Head head8 = mock(Head.class);
-        x380.setHead(head8);
+        excelContentProperty3.setHead(head8);
         NumberFormatProperty numberFormatProperty3 =
              mock(NumberFormatProperty.class);
-        x380.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x380);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelReadHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelReadHeadProperty.setHeadClazz(String.class);
         excelReadHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
-        Head x397 = new Head(1, "data", headNameList1, false, false);
-        x397.setColumnIndex(1);
+        Head head10 = new Head(1, "data", headNameList1, false, false);
+        head10.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty1 =
              mock(ColumnWidthProperty.class);
-        x397.setColumnWidthProperty(columnWidthProperty1);
-        x397.setContentFontProperty(new FontProperty());
-        x397.setContentStyleProperty(new StyleProperty());
-        x397.setFieldName("data");
-        x397.setForceIndex(false);
-        x397.setForceName(false);
-        x397.setHeadFontProperty(new FontProperty());
+        head10.setColumnWidthProperty(columnWidthProperty1);
+        head10.setContentFontProperty(new FontProperty());
+        head10.setContentStyleProperty(new StyleProperty());
+        head10.setFieldName("data");
+        head10.setForceIndex(false);
+        head10.setForceName(false);
+        head10.setHeadFontProperty(new FontProperty());
         ArrayList<String> headNameList2 = new ArrayList<String>();
         headNameList2.add("Smith");
-        x397.setHeadNameList(headNameList2);
-        x397.setHeadStyleProperty(new StyleProperty());
+        head10.setHeadNameList(headNameList2);
+        head10.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
-        x397.setLoopMergeProperty(loopMergeProperty1);
-        headMap.put(1, x397);
+        head10.setLoopMergeProperty(loopMergeProperty1);
+        headMap.put(1, head10);
         excelReadHeadProperty.setHeadMap(headMap);
         excelReadHeadProperty.setHeadRowNumber(1);
         excelReadHeadProperty.setIgnoreMap(new HashMap<String, Field>());
@@ -546,8 +550,8 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setClazz(String.class);
         HashMap<String, Converter> converterMap =
              new HashMap<String, Converter>();
-        Converter x448 = mock(Converter.class);
-        converterMap.put("HmacMD5", x448);
+        Converter converter9 = mock(Converter.class);
+        converterMap.put("foo", converter9);
         readWorkbookHolder.setConverterMap(converterMap);
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setAutoTrim(false);
@@ -555,11 +559,11 @@ class ReadWorkbookHolderTest {
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
         readWorkbookHolder.setGlobalConfiguration(globalConfiguration);
-        ArrayList<List<String>> head10 = new ArrayList<List<String>>();
+        ArrayList<List<String>> head12 = new ArrayList<List<String>>();
         List<String> list6 = new ArrayList<String>();
         list6.add("foo");
-        head10.add(list6);
-        readWorkbookHolder.setHead(head10);
+        head12.add(list6);
+        readWorkbookHolder.setHead(head12);
         readWorkbookHolder.setNewInitialization(false);
         assertThat(readWorkbookHolder.getActualSheetDataList().size(), is(1));
         assertThat(readWorkbookHolder.getActualSheetDataList().get(0), sameInstance(readSheet1));
@@ -586,7 +590,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), sameInstance(readListener5));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap().get("HmacMD5"), sameInstance(x448));
+        assertThat(readWorkbookHolder.getConverterMap().get("foo"), sameInstance(converter9));
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
         assertThat(readWorkbookHolder.getHead().size(), is(1));
         assertThat(readWorkbookHolder.getHead().get(0), sameInstance(list6));

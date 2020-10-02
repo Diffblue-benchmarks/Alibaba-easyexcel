@@ -43,14 +43,15 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(holder, null, head1, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x337 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter1 = mock(Converter.class);
-        x337.setConverter(converter1);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
-        x337.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head2 = new Head(1, "data", headNameList1, false, false);
@@ -70,24 +71,25 @@ class ExcelHeadPropertyTest {
         head2.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
         head2.setLoopMergeProperty(loopMergeProperty1);
-        x337.setHead(head2);
+        excelContentProperty1.setHead(head2);
         NumberFormatProperty numberFormatProperty1 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty1.setFormat("yyyy-MM-dd");
         numberFormatProperty1.setRoundingMode(RoundingMode.UP);
-        x337.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x337);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x404 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter3 = mock(Converter.class);
-        x404.setConverter(converter3);
+        excelContentProperty3.setConverter(converter3);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty3.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty3.setUse1904windowing(false);
-        x404.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         ArrayList<String> headNameList5 = new ArrayList<String>();
         headNameList5.add("Smith");
         Head head4 = new Head(1, "data", headNameList5, false, false);
@@ -107,24 +109,24 @@ class ExcelHeadPropertyTest {
         head4.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty3 = mock(LoopMergeProperty.class);
         head4.setLoopMergeProperty(loopMergeProperty3);
-        x404.setHead(head4);
+        excelContentProperty3.setHead(head4);
         NumberFormatProperty numberFormatProperty3 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty3.setFormat("yyyy-MM-dd");
         numberFormatProperty3.setRoundingMode(RoundingMode.UP);
-        x404.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x404);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList9 = new ArrayList<String>();
         headNameList9.add("Smith");
-        Head x473 = new Head(1, "data", headNameList9, false, false);
-        x473.setColumnIndex(1);
+        Head head6 = new Head(1, "data", headNameList9, false, false);
+        head6.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty5 = new ColumnWidthProperty(1);
         columnWidthProperty5.setWidth(1);
-        x473.setColumnWidthProperty(columnWidthProperty5);
+        head6.setColumnWidthProperty(columnWidthProperty5);
         FontProperty contentFontProperty5 = new FontProperty();
         contentFontProperty5.setBold(false);
         contentFontProperty5.setCharset(1);
@@ -135,7 +137,7 @@ class ExcelHeadPropertyTest {
         contentFontProperty5.setStrikeout(false);
         contentFontProperty5.setTypeOffset((short) 1);
         contentFontProperty5.setUnderline((byte) 1);
-        x473.setContentFontProperty(contentFontProperty5);
+        head6.setContentFontProperty(contentFontProperty5);
         StyleProperty contentStyleProperty5 = new StyleProperty();
         contentStyleProperty5.setBorderBottom(BorderStyle.NONE);
         contentStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -159,10 +161,10 @@ class ExcelHeadPropertyTest {
         contentStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty5.setWrapped(false);
         contentStyleProperty5.setWriteFont(new WriteFont());
-        x473.setContentStyleProperty(contentStyleProperty5);
-        x473.setFieldName("data");
-        x473.setForceIndex(false);
-        x473.setForceName(false);
+        head6.setContentStyleProperty(contentStyleProperty5);
+        head6.setFieldName("data");
+        head6.setForceIndex(false);
+        head6.setForceName(false);
         FontProperty headFontProperty5 = new FontProperty();
         headFontProperty5.setBold(false);
         headFontProperty5.setCharset(1);
@@ -173,10 +175,10 @@ class ExcelHeadPropertyTest {
         headFontProperty5.setStrikeout(false);
         headFontProperty5.setTypeOffset((short) 1);
         headFontProperty5.setUnderline((byte) 1);
-        x473.setHeadFontProperty(headFontProperty5);
+        head6.setHeadFontProperty(headFontProperty5);
         ArrayList<String> headNameList10 = new ArrayList<String>();
         headNameList10.add("Smith");
-        x473.setHeadNameList(headNameList10);
+        head6.setHeadNameList(headNameList10);
         StyleProperty headStyleProperty5 = new StyleProperty();
         headStyleProperty5.setBorderBottom(BorderStyle.NONE);
         headStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -200,20 +202,20 @@ class ExcelHeadPropertyTest {
         headStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty5.setWrapped(false);
         headStyleProperty5.setWriteFont(new WriteFont());
-        x473.setHeadStyleProperty(headStyleProperty5);
+        head6.setHeadStyleProperty(headStyleProperty5);
         LoopMergeProperty loopMergeProperty5 = new LoopMergeProperty(1, 1);
         loopMergeProperty5.setColumnExtend(1);
         loopMergeProperty5.setEachRow(1);
-        x473.setLoopMergeProperty(loopMergeProperty5);
-        headMap.put(1, x473);
+        head6.setLoopMergeProperty(loopMergeProperty5);
+        headMap.put(1, head6);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x337));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("HmacMD5"), sameInstance(x404));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(excelContentProperty1));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(excelContentProperty3));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x473));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(head6));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }
@@ -225,14 +227,15 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(holder, String.class, null, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x337 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter1 = mock(Converter.class);
-        x337.setConverter(converter1);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
-        x337.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head2 = new Head(1, "data", headNameList1, false, false);
@@ -252,24 +255,25 @@ class ExcelHeadPropertyTest {
         head2.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
         head2.setLoopMergeProperty(loopMergeProperty1);
-        x337.setHead(head2);
+        excelContentProperty1.setHead(head2);
         NumberFormatProperty numberFormatProperty1 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty1.setFormat("yyyy-MM-dd");
         numberFormatProperty1.setRoundingMode(RoundingMode.UP);
-        x337.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x337);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x404 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter3 = mock(Converter.class);
-        x404.setConverter(converter3);
+        excelContentProperty3.setConverter(converter3);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty3.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty3.setUse1904windowing(false);
-        x404.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         ArrayList<String> headNameList5 = new ArrayList<String>();
         headNameList5.add("Smith");
         Head head4 = new Head(1, "data", headNameList5, false, false);
@@ -289,24 +293,24 @@ class ExcelHeadPropertyTest {
         head4.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty3 = mock(LoopMergeProperty.class);
         head4.setLoopMergeProperty(loopMergeProperty3);
-        x404.setHead(head4);
+        excelContentProperty3.setHead(head4);
         NumberFormatProperty numberFormatProperty3 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty3.setFormat("yyyy-MM-dd");
         numberFormatProperty3.setRoundingMode(RoundingMode.UP);
-        x404.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x404);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList9 = new ArrayList<String>();
         headNameList9.add("Smith");
-        Head x473 = new Head(1, "data", headNameList9, false, false);
-        x473.setColumnIndex(1);
+        Head head6 = new Head(1, "data", headNameList9, false, false);
+        head6.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty5 = new ColumnWidthProperty(1);
         columnWidthProperty5.setWidth(1);
-        x473.setColumnWidthProperty(columnWidthProperty5);
+        head6.setColumnWidthProperty(columnWidthProperty5);
         FontProperty contentFontProperty5 = new FontProperty();
         contentFontProperty5.setBold(false);
         contentFontProperty5.setCharset(1);
@@ -317,7 +321,7 @@ class ExcelHeadPropertyTest {
         contentFontProperty5.setStrikeout(false);
         contentFontProperty5.setTypeOffset((short) 1);
         contentFontProperty5.setUnderline((byte) 1);
-        x473.setContentFontProperty(contentFontProperty5);
+        head6.setContentFontProperty(contentFontProperty5);
         StyleProperty contentStyleProperty5 = new StyleProperty();
         contentStyleProperty5.setBorderBottom(BorderStyle.NONE);
         contentStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -341,10 +345,10 @@ class ExcelHeadPropertyTest {
         contentStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty5.setWrapped(false);
         contentStyleProperty5.setWriteFont(new WriteFont());
-        x473.setContentStyleProperty(contentStyleProperty5);
-        x473.setFieldName("data");
-        x473.setForceIndex(false);
-        x473.setForceName(false);
+        head6.setContentStyleProperty(contentStyleProperty5);
+        head6.setFieldName("data");
+        head6.setForceIndex(false);
+        head6.setForceName(false);
         FontProperty headFontProperty5 = new FontProperty();
         headFontProperty5.setBold(false);
         headFontProperty5.setCharset(1);
@@ -355,10 +359,10 @@ class ExcelHeadPropertyTest {
         headFontProperty5.setStrikeout(false);
         headFontProperty5.setTypeOffset((short) 1);
         headFontProperty5.setUnderline((byte) 1);
-        x473.setHeadFontProperty(headFontProperty5);
+        head6.setHeadFontProperty(headFontProperty5);
         ArrayList<String> headNameList10 = new ArrayList<String>();
         headNameList10.add("Smith");
-        x473.setHeadNameList(headNameList10);
+        head6.setHeadNameList(headNameList10);
         StyleProperty headStyleProperty5 = new StyleProperty();
         headStyleProperty5.setBorderBottom(BorderStyle.NONE);
         headStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -382,20 +386,20 @@ class ExcelHeadPropertyTest {
         headStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty5.setWrapped(false);
         headStyleProperty5.setWriteFont(new WriteFont());
-        x473.setHeadStyleProperty(headStyleProperty5);
+        head6.setHeadStyleProperty(headStyleProperty5);
         LoopMergeProperty loopMergeProperty5 = new LoopMergeProperty(1, 1);
         loopMergeProperty5.setColumnExtend(1);
         loopMergeProperty5.setEachRow(1);
-        x473.setLoopMergeProperty(loopMergeProperty5);
-        headMap.put(1, x473);
+        head6.setLoopMergeProperty(loopMergeProperty5);
+        headMap.put(1, head6);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x337));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("HmacMD5"), sameInstance(x404));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(excelContentProperty1));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(excelContentProperty3));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x473));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(head6));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }
@@ -407,14 +411,15 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(holder, String.class, new ArrayList<List<String>>(), false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x337 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter1 = mock(Converter.class);
-        x337.setConverter(converter1);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
-        x337.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head2 = new Head(1, "data", headNameList1, false, false);
@@ -434,24 +439,25 @@ class ExcelHeadPropertyTest {
         head2.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
         head2.setLoopMergeProperty(loopMergeProperty1);
-        x337.setHead(head2);
+        excelContentProperty1.setHead(head2);
         NumberFormatProperty numberFormatProperty1 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty1.setFormat("yyyy-MM-dd");
         numberFormatProperty1.setRoundingMode(RoundingMode.UP);
-        x337.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x337);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x404 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter3 = mock(Converter.class);
-        x404.setConverter(converter3);
+        excelContentProperty3.setConverter(converter3);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty3.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty3.setUse1904windowing(false);
-        x404.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         ArrayList<String> headNameList5 = new ArrayList<String>();
         headNameList5.add("Smith");
         Head head4 = new Head(1, "data", headNameList5, false, false);
@@ -471,24 +477,24 @@ class ExcelHeadPropertyTest {
         head4.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty3 = mock(LoopMergeProperty.class);
         head4.setLoopMergeProperty(loopMergeProperty3);
-        x404.setHead(head4);
+        excelContentProperty3.setHead(head4);
         NumberFormatProperty numberFormatProperty3 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty3.setFormat("yyyy-MM-dd");
         numberFormatProperty3.setRoundingMode(RoundingMode.UP);
-        x404.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x404);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList9 = new ArrayList<String>();
         headNameList9.add("Smith");
-        Head x473 = new Head(1, "data", headNameList9, false, false);
-        x473.setColumnIndex(1);
+        Head head6 = new Head(1, "data", headNameList9, false, false);
+        head6.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty5 = new ColumnWidthProperty(1);
         columnWidthProperty5.setWidth(1);
-        x473.setColumnWidthProperty(columnWidthProperty5);
+        head6.setColumnWidthProperty(columnWidthProperty5);
         FontProperty contentFontProperty5 = new FontProperty();
         contentFontProperty5.setBold(false);
         contentFontProperty5.setCharset(1);
@@ -499,7 +505,7 @@ class ExcelHeadPropertyTest {
         contentFontProperty5.setStrikeout(false);
         contentFontProperty5.setTypeOffset((short) 1);
         contentFontProperty5.setUnderline((byte) 1);
-        x473.setContentFontProperty(contentFontProperty5);
+        head6.setContentFontProperty(contentFontProperty5);
         StyleProperty contentStyleProperty5 = new StyleProperty();
         contentStyleProperty5.setBorderBottom(BorderStyle.NONE);
         contentStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -523,10 +529,10 @@ class ExcelHeadPropertyTest {
         contentStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty5.setWrapped(false);
         contentStyleProperty5.setWriteFont(new WriteFont());
-        x473.setContentStyleProperty(contentStyleProperty5);
-        x473.setFieldName("data");
-        x473.setForceIndex(false);
-        x473.setForceName(false);
+        head6.setContentStyleProperty(contentStyleProperty5);
+        head6.setFieldName("data");
+        head6.setForceIndex(false);
+        head6.setForceName(false);
         FontProperty headFontProperty5 = new FontProperty();
         headFontProperty5.setBold(false);
         headFontProperty5.setCharset(1);
@@ -537,10 +543,10 @@ class ExcelHeadPropertyTest {
         headFontProperty5.setStrikeout(false);
         headFontProperty5.setTypeOffset((short) 1);
         headFontProperty5.setUnderline((byte) 1);
-        x473.setHeadFontProperty(headFontProperty5);
+        head6.setHeadFontProperty(headFontProperty5);
         ArrayList<String> headNameList10 = new ArrayList<String>();
         headNameList10.add("Smith");
-        x473.setHeadNameList(headNameList10);
+        head6.setHeadNameList(headNameList10);
         StyleProperty headStyleProperty5 = new StyleProperty();
         headStyleProperty5.setBorderBottom(BorderStyle.NONE);
         headStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -564,20 +570,20 @@ class ExcelHeadPropertyTest {
         headStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty5.setWrapped(false);
         headStyleProperty5.setWriteFont(new WriteFont());
-        x473.setHeadStyleProperty(headStyleProperty5);
+        head6.setHeadStyleProperty(headStyleProperty5);
         LoopMergeProperty loopMergeProperty5 = new LoopMergeProperty(1, 1);
         loopMergeProperty5.setColumnExtend(1);
         loopMergeProperty5.setEachRow(1);
-        x473.setLoopMergeProperty(loopMergeProperty5);
-        headMap.put(1, x473);
+        head6.setLoopMergeProperty(loopMergeProperty5);
+        headMap.put(1, head6);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x337));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("HmacMD5"), sameInstance(x404));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(excelContentProperty1));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(excelContentProperty3));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x473));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(head6));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }
@@ -591,14 +597,15 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(holder, String.class, head1, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x337 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty1 =
+             new ExcelContentProperty();
         Converter converter1 = mock(Converter.class);
-        x337.setConverter(converter1);
+        excelContentProperty1.setConverter(converter1);
         DateTimeFormatProperty dateTimeFormatProperty1 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty1.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty1.setUse1904windowing(false);
-        x337.setDateTimeFormatProperty(dateTimeFormatProperty1);
+        excelContentProperty1.setDateTimeFormatProperty(dateTimeFormatProperty1);
         ArrayList<String> headNameList1 = new ArrayList<String>();
         headNameList1.add("Smith");
         Head head2 = new Head(1, "data", headNameList1, false, false);
@@ -618,24 +625,25 @@ class ExcelHeadPropertyTest {
         head2.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty1 = mock(LoopMergeProperty.class);
         head2.setLoopMergeProperty(loopMergeProperty1);
-        x337.setHead(head2);
+        excelContentProperty1.setHead(head2);
         NumberFormatProperty numberFormatProperty1 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty1.setFormat("yyyy-MM-dd");
         numberFormatProperty1.setRoundingMode(RoundingMode.UP);
-        x337.setNumberFormatProperty(numberFormatProperty1);
-        contentPropertyMap.put(1, x337);
+        excelContentProperty1.setNumberFormatProperty(numberFormatProperty1);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x404 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter3 = mock(Converter.class);
-        x404.setConverter(converter3);
+        excelContentProperty3.setConverter(converter3);
         DateTimeFormatProperty dateTimeFormatProperty3 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty3.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty3.setUse1904windowing(false);
-        x404.setDateTimeFormatProperty(dateTimeFormatProperty3);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty3);
         ArrayList<String> headNameList5 = new ArrayList<String>();
         headNameList5.add("Smith");
         Head head4 = new Head(1, "data", headNameList5, false, false);
@@ -655,24 +663,24 @@ class ExcelHeadPropertyTest {
         head4.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty3 = mock(LoopMergeProperty.class);
         head4.setLoopMergeProperty(loopMergeProperty3);
-        x404.setHead(head4);
+        excelContentProperty3.setHead(head4);
         NumberFormatProperty numberFormatProperty3 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty3.setFormat("yyyy-MM-dd");
         numberFormatProperty3.setRoundingMode(RoundingMode.UP);
-        x404.setNumberFormatProperty(numberFormatProperty3);
-        fieldNameContentPropertyMap.put("HmacMD5", x404);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty3);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList9 = new ArrayList<String>();
         headNameList9.add("Smith");
-        Head x473 = new Head(1, "data", headNameList9, false, false);
-        x473.setColumnIndex(1);
+        Head head6 = new Head(1, "data", headNameList9, false, false);
+        head6.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty5 = new ColumnWidthProperty(1);
         columnWidthProperty5.setWidth(1);
-        x473.setColumnWidthProperty(columnWidthProperty5);
+        head6.setColumnWidthProperty(columnWidthProperty5);
         FontProperty contentFontProperty5 = new FontProperty();
         contentFontProperty5.setBold(false);
         contentFontProperty5.setCharset(1);
@@ -683,7 +691,7 @@ class ExcelHeadPropertyTest {
         contentFontProperty5.setStrikeout(false);
         contentFontProperty5.setTypeOffset((short) 1);
         contentFontProperty5.setUnderline((byte) 1);
-        x473.setContentFontProperty(contentFontProperty5);
+        head6.setContentFontProperty(contentFontProperty5);
         StyleProperty contentStyleProperty5 = new StyleProperty();
         contentStyleProperty5.setBorderBottom(BorderStyle.NONE);
         contentStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -707,10 +715,10 @@ class ExcelHeadPropertyTest {
         contentStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty5.setWrapped(false);
         contentStyleProperty5.setWriteFont(new WriteFont());
-        x473.setContentStyleProperty(contentStyleProperty5);
-        x473.setFieldName("data");
-        x473.setForceIndex(false);
-        x473.setForceName(false);
+        head6.setContentStyleProperty(contentStyleProperty5);
+        head6.setFieldName("data");
+        head6.setForceIndex(false);
+        head6.setForceName(false);
         FontProperty headFontProperty5 = new FontProperty();
         headFontProperty5.setBold(false);
         headFontProperty5.setCharset(1);
@@ -721,10 +729,10 @@ class ExcelHeadPropertyTest {
         headFontProperty5.setStrikeout(false);
         headFontProperty5.setTypeOffset((short) 1);
         headFontProperty5.setUnderline((byte) 1);
-        x473.setHeadFontProperty(headFontProperty5);
+        head6.setHeadFontProperty(headFontProperty5);
         ArrayList<String> headNameList10 = new ArrayList<String>();
         headNameList10.add("Smith");
-        x473.setHeadNameList(headNameList10);
+        head6.setHeadNameList(headNameList10);
         StyleProperty headStyleProperty5 = new StyleProperty();
         headStyleProperty5.setBorderBottom(BorderStyle.NONE);
         headStyleProperty5.setBorderLeft(BorderStyle.NONE);
@@ -748,20 +756,20 @@ class ExcelHeadPropertyTest {
         headStyleProperty5.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty5.setWrapped(false);
         headStyleProperty5.setWriteFont(new WriteFont());
-        x473.setHeadStyleProperty(headStyleProperty5);
+        head6.setHeadStyleProperty(headStyleProperty5);
         LoopMergeProperty loopMergeProperty5 = new LoopMergeProperty(1, 1);
         loopMergeProperty5.setColumnExtend(1);
         loopMergeProperty5.setEachRow(1);
-        x473.setLoopMergeProperty(loopMergeProperty5);
-        headMap.put(1, x473);
+        head6.setLoopMergeProperty(loopMergeProperty5);
+        headMap.put(1, head6);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x337));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("HmacMD5"), sameInstance(x404));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(excelContentProperty1));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(excelContentProperty3));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x473));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(head6));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }
@@ -777,19 +785,21 @@ class ExcelHeadPropertyTest {
              new ExcelHeadProperty(holder, String.class, head1, false);
         HashMap<Integer, ExcelContentProperty> contentPropertyMap =
              new HashMap<Integer, ExcelContentProperty>();
-        ExcelContentProperty x337 = mock(ExcelContentProperty.class);
-        contentPropertyMap.put(1, x337);
+        ExcelContentProperty excelContentProperty1 =
+             mock(ExcelContentProperty.class);
+        contentPropertyMap.put(1, excelContentProperty1);
         excelHeadProperty.setContentPropertyMap(contentPropertyMap);
         HashMap<String, ExcelContentProperty> fieldNameContentPropertyMap =
              new HashMap<String, ExcelContentProperty>();
-        ExcelContentProperty x404 = new ExcelContentProperty();
+        ExcelContentProperty excelContentProperty3 =
+             new ExcelContentProperty();
         Converter converter2 = mock(Converter.class);
-        x404.setConverter(converter2);
+        excelContentProperty3.setConverter(converter2);
         DateTimeFormatProperty dateTimeFormatProperty2 =
              new DateTimeFormatProperty("yyyy-MM-dd", false);
         dateTimeFormatProperty2.setFormat("yyyy-MM-dd");
         dateTimeFormatProperty2.setUse1904windowing(false);
-        x404.setDateTimeFormatProperty(dateTimeFormatProperty2);
+        excelContentProperty3.setDateTimeFormatProperty(dateTimeFormatProperty2);
         ArrayList<String> headNameList3 = new ArrayList<String>();
         headNameList3.add("Smith");
         Head head3 = new Head(1, "data", headNameList3, false, false);
@@ -809,24 +819,24 @@ class ExcelHeadPropertyTest {
         head3.setHeadStyleProperty(new StyleProperty());
         LoopMergeProperty loopMergeProperty2 = mock(LoopMergeProperty.class);
         head3.setLoopMergeProperty(loopMergeProperty2);
-        x404.setHead(head3);
+        excelContentProperty3.setHead(head3);
         NumberFormatProperty numberFormatProperty2 =
              new NumberFormatProperty("yyyy-MM-dd", RoundingMode.UP);
         numberFormatProperty2.setFormat("yyyy-MM-dd");
         numberFormatProperty2.setRoundingMode(RoundingMode.UP);
-        x404.setNumberFormatProperty(numberFormatProperty2);
-        fieldNameContentPropertyMap.put("HmacMD5", x404);
+        excelContentProperty3.setNumberFormatProperty(numberFormatProperty2);
+        fieldNameContentPropertyMap.put("foo", excelContentProperty3);
         excelHeadProperty.setFieldNameContentPropertyMap(fieldNameContentPropertyMap);
         excelHeadProperty.setHeadClazz(String.class);
         excelHeadProperty.setHeadKind(HeadKindEnum.NONE);
         HashMap<Integer, Head> headMap = new HashMap<Integer, Head>();
         ArrayList<String> headNameList7 = new ArrayList<String>();
         headNameList7.add("Smith");
-        Head x473 = new Head(1, "data", headNameList7, false, false);
-        x473.setColumnIndex(1);
+        Head head5 = new Head(1, "data", headNameList7, false, false);
+        head5.setColumnIndex(1);
         ColumnWidthProperty columnWidthProperty4 = new ColumnWidthProperty(1);
         columnWidthProperty4.setWidth(1);
-        x473.setColumnWidthProperty(columnWidthProperty4);
+        head5.setColumnWidthProperty(columnWidthProperty4);
         FontProperty contentFontProperty4 = new FontProperty();
         contentFontProperty4.setBold(false);
         contentFontProperty4.setCharset(1);
@@ -837,7 +847,7 @@ class ExcelHeadPropertyTest {
         contentFontProperty4.setStrikeout(false);
         contentFontProperty4.setTypeOffset((short) 1);
         contentFontProperty4.setUnderline((byte) 1);
-        x473.setContentFontProperty(contentFontProperty4);
+        head5.setContentFontProperty(contentFontProperty4);
         StyleProperty contentStyleProperty4 = new StyleProperty();
         contentStyleProperty4.setBorderBottom(BorderStyle.NONE);
         contentStyleProperty4.setBorderLeft(BorderStyle.NONE);
@@ -861,10 +871,10 @@ class ExcelHeadPropertyTest {
         contentStyleProperty4.setVerticalAlignment(VerticalAlignment.TOP);
         contentStyleProperty4.setWrapped(false);
         contentStyleProperty4.setWriteFont(new WriteFont());
-        x473.setContentStyleProperty(contentStyleProperty4);
-        x473.setFieldName("data");
-        x473.setForceIndex(false);
-        x473.setForceName(false);
+        head5.setContentStyleProperty(contentStyleProperty4);
+        head5.setFieldName("data");
+        head5.setForceIndex(false);
+        head5.setForceName(false);
         FontProperty headFontProperty4 = new FontProperty();
         headFontProperty4.setBold(false);
         headFontProperty4.setCharset(1);
@@ -875,10 +885,10 @@ class ExcelHeadPropertyTest {
         headFontProperty4.setStrikeout(false);
         headFontProperty4.setTypeOffset((short) 1);
         headFontProperty4.setUnderline((byte) 1);
-        x473.setHeadFontProperty(headFontProperty4);
+        head5.setHeadFontProperty(headFontProperty4);
         ArrayList<String> headNameList8 = new ArrayList<String>();
         headNameList8.add("Smith");
-        x473.setHeadNameList(headNameList8);
+        head5.setHeadNameList(headNameList8);
         StyleProperty headStyleProperty4 = new StyleProperty();
         headStyleProperty4.setBorderBottom(BorderStyle.NONE);
         headStyleProperty4.setBorderLeft(BorderStyle.NONE);
@@ -902,20 +912,20 @@ class ExcelHeadPropertyTest {
         headStyleProperty4.setVerticalAlignment(VerticalAlignment.TOP);
         headStyleProperty4.setWrapped(false);
         headStyleProperty4.setWriteFont(new WriteFont());
-        x473.setHeadStyleProperty(headStyleProperty4);
+        head5.setHeadStyleProperty(headStyleProperty4);
         LoopMergeProperty loopMergeProperty4 = new LoopMergeProperty(1, 1);
         loopMergeProperty4.setColumnExtend(1);
         loopMergeProperty4.setEachRow(1);
-        x473.setLoopMergeProperty(loopMergeProperty4);
-        headMap.put(1, x473);
+        head5.setLoopMergeProperty(loopMergeProperty4);
+        headMap.put(1, head5);
         excelHeadProperty.setHeadMap(headMap);
         excelHeadProperty.setHeadRowNumber(1);
         excelHeadProperty.setIgnoreMap(new HashMap<String, Field>());
-        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(x337));
-        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("HmacMD5"), sameInstance(x404));
+        assertThat(excelHeadProperty.getContentPropertyMap().get(1), sameInstance(excelContentProperty1));
+        assertThat(excelHeadProperty.getFieldNameContentPropertyMap().get("foo"), sameInstance(excelContentProperty3));
         assertThat((Class<String>) excelHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(x473));
+        assertThat(excelHeadProperty.getHeadMap().get(1), sameInstance(head5));
         assertThat(excelHeadProperty.getHeadRowNumber(), is(1));
         assertThat(excelHeadProperty.getIgnoreMap().isEmpty(), is(true));
     }

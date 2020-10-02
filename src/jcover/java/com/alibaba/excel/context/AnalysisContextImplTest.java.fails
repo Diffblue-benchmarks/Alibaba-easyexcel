@@ -56,7 +56,7 @@ class AnalysisContextImplTest {
         readWorkbook.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook.setIgnoreEmptyRow(false);
-        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook.setMandatoryUseInputStream(false);
         readWorkbook.setPassword("secret");
         readWorkbook.setReadCache(null);
@@ -238,7 +238,7 @@ class AnalysisContextImplTest {
     void getInputStream() {
         ReadWorkbook readWorkbook = new ReadWorkbook();
         StringBufferInputStream inputStream =
-             new StringBufferInputStream("Broadway");
+             new StringBufferInputStream("foo");
         readWorkbook.setInputStream(inputStream);
         assertThat(new AnalysisContextImpl(readWorkbook, ExcelTypeEnum.XLS).getInputStream(), instanceOf(StringBufferInputStream.class));
         assertThat((StringBufferInputStream) new AnalysisContextImpl(readWorkbook, ExcelTypeEnum.XLS).getInputStream(), sameInstance(inputStream));

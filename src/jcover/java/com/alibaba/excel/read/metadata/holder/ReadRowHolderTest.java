@@ -31,13 +31,13 @@ class ReadRowHolderTest {
         globalConfiguration1.setUse1904windowing(false);
         globalConfiguration1.setUseScientificFormat(false);
         HashMap<Integer, Cell> cellMap1 = new HashMap<Integer, Cell>();
-        Cell x41 = mock(Cell.class);
-        cellMap1.put(1, x41);
+        Cell cell1 = mock(Cell.class);
+        cellMap1.put(1, cell1);
         ReadRowHolder readRowHolder =
              new ReadRowHolder(1, RowTypeEnum.DATA, globalConfiguration1, cellMap1);
         HashMap<Integer, Cell> cellMap2 = new HashMap<Integer, Cell>();
-        Cell x46 = mock(Cell.class);
-        cellMap2.put(1, x46);
+        Cell cell3 = mock(Cell.class);
+        cellMap2.put(1, cell3);
         readRowHolder.setCellMap(cellMap2);
         Object currentRowAnalysisResult = new Object();
         readRowHolder.setCurrentRowAnalysisResult(currentRowAnalysisResult);
@@ -49,7 +49,7 @@ class ReadRowHolderTest {
         readRowHolder.setGlobalConfiguration(globalConfiguration2);
         readRowHolder.setRowIndex(1);
         readRowHolder.setRowType(RowTypeEnum.DATA);
-        assertThat(readRowHolder.getCellMap().get(1), sameInstance(x46));
+        assertThat(readRowHolder.getCellMap().get(1), sameInstance(cell3));
         assertThat(readRowHolder.getCurrentRowAnalysisResult(), sameInstance(currentRowAnalysisResult));
         assertThat(readRowHolder.getGlobalConfiguration(), sameInstance(globalConfiguration2));
         assertThat(readRowHolder.getRowIndex(), is(1));

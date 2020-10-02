@@ -45,11 +45,11 @@ class BigDecimalNumberConverterTest {
     void convertToExcelData() {
 
         // arrange
-        BigDecimal value = BigDecimal.valueOf(1L);
+        BigDecimal value2 = BigDecimal.valueOf(1L);
 
         // act
         CellData result =
-             new BigDecimalNumberConverter().convertToExcelData(value, new ExcelContentProperty(), new GlobalConfiguration());
+             new BigDecimalNumberConverter().convertToExcelData(value2, new ExcelContentProperty(), new GlobalConfiguration());
 
         // assert
         assertThat(result.getBooleanValue(), is(nullValue()));
@@ -59,7 +59,7 @@ class BigDecimalNumberConverterTest {
         assertThat(result.getFormula(), is(false));
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
-        assertThat(result.getNumberValue(), sameInstance(value));
+        assertThat(result.getNumberValue(), sameInstance(value2));
         assertThat(result.getStringValue(), is(nullValue()));
         assertThat(result.getType(), is(CellDataTypeEnum.NUMBER));
         assertThat(result.getColumnIndex(), is(nullValue()));

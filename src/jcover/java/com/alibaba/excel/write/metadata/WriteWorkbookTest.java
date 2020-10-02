@@ -40,7 +40,7 @@ class WriteWorkbookTest {
         writeWorkbook.setMandatoryUseInputStream(false);
         writeWorkbook.setOutputStream(new ByteArrayOutputStream());
         writeWorkbook.setPassword("secret");
-        writeWorkbook.setTemplateInputStream(new StringBufferInputStream("Broadway"));
+        writeWorkbook.setTemplateInputStream(new StringBufferInputStream("foo"));
         writeWorkbook.setWriteExcelOnException(false);
         WriteHandler writeHandler1 = mock(WriteHandler.class);
         writeWorkbook.setWriteHandler(writeHandler1);

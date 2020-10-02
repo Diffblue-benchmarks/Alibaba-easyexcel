@@ -22,10 +22,10 @@ class BaseRowModelTest {
         BaseRowModel baseRowModel = new BaseRowModel();
         HashMap<Integer, CellStyle> cellStyleMap =
              new HashMap<Integer, CellStyle>();
-        CellStyle x14 = mock(CellStyle.class);
-        cellStyleMap.put(1, x14);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        cellStyleMap.put(1, cellStyle1);
         baseRowModel.setCellStyleMap(cellStyleMap);
-        assertThat(baseRowModel.getCellStyleMap().get(1), sameInstance(x14));
+        assertThat(baseRowModel.getCellStyleMap().get(1), sameInstance(cellStyle1));
     }
 
     @Test
@@ -33,13 +33,13 @@ class BaseRowModelTest {
 
         // arrange
         BaseRowModel baseRowModel = new BaseRowModel();
-        CellStyle cellStyle = mock(CellStyle.class);
+        CellStyle cellStyle3 = mock(CellStyle.class);
 
         // act
-        baseRowModel.addStyle(1, cellStyle);
+        baseRowModel.addStyle(1, cellStyle3);
 
         // assert
-        assertThat(baseRowModel.getCellStyleMap().get(1), sameInstance(cellStyle));
+        assertThat(baseRowModel.getCellStyleMap().get(1), sameInstance(cellStyle3));
     }
 
     @Test
@@ -47,9 +47,9 @@ class BaseRowModelTest {
         BaseRowModel baseRowModel = new BaseRowModel();
         HashMap<Integer, CellStyle> cellStyleMap =
              new HashMap<Integer, CellStyle>();
-        CellStyle x4 = mock(CellStyle.class);
-        cellStyleMap.put(1, x4);
+        CellStyle cellStyle1 = mock(CellStyle.class);
+        cellStyleMap.put(1, cellStyle1);
         baseRowModel.setCellStyleMap(cellStyleMap);
-        assertThat(baseRowModel.getStyle(1), sameInstance(x4));
+        assertThat(baseRowModel.getStyle(1), sameInstance(cellStyle1));
     }
 }

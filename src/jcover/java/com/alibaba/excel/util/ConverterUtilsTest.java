@@ -35,9 +35,9 @@ class ConverterUtilsTest {
         // arrange
         HashMap<Integer, CellData> cellDataMap =
              new HashMap<Integer, CellData>();
-        CellData x202 = new CellData();
-        x202.setType(CellDataTypeEnum.EMPTY);
-        cellDataMap.put(1, x202);
+        CellData cellData1 = new CellData();
+        cellData1.setType(CellDataTypeEnum.EMPTY);
+        cellDataMap.put(1, cellData1);
         ReadHolder readHolder = mock(ReadHolder.class);
         AnalysisContext context = mock(AnalysisContext.class);
         when(context.currentReadHolder())

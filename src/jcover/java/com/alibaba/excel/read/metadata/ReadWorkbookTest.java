@@ -42,7 +42,7 @@ class ReadWorkbookTest {
         readWorkbook.setExcelType(ExcelTypeEnum.XLS);
         readWorkbook.setExtraReadSet(new HashSet<CellExtraTypeEnum>());
         readWorkbook.setIgnoreEmptyRow(false);
-        readWorkbook.setInputStream(new StringBufferInputStream("Broadway"));
+        readWorkbook.setInputStream(new StringBufferInputStream("foo"));
         readWorkbook.setMandatoryUseInputStream(false);
         readWorkbook.setPassword("secret");
         ReadCache readCache = mock(ReadCache.class);

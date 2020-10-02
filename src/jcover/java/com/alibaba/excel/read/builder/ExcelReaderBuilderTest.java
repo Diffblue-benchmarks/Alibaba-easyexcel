@@ -36,7 +36,7 @@ class ExcelReaderBuilderTest {
     @Test
     void file1() {
         ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        assertThat(excelReaderBuilder.file(new StringBufferInputStream("/bin/bash")), sameInstance(excelReaderBuilder));
+        assertThat(excelReaderBuilder.file(new StringBufferInputStream("foo")), sameInstance(excelReaderBuilder));
     }
 
     @Test
