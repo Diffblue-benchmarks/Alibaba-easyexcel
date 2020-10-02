@@ -70,12 +70,15 @@ class WriteHandlerUtilsTest {
 
     @Test
     void beforeWorkbookCreateRunOwnIsTrue() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map1 =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        map1.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map2 =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
         map2.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.ownWriteHandlerMap())
-            .thenReturn(new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>());
+            .thenReturn(map1);
         WriteContext writeContext = mock(WriteContext.class);
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
