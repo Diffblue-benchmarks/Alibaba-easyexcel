@@ -104,7 +104,7 @@ class AnalysisContextImplTest {
         assertThat(result.getCustomObject(), sameInstance(customObject));
         assertThat(result.getDefaultReturnMap(), is(false));
         assertThat(result.getExcelType(), is(ExcelTypeEnum.XLS));
-        assertThat(result.getExtraReadSet(), is(notNullValue()));
+        assertThat(result.getExtraReadSet(), empty());
         assertThat(result.getFile(), is(nullValue()));
         assertThat(result.getHasReadSheet(), empty());
         assertThat(result.getIgnoreEmptyRow(), is(false));
@@ -159,20 +159,20 @@ class AnalysisContextImplTest {
         // pojo Converter result.getConverterMap().get("java.lang.Float-STRING")
         // pojo Converter result.getConverterMap().get("java.lang.Integer-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.lang.Integer-NUMBER")
-        assertThat(result.getConverterMap().get("java.lang.Integer-STRING"), is(notNullValue()));
+        // pojo Converter result.getConverterMap().get("java.lang.Integer-STRING")
         // pojo Converter result.getConverterMap().get("java.lang.Long-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.lang.Long-NUMBER")
         // pojo Converter result.getConverterMap().get("java.lang.Long-STRING")
-        assertThat(result.getConverterMap().get("java.lang.Object-STRING"), is(notNullValue()));
+        // pojo Converter result.getConverterMap().get("java.lang.Object-STRING")
         // pojo Converter result.getConverterMap().get("java.lang.Short-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.lang.Short-NUMBER")
         // pojo Converter result.getConverterMap().get("java.lang.Short-STRING")
-        assertThat(result.getConverterMap().get("java.lang.String-BOOLEAN"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-DIRECT_STRING"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-EMPTY"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-ERROR"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-IMAGE"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-NUMBER"), is(notNullValue()));
+        // pojo Converter result.getConverterMap().get("java.lang.String-BOOLEAN")
+        // pojo Converter result.getConverterMap().get("java.lang.String-DIRECT_STRING")
+        // pojo Converter result.getConverterMap().get("java.lang.String-EMPTY")
+        // pojo Converter result.getConverterMap().get("java.lang.String-ERROR")
+        // pojo Converter result.getConverterMap().get("java.lang.String-IMAGE")
+        // pojo Converter result.getConverterMap().get("java.lang.String-NUMBER")
         assertThat(result.getConverterMap().get("java.lang.String-STRING"), is(notNullValue()));
         // pojo Converter result.getConverterMap().get("java.math.BigDecimal-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.math.BigDecimal-NUMBER")

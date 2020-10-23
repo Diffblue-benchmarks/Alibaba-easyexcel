@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class ModelBuildEventListenerTest {
 
     @Test
-    void invokeHead() {
+    void invokeHeadCellDataMapIsEmpty() {
         AnalysisContext context = mock(AnalysisContext.class);
         new ModelBuildEventListener().invokeHead(new HashMap<Integer, CellData>(), context);
     }

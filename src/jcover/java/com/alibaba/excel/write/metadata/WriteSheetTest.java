@@ -88,7 +88,7 @@ class WriteSheetTest {
         writeSheet.setLocale(locale);
         writeSheet.setUse1904windowing(false);
         writeSheet.setUseScientificFormat(false);
-        assertThat(writeSheet.getColumnWidthMap(), is(notNullValue()));
+        assertThat(writeSheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(writeSheet.getSheetName(), is("Acme"));
         assertThat(writeSheet.getSheetNo(), is(1));
         assertThat(writeSheet.getTableStyle(), sameInstance(tableStyle));

@@ -1,6 +1,7 @@
 package com.alibaba.excel.read.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
@@ -80,7 +81,7 @@ class ReadWorkbookTest {
         assertThat(readWorkbook.getCustomObject(), sameInstance(customObject));
         assertThat(readWorkbook.getDefaultReturnMap(), is(false));
         assertThat(readWorkbook.getExcelType(), is(ExcelTypeEnum.XLS));
-        assertThat(readWorkbook.getExtraReadSet(), is(notNullValue()));
+        assertThat(readWorkbook.getExtraReadSet(), empty());
         assertThat(readWorkbook.getFile(), is(nullValue()));
         assertThat(readWorkbook.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbook.getMandatoryUseInputStream(), is(false));

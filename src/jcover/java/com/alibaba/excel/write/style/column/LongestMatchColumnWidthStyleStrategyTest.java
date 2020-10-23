@@ -1,8 +1,5 @@
 package com.alibaba.excel.write.style.column;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -14,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class LongestMatchColumnWidthStyleStrategyTest {
 
     @Test
-    void uniqueValueReturnsColumnWidthStyleStrategy() {
-        assertThat(new LongestMatchColumnWidthStyleStrategy().uniqueValue(), is("ColumnWidthStyleStrategy"));
+    void factory() {
+        // pojo LongestMatchColumnWidthStyleStrategy new LongestMatchColumnWidthStyleStrategy()
     }
 }

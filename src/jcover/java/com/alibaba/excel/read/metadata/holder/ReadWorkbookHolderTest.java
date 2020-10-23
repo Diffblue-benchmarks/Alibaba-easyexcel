@@ -1,6 +1,7 @@
 package com.alibaba.excel.read.metadata.holder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
@@ -247,9 +248,9 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getCustomObject(), sameInstance(customObject2));
         assertThat(readWorkbookHolder.getDefaultReturnMap(), is(false));
         assertThat(readWorkbookHolder.getExcelType(), is(ExcelTypeEnum.XLS));
-        assertThat(readWorkbookHolder.getExtraReadSet(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getExtraReadSet(), empty());
         assertThat(readWorkbookHolder.getFile(), is(nullValue()));
-        assertThat(readWorkbookHolder.getHasReadSheet(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getHasReadSheet(), empty());
         assertThat(readWorkbookHolder.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbookHolder.getMandatoryUseInputStream(), is(false));
         assertThat(readWorkbookHolder.getParameterSheetDataList().size(), is(1));
@@ -265,7 +266,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getConverterMap().isEmpty(), is(true));
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
         assertThat(readWorkbookHolder.getHead().size(), is(1));
         assertThat(readWorkbookHolder.getHead().get(0), hasSize(1));
@@ -476,9 +477,9 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getCustomObject(), sameInstance(customObject2));
         assertThat(readWorkbookHolder.getDefaultReturnMap(), is(false));
         assertThat(readWorkbookHolder.getExcelType(), is(ExcelTypeEnum.XLS));
-        assertThat(readWorkbookHolder.getExtraReadSet(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getExtraReadSet(), empty());
         assertThat(readWorkbookHolder.getFile(), is(nullValue()));
-        assertThat(readWorkbookHolder.getHasReadSheet(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getHasReadSheet(), empty());
         assertThat(readWorkbookHolder.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbookHolder.getMandatoryUseInputStream(), is(false));
         assertThat(readWorkbookHolder.getParameterSheetDataList().size(), is(1));
@@ -494,7 +495,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap(), is(notNullValue()));
+        assertThat(readWorkbookHolder.getConverterMap().isEmpty(), is(true));
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
         assertThat(readWorkbookHolder.getHead().size(), is(1));
         assertThat(readWorkbookHolder.getHead().get(0), hasSize(1));

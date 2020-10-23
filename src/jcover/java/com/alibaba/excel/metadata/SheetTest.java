@@ -1,7 +1,6 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -54,7 +53,7 @@ class SheetTest {
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
-        assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
+        assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
         assertThat(sheet.getHead().get(0).get(0), is("Smith"));
@@ -96,7 +95,7 @@ class SheetTest {
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
-        assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
+        assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
         assertThat(sheet.getHead().get(0).get(0), is("Smith"));
@@ -142,7 +141,7 @@ class SheetTest {
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
-        assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
+        assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
         assertThat(sheet.getHead().get(0).get(0), is("Smith"));
@@ -158,7 +157,10 @@ class SheetTest {
         Sheet sheet = new Sheet(1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
-        sheet.setColumnWidthMap(new HashMap<Integer, Integer>());
+        HashMap<Integer, Integer> columnWidthMap =
+             new HashMap<Integer, Integer>();
+        columnWidthMap.put(1, 1);
+        sheet.setColumnWidthMap(columnWidthMap);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
         ArrayList<String> list = new ArrayList<String>();
         list.add("Smith");
@@ -172,7 +174,7 @@ class SheetTest {
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
-        assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
+        assertThat(sheet.getColumnWidthMap().get(1), is(1));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
         assertThat(sheet.getHead().get(0).get(0), is("Smith"));
