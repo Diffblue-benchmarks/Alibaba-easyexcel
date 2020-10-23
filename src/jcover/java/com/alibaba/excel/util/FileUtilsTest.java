@@ -19,13 +19,18 @@ class FileUtilsTest {
     }
 
     @Test
+    void createCacheTmpFile() {
+        assertThat(FileUtils.createCacheTmpFile().getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
+    }
+
+    @Test
     void createTmpFile() {
-        assertThat(FileUtils.createTmpFile("data.txt").getPath(), is("/bin/bash/data.txt"));
+        assertThat(FileUtils.createTmpFile("data.txt").getPath().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test
     void getTempFilePrefix() {
-        assertThat(FileUtils.getTempFilePrefix(), is("/bin/bash"));
+        assertThat(FileUtils.getTempFilePrefix().startsWith(System.getProperty("java.io.tmpdir")), is(true));
     }
 
     @Test
