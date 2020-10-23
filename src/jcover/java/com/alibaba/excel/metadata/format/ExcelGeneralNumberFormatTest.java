@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
 
 import java.text.AttributedCharacterIterator;
+import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ class ExcelGeneralNumberFormatTest {
     @Test
     void formatToCharacterIterator1() {
         AttributedCharacterIterator result =
-             new ExcelGeneralNumberFormat(new java.util.Locale("en"), false).formatToCharacterIterator(1);
+             new ExcelGeneralNumberFormat(new Locale("en"), false).formatToCharacterIterator(1);
         assertThat(result.getAllAttributeKeys(), empty());
         assertThat(result.getAttributes().isEmpty(), is(true));
         assertThat(result.getRunLimit(), is(1));
@@ -29,7 +30,7 @@ class ExcelGeneralNumberFormatTest {
     @Test
     void formatToCharacterIterator2() {
         AttributedCharacterIterator result =
-             new ExcelGeneralNumberFormat(new java.util.Locale("en"), true).formatToCharacterIterator(1);
+             new ExcelGeneralNumberFormat(new Locale("en"), true).formatToCharacterIterator(1);
         assertThat(result.getAllAttributeKeys(), empty());
         assertThat(result.getAttributes().isEmpty(), is(true));
         assertThat(result.getRunLimit(), is(1));
@@ -39,7 +40,7 @@ class ExcelGeneralNumberFormatTest {
     @Test
     void formatToCharacterIterator3() {
         AttributedCharacterIterator result =
-             new ExcelGeneralNumberFormat(new java.util.Locale("en"), false).formatToCharacterIterator(0);
+             new ExcelGeneralNumberFormat(new Locale("en"), false).formatToCharacterIterator(0);
         assertThat(result.getAllAttributeKeys(), empty());
         assertThat(result.getAttributes().isEmpty(), is(true));
         assertThat(result.getRunLimit(), is(1));

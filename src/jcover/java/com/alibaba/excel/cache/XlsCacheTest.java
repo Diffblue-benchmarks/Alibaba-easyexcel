@@ -4,6 +4,7 @@ import static org.mockito.Mockito.mock;
 
 import com.alibaba.excel.context.AnalysisContext;
 
+import org.apache.poi.hssf.record.SSTRecord;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -18,21 +19,21 @@ class XlsCacheTest {
     @Test
     void init() {
         AnalysisContext analysisContext = mock(AnalysisContext.class);
-        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).init(analysisContext);
+        new XlsCache(new SSTRecord()).init(analysisContext);
     }
 
     @Test
     void putValueIsValue() {
-        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).put("value");
+        new XlsCache(new SSTRecord()).put("value");
     }
 
     @Test
     void putFinished() {
-        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).putFinished();
+        new XlsCache(new SSTRecord()).putFinished();
     }
 
     @Test
     void destroy() {
-        new XlsCache(new org.apache.poi.hssf.record.SSTRecord()).destroy();
+        new XlsCache(new SSTRecord()).destroy();
     }
 }
