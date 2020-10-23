@@ -29,8 +29,8 @@ class ExcelHeadPropertyTest {
     void factory1() {
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         ExcelHeadProperty excelHeadProperty =
              new ExcelHeadProperty(holder, String.class, head, false);
@@ -149,8 +149,8 @@ class ExcelHeadPropertyTest {
     void hasHeadReturnsTrue() {
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         assertThat(new ExcelHeadProperty(holder, String.class, head, false).hasHead(), is(true));
     }

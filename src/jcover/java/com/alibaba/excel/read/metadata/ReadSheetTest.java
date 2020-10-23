@@ -1,6 +1,8 @@
 package com.alibaba.excel.read.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -31,19 +33,21 @@ class ReadSheetTest {
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
@@ -53,14 +57,15 @@ class ReadSheetTest {
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
         assertThat(readSheet.getCustomReadListenerList().size(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().get(0), sameInstance(readListener));
+        assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
         assertThat(readSheet.getCustomConverterList().size(), is(1));
-        assertThat(readSheet.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), sameInstance(list));
+        assertThat(readSheet.getHead().get(0), hasSize(1));
+        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));
@@ -73,19 +78,21 @@ class ReadSheetTest {
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
@@ -95,14 +102,15 @@ class ReadSheetTest {
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
         assertThat(readSheet.getCustomReadListenerList().size(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().get(0), sameInstance(readListener));
+        assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
         assertThat(readSheet.getCustomConverterList().size(), is(1));
-        assertThat(readSheet.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), sameInstance(list));
+        assertThat(readSheet.getHead().get(0), hasSize(1));
+        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));
@@ -115,19 +123,21 @@ class ReadSheetTest {
         readSheet.setSheetNo(1);
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readSheet.setCustomReadListenerList(customReadListenerList);
         readSheet.setHeadRowNumber(1);
         readSheet.setAutoTrim(false);
         readSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
@@ -137,14 +147,15 @@ class ReadSheetTest {
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
         assertThat(readSheet.getCustomReadListenerList().size(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().get(0), sameInstance(readListener));
+        assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
         assertThat(readSheet.getCustomConverterList().size(), is(1));
-        assertThat(readSheet.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), sameInstance(list));
+        assertThat(readSheet.getHead().get(0), hasSize(1));
+        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));

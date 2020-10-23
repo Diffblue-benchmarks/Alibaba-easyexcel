@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -66,14 +67,16 @@ class AnalysisContextImplTest {
         readWorkbook.setXlsxSAXParserFactoryName("Acme");
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readWorkbook.setCustomReadListenerList(customReadListenerList);
         readWorkbook.setHeadRowNumber(1);
         readWorkbook.setAutoTrim(false);
         readWorkbook.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         when(converter.supportExcelTypeKey())
             .thenReturn(CellDataTypeEnum.STRING);
         when(converter.supportJavaTypeKey())
@@ -81,8 +84,8 @@ class AnalysisContextImplTest {
         customConverterList.add(converter);
         readWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readWorkbook.setHead(head);
         Locale locale = new Locale("en");
@@ -125,7 +128,6 @@ class AnalysisContextImplTest {
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getForceIndex(), is(false));
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getForceName(), is(true));
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getHeadFontProperty(), is(nullValue()));
-        assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getHeadNameList(), sameInstance(list));
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getHeadStyleProperty(), is(nullValue()));
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getLoopMergeProperty(), is(nullValue()));
         assertThat(result.getExcelReadHeadProperty().getHeadRowNumber(), is(1));
@@ -141,7 +143,7 @@ class AnalysisContextImplTest {
         // pojo String result.getExcelReadHeadProperty().getIgnoreMap().get("value").getName()
         assertThat(result.getHeadRowNumber(), is(1));
         assertThat(result.getReadListenerList().size(), is(1));
-        assertThat(result.getReadListenerList().get(0), sameInstance(readListener));
+        assertThat(result.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) result.getClazz(), equalTo((Class) String.class));
         // pojo Converter result.getConverterMap().get("java.lang.Boolean-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.lang.Boolean-NUMBER")
@@ -171,7 +173,7 @@ class AnalysisContextImplTest {
         assertThat(result.getConverterMap().get("java.lang.String-ERROR"), is(notNullValue()));
         assertThat(result.getConverterMap().get("java.lang.String-IMAGE"), is(notNullValue()));
         assertThat(result.getConverterMap().get("java.lang.String-NUMBER"), is(notNullValue()));
-        assertThat(result.getConverterMap().get("java.lang.String-STRING"), sameInstance(converter));
+        assertThat(result.getConverterMap().get("java.lang.String-STRING"), is(notNullValue()));
         // pojo Converter result.getConverterMap().get("java.math.BigDecimal-BOOLEAN")
         // pojo Converter result.getConverterMap().get("java.math.BigDecimal-NUMBER")
         // pojo Converter result.getConverterMap().get("java.math.BigDecimal-STRING")
@@ -182,7 +184,8 @@ class AnalysisContextImplTest {
         assertThat(result.getGlobalConfiguration().getUse1904windowing(), is(false));
         assertThat(result.getGlobalConfiguration().getUseScientificFormat(), is(false));
         assertThat(result.getHead().size(), is(1));
-        assertThat(result.getHead().get(0), sameInstance(list));
+        assertThat(result.getHead().get(0), hasSize(1));
+        assertThat(result.getHead().get(0).get(0), is("Smith"));
         assertThat(result.getNewInitialization(), is(true));
     }
 

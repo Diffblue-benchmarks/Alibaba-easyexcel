@@ -18,6 +18,9 @@ class ExcelAnalysisStopExceptionTest {
     void factory1() {
         ExcelAnalysisStopException excelAnalysisStopException =
              new ExcelAnalysisStopException("an error has happened");
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisStopException.setStackTrace(stackTrace);
         assertThat(excelAnalysisStopException.getCause(), is(nullValue()));
         assertThat(excelAnalysisStopException.getMessage(), is("an error has happened"));
     }
@@ -28,6 +31,9 @@ class ExcelAnalysisStopExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelAnalysisStopException excelAnalysisStopException =
              new ExcelAnalysisStopException("an error has happened", cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisStopException.setStackTrace(stackTrace);
         assertThat(excelAnalysisStopException.getCause().getCause(), is(nullValue()));
         assertThat(excelAnalysisStopException.getCause().getMessage(), is(nullValue()));
         assertThat(excelAnalysisStopException.getMessage(), is("an error has happened"));
@@ -39,6 +45,9 @@ class ExcelAnalysisStopExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelAnalysisStopException excelAnalysisStopException =
              new ExcelAnalysisStopException(cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisStopException.setStackTrace(stackTrace);
         assertThat(excelAnalysisStopException.getCause().getCause(), is(nullValue()));
         assertThat(excelAnalysisStopException.getCause().getMessage(), is(nullValue()));
         assertThat(excelAnalysisStopException.getMessage(), is("java.lang.Exception"));

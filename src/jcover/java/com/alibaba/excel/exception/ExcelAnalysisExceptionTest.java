@@ -18,6 +18,9 @@ class ExcelAnalysisExceptionTest {
     void factory1() {
         ExcelAnalysisException excelAnalysisException =
              new ExcelAnalysisException("an error has happened");
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisException.setStackTrace(stackTrace);
         assertThat(excelAnalysisException.getCause(), is(nullValue()));
         assertThat(excelAnalysisException.getMessage(), is("an error has happened"));
     }
@@ -28,6 +31,9 @@ class ExcelAnalysisExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelAnalysisException excelAnalysisException =
              new ExcelAnalysisException("an error has happened", cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisException.setStackTrace(stackTrace);
         assertThat(excelAnalysisException.getCause().getCause(), is(nullValue()));
         assertThat(excelAnalysisException.getCause().getMessage(), is(nullValue()));
         assertThat(excelAnalysisException.getMessage(), is("an error has happened"));
@@ -39,6 +45,9 @@ class ExcelAnalysisExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelAnalysisException excelAnalysisException =
              new ExcelAnalysisException(cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelAnalysisException.setStackTrace(stackTrace);
         assertThat(excelAnalysisException.getCause().getCause(), is(nullValue()));
         assertThat(excelAnalysisException.getCause().getMessage(), is(nullValue()));
         assertThat(excelAnalysisException.getMessage(), is("java.lang.Exception"));

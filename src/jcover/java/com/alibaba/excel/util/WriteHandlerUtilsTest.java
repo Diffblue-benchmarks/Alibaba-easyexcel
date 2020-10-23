@@ -41,7 +41,7 @@ class WriteHandlerUtilsTest {
     void beforeWorkbookCreate2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
@@ -100,7 +100,7 @@ class WriteHandlerUtilsTest {
     void afterWorkbookCreate2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
@@ -142,7 +142,7 @@ class WriteHandlerUtilsTest {
     void afterWorkbookDispose2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, list);
@@ -184,7 +184,7 @@ class WriteHandlerUtilsTest {
     void beforeSheetCreate2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.SheetWriteHandler.class, list);
@@ -253,7 +253,7 @@ class WriteHandlerUtilsTest {
     void beforeCellCreate3() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
@@ -299,7 +299,7 @@ class WriteHandlerUtilsTest {
     void afterCellCreate3() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
@@ -345,7 +345,7 @@ class WriteHandlerUtilsTest {
     void afterCellDataConverted3() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.CellWriteHandler.class, list);
@@ -376,7 +376,7 @@ class WriteHandlerUtilsTest {
     void beforeRowCreate1() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list);
@@ -430,7 +430,7 @@ class WriteHandlerUtilsTest {
     void afterRowCreate2() {
         Map<Class<? extends WriteHandler>, List<WriteHandler>> map =
              new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        List<WriteHandler> list = new ArrayList<WriteHandler>();
+        ArrayList<WriteHandler> list = new ArrayList<WriteHandler>();
         WriteHandler writeHandler = mock(WriteHandler.class);
         list.add(writeHandler);
         map.put(com.alibaba.excel.write.handler.RowWriteHandler.class, list);

@@ -2,6 +2,7 @@ package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -29,8 +30,8 @@ class SheetTest {
         sheet.setClazz(BaseRowModel.class);
         sheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         sheet.setHead(head);
         sheet.setHeadLineMun(1);
@@ -55,7 +56,8 @@ class SheetTest {
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
         assertThat(sheet.getHead().size(), is(1));
-        assertThat(sheet.getHead().get(0), sameInstance(list));
+        assertThat(sheet.getHead().get(0), hasSize(1));
+        assertThat(sheet.getHead().get(0).get(0), is("Smith"));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));
@@ -70,8 +72,8 @@ class SheetTest {
         sheet.setClazz(BaseRowModel.class);
         sheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         sheet.setHead(head);
         sheet.setHeadLineMun(1);
@@ -96,7 +98,8 @@ class SheetTest {
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
         assertThat(sheet.getHead().size(), is(1));
-        assertThat(sheet.getHead().get(0), sameInstance(list));
+        assertThat(sheet.getHead().get(0), hasSize(1));
+        assertThat(sheet.getHead().get(0).get(0), is("Smith"));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));
@@ -107,16 +110,16 @@ class SheetTest {
     @Test
     void factory3() {
         ArrayList<List<String>> head1 = new ArrayList<List<String>>();
-        List<String> list1 = new ArrayList<String>();
-        list1.add("foo");
+        ArrayList<String> list1 = new ArrayList<String>();
+        list1.add("Smith");
         head1.add(list1);
         Sheet sheet = new Sheet(1, 1, BaseRowModel.class, "Acme", head1);
         sheet.setAutoWidth(false);
         sheet.setClazz(BaseRowModel.class);
         sheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        List<String> list2 = new ArrayList<String>();
-        list2.add("foo");
+        ArrayList<String> list2 = new ArrayList<String>();
+        list2.add("Smith");
         head2.add(list2);
         sheet.setHead(head2);
         sheet.setHeadLineMun(1);
@@ -141,7 +144,8 @@ class SheetTest {
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
         assertThat(sheet.getHead().size(), is(1));
-        assertThat(sheet.getHead().get(0), sameInstance(list2));
+        assertThat(sheet.getHead().get(0), hasSize(1));
+        assertThat(sheet.getHead().get(0).get(0), is("Smith"));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));
@@ -156,8 +160,8 @@ class SheetTest {
         sheet.setClazz(BaseRowModel.class);
         sheet.setColumnWidthMap(new HashMap<Integer, Integer>());
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         sheet.setHead(head);
         sheet.setHeadLineMun(1);
@@ -170,7 +174,8 @@ class SheetTest {
         assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap(), is(notNullValue()));
         assertThat(sheet.getHead().size(), is(1));
-        assertThat(sheet.getHead().get(0), sameInstance(list));
+        assertThat(sheet.getHead().get(0), hasSize(1));
+        assertThat(sheet.getHead().get(0).get(0), is("Smith"));
         assertThat(sheet.getHeadLineMun(), is(1));
         assertThat(sheet.getSheetName(), is("Acme"));
         assertThat(sheet.getSheetNo(), is(1));

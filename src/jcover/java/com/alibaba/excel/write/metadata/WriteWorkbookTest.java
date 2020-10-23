@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
@@ -69,12 +70,13 @@ class WriteWorkbookTest {
         writeWorkbook.setAutoTrim(false);
         writeWorkbook.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         writeWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         writeWorkbook.setHead(head);
         Locale locale = new Locale("en");
@@ -108,9 +110,10 @@ class WriteWorkbookTest {
         assertThat(writeWorkbook.getAutoTrim(), is(false));
         assertThat((Class<String>) writeWorkbook.getClazz(), equalTo((Class) String.class));
         assertThat(writeWorkbook.getCustomConverterList().size(), is(1));
-        assertThat(writeWorkbook.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(writeWorkbook.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(writeWorkbook.getHead().size(), is(1));
-        assertThat(writeWorkbook.getHead().get(0), sameInstance(list));
+        assertThat(writeWorkbook.getHead().get(0), hasSize(1));
+        assertThat(writeWorkbook.getHead().get(0).get(0), is("Smith"));
         assertThat(writeWorkbook.getLocale(), sameInstance(locale));
         assertThat(writeWorkbook.getUse1904windowing(), is(false));
         assertThat(writeWorkbook.getUseScientificFormat(), is(false));

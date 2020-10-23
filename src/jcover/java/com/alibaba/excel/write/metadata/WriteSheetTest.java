@@ -75,12 +75,13 @@ class WriteSheetTest {
         writeSheet.setAutoTrim(false);
         writeSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         writeSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         writeSheet.setHead(head);
         Locale locale = new Locale("en");
@@ -108,9 +109,10 @@ class WriteSheetTest {
         assertThat(writeSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) writeSheet.getClazz(), equalTo((Class) String.class));
         assertThat(writeSheet.getCustomConverterList().size(), is(1));
-        assertThat(writeSheet.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(writeSheet.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(writeSheet.getHead().size(), is(1));
-        assertThat(writeSheet.getHead().get(0), sameInstance(list));
+        assertThat(writeSheet.getHead().get(0), hasSize(1));
+        assertThat(writeSheet.getHead().get(0).get(0), is("Smith"));
         assertThat(writeSheet.getLocale(), sameInstance(locale));
         assertThat(writeSheet.getUse1904windowing(), is(false));
         assertThat(writeSheet.getUseScientificFormat(), is(false));

@@ -27,7 +27,8 @@ class DefaultAnalysisEventProcessorTest {
 
         // arrange
         List<ReadListener> list = new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         list.add(readListener);
         ReadHolder readHolder = mock(ReadHolder.class);
         when(readHolder.readListenerList())

@@ -3,6 +3,7 @@ package com.alibaba.excel.read.metadata;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -53,19 +54,21 @@ class ReadWorkbookTest {
         readWorkbook.setXlsxSAXParserFactoryName("Acme");
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readWorkbook.setCustomReadListenerList(customReadListenerList);
         readWorkbook.setHeadRowNumber(1);
         readWorkbook.setAutoTrim(false);
         readWorkbook.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         readWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readWorkbook.setHead(head);
         Locale locale = new Locale("en");
@@ -87,14 +90,15 @@ class ReadWorkbookTest {
         assertThat(readWorkbook.getUseDefaultListener(), is(false));
         assertThat(readWorkbook.getXlsxSAXParserFactoryName(), is("Acme"));
         assertThat(readWorkbook.getCustomReadListenerList().size(), is(1));
-        assertThat(readWorkbook.getCustomReadListenerList().get(0), sameInstance(readListener));
+        assertThat(readWorkbook.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readWorkbook.getHeadRowNumber(), is(1));
         assertThat(readWorkbook.getAutoTrim(), is(false));
         assertThat((Class<String>) readWorkbook.getClazz(), equalTo((Class) String.class));
         assertThat(readWorkbook.getCustomConverterList().size(), is(1));
-        assertThat(readWorkbook.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readWorkbook.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(readWorkbook.getHead().size(), is(1));
-        assertThat(readWorkbook.getHead().get(0), sameInstance(list));
+        assertThat(readWorkbook.getHead().get(0), hasSize(1));
+        assertThat(readWorkbook.getHead().get(0).get(0), is("Smith"));
         assertThat(readWorkbook.getLocale(), sameInstance(locale));
         assertThat(readWorkbook.getUse1904windowing(), is(false));
         assertThat(readWorkbook.getUseScientificFormat(), is(false));

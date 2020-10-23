@@ -1,6 +1,7 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -24,8 +25,8 @@ class TableTest {
         Table table = new Table(1);
         table.setClazz(BaseRowModel.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         table.setHead(head);
         table.setTableNo(1);
@@ -33,7 +34,8 @@ class TableTest {
         table.setTableStyle(tableStyle);
         assertThat((Class<BaseRowModel>) table.getClazz(), equalTo((Class) BaseRowModel.class));
         assertThat(table.getHead().size(), is(1));
-        assertThat(table.getHead().get(0), sameInstance(list));
+        assertThat(table.getHead().get(0), hasSize(1));
+        assertThat(table.getHead().get(0).get(0), is("Smith"));
         assertThat(table.getTableNo(), is(1));
         assertThat(table.getTableStyle(), sameInstance(tableStyle));
     }

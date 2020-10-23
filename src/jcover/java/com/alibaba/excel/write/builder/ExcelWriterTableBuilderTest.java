@@ -86,12 +86,13 @@ class ExcelWriterTableBuilderTest {
         writeSheet.setAutoTrim(false);
         writeSheet.setClazz(String.class);
         ArrayList<Converter> customConverterList2 = new ArrayList<Converter>();
-        Converter converter2 = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter2 = mock(Converter.class);
         customConverterList2.add(converter2);
         writeSheet.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        List<String> list2 = new ArrayList<String>();
-        list2.add("foo");
+        ArrayList<String> list2 = new ArrayList<String>();
+        list2.add("Smith");
         head2.add(list2);
         writeSheet.setHead(head2);
         writeSheet.setLocale(new Locale("en"));

@@ -18,6 +18,9 @@ class ExcelCommonExceptionTest {
     void factory1() {
         ExcelCommonException excelCommonException =
              new ExcelCommonException("an error has happened");
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelCommonException.setStackTrace(stackTrace);
         assertThat(excelCommonException.getCause(), is(nullValue()));
         assertThat(excelCommonException.getMessage(), is("an error has happened"));
     }
@@ -28,6 +31,9 @@ class ExcelCommonExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelCommonException excelCommonException =
              new ExcelCommonException("an error has happened", cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelCommonException.setStackTrace(stackTrace);
         assertThat(excelCommonException.getCause().getCause(), is(nullValue()));
         assertThat(excelCommonException.getCause().getMessage(), is(nullValue()));
         assertThat(excelCommonException.getMessage(), is("an error has happened"));
@@ -39,6 +45,9 @@ class ExcelCommonExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelCommonException excelCommonException =
              new ExcelCommonException(cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelCommonException.setStackTrace(stackTrace);
         assertThat(excelCommonException.getCause().getCause(), is(nullValue()));
         assertThat(excelCommonException.getCause().getMessage(), is(nullValue()));
         assertThat(excelCommonException.getMessage(), is("java.lang.Exception"));

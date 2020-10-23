@@ -19,7 +19,7 @@ class FillWrapperTest {
     @Test
     void factory1() {
         LinkedList<String> collectionData1 = new LinkedList<String>();
-        collectionData1.add("/bin/bash");
+        collectionData1.add("something");
         FillWrapper fillWrapper = new FillWrapper("data.txt", collectionData1);
         LinkedList<String> collectionData2 = new LinkedList<String>();
         collectionData2.add("something");
@@ -33,7 +33,7 @@ class FillWrapperTest {
     @Test
     void factory2() {
         LinkedList<String> collectionData1 = new LinkedList<String>();
-        collectionData1.add("/bin/bash");
+        collectionData1.add("something");
         FillWrapper fillWrapper = new FillWrapper(collectionData1);
         LinkedList<String> collectionData2 = new LinkedList<String>();
         collectionData2.add("something");

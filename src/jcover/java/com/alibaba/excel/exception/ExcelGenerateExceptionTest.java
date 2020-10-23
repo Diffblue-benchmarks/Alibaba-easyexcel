@@ -18,6 +18,9 @@ class ExcelGenerateExceptionTest {
     void factory1() {
         ExcelGenerateException excelGenerateException =
              new ExcelGenerateException("an error has happened");
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelGenerateException.setStackTrace(stackTrace);
         assertThat(excelGenerateException.getCause(), is(nullValue()));
         assertThat(excelGenerateException.getMessage(), is("an error has happened"));
     }
@@ -28,6 +31,9 @@ class ExcelGenerateExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelGenerateException excelGenerateException =
              new ExcelGenerateException("an error has happened", cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelGenerateException.setStackTrace(stackTrace);
         assertThat(excelGenerateException.getCause().getCause(), is(nullValue()));
         assertThat(excelGenerateException.getCause().getMessage(), is(nullValue()));
         assertThat(excelGenerateException.getMessage(), is("an error has happened"));
@@ -39,6 +45,9 @@ class ExcelGenerateExceptionTest {
         cause.setStackTrace(new StackTraceElement[] { });
         ExcelGenerateException excelGenerateException =
              new ExcelGenerateException(cause);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelGenerateException.setStackTrace(stackTrace);
         assertThat(excelGenerateException.getCause().getCause(), is(nullValue()));
         assertThat(excelGenerateException.getCause().getMessage(), is(nullValue()));
         assertThat(excelGenerateException.getMessage(), is("java.lang.Exception"));

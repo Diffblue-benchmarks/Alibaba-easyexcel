@@ -281,6 +281,9 @@ class ExcelDataConvertExceptionTest {
         excelContentProperty2.setNumberFormatProperty(numberFormatProperty2);
         excelDataConvertException.setExcelContentProperty(excelContentProperty2);
         excelDataConvertException.setRowIndex(1);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelDataConvertException.setStackTrace(stackTrace);
         assertThat(excelDataConvertException.getCellData().getBooleanValue(), is(false));
         assertThat((String) excelDataConvertException.getCellData().getData(), is("something"));
         assertThat(excelDataConvertException.getCellData().getDataFormat(), is(1));
@@ -545,6 +548,9 @@ class ExcelDataConvertExceptionTest {
         excelContentProperty2.setNumberFormatProperty(numberFormatProperty2);
         excelDataConvertException.setExcelContentProperty(excelContentProperty2);
         excelDataConvertException.setRowIndex(1);
+        StackTraceElement[] stackTrace =
+             new StackTraceElement[] { new StackTraceElement("java.lang.Object", "toString", "Object.java", 1) };
+        excelDataConvertException.setStackTrace(stackTrace);
         assertThat(excelDataConvertException.getCellData().getBooleanValue(), is(false));
         assertThat((String) excelDataConvertException.getCellData().getData(), is("something"));
         assertThat(excelDataConvertException.getCellData().getDataFormat(), is(1));

@@ -1,6 +1,8 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -28,12 +30,13 @@ class BasicParameterTest {
         basicParameter.setAutoTrim(false);
         basicParameter.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         basicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("data");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         basicParameter.setHead(head);
         Locale locale = new Locale("en");
@@ -43,9 +46,10 @@ class BasicParameterTest {
         assertThat(basicParameter.getAutoTrim(), is(false));
         assertThat((Class<String>) basicParameter.getClazz(), equalTo((Class) String.class));
         assertThat(basicParameter.getCustomConverterList().size(), is(1));
-        assertThat(basicParameter.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(basicParameter.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(basicParameter.getHead().size(), is(1));
-        assertThat(basicParameter.getHead().get(0), sameInstance(list));
+        assertThat(basicParameter.getHead().get(0), hasSize(1));
+        assertThat(basicParameter.getHead().get(0).get(0), is("Smith"));
         assertThat(basicParameter.getLocale(), sameInstance(locale));
         assertThat(basicParameter.getUse1904windowing(), is(false));
         assertThat(basicParameter.getUseScientificFormat(), is(false));

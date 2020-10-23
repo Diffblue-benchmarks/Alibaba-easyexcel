@@ -30,8 +30,8 @@ class ExcelReadHeadPropertyTest {
     void factory() {
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         ExcelReadHeadProperty excelReadHeadProperty =
              new ExcelReadHeadProperty(holder, String.class, head, false);

@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -71,12 +72,13 @@ class WriteTableTest {
         writeTable.setAutoTrim(false);
         writeTable.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         writeTable.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("foo");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         writeTable.setHead(head);
         Locale locale = new Locale("en");
@@ -102,9 +104,10 @@ class WriteTableTest {
         assertThat(writeTable.getAutoTrim(), is(false));
         assertThat((Class<String>) writeTable.getClazz(), equalTo((Class) String.class));
         assertThat(writeTable.getCustomConverterList().size(), is(1));
-        assertThat(writeTable.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(writeTable.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(writeTable.getHead().size(), is(1));
-        assertThat(writeTable.getHead().get(0), sameInstance(list));
+        assertThat(writeTable.getHead().get(0), hasSize(1));
+        assertThat(writeTable.getHead().get(0).get(0), is("Smith"));
         assertThat(writeTable.getLocale(), sameInstance(locale));
         assertThat(writeTable.getUse1904windowing(), is(false));
         assertThat(writeTable.getUseScientificFormat(), is(false));

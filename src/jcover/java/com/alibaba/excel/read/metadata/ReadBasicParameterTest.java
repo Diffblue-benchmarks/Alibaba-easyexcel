@@ -1,6 +1,8 @@
 package com.alibaba.excel.read.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -28,19 +30,21 @@ class ReadBasicParameterTest {
         ReadBasicParameter readBasicParameter = new ReadBasicParameter();
         ArrayList<ReadListener> customReadListenerList =
              new ArrayList<ReadListener>();
-        ReadListener readListener = mock(ReadListener.class);
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
         customReadListenerList.add(readListener);
         readBasicParameter.setCustomReadListenerList(customReadListenerList);
         readBasicParameter.setHeadRowNumber(1);
         readBasicParameter.setAutoTrim(false);
         readBasicParameter.setClazz(String.class);
         ArrayList<Converter> customConverterList = new ArrayList<Converter>();
-        Converter converter = mock(Converter.class);
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
         customConverterList.add(converter);
         readBasicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        List<String> list = new ArrayList<String>();
-        list.add("data");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Smith");
         head.add(list);
         readBasicParameter.setHead(head);
         Locale locale = new Locale("en");
@@ -48,14 +52,15 @@ class ReadBasicParameterTest {
         readBasicParameter.setUse1904windowing(false);
         readBasicParameter.setUseScientificFormat(false);
         assertThat(readBasicParameter.getCustomReadListenerList().size(), is(1));
-        assertThat(readBasicParameter.getCustomReadListenerList().get(0), sameInstance(readListener));
+        assertThat(readBasicParameter.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readBasicParameter.getHeadRowNumber(), is(1));
         assertThat(readBasicParameter.getAutoTrim(), is(false));
         assertThat((Class<String>) readBasicParameter.getClazz(), equalTo((Class) String.class));
         assertThat(readBasicParameter.getCustomConverterList().size(), is(1));
-        assertThat(readBasicParameter.getCustomConverterList().get(0), sameInstance(converter));
+        assertThat(readBasicParameter.getCustomConverterList().get(0), is(notNullValue()));
         assertThat(readBasicParameter.getHead().size(), is(1));
-        assertThat(readBasicParameter.getHead().get(0), sameInstance(list));
+        assertThat(readBasicParameter.getHead().get(0), hasSize(1));
+        assertThat(readBasicParameter.getHead().get(0).get(0), is("Smith"));
         assertThat(readBasicParameter.getLocale(), sameInstance(locale));
         assertThat(readBasicParameter.getUse1904windowing(), is(false));
         assertThat(readBasicParameter.getUseScientificFormat(), is(false));
