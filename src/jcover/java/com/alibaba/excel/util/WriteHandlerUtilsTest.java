@@ -69,23 +69,6 @@ class WriteHandlerUtilsTest {
     }
 
     @Test
-    void beforeWorkbookCreateRunOwnIsTrue() {
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map1 =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        map1.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
-        Map<Class<? extends WriteHandler>, List<WriteHandler>> map2 =
-             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
-        map2.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
-        WriteHolder writeHolder = mock(WriteHolder.class);
-        when(writeHolder.ownWriteHandlerMap())
-            .thenReturn(map1);
-        WriteContext writeContext = mock(WriteContext.class);
-        when(writeContext.currentWriteHolder())
-            .thenReturn(writeHolder);
-        WriteHandlerUtils.beforeWorkbookCreate(writeContext, true);
-    }
-
-    @Test
     void afterWorkbookCreate1() {
         WriteHolder writeHolder = mock(WriteHolder.class);
         when(writeHolder.writeHandlerMap())
@@ -125,6 +108,23 @@ class WriteHandlerUtilsTest {
         when(writeContext.currentWriteHolder())
             .thenReturn(writeHolder);
         WriteHandlerUtils.afterWorkbookCreate(writeContext);
+    }
+
+    @Test
+    void afterWorkbookCreateRunOwnIsTrue() {
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map1 =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        map1.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
+        Map<Class<? extends WriteHandler>, List<WriteHandler>> map2 =
+             new HashMap<Class<? extends WriteHandler>, List<WriteHandler>>();
+        map2.put(com.alibaba.excel.write.handler.WorkbookWriteHandler.class, new ArrayList<WriteHandler>());
+        WriteHolder writeHolder = mock(WriteHolder.class);
+        when(writeHolder.ownWriteHandlerMap())
+            .thenReturn(map1);
+        WriteContext writeContext = mock(WriteContext.class);
+        when(writeContext.currentWriteHolder())
+            .thenReturn(writeHolder);
+        WriteHandlerUtils.afterWorkbookCreate(writeContext, true);
     }
 
     @Test

@@ -21,68 +21,68 @@ import org.xml.sax.Attributes;
 class SharedStringsTableHandlerTest {
 
     @Test
-    void resolveEntityReturnsNull() throws java.io.IOException, org.xml.sax.SAXException {
-        ReadCache readCache = mock(ReadCache.class);
-        assertThat(new SharedStringsTableHandler(readCache).resolveEntity("1234", "1234"), is(nullValue()));
-    }
-
-    @Test
-    void startElementQNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void startElementNameIsAcmeAndUriIsBar() {
         ReadCache readCache = mock(ReadCache.class);
         Attributes attributes = mock(Attributes.class);
         new SharedStringsTableHandler(readCache).startElement("bar", "Acme", "Acme", attributes);
     }
 
     @Test
-    void startElementQNameIsRPh() throws org.xml.sax.SAXException {
+    void startElementNameIsRPh() {
         ReadCache readCache = mock(ReadCache.class);
         Attributes attributes = mock(Attributes.class);
         new SharedStringsTableHandler(readCache).startElement("/some/path.html", "Acme", "rPh", attributes);
     }
 
     @Test
-    void startElementQNameIsSi() throws org.xml.sax.SAXException {
+    void startElementNameIsSi() {
         ReadCache readCache = mock(ReadCache.class);
         Attributes attributes = mock(Attributes.class);
         new SharedStringsTableHandler(readCache).startElement("/some/path.html", "Acme", "si", attributes);
     }
 
     @Test
-    void startElementQNameIsT() throws org.xml.sax.SAXException {
+    void startElementNameIsT() {
         ReadCache readCache = mock(ReadCache.class);
         Attributes attributes = mock(Attributes.class);
         new SharedStringsTableHandler(readCache).startElement("/some/path.html", "Acme", "t", attributes);
     }
 
     @Test
-    void endElement() throws org.xml.sax.SAXException {
+    void endElement() {
         ReadCache readCache = mock(ReadCache.class);
         new SharedStringsTableHandler(readCache).endElement("bar", "Acme", "si");
         Mockito.verify(readCache).put(ArgumentMatchers.eq((String) null));
     }
 
     @Test
-    void endElementQNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void endElementNameIsAcmeAndUriIsBar() {
         ReadCache readCache = mock(ReadCache.class);
         new SharedStringsTableHandler(readCache).endElement("bar", "Acme", "Acme");
     }
 
     @Test
-    void endElementQNameIsRPh() throws org.xml.sax.SAXException {
+    void endElementNameIsRPh() {
         ReadCache readCache = mock(ReadCache.class);
         new SharedStringsTableHandler(readCache).endElement("/some/path.html", "Acme", "rPh");
     }
 
     @Test
-    void endElementQNameIsTAndUriIsBar() throws org.xml.sax.SAXException {
+    void endElementNameIsTAndUriIsBar() {
         ReadCache readCache = mock(ReadCache.class);
         new SharedStringsTableHandler(readCache).endElement("bar", "Acme", "t");
     }
 
     @Test
-    void charactersChIsaAndLengthIsOneAndStartIsZero() throws org.xml.sax.SAXException {
+    void charactersChIsaAndLengthIsOneAndStartIsZero() {
         ReadCache readCache = mock(ReadCache.class);
         char[] ch = new char[] { 'a' };
         new SharedStringsTableHandler(readCache).characters(ch, 0, 1);
+    }
+
+    @Test
+    void resolveEntityReturnsNull() throws java.io.IOException, org.xml.sax.SAXException {
+        ReadCache readCache = mock(ReadCache.class);
+        assertThat(new SharedStringsTableHandler(readCache).resolveEntity("1234", "1234"), is(nullValue()));
     }
 }
