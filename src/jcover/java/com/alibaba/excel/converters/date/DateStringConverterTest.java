@@ -12,6 +12,7 @@ import com.alibaba.excel.metadata.property.DateTimeFormatProperty;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
 
 import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Test;
 
@@ -45,7 +46,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(result.getStringValue(), is("2010-12-31 00:00:00"));
+        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -71,7 +72,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(result.getStringValue(), is("2010-12-31"));
+        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -89,7 +90,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(result.getStringValue(), is("2010-12-31 00:00:00"));
+        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));

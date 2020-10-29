@@ -13,7 +13,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 /**
@@ -59,7 +58,7 @@ class WorkBookUtilTest {
             .thenReturn(cell);
         CellStyle cellStyle = mock(CellStyle.class);
         assertThat(WorkBookUtil.createCell(row, 1, cellStyle), is(notNullValue()));
-        Mockito.verify(cell).setCellStyle(ArgumentMatchers.<CellStyle>any());
+        Mockito.verify(cell).setCellStyle(Mockito.<CellStyle>any());
     }
 
     @Test
@@ -70,8 +69,8 @@ class WorkBookUtilTest {
             .thenReturn(cell);
         CellStyle cellStyle = mock(CellStyle.class);
         assertThat(WorkBookUtil.createCell(row, 1, cellStyle, "value"), is(notNullValue()));
-        Mockito.verify(cell).setCellStyle(ArgumentMatchers.<CellStyle>any());
-        Mockito.verify(cell).setCellValue(ArgumentMatchers.eq("value"));
+        Mockito.verify(cell).setCellStyle(Mockito.<CellStyle>any());
+        Mockito.verify(cell).setCellValue(Mockito.eq("value"));
     }
 
     @Test
@@ -81,6 +80,6 @@ class WorkBookUtilTest {
         when(row.createCell(anyInt()))
             .thenReturn(cell);
         assertThat(WorkBookUtil.createCell(row, 1, "value"), is(notNullValue()));
-        Mockito.verify(cell).setCellValue(ArgumentMatchers.eq("value"));
+        Mockito.verify(cell).setCellValue(Mockito.eq("value"));
     }
 }

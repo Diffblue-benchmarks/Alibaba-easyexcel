@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 /**
@@ -41,6 +40,6 @@ class DefaultAnalysisEventProcessorTest {
         new DefaultAnalysisEventProcessor().endSheet(analysisContext);
 
         // assert
-        Mockito.verify(readListener).doAfterAllAnalysed(ArgumentMatchers.<AnalysisContext>any());
+        Mockito.verify(readListener).doAfterAllAnalysed(Mockito.<AnalysisContext>any());
     }
 }

@@ -8,7 +8,6 @@ import static org.mockito.Mockito.mock;
 import com.alibaba.excel.cache.ReadCache;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.xml.sax.Attributes;
 
@@ -52,7 +51,7 @@ class SharedStringsTableHandlerTest {
     void endElement() {
         ReadCache readCache = mock(ReadCache.class);
         new SharedStringsTableHandler(readCache).endElement("bar", "Acme", "si");
-        Mockito.verify(readCache).put(ArgumentMatchers.eq((String) null));
+        Mockito.verify(readCache).put(Mockito.eq((String) null));
     }
 
     @Test

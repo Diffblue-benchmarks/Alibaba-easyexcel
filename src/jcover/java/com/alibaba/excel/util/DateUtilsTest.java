@@ -6,6 +6,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ class DateUtilsTest {
 
     @Test
     void format() throws java.text.ParseException {
-        assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31")), is("2010-12-31 00:00:00"));
+        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"))), is(true));
         assertThat(DateUtils.format(null, "bar"), is(""));
         assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), "y"), is("2010"));
     }
