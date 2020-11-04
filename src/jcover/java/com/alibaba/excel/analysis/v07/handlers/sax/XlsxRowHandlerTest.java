@@ -19,21 +19,21 @@ import org.xml.sax.Attributes;
 class XlsxRowHandlerTest {
 
     @Test
-    void resolveEntityReturnsNull() throws java.io.IOException, org.xml.sax.SAXException {
-        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
-        assertThat(new XlsxRowHandler(xlsxReadContext).resolveEntity("1234", "1234"), is(nullValue()));
-    }
-
-    @Test
-    void startElementLocalNameIsFooAndQNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void startElementLocalNameIsFooAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
         XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
         Attributes attributes = mock(Attributes.class);
         new XlsxRowHandler(xlsxReadContext).startElement("bar", "foo", "Acme", attributes);
     }
 
     @Test
-    void endElementLocalNameIsFooAndQNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
+    void endElementLocalNameIsFooAndNameIsAcmeAndUriIsBar() throws org.xml.sax.SAXException {
         XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
         new XlsxRowHandler(xlsxReadContext).endElement("bar", "foo", "Acme");
+    }
+
+    @Test
+    void resolveEntityReturnsNull() throws java.io.IOException, org.xml.sax.SAXException {
+        XlsxReadContext xlsxReadContext = mock(XlsxReadContext.class);
+        assertThat(new XlsxRowHandler(xlsxReadContext).resolveEntity("1234", "1234"), is(nullValue()));
     }
 }
