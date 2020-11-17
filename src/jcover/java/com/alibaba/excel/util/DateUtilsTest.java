@@ -28,7 +28,7 @@ class DateUtilsTest {
 
     @Test
     void format() throws java.text.ParseException {
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"))), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"))), is(true));
         assertThat(DateUtils.format(null, "bar"), is(""));
         assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), "y"), is("2010"));
     }

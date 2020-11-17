@@ -22,7 +22,7 @@ class DataFormatterTest {
 
     @Test
     void format1() {
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", new DataFormatter(null).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(null).format(1.0, 1, "yyyy-MM-dd")), is(true));
     }
 
     @Test
@@ -31,7 +31,7 @@ class DataFormatterTest {
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
     }
 
     @Test
@@ -39,7 +39,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
     }
 
     @Test
@@ -47,7 +47,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
     }
 
     @Test
@@ -55,7 +55,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
     }
 
     @Test

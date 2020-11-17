@@ -46,7 +46,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -72,7 +72,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", result.getStringValue()), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -90,7 +90,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));

@@ -26,14 +26,14 @@ class NumberDataFormatterUtilsTest {
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", globalConfiguration)), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", globalConfiguration)), is(true));
     }
 
     @Test
     void format2() {
         GlobalConfiguration globalConfiguration =
              mock(GlobalConfiguration.class);
-        assertThat(Pattern.matches("\\d{2,4}-\\d{1,2}-\\d{1,2}", NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", globalConfiguration)), is(true));
+        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", NumberDataFormatterUtils.format(1.0, 1, "yyyy-MM-dd", globalConfiguration)), is(true));
     }
 
     @Test
