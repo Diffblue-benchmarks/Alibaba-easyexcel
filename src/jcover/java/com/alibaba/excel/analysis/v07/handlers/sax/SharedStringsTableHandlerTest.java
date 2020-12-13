@@ -73,10 +73,9 @@ class SharedStringsTableHandlerTest {
     }
 
     @Test
-    void charactersChIsaAndLengthIsOneAndStartIsZero() {
+    void charactersLengthIsOneAndStartIsZero() {
         ReadCache readCache = mock(ReadCache.class);
-        char[] ch = new char[] { 'a' };
-        new SharedStringsTableHandler(readCache).characters(ch, 0, 1);
+        new SharedStringsTableHandler(readCache).characters(new char[] { '1', '2', '3' }, 0, 1);
     }
 
     @Test

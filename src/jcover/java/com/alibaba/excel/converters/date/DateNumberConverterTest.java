@@ -60,8 +60,7 @@ class DateNumberConverterTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        cellData.setImageValue(imageValue6);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
@@ -182,8 +181,7 @@ class DateNumberConverterTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        cellData.setImageValue(imageValue6);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
@@ -222,8 +220,7 @@ class DateNumberConverterTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        cellData.setImageValue(imageValue6);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);

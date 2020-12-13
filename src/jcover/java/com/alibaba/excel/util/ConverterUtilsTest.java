@@ -50,15 +50,15 @@ class ConverterUtilsTest {
         cellDataMap.put(1, cellData);
         GlobalConfiguration globalConfiguration1 =
              mock(GlobalConfiguration.class);
-        Map<String, Converter> map = new HashMap<String, Converter>();
+        HashMap<String, Converter> hashMap = new HashMap<String, Converter>();
         @SuppressWarnings("unchecked")
         Converter<String> converter = mock(Converter.class);
         when(converter.convertToJavaData(Mockito.<CellData>any(), Mockito.<com.alibaba.excel.metadata.property.ExcelContentProperty>any(), Mockito.<GlobalConfiguration>any()))
             .thenReturn("foo");
-        map.put("java.lang.String-STRING", converter);
+        hashMap.put("java.lang.String-STRING", converter);
         ReadHolder readHolder = mock(ReadHolder.class);
         when(readHolder.converterMap())
-            .thenReturn(map);
+            .thenReturn(hashMap);
         when(readHolder.globalConfiguration())
             .thenReturn(new GlobalConfiguration());
         AnalysisContext context = mock(AnalysisContext.class);
@@ -83,10 +83,10 @@ class ConverterUtilsTest {
         CellData<String> cellData = new CellData<String>();
         cellData.setType(CellDataTypeEnum.EMPTY);
         cellDataMap.put(1, cellData);
-        Map<String, Converter> map = new HashMap<String, Converter>();
+        HashMap<String, Converter> hashMap = new HashMap<String, Converter>();
         @SuppressWarnings("unchecked")
         Converter<String> converter = mock(Converter.class);
-        map.put("java.lang.String-STRING", converter);
+        hashMap.put("java.lang.String-STRING", converter);
         ReadHolder readHolder = mock(ReadHolder.class);
         AnalysisContext context = mock(AnalysisContext.class);
         when(context.currentReadHolder())

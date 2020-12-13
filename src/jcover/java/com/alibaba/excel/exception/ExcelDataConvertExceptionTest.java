@@ -47,8 +47,7 @@ class ExcelDataConvertExceptionTest {
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        cellData1.setImageValue(imageValue6);
+        cellData1.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         cellData1.setNumberValue(numberValue4);
         cellData1.setStringValue("foo");
@@ -167,8 +166,7 @@ class ExcelDataConvertExceptionTest {
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
         cellData2.setFormulaValue("value");
-        byte[] imageValue12 = new byte[] { 1 };
-        cellData2.setImageValue(imageValue12);
+        cellData2.setImageValue(new byte[] { 49, 50, 51 });
         cellData2.setNumberValue(BigDecimal.valueOf(1L));
         cellData2.setStringValue("foo");
         cellData2.setType(CellDataTypeEnum.STRING);
@@ -290,7 +288,7 @@ class ExcelDataConvertExceptionTest {
         assertThat(excelDataConvertException.getCellData().getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(excelDataConvertException.getCellData().getFormula(), is(false));
         assertThat(excelDataConvertException.getCellData().getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, excelDataConvertException.getCellData().getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, excelDataConvertException.getCellData().getImageValue());
         assertThat(excelDataConvertException.getCellData().getNumberValue(), sameInstance(numberValue4));
         assertThat(excelDataConvertException.getCellData().getStringValue(), is("foo"));
         assertThat(excelDataConvertException.getCellData().getType(), is(CellDataTypeEnum.STRING));
@@ -312,8 +310,7 @@ class ExcelDataConvertExceptionTest {
         cellData1.setDataFormatString("yyyy-MM-dd");
         cellData1.setFormula(false);
         cellData1.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        cellData1.setImageValue(imageValue6);
+        cellData1.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         cellData1.setNumberValue(numberValue4);
         cellData1.setStringValue("foo");
@@ -434,8 +431,7 @@ class ExcelDataConvertExceptionTest {
         cellData2.setDataFormatString("yyyy-MM-dd");
         cellData2.setFormula(false);
         cellData2.setFormulaValue("value");
-        byte[] imageValue12 = new byte[] { 1 };
-        cellData2.setImageValue(imageValue12);
+        cellData2.setImageValue(new byte[] { 49, 50, 51 });
         cellData2.setNumberValue(BigDecimal.valueOf(1L));
         cellData2.setStringValue("foo");
         cellData2.setType(CellDataTypeEnum.STRING);
@@ -557,7 +553,7 @@ class ExcelDataConvertExceptionTest {
         assertThat(excelDataConvertException.getCellData().getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(excelDataConvertException.getCellData().getFormula(), is(false));
         assertThat(excelDataConvertException.getCellData().getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, excelDataConvertException.getCellData().getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, excelDataConvertException.getCellData().getImageValue());
         assertThat(excelDataConvertException.getCellData().getNumberValue(), sameInstance(numberValue4));
         assertThat(excelDataConvertException.getCellData().getStringValue(), is("foo"));
         assertThat(excelDataConvertException.getCellData().getType(), is(CellDataTypeEnum.STRING));

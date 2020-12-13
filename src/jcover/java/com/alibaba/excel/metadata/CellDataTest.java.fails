@@ -29,8 +29,7 @@ class CellDataTest {
         other1.setDataFormatString("yyyy-MM-dd");
         other1.setFormula(false);
         other1.setFormulaValue("value");
-        byte[] imageValue6 = new byte[] { 1 };
-        other1.setImageValue(imageValue6);
+        other1.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue4 = BigDecimal.valueOf(1L);
         other1.setNumberValue(numberValue4);
         other1.setStringValue("foo");
@@ -44,8 +43,7 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue7 = new byte[] { 1 };
-        cellData.setImageValue(imageValue7);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
@@ -57,7 +55,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue4));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
@@ -74,8 +72,7 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue = new byte[] { 1 };
-        cellData.setImageValue(imageValue);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue);
         cellData.setStringValue("foo");
@@ -88,7 +85,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
@@ -105,8 +102,7 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue = new byte[] { 1 };
-        cellData.setImageValue(imageValue);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue);
         cellData.setStringValue("foo");
@@ -119,7 +115,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
@@ -129,16 +125,15 @@ class CellDataTest {
 
     @Test
     void factory4() {
-        byte[] imageValue1 = new byte[] { 1 };
-        CellData<String> cellData = new CellData<String>(imageValue1);
+        CellData<String> cellData =
+             new CellData<String>(new byte[] { 49, 50, 51 });
         cellData.setBooleanValue(false);
         cellData.setData("something");
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue2 = new byte[] { 1 };
-        cellData.setImageValue(imageValue2);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue);
         cellData.setStringValue("foo");
@@ -151,7 +146,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
@@ -169,8 +164,7 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue = new byte[] { 1 };
-        cellData.setImageValue(imageValue);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue);
         cellData.setStringValue("foo");
@@ -183,7 +177,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));
@@ -201,8 +195,7 @@ class CellDataTest {
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
-        byte[] imageValue = new byte[] { 1 };
-        cellData.setImageValue(imageValue);
+        cellData.setImageValue(new byte[] { 49, 50, 51 });
         BigDecimal numberValue = BigDecimal.valueOf(1L);
         cellData.setNumberValue(numberValue);
         cellData.setStringValue("foo");
@@ -215,7 +208,7 @@ class CellDataTest {
         assertThat(cellData.getDataFormatString(), is("yyyy-MM-dd"));
         assertThat(cellData.getFormula(), is(false));
         assertThat(cellData.getFormulaValue(), is("value"));
-        assertArrayEquals(new byte[] { 1 }, cellData.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, cellData.getImageValue());
         assertThat(cellData.getNumberValue(), sameInstance(numberValue));
         assertThat(cellData.getStringValue(), is("foo"));
         assertThat(cellData.getType(), is(CellDataTypeEnum.STRING));

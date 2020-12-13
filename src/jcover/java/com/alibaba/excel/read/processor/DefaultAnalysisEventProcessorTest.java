@@ -8,7 +8,6 @@ import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.read.metadata.holder.ReadHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -25,13 +24,13 @@ class DefaultAnalysisEventProcessorTest {
     void endSheet() {
 
         // arrange
-        List<ReadListener> list = new ArrayList<ReadListener>();
+        ArrayList<ReadListener> arrayList = new ArrayList<ReadListener>();
         @SuppressWarnings("unchecked")
         ReadListener<String> readListener = mock(ReadListener.class);
-        list.add(readListener);
+        arrayList.add(readListener);
         ReadHolder readHolder = mock(ReadHolder.class);
         when(readHolder.readListenerList())
-            .thenReturn(list);
+            .thenReturn(arrayList);
         AnalysisContext analysisContext = mock(AnalysisContext.class);
         when(analysisContext.currentReadHolder())
             .thenReturn(readHolder);

@@ -32,23 +32,16 @@ class ByteArrayImageConverterTest {
     }
 
     @Test
-    void convertToExcelDataValueIsOne() {
-
-        // arrange
-        byte[] value2 = new byte[] { 1 };
-
-        // act
+    void convertToExcelData() {
         CellData result =
-             new ByteArrayImageConverter().convertToExcelData(value2, new ExcelContentProperty(), new GlobalConfiguration());
-
-        // assert
+             new ByteArrayImageConverter().convertToExcelData(new byte[] { 49, 50, 51 }, new ExcelContentProperty(), new GlobalConfiguration());
         assertThat(result.getBooleanValue(), is(nullValue()));
         assertThat(result.getData(), is(nullValue()));
         assertThat(result.getDataFormat(), is(nullValue()));
         assertThat(result.getDataFormatString(), is(nullValue()));
         assertThat(result.getFormula(), is(false));
         assertThat(result.getFormulaValue(), is(nullValue()));
-        assertArrayEquals(new byte[] { 1 }, result.getImageValue());
+        assertArrayEquals(new byte[] { 49, 50, 51 }, result.getImageValue());
         assertThat(result.getNumberValue(), is(nullValue()));
         assertThat(result.getStringValue(), is(nullValue()));
         assertThat(result.getType(), is(CellDataTypeEnum.IMAGE));

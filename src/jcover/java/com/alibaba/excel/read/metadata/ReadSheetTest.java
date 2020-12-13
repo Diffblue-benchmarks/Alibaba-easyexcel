@@ -7,7 +7,6 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.read.listener.ReadListener;
@@ -166,32 +165,20 @@ class ReadSheetTest {
 
         // arrange
         ReadSheet readSheet = new ReadSheet();
-        List<Converter> list2 = new ArrayList<Converter>();
-        List<List<String>> list3 = new ArrayList<List<String>>();
-        List<ReadListener> list5 = new ArrayList<ReadListener>();
-        ReadSheet other = mock(ReadSheet.class);
-        when(other.getCustomReadListenerList())
-            .thenReturn(list5);
-        when(other.getHeadRowNumber())
-            .thenReturn(1);
-        when(other.getAutoTrim())
-            .thenReturn(false);
-        when(other.getClazz())
-            .thenReturn(String.class);
-        when(other.getCustomConverterList())
-            .thenReturn(list2);
-        when(other.getHead())
-            .thenReturn(list3);
-        when(other.getUse1904windowing())
-            .thenReturn(false);
+        ReadSheet other = new ReadSheet();
+        ArrayList<ReadListener> customReadListenerList2 =
+             new ArrayList<ReadListener>();
+        @SuppressWarnings("unchecked")
+        ReadListener<String> readListener = mock(ReadListener.class);
+        customReadListenerList2.add(readListener);
+        other.setCustomReadListenerList(customReadListenerList2);
 
         // act
         readSheet.copyBasicParameter(other);
 
         // assert
-        assertThat(readSheet.getCustomReadListenerList(), sameInstance(list5));
-        assertThat(readSheet.getCustomConverterList(), sameInstance(list2));
-        assertThat(readSheet.getHead(), sameInstance(list3));
+        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
     }
 
     @Test
