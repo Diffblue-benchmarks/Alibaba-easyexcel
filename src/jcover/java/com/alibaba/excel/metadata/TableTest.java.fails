@@ -32,7 +32,7 @@ class TableTest {
         table.setTableNo(1);
         TableStyle tableStyle = mock(TableStyle.class);
         table.setTableStyle(tableStyle);
-        assertThat((Class<BaseRowModel>) table.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat((Class<?>) table.getClazz(), equalTo((Class<?>) BaseRowModel.class));
         assertThat(table.getHead().size(), is(1));
         assertThat(table.getHead().get(0), hasSize(1));
         assertThat(table.getHead().get(0).get(0), is("Smith"));

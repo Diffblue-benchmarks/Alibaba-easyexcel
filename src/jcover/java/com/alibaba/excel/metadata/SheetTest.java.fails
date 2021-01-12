@@ -52,7 +52,7 @@ class SheetTest {
         tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
-        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat((Class<?>) sheet.getClazz(), equalTo((Class<?>) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
@@ -94,7 +94,7 @@ class SheetTest {
         tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
-        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat((Class<?>) sheet.getClazz(), equalTo((Class<?>) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
@@ -140,7 +140,7 @@ class SheetTest {
         tableStyle.setTableHeadFont(tableHeadFont);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
-        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat((Class<?>) sheet.getClazz(), equalTo((Class<?>) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().isEmpty(), is(true));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
@@ -173,7 +173,7 @@ class SheetTest {
         TableStyle tableStyle = mock(TableStyle.class);
         sheet.setTableStyle(tableStyle);
         assertThat(sheet.getAutoWidth(), is(false));
-        assertThat((Class<BaseRowModel>) sheet.getClazz(), equalTo((Class) BaseRowModel.class));
+        assertThat((Class<?>) sheet.getClazz(), equalTo((Class<?>) BaseRowModel.class));
         assertThat(sheet.getColumnWidthMap().get(1), is(1));
         assertThat(sheet.getHead().size(), is(1));
         assertThat(sheet.getHead().get(0), hasSize(1));
