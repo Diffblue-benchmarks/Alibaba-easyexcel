@@ -1,6 +1,7 @@
 package com.alibaba.excel.util;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.matchesPattern;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -28,7 +29,7 @@ class DateUtilsTest {
 
     @Test
     void format() throws java.text.ParseException {
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"))), is(true));
+        assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31")), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}"));
         assertThat(DateUtils.format(null, "bar"), is(""));
         assertThat(DateUtils.format(new SimpleDateFormat("yyyy-MM-dd").parse("2010-12-31"), "y"), is("2010"));
     }

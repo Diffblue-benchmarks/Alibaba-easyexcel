@@ -2,7 +2,7 @@ package com.alibaba.excel.write.handler;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.Matchers.hasSize;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ class DefaultWriteHandlerLoaderTest {
     void loadDefaultHandlerUseDefaultStyleIsTrue() {
         List<WriteHandler> result =
              DefaultWriteHandlerLoader.loadDefaultHandler(true);
-        assertThat(result.size(), is(1));
+        assertThat(result, hasSize(1));
         // pojo WriteHandler result.get(0)
     }
 }

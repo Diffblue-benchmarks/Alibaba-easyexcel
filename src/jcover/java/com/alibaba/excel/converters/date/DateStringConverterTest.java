@@ -1,6 +1,7 @@
 package com.alibaba.excel.converters.date;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.matchesPattern;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -46,7 +47,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
+        assertThat(result.getStringValue(), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}"));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -72,7 +73,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", result.getStringValue()), is(true));
+        assertThat(result.getStringValue(), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));
@@ -90,7 +91,7 @@ class DateStringConverterTest {
         assertThat(result.getFormulaValue(), is(nullValue()));
         assertThat(result.getImageValue(), is(nullValue()));
         assertThat(result.getNumberValue(), is(nullValue()));
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}", result.getStringValue()), is(true));
+        assertThat(result.getStringValue(), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2} \\d{1,2}:\\d{2}:\\d{2}"));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(nullValue()));
         assertThat(result.getRowIndex(), is(nullValue()));

@@ -1,8 +1,8 @@
 package com.alibaba.excel.read.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -12,6 +12,7 @@ import com.alibaba.excel.converters.Converter;
 import com.alibaba.excel.read.listener.ReadListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -45,9 +46,9 @@ class ReadSheetTest {
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
         readSheet.setLocale(locale);
@@ -55,16 +56,15 @@ class ReadSheetTest {
         readSheet.setUseScientificFormat(false);
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), hasSize(1));
         assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
-        assertThat(readSheet.getCustomConverterList().size(), is(1));
+        assertThat(readSheet.getCustomConverterList(), hasSize(1));
         assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
-        assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), hasSize(1));
-        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
+        assertThat(readSheet.getHead(), hasSize(1));
+        assertThat(readSheet.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));
@@ -90,9 +90,9 @@ class ReadSheetTest {
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
         readSheet.setLocale(locale);
@@ -100,16 +100,15 @@ class ReadSheetTest {
         readSheet.setUseScientificFormat(false);
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), hasSize(1));
         assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
-        assertThat(readSheet.getCustomConverterList().size(), is(1));
+        assertThat(readSheet.getCustomConverterList(), hasSize(1));
         assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
-        assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), hasSize(1));
-        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
+        assertThat(readSheet.getHead(), hasSize(1));
+        assertThat(readSheet.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));
@@ -135,9 +134,9 @@ class ReadSheetTest {
         customConverterList.add(converter);
         readSheet.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         readSheet.setHead(head);
         Locale locale = new Locale("en");
         readSheet.setLocale(locale);
@@ -145,16 +144,15 @@ class ReadSheetTest {
         readSheet.setUseScientificFormat(false);
         assertThat(readSheet.getSheetName(), is("Acme"));
         assertThat(readSheet.getSheetNo(), is(1));
-        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), hasSize(1));
         assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
         assertThat(readSheet.getHeadRowNumber(), is(1));
         assertThat(readSheet.getAutoTrim(), is(false));
         assertThat((Class<String>) readSheet.getClazz(), equalTo((Class) String.class));
-        assertThat(readSheet.getCustomConverterList().size(), is(1));
+        assertThat(readSheet.getCustomConverterList(), hasSize(1));
         assertThat(readSheet.getCustomConverterList().get(0), is(notNullValue()));
-        assertThat(readSheet.getHead().size(), is(1));
-        assertThat(readSheet.getHead().get(0), hasSize(1));
-        assertThat(readSheet.getHead().get(0).get(0), is("Smith"));
+        assertThat(readSheet.getHead(), hasSize(1));
+        assertThat(readSheet.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(readSheet.getLocale(), sameInstance(locale));
         assertThat(readSheet.getUse1904windowing(), is(false));
         assertThat(readSheet.getUseScientificFormat(), is(false));
@@ -177,7 +175,7 @@ class ReadSheetTest {
         readSheet.copyBasicParameter(other);
 
         // assert
-        assertThat(readSheet.getCustomReadListenerList().size(), is(1));
+        assertThat(readSheet.getCustomReadListenerList(), hasSize(1));
         assertThat(readSheet.getCustomReadListenerList().get(0), is(notNullValue()));
     }
 

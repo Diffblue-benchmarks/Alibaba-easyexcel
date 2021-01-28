@@ -24,13 +24,14 @@ class DefaultAnalysisEventProcessorTest {
     void endSheet() {
 
         // arrange
-        ArrayList<ReadListener> arrayList = new ArrayList<ReadListener>();
+        ArrayList<ReadListener> readListenerList =
+             new ArrayList<ReadListener>();
         @SuppressWarnings("unchecked")
         ReadListener<String> readListener = mock(ReadListener.class);
-        arrayList.add(readListener);
+        readListenerList.add(readListener);
         ReadHolder readHolder = mock(ReadHolder.class);
         when(readHolder.readListenerList())
-            .thenReturn(arrayList);
+            .thenReturn(readListenerList);
         AnalysisContext analysisContext = mock(AnalysisContext.class);
         when(analysisContext.currentReadHolder())
             .thenReturn(readHolder);

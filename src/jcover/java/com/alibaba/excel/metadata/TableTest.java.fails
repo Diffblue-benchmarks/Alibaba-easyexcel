@@ -1,13 +1,14 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -25,17 +26,16 @@ class TableTest {
         Table table = new Table(1);
         table.setClazz(BaseRowModel.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         table.setHead(head);
         table.setTableNo(1);
         TableStyle tableStyle = mock(TableStyle.class);
         table.setTableStyle(tableStyle);
         assertThat((Class<?>) table.getClazz(), equalTo((Class<?>) BaseRowModel.class));
-        assertThat(table.getHead().size(), is(1));
-        assertThat(table.getHead().get(0), hasSize(1));
-        assertThat(table.getHead().get(0).get(0), is("Smith"));
+        assertThat(table.getHead(), hasSize(1));
+        assertThat(table.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(table.getTableNo(), is(1));
         assertThat(table.getTableStyle(), sameInstance(tableStyle));
     }

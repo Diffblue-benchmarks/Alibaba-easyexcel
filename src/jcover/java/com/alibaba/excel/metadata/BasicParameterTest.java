@@ -1,8 +1,8 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -11,6 +11,7 @@ import static org.mockito.Mockito.mock;
 import com.alibaba.excel.converters.Converter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,9 +36,9 @@ class BasicParameterTest {
         customConverterList.add(converter);
         basicParameter.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         basicParameter.setHead(head);
         Locale locale = new Locale("en");
         basicParameter.setLocale(locale);
@@ -45,11 +46,10 @@ class BasicParameterTest {
         basicParameter.setUseScientificFormat(false);
         assertThat(basicParameter.getAutoTrim(), is(false));
         assertThat((Class<String>) basicParameter.getClazz(), equalTo((Class) String.class));
-        assertThat(basicParameter.getCustomConverterList().size(), is(1));
+        assertThat(basicParameter.getCustomConverterList(), hasSize(1));
         assertThat(basicParameter.getCustomConverterList().get(0), is(notNullValue()));
-        assertThat(basicParameter.getHead().size(), is(1));
-        assertThat(basicParameter.getHead().get(0), hasSize(1));
-        assertThat(basicParameter.getHead().get(0).get(0), is("Smith"));
+        assertThat(basicParameter.getHead(), hasSize(1));
+        assertThat(basicParameter.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(basicParameter.getLocale(), sameInstance(locale));
         assertThat(basicParameter.getUse1904windowing(), is(false));
         assertThat(basicParameter.getUseScientificFormat(), is(false));

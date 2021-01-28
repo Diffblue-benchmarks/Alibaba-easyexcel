@@ -2,7 +2,6 @@ package com.alibaba.excel.write.metadata.fill;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.LinkedList;
 
@@ -26,7 +25,7 @@ class FillWrapperTest {
         fillWrapper.setCollectionData(collectionData2);
         fillWrapper.setName("data.txt");
         assertThat(fillWrapper.getCollectionData().size(), is(1));
-        assertTrue(fillWrapper.getCollectionData().contains("something"));
+        assertThat(fillWrapper.getCollectionData().contains("something"), is(true));
         assertThat(fillWrapper.getName(), is("data.txt"));
     }
 
@@ -40,7 +39,7 @@ class FillWrapperTest {
         fillWrapper.setCollectionData(collectionData2);
         fillWrapper.setName("data.txt");
         assertThat(fillWrapper.getCollectionData().size(), is(1));
-        assertTrue(fillWrapper.getCollectionData().contains("something"));
+        assertThat(fillWrapper.getCollectionData().contains("something"), is(true));
         assertThat(fillWrapper.getName(), is("data.txt"));
     }
 }

@@ -1,6 +1,7 @@
 package com.alibaba.excel.converters.string;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.matchesPattern;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -50,7 +51,7 @@ class StringNumberConverterTest {
         cellData.setNumberValue(BigDecimal.valueOf(1L));
         ExcelContentProperty contentProperty = new ExcelContentProperty();
         contentProperty.setDateTimeFormatProperty(new DateTimeFormatProperty("yyyy-MM-dd", false));
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new StringNumberConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration())), is(true));
+        assertThat(new StringNumberConverter().convertToJavaData(cellData, contentProperty, new GlobalConfiguration()), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
@@ -59,6 +60,6 @@ class StringNumberConverterTest {
         cellData.setDataFormat(1);
         cellData.setDataFormatString("yyyy-MM-dd");
         cellData.setNumberValue(BigDecimal.valueOf(1L));
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new StringNumberConverter().convertToJavaData(cellData, (ExcelContentProperty) null, new GlobalConfiguration())), is(true));
+        assertThat(new StringNumberConverter().convertToJavaData(cellData, (ExcelContentProperty) null, new GlobalConfiguration()), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 }

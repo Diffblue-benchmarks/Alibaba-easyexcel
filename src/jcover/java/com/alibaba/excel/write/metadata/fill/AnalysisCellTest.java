@@ -2,12 +2,13 @@ package com.alibaba.excel.write.metadata.fill;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 import com.alibaba.excel.enums.WriteTemplateAnalysisCellTypeEnum;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,8 +40,7 @@ class AnalysisCellTest {
         assertThat(analysisCell.getPrefix(), is("/bin/bash"));
         assertThat(analysisCell.getPrepareDataList(), empty());
         assertThat(analysisCell.getRowIndex(), is(1));
-        assertThat(analysisCell.getVariableList(), hasSize(1));
-        assertThat(analysisCell.getVariableList().get(0), is("Smith"));
+        assertThat(analysisCell.getVariableList(), equalTo(Arrays.asList("Smith")));
     }
 
     @Test

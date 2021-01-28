@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.property;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -33,9 +34,9 @@ class ExcelWriteHeadPropertyTest {
     void factory1() {
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         ExcelWriteHeadProperty excelWriteHeadProperty =
              new ExcelWriteHeadProperty(holder, null, head, false);
         RowHeightProperty contentRowHeightProperty =
@@ -63,13 +64,13 @@ class ExcelWriteHeadPropertyTest {
         assertThat(excelWriteHeadProperty.getContentRowHeightProperty(), sameInstance(contentRowHeightProperty));
         assertThat(excelWriteHeadProperty.getHeadRowHeightProperty(), sameInstance(headRowHeightProperty));
         assertThat(excelWriteHeadProperty.getOnceAbsoluteMergeProperty(), sameInstance(onceAbsoluteMergeProperty));
-        assertThat(excelWriteHeadProperty.getContentPropertyMap().isEmpty(), is(true));
-        assertThat(excelWriteHeadProperty.getFieldNameContentPropertyMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getContentPropertyMap(), anEmptyMap());
+        assertThat(excelWriteHeadProperty.getFieldNameContentPropertyMap(), anEmptyMap());
         assertThat((Class<String>) excelWriteHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelWriteHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelWriteHeadProperty.getHeadMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getHeadMap(), anEmptyMap());
         assertThat(excelWriteHeadProperty.getHeadRowNumber(), is(1));
-        assertThat(excelWriteHeadProperty.getIgnoreMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getIgnoreMap(), anEmptyMap());
     }
 
     @Test
@@ -102,13 +103,13 @@ class ExcelWriteHeadPropertyTest {
         assertThat(excelWriteHeadProperty.getContentRowHeightProperty(), sameInstance(contentRowHeightProperty));
         assertThat(excelWriteHeadProperty.getHeadRowHeightProperty(), sameInstance(headRowHeightProperty));
         assertThat(excelWriteHeadProperty.getOnceAbsoluteMergeProperty(), sameInstance(onceAbsoluteMergeProperty));
-        assertThat(excelWriteHeadProperty.getContentPropertyMap().isEmpty(), is(true));
-        assertThat(excelWriteHeadProperty.getFieldNameContentPropertyMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getContentPropertyMap(), anEmptyMap());
+        assertThat(excelWriteHeadProperty.getFieldNameContentPropertyMap(), anEmptyMap());
         assertThat((Class<String>) excelWriteHeadProperty.getHeadClazz(), equalTo((Class) String.class));
         assertThat(excelWriteHeadProperty.getHeadKind(), is(HeadKindEnum.NONE));
-        assertThat(excelWriteHeadProperty.getHeadMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getHeadMap(), anEmptyMap());
         assertThat(excelWriteHeadProperty.getHeadRowNumber(), is(1));
-        assertThat(excelWriteHeadProperty.getIgnoreMap().isEmpty(), is(true));
+        assertThat(excelWriteHeadProperty.getIgnoreMap(), anEmptyMap());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.alibaba.excel.util;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
@@ -36,7 +37,7 @@ class ConverterUtilsTest {
         AnalysisContext context = mock(AnalysisContext.class);
         when(context.currentReadHolder())
             .thenReturn(readHolder);
-        assertThat(ConverterUtils.convertToStringMap(new HashMap<Integer, CellData>(), context).isEmpty(), is(true));
+        assertThat(ConverterUtils.convertToStringMap(new HashMap<Integer, CellData>(), context), anEmptyMap());
     }
 
     @Test
@@ -50,15 +51,16 @@ class ConverterUtilsTest {
         cellDataMap.put(1, cellData);
         GlobalConfiguration globalConfiguration1 =
              mock(GlobalConfiguration.class);
-        HashMap<String, Converter> hashMap = new HashMap<String, Converter>();
+        HashMap<String, Converter> converterMap =
+             new HashMap<String, Converter>();
         @SuppressWarnings("unchecked")
         Converter<String> converter = mock(Converter.class);
         when(converter.convertToJavaData(Mockito.<CellData>any(), Mockito.<com.alibaba.excel.metadata.property.ExcelContentProperty>any(), Mockito.<GlobalConfiguration>any()))
             .thenReturn("foo");
-        hashMap.put("java.lang.String-STRING", converter);
+        converterMap.put("java.lang.String-STRING", converter);
         ReadHolder readHolder = mock(ReadHolder.class);
         when(readHolder.converterMap())
-            .thenReturn(hashMap);
+            .thenReturn(converterMap);
         when(readHolder.globalConfiguration())
             .thenReturn(new GlobalConfiguration());
         AnalysisContext context = mock(AnalysisContext.class);
@@ -83,10 +85,11 @@ class ConverterUtilsTest {
         CellData<String> cellData = new CellData<String>();
         cellData.setType(CellDataTypeEnum.EMPTY);
         cellDataMap.put(1, cellData);
-        HashMap<String, Converter> hashMap = new HashMap<String, Converter>();
+        HashMap<String, Converter> converterMap =
+             new HashMap<String, Converter>();
         @SuppressWarnings("unchecked")
         Converter<String> converter = mock(Converter.class);
-        hashMap.put("java.lang.String-STRING", converter);
+        converterMap.put("java.lang.String-STRING", converter);
         ReadHolder readHolder = mock(ReadHolder.class);
         AnalysisContext context = mock(AnalysisContext.class);
         when(context.currentReadHolder())

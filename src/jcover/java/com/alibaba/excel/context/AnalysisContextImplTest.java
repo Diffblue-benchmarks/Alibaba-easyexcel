@@ -2,10 +2,11 @@ package com.alibaba.excel.context;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -29,6 +30,7 @@ import com.alibaba.excel.support.ExcelTypeEnum;
 
 import java.io.StringBufferInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -84,9 +86,9 @@ class AnalysisContextImplTest {
         customConverterList.add(converter);
         readWorkbook.setCustomConverterList(customConverterList);
         ArrayList<List<String>> head = new ArrayList<List<String>>();
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Smith");
-        head.add(list);
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add("foo");
+        head.add(stringList);
         readWorkbook.setHead(head);
         Locale locale = new Locale("en");
         readWorkbook.setLocale(locale);
@@ -117,7 +119,7 @@ class AnalysisContextImplTest {
         assertThat(result.getReadWorkbook(), sameInstance(readWorkbook));
         assertThat(result.getTempFile(), is(nullValue()));
         assertThat(result.getExcelReadHeadProperty().getContentPropertyMap().get(0), is(nullValue()));
-        assertThat(result.getExcelReadHeadProperty().getFieldNameContentPropertyMap().isEmpty(), is(true));
+        assertThat(result.getExcelReadHeadProperty().getFieldNameContentPropertyMap(), anEmptyMap());
         assertThat((Class<String>) result.getExcelReadHeadProperty().getHeadClazz(), equalTo((Class) String.class));
         assertThat(result.getExcelReadHeadProperty().getHeadKind(), is(HeadKindEnum.CLASS));
         assertThat(result.getExcelReadHeadProperty().getHeadMap().get(0).getColumnIndex(), is(0));
@@ -142,7 +144,7 @@ class AnalysisContextImplTest {
         // pojo Class<?> result.getExcelReadHeadProperty().getIgnoreMap().get("value").getDeclaringClass()
         // pojo String result.getExcelReadHeadProperty().getIgnoreMap().get("value").getName()
         assertThat(result.getHeadRowNumber(), is(1));
-        assertThat(result.getReadListenerList().size(), is(1));
+        assertThat(result.getReadListenerList(), hasSize(1));
         assertThat(result.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) result.getClazz(), equalTo((Class) String.class));
         // pojo Converter result.getConverterMap().get("java.lang.Boolean-BOOLEAN")
@@ -183,9 +185,8 @@ class AnalysisContextImplTest {
         assertThat(result.getGlobalConfiguration().getLocale(), sameInstance(locale));
         assertThat(result.getGlobalConfiguration().getUse1904windowing(), is(false));
         assertThat(result.getGlobalConfiguration().getUseScientificFormat(), is(false));
-        assertThat(result.getHead().size(), is(1));
-        assertThat(result.getHead().get(0), hasSize(1));
-        assertThat(result.getHead().get(0).get(0), is("Smith"));
+        assertThat(result.getHead(), hasSize(1));
+        assertThat(result.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(result.getNewInitialization(), is(true));
     }
 

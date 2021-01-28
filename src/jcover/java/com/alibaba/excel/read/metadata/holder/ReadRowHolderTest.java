@@ -1,6 +1,7 @@
 package com.alibaba.excel.read.metadata.holder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
 
@@ -42,7 +43,7 @@ class ReadRowHolderTest {
         readRowHolder.setGlobalConfiguration(globalConfiguration2);
         readRowHolder.setRowIndex(1);
         readRowHolder.setRowType(RowTypeEnum.DATA);
-        assertThat(readRowHolder.getCellMap().isEmpty(), is(true));
+        assertThat(readRowHolder.getCellMap(), anEmptyMap());
         assertThat(readRowHolder.getCurrentRowAnalysisResult(), sameInstance(currentRowAnalysisResult));
         assertThat(readRowHolder.getGlobalConfiguration(), sameInstance(globalConfiguration2));
         assertThat(readRowHolder.getRowIndex(), is(1));

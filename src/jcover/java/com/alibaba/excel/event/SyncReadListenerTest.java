@@ -1,7 +1,7 @@
 package com.alibaba.excel.event;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.mockito.Mockito.mock;
 
@@ -26,7 +26,7 @@ class SyncReadListenerTest {
         Object object = new Object();
         list.add(object);
         syncReadListener.setList(list);
-        assertThat(syncReadListener.getList().size(), is(1));
+        assertThat(syncReadListener.getList(), hasSize(1));
         assertThat(syncReadListener.getList().get(0), sameInstance(object));
     }
 
@@ -45,7 +45,7 @@ class SyncReadListenerTest {
         syncReadListener.invoke(object2, context);
 
         // assert
-        assertThat(syncReadListener.getList().size(), is(2));
+        assertThat(syncReadListener.getList(), hasSize(2));
         assertThat(syncReadListener.getList().get(1), sameInstance(object2));
     }
 

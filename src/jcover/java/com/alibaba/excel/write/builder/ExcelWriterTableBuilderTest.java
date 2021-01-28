@@ -91,9 +91,9 @@ class ExcelWriterTableBuilderTest {
         customConverterList2.add(converter2);
         writeSheet.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        ArrayList<String> list2 = new ArrayList<String>();
-        list2.add("Smith");
-        head2.add(list2);
+        ArrayList<String> stringList2 = new ArrayList<String>();
+        stringList2.add("foo");
+        head2.add(stringList2);
         writeSheet.setHead(head2);
         writeSheet.setLocale(new Locale("en"));
         writeSheet.setUse1904windowing(false);

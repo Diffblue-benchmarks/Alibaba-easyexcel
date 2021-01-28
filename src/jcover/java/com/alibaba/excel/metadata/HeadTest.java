@@ -1,8 +1,8 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.mockito.Mockito.mock;
 
@@ -13,6 +13,7 @@ import com.alibaba.excel.metadata.property.StyleProperty;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -143,8 +144,7 @@ class HeadTest {
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
-        assertThat(head.getHeadNameList(), hasSize(1));
-        assertThat(head.getHeadNameList().get(0), is("Smith"));
+        assertThat(head.getHeadNameList(), equalTo(Arrays.asList("Smith")));
         assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
         assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
     }
@@ -234,8 +234,7 @@ class HeadTest {
         assertThat(head.getForceIndex(), is(false));
         assertThat(head.getForceName(), is(false));
         assertThat(head.getHeadFontProperty(), sameInstance(headFontProperty));
-        assertThat(head.getHeadNameList(), hasSize(1));
-        assertThat(head.getHeadNameList().get(0), is("Smith"));
+        assertThat(head.getHeadNameList(), equalTo(Arrays.asList("Smith")));
         assertThat(head.getHeadStyleProperty(), sameInstance(headStyleProperty));
         assertThat(head.getLoopMergeProperty(), sameInstance(loopMergeProperty));
     }

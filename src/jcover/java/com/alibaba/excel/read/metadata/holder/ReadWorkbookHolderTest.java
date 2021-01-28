@@ -1,10 +1,11 @@
 package com.alibaba.excel.read.metadata.holder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -30,6 +31,7 @@ import com.alibaba.excel.support.ExcelTypeEnum;
 import java.io.StringBufferInputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -82,9 +84,9 @@ class ReadWorkbookHolderTest {
         customConverterList1.add(converter1);
         readWorkbook1.setCustomConverterList(customConverterList1);
         ArrayList<List<String>> head1 = new ArrayList<List<String>>();
-        ArrayList<String> list1 = new ArrayList<String>();
-        list1.add("Smith");
-        head1.add(list1);
+        ArrayList<String> stringList1 = new ArrayList<String>();
+        stringList1.add("foo");
+        head1.add(stringList1);
         readWorkbook1.setHead(head1);
         readWorkbook1.setLocale(new Locale("en"));
         readWorkbook1.setUse1904windowing(false);
@@ -110,9 +112,9 @@ class ReadWorkbookHolderTest {
         customConverterList2.add(converter2);
         readSheet1.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        ArrayList<String> list2 = new ArrayList<String>();
-        list2.add("Smith");
-        head2.add(list2);
+        ArrayList<String> stringList2 = new ArrayList<String>();
+        stringList2.add("foo");
+        head2.add(stringList2);
         readSheet1.setHead(head2);
         readSheet1.setLocale(new Locale("en"));
         readSheet1.setUse1904windowing(false);
@@ -150,9 +152,9 @@ class ReadWorkbookHolderTest {
         customConverterList3.add(converter3);
         readSheet2.setCustomConverterList(customConverterList3);
         ArrayList<List<String>> head3 = new ArrayList<List<String>>();
-        ArrayList<String> list3 = new ArrayList<String>();
-        list3.add("Smith");
-        head3.add(list3);
+        ArrayList<String> stringList3 = new ArrayList<String>();
+        stringList3.add("foo");
+        head3.add(stringList3);
         readSheet2.setHead(head3);
         readSheet2.setLocale(new Locale("en"));
         readSheet2.setUse1904windowing(false);
@@ -197,9 +199,9 @@ class ReadWorkbookHolderTest {
         customConverterList4.add(converter4);
         readWorkbook2.setCustomConverterList(customConverterList4);
         ArrayList<List<String>> head4 = new ArrayList<List<String>>();
-        ArrayList<String> list4 = new ArrayList<String>();
-        list4.add("Smith");
-        head4.add(list4);
+        ArrayList<String> stringList4 = new ArrayList<String>();
+        stringList4.add("foo");
+        head4.add(stringList4);
         readWorkbook2.setHead(head4);
         readWorkbook2.setLocale(new Locale("en"));
         readWorkbook2.setUse1904windowing(false);
@@ -207,9 +209,9 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setReadWorkbook(readWorkbook2);
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head5 = new ArrayList<List<String>>();
-        ArrayList<String> list5 = new ArrayList<String>();
-        list5.add("Smith");
-        head5.add(list5);
+        ArrayList<String> stringList5 = new ArrayList<String>();
+        stringList5.add("foo");
+        head5.add(stringList5);
         ExcelReadHeadProperty excelReadHeadProperty =
              new ExcelReadHeadProperty(holder, String.class, head5, false);
         excelReadHeadProperty.setContentPropertyMap(new HashMap<Integer, ExcelContentProperty>());
@@ -236,12 +238,12 @@ class ReadWorkbookHolderTest {
         globalConfiguration.setUseScientificFormat(false);
         readWorkbookHolder.setGlobalConfiguration(globalConfiguration);
         ArrayList<List<String>> head6 = new ArrayList<List<String>>();
-        ArrayList<String> list6 = new ArrayList<String>();
-        list6.add("Smith");
-        head6.add(list6);
+        ArrayList<String> stringList6 = new ArrayList<String>();
+        stringList6.add("foo");
+        head6.add(stringList6);
         readWorkbookHolder.setHead(head6);
         readWorkbookHolder.setNewInitialization(false);
-        assertThat(readWorkbookHolder.getActualSheetDataList().size(), is(1));
+        assertThat(readWorkbookHolder.getActualSheetDataList(), hasSize(1));
         assertThat(readWorkbookHolder.getActualSheetDataList().get(0), sameInstance(readSheet1));
         assertThat(readWorkbookHolder.getAutoCloseStream(), is(false));
         assertThat(readWorkbookHolder.getConvertAllFiled(), is(false));
@@ -253,7 +255,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getHasReadSheet(), empty());
         assertThat(readWorkbookHolder.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbookHolder.getMandatoryUseInputStream(), is(false));
-        assertThat(readWorkbookHolder.getParameterSheetDataList().size(), is(1));
+        assertThat(readWorkbookHolder.getParameterSheetDataList(), hasSize(1));
         assertThat(readWorkbookHolder.getParameterSheetDataList().get(0), sameInstance(readSheet2));
         assertThat(readWorkbookHolder.getPassword(), is("secret"));
         assertThat(readWorkbookHolder.getReadAll(), is(false));
@@ -263,14 +265,13 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getTempFile(), is(nullValue()));
         assertThat(readWorkbookHolder.getExcelReadHeadProperty(), sameInstance(excelReadHeadProperty));
         assertThat(readWorkbookHolder.getHeadRowNumber(), is(1));
-        assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
+        assertThat(readWorkbookHolder.getReadListenerList(), hasSize(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap().isEmpty(), is(true));
+        assertThat(readWorkbookHolder.getConverterMap(), anEmptyMap());
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
-        assertThat(readWorkbookHolder.getHead().size(), is(1));
-        assertThat(readWorkbookHolder.getHead().get(0), hasSize(1));
-        assertThat(readWorkbookHolder.getHead().get(0).get(0), is("Smith"));
+        assertThat(readWorkbookHolder.getHead(), hasSize(1));
+        assertThat(readWorkbookHolder.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(readWorkbookHolder.getNewInitialization(), is(false));
     }
 
@@ -311,9 +312,9 @@ class ReadWorkbookHolderTest {
         customConverterList1.add(converter1);
         readWorkbook1.setCustomConverterList(customConverterList1);
         ArrayList<List<String>> head1 = new ArrayList<List<String>>();
-        ArrayList<String> list1 = new ArrayList<String>();
-        list1.add("Smith");
-        head1.add(list1);
+        ArrayList<String> stringList1 = new ArrayList<String>();
+        stringList1.add("foo");
+        head1.add(stringList1);
         readWorkbook1.setHead(head1);
         readWorkbook1.setLocale(new Locale("en"));
         readWorkbook1.setUse1904windowing(false);
@@ -339,9 +340,9 @@ class ReadWorkbookHolderTest {
         customConverterList2.add(converter2);
         readSheet1.setCustomConverterList(customConverterList2);
         ArrayList<List<String>> head2 = new ArrayList<List<String>>();
-        ArrayList<String> list2 = new ArrayList<String>();
-        list2.add("Smith");
-        head2.add(list2);
+        ArrayList<String> stringList2 = new ArrayList<String>();
+        stringList2.add("foo");
+        head2.add(stringList2);
         readSheet1.setHead(head2);
         readSheet1.setLocale(new Locale("en"));
         readSheet1.setUse1904windowing(false);
@@ -379,9 +380,9 @@ class ReadWorkbookHolderTest {
         customConverterList3.add(converter3);
         readSheet2.setCustomConverterList(customConverterList3);
         ArrayList<List<String>> head3 = new ArrayList<List<String>>();
-        ArrayList<String> list3 = new ArrayList<String>();
-        list3.add("Smith");
-        head3.add(list3);
+        ArrayList<String> stringList3 = new ArrayList<String>();
+        stringList3.add("foo");
+        head3.add(stringList3);
         readSheet2.setHead(head3);
         readSheet2.setLocale(new Locale("en"));
         readSheet2.setUse1904windowing(false);
@@ -426,9 +427,9 @@ class ReadWorkbookHolderTest {
         customConverterList4.add(converter4);
         readWorkbook2.setCustomConverterList(customConverterList4);
         ArrayList<List<String>> head4 = new ArrayList<List<String>>();
-        ArrayList<String> list4 = new ArrayList<String>();
-        list4.add("Smith");
-        head4.add(list4);
+        ArrayList<String> stringList4 = new ArrayList<String>();
+        stringList4.add("foo");
+        head4.add(stringList4);
         readWorkbook2.setHead(head4);
         readWorkbook2.setLocale(new Locale("en"));
         readWorkbook2.setUse1904windowing(false);
@@ -436,9 +437,9 @@ class ReadWorkbookHolderTest {
         readWorkbookHolder.setReadWorkbook(readWorkbook2);
         Holder holder = mock(Holder.class);
         ArrayList<List<String>> head5 = new ArrayList<List<String>>();
-        ArrayList<String> list5 = new ArrayList<String>();
-        list5.add("Smith");
-        head5.add(list5);
+        ArrayList<String> stringList5 = new ArrayList<String>();
+        stringList5.add("foo");
+        head5.add(stringList5);
         ExcelReadHeadProperty excelReadHeadProperty =
              new ExcelReadHeadProperty(holder, String.class, head5, false);
         excelReadHeadProperty.setContentPropertyMap(new HashMap<Integer, ExcelContentProperty>());
@@ -465,12 +466,12 @@ class ReadWorkbookHolderTest {
         globalConfiguration.setUseScientificFormat(false);
         readWorkbookHolder.setGlobalConfiguration(globalConfiguration);
         ArrayList<List<String>> head6 = new ArrayList<List<String>>();
-        ArrayList<String> list6 = new ArrayList<String>();
-        list6.add("Smith");
-        head6.add(list6);
+        ArrayList<String> stringList6 = new ArrayList<String>();
+        stringList6.add("foo");
+        head6.add(stringList6);
         readWorkbookHolder.setHead(head6);
         readWorkbookHolder.setNewInitialization(false);
-        assertThat(readWorkbookHolder.getActualSheetDataList().size(), is(1));
+        assertThat(readWorkbookHolder.getActualSheetDataList(), hasSize(1));
         assertThat(readWorkbookHolder.getActualSheetDataList().get(0), sameInstance(readSheet1));
         assertThat(readWorkbookHolder.getAutoCloseStream(), is(false));
         assertThat(readWorkbookHolder.getConvertAllFiled(), is(false));
@@ -482,7 +483,7 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getHasReadSheet(), empty());
         assertThat(readWorkbookHolder.getIgnoreEmptyRow(), is(false));
         assertThat(readWorkbookHolder.getMandatoryUseInputStream(), is(false));
-        assertThat(readWorkbookHolder.getParameterSheetDataList().size(), is(1));
+        assertThat(readWorkbookHolder.getParameterSheetDataList(), hasSize(1));
         assertThat(readWorkbookHolder.getParameterSheetDataList().get(0), sameInstance(readSheet2));
         assertThat(readWorkbookHolder.getPassword(), is("secret"));
         assertThat(readWorkbookHolder.getReadAll(), is(false));
@@ -492,14 +493,13 @@ class ReadWorkbookHolderTest {
         assertThat(readWorkbookHolder.getTempFile(), is(nullValue()));
         assertThat(readWorkbookHolder.getExcelReadHeadProperty(), sameInstance(excelReadHeadProperty));
         assertThat(readWorkbookHolder.getHeadRowNumber(), is(1));
-        assertThat(readWorkbookHolder.getReadListenerList().size(), is(1));
+        assertThat(readWorkbookHolder.getReadListenerList(), hasSize(1));
         assertThat(readWorkbookHolder.getReadListenerList().get(0), is(notNullValue()));
         assertThat((Class<String>) readWorkbookHolder.getClazz(), equalTo((Class) String.class));
-        assertThat(readWorkbookHolder.getConverterMap().isEmpty(), is(true));
+        assertThat(readWorkbookHolder.getConverterMap(), anEmptyMap());
         assertThat(readWorkbookHolder.getGlobalConfiguration(), sameInstance(globalConfiguration));
-        assertThat(readWorkbookHolder.getHead().size(), is(1));
-        assertThat(readWorkbookHolder.getHead().get(0), hasSize(1));
-        assertThat(readWorkbookHolder.getHead().get(0).get(0), is("Smith"));
+        assertThat(readWorkbookHolder.getHead(), hasSize(1));
+        assertThat(readWorkbookHolder.getHead().get(0), equalTo(Arrays.asList("foo")));
         assertThat(readWorkbookHolder.getNewInitialization(), is(false));
     }
 }

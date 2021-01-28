@@ -1,6 +1,7 @@
 package com.alibaba.excel.write.builder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
@@ -53,7 +54,7 @@ class ExcelWriterSheetBuilderTest {
     @Test
     void build() {
         WriteSheet result = new ExcelWriterSheetBuilder().build();
-        assertThat(result.getColumnWidthMap().isEmpty(), is(true));
+        assertThat(result.getColumnWidthMap(), anEmptyMap());
         assertThat(result.getSheetName(), is(nullValue()));
         assertThat(result.getSheetNo(), is(nullValue()));
         assertThat(result.getTableStyle(), is(nullValue()));

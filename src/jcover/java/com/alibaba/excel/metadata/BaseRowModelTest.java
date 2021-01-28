@@ -1,6 +1,7 @@
 package com.alibaba.excel.metadata;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsSame.sameInstance;
@@ -23,7 +24,7 @@ class BaseRowModelTest {
     void factory() {
         BaseRowModel baseRowModel = new BaseRowModel();
         baseRowModel.setCellStyleMap(new HashMap<Integer, CellStyle>());
-        assertThat(baseRowModel.getCellStyleMap().isEmpty(), is(true));
+        assertThat(baseRowModel.getCellStyleMap(), anEmptyMap());
     }
 
     @Test

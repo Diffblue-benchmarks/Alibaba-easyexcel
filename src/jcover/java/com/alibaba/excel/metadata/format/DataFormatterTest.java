@@ -1,6 +1,7 @@
 package com.alibaba.excel.metadata.format;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.matchesPattern;
 import static org.hamcrest.core.Is.is;
 
 import com.alibaba.excel.metadata.GlobalConfiguration;
@@ -22,7 +23,7 @@ class DataFormatterTest {
 
     @Test
     void format1() {
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(null).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(new DataFormatter(null).format(1.0, 1, "yyyy-MM-dd"), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
@@ -31,7 +32,7 @@ class DataFormatterTest {
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd"), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
@@ -39,7 +40,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setUse1904windowing(false);
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd"), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
@@ -47,7 +48,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUseScientificFormat(false);
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd"), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
@@ -55,7 +56,7 @@ class DataFormatterTest {
         GlobalConfiguration globalConfiguration = new GlobalConfiguration();
         globalConfiguration.setLocale(new Locale("en"));
         globalConfiguration.setUse1904windowing(false);
-        assertThat(Pattern.matches("\\d{4}-\\d{1,2}-\\d{1,2}", new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd")), is(true));
+        assertThat(new DataFormatter(globalConfiguration).format(1.0, 1, "yyyy-MM-dd"), matchesPattern("\\d{4}-\\d{1,2}-\\d{1,2}"));
     }
 
     @Test
