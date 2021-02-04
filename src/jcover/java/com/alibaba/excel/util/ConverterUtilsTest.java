@@ -41,7 +41,41 @@ class ConverterUtilsTest {
     }
 
     @Test
-    void convertToStringMapReturnsNullFoo() throws Exception {
+    void convertToStringMapReturnsNullFoo1() throws Exception {
+
+        // arrange
+        HashMap<Integer, CellData> cellDataMap =
+             new HashMap<Integer, CellData>();
+        CellData<String> cellData = new CellData<String>();
+        cellData.setType(CellDataTypeEnum.STRING);
+        cellDataMap.put(1, cellData);
+        HashMap<String, Converter> converterMap =
+             new HashMap<String, Converter>();
+        @SuppressWarnings("unchecked")
+        Converter<String> converter = mock(Converter.class);
+        when(converter.convertToJavaData(Mockito.<CellData>any(), Mockito.<com.alibaba.excel.metadata.property.ExcelContentProperty>any(), Mockito.<GlobalConfiguration>any()))
+            .thenReturn("foo");
+        converterMap.put("java.lang.String-STRING", converter);
+        ReadHolder readHolder = mock(ReadHolder.class);
+        when(readHolder.converterMap())
+            .thenReturn(converterMap);
+        when(readHolder.globalConfiguration())
+            .thenReturn(new GlobalConfiguration());
+        AnalysisContext context = mock(AnalysisContext.class);
+        when(context.currentReadHolder())
+            .thenReturn(readHolder);
+
+        // act
+        Map<Integer, String> result =
+             ConverterUtils.convertToStringMap(cellDataMap, context);
+
+        // assert
+        assertThat(result.get(0), is(nullValue()));
+        assertThat(result.get(1), is("foo"));
+    }
+
+    @Test
+    void convertToStringMapReturnsNullFoo2() throws Exception {
 
         // arrange
         HashMap<Integer, CellData> cellDataMap =
