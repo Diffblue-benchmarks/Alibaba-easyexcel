@@ -21,45 +21,7 @@ import org.mockito.Mockito;
 class ClassUtilsTest {
 
     @Test
-    void declaredFields1() {
-
-        // arrange
-        HashMap<Integer, Field> sortedAllFiledMap =
-             new HashMap<Integer, Field>();
-        HashMap<Integer, Field> indexFiledMap = new HashMap<Integer, Field>();
-        HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
-        Holder holder = mock(Holder.class);
-
-        // act
-        ClassUtils.declaredFields(String.class, sortedAllFiledMap, indexFiledMap, ignoreMap, false, false, holder);
-
-        // assert
-        Mockito.verify(sortedAllFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
-        Mockito.verify(indexFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
-        Mockito.verify(ignoreMap).putAll(Mockito.<Map<? extends String, ? extends Field>>any());
-    }
-
-    @Test
-    void declaredFields2() {
-
-        // arrange
-        HashMap<Integer, Field> sortedAllFiledMap =
-             new HashMap<Integer, Field>();
-        HashMap<Integer, Field> indexFiledMap = new HashMap<Integer, Field>();
-        HashMap<String, Field> ignoreMap = new HashMap<String, Field>();
-        Holder holder = mock(Holder.class);
-
-        // act
-        ClassUtils.declaredFields(com.alibaba.excel.metadata.BaseRowModel.class, sortedAllFiledMap, indexFiledMap, ignoreMap, false, false, holder);
-
-        // assert
-        Mockito.verify(sortedAllFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
-        Mockito.verify(indexFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
-        Mockito.verify(ignoreMap).putAll(Mockito.<Map<? extends String, ? extends Field>>any());
-    }
-
-    @Test
-    void declaredFields3() {
+    void declaredFields4() {
 
         // arrange
         HashMap<Integer, Field> indexFiledMap = new HashMap<Integer, Field>();
@@ -75,7 +37,37 @@ class ClassUtilsTest {
     }
 
     @Test
-    void declaredFields4() {
+    void declaredFields1() {
+
+        // arrange
+        HashMap<Integer, Field> sortedAllFiledMap =
+             new HashMap<Integer, Field>();
+        WriteHolder writeHolder = mock(WriteHolder.class);
+
+        // act
+        ClassUtils.declaredFields(String.class, sortedAllFiledMap, false, false, writeHolder);
+
+        // assert
+        Mockito.verify(sortedAllFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFields2() {
+
+        // arrange
+        HashMap<Integer, Field> sortedAllFiledMap =
+             new HashMap<Integer, Field>();
+        WriteHolder writeHolder = mock(WriteHolder.class);
+
+        // act
+        ClassUtils.declaredFields(com.alibaba.excel.metadata.BaseRowModel.class, sortedAllFiledMap, false, false, writeHolder);
+
+        // assert
+        Mockito.verify(sortedAllFiledMap).putAll(Mockito.<Map<? extends Integer, ? extends Field>>any());
+    }
+
+    @Test
+    void declaredFields3() {
 
         // arrange
         HashMap<Integer, Field> sortedAllFiledMap =
