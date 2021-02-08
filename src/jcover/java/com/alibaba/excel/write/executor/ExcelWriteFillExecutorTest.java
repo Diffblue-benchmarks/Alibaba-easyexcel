@@ -67,8 +67,8 @@ class ExcelWriteFillExecutorTest {
         cellData.setFormula(false);
         cellData.setFormulaValue("value");
         cellData.setImageValue(new byte[] { 49, 50, 51 });
-        BigDecimal numberValue7 = BigDecimal.valueOf(1L);
-        cellData.setNumberValue(numberValue7);
+        BigDecimal numberValue4 = BigDecimal.valueOf(1L);
+        cellData.setNumberValue(numberValue4);
         cellData.setStringValue("foo");
         cellData.setType(CellDataTypeEnum.STRING);
         cellData.setColumnIndex(1);
@@ -189,7 +189,7 @@ class ExcelWriteFillExecutorTest {
         assertThat(result.getFormula(), is(false));
         assertThat(result.getFormulaValue(), is("value"));
         assertArrayEquals(new byte[] { 49, 50, 51 }, result.getImageValue());
-        assertThat(result.getNumberValue(), sameInstance(numberValue7));
+        assertThat(result.getNumberValue(), sameInstance(numberValue4));
         assertThat(result.getStringValue(), is("foo"));
         assertThat(result.getType(), is(CellDataTypeEnum.STRING));
         assertThat(result.getColumnIndex(), is(1));

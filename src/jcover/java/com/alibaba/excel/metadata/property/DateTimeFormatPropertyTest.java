@@ -34,10 +34,10 @@ class DateTimeFormatPropertyTest {
         when(dateTimeFormat.use1904windowing())
             .thenReturn(false);
         when(dateTimeFormat.value())
-            .thenReturn("bar");
+            .thenReturn("value");
         DateTimeFormatProperty result =
              DateTimeFormatProperty.build(dateTimeFormat);
-        assertThat(result.getFormat(), is("bar"));
+        assertThat(result.getFormat(), is("value"));
         assertThat(result.getUse1904windowing(), is(false));
     }
 
